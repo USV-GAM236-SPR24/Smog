@@ -11,13 +11,10 @@ config_version=5
 [application]
 
 config/name="Smog"
-config/features=PackedStringArray("4.2", "Mobile")
+config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[dotnet]
-
-project/assembly_name="Smog"
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
