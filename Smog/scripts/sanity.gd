@@ -8,21 +8,22 @@ signal sanity_changed(old: int, new: int)
 const MAXIMUM: int = 100
 const MINIMUM: int = 0
 
-var current: int:
+var current: int: # accesses _current
 	get:
 		return _current
 	set(value):
-		change(value - _current)
-var is_empty: bool:
+		push_warning(_manual_set_message("change")) # warning because variable was not meant to be set manually
+		change(value)
+var is_empty: bool: # accesses _is_empty
 	get:
 		return _is_empty
 	set(value):
-		empty()
-var is_full: bool:
+		push_error(_manual_set_message("empty")) # error because variable cannot be set manually
+var is_full: bool: # accesses _is_full
 	get:
 		return _is_full
 	set(value):
-		fill()
+		push_error(_manual_set_message("fill")) # error because variable cannot be set manually
 
 var _current: int = 100
 var _is_empty: bool = false
@@ -51,7 +52,8 @@ func empty() -> int:
 	return _current
 
 
-func change(delta: int) -> int:
+func change(new: int) -> int:
+	var delta: int = new - _current
 	if delta < 0:
 		return decrease(abs(delta))
 	elif delta > 0:
@@ -109,3 +111,7 @@ func increase(increment: int) -> int:
 		sanity_changed.emit(old, _current)
 	
 	return _current
+
+
+func _manual_set_message(func_name: String) -> String:
+	return "This variable was not intended to be modified manually. Please use Sanity." + func_name + "() instead."
