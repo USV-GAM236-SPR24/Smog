@@ -5,82 +5,107 @@ signal sanity_empty
 signal sanity_full
 signal sanity_changed(old: int, new: int)
 
-var maximum: int = 100
-var current: int = 100
-var is_empty: bool = false
-var is_full: bool = true
+const MAXIMUM: int = 100
+const MINIMUM: int = 0
+
+var current: int:
+	get:
+		return _current
+	set(value):
+		change(value - _current)
+var is_empty: bool:
+	get:
+		return _is_empty
+	set(value):
+		empty()
+var is_full: bool:
+	get:
+		return _is_full
+	set(value):
+		fill()
+
+var _current: int = 100
+var _is_empty: bool = false
+var _is_full: bool = true
 
 
-func fill() -> void:
-	var old: int = current # to emit changed signal
-	current = maximum
-	is_empty = false
-	is_full = true
+func fill() -> int:
+	var old: int = _current # to emit changed signal
+	_current = MAXIMUM
+	_is_empty = false
+	_is_full = true
 	sanity_full.emit()
-	if old != current:
-		sanity_changed.emit(old, current)
+	if old != _current:
+		sanity_changed.emit(old, _current)
+	return _current
 
 
-func empty() -> void:
-	var old: int = current # to emit changed signal
-	current = 0
-	is_full = false
-	is_empty = true
+func empty() -> int:
+	var old: int = _current # to emit changed signal
+	_current = MINIMUM
+	_is_full = false
+	_is_empty = true
 	sanity_empty.emit()
-	if old != current:
-		sanity_changed.emit(old, current)
+	if old != _current:
+		sanity_changed.emit(old, _current)
+	return _current
 
 
-func change(delta: int) -> void:
+func change(delta: int) -> int:
 	if delta < 0:
-		decrease(abs(delta))
+		return decrease(abs(delta))
 	elif delta > 0:
-		increase(delta)
+		return increase(delta)
+	return _current
 
 
-func decrease(decrement: int) -> void:
-	if decrement == 0 or current == 0: # nothing will change
-		return
+func decrease(decrement: int) -> int:
+	if decrement == 0 or _current == MINIMUM: # nothing will change
+		return _current
 	elif decrement < 0: # use increase instead!
 		push_error("Cannot decrease sanity by a negative value. Using increase function instead.")
 		increase(abs(decrement))
-		return
+		return _current
 	
-	var old: int = current # to emit changed signal
-	current -= decrement
+	var old: int = _current # to emit changed signal
+	_current -= decrement
 	
-	if current <= 0:
-		current = 0 # cannot go under minimum
-		if not is_empty: # prevents emitting repetitively
-			is_empty = true
+	if _current <= MINIMUM:
+		_current = MINIMUM # cannot go under minimum
+		if not _is_empty: # prevents emitting repetitively
+			_is_empty = true
 			sanity_empty.emit()
 	
-	if is_full:
-		is_full = false
+	if _is_full:
+		_is_full = false
 	
-	if old != current: # just in case
-		sanity_changed.emit(old, current)
+	if old != _current: # just in case
+		sanity_changed.emit(old, _current)
+	
+	return _current
 
 
-func increase(increment: int) -> void:
-	if increment == 0 or current == 0: # nothing will change
-		return
+func increase(increment: int) -> int:
+	if increment == 0 or _current == MAXIMUM: # nothing will change
+		return _current
 	elif increment < 0: # use decrease instead!
 		push_error("Cannot increase sanity by a negative value. Using decrease function instead.")
 		decrease(abs(increment))
-		return
+		return _current
 	
-	var old: int = current # to emit changed signal
-	current += increment
+	var old: int = _current # to emit changed signal
+	_current += increment
 	
-	if current >= maximum:
-		current = maximum # cannot go over maximum
-		if not is_full: # prevents emitting repetitively
-			is_full = true
+	if _current >= MAXIMUM:
+		_current = MAXIMUM # cannot go over maximum
+		if not _is_full: # prevents emitting repetitively
+			_is_full = true
 			sanity_full.emit()
 	
-	if is_empty:
-		is_empty = false
+	if _is_empty:
+		_is_empty = false
 	
-	if old != current: # just in case
-		sanity_changed.emit(old, current)
+	if old != _current: # just in case
+		sanity_changed.emit(old, _current)
+	
+	return _current
