@@ -25,7 +25,7 @@ var is_full: bool: # accesses _is_full
 	set(value):
 		push_error(_manual_set_message("fill")) # error because variable cannot be set manually
 
-var _current: int = 100
+var _current: int = MAXIMUM
 var _is_empty: bool = false
 var _is_full: bool = true
 
