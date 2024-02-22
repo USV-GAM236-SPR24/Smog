@@ -3,12 +3,12 @@ extends Node
 
 signal sanity_empty
 signal sanity_full
-signal sanity_changed(old: int, new: int)
+signal sanity_changed(old: float, new: float)
 
-const MAXIMUM: int = 100
-const MINIMUM: int = 0
+const MAXIMUM: float = 100
+const MINIMUM: float = 0
 
-var current: int: # accesses _current
+var current: float: # accesses _current
 	get:
 		return _current
 	set(value):
@@ -25,13 +25,13 @@ var is_full: bool: # accesses _is_full
 	set(value):
 		push_error(_manual_set_message("fill")) # error because variable cannot be set manually
 
-var _current: int = MAXIMUM
+var _current: float = MAXIMUM
 var _is_empty: bool = false
 var _is_full: bool = true
 
 
-func fill() -> int:
-	var old: int = _current # to emit changed signal
+func fill() -> float:
+	var old: float = _current # to emit changed signal
 	_current = MAXIMUM
 	_is_empty = false
 	_is_full = true
@@ -41,8 +41,8 @@ func fill() -> int:
 	return _current
 
 
-func empty() -> int:
-	var old: int = _current # to emit changed signal
+func empty() -> float:
+	var old: float = _current # to emit changed signal
 	_current = MINIMUM
 	_is_full = false
 	_is_empty = true
@@ -52,8 +52,8 @@ func empty() -> int:
 	return _current
 
 
-func change(new: int) -> int:
-	var delta: int = new - _current
+func change(new: float) -> float:
+	var delta: float = new - _current
 	if delta < 0:
 		return decrease(abs(delta))
 	elif delta > 0:
@@ -61,7 +61,7 @@ func change(new: int) -> int:
 	return _current
 
 
-func decrease(decrement: int) -> int:
+func decrease(decrement: float) -> float:
 	if decrement == 0 or _current == MINIMUM: # nothing will change
 		return _current
 	elif decrement < 0: # use increase instead!
@@ -69,7 +69,7 @@ func decrease(decrement: int) -> int:
 		increase(abs(decrement))
 		return _current
 	
-	var old: int = _current # to emit changed signal
+	var old: float = _current # to emit changed signal
 	_current -= decrement
 	
 	if _current <= MINIMUM:
@@ -87,7 +87,7 @@ func decrease(decrement: int) -> int:
 	return _current
 
 
-func increase(increment: int) -> int:
+func increase(increment: float) -> float:
 	if increment == 0 or _current == MAXIMUM: # nothing will change
 		return _current
 	elif increment < 0: # use decrease instead!
@@ -95,7 +95,7 @@ func increase(increment: int) -> int:
 		decrease(abs(increment))
 		return _current
 	
-	var old: int = _current # to emit changed signal
+	var old: float = _current # to emit changed signal
 	_current += increment
 	
 	if _current >= MAXIMUM:
