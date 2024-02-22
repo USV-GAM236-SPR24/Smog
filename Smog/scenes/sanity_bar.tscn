@@ -7,7 +7,6 @@
 [node name="SanityBar" type="TextureProgressBar"]
 offset_right = 256.0
 offset_bottom = 32.0
-value = 100.0
 texture_under = ExtResource("1_o60l5")
 texture_progress = ExtResource("1_qjoat")
 script = ExtResource("2_i6mya")
