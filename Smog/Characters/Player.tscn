@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://beglrerj5k48"]
+
+[ext_resource type="Script" path="res://Characters/Player.gd" id="1_o3fux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp27d"]
+size = Vector2(14, 10)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_o3fux")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tp27d")
