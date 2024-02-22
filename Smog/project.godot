@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Smog"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
@@ -24,4 +25,6 @@ project/assembly_name="Smog"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+anti_aliasing/screen_space_roughness_limiter/enabled=false
