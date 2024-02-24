@@ -1,6 +1,5 @@
 extends Node
 
-
 signal sanity_empty
 signal sanity_full
 signal sanity_changed(old: float, new: float)
