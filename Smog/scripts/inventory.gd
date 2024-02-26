@@ -16,8 +16,10 @@
 #    move_selector_left() -> void
 #                 - moves selected item in inventory to the left
 #
-#          is_full() -> bool
+#    is_full() -> bool
 #                 - returns true if all slots are full, false otherwise
+#
+#    num_swap()
 class_name Inventory
 extends Node2D
 
@@ -60,19 +62,21 @@ func _input(event: InputEvent) -> void:
 			move_selector_left()
 		elif event.keycode == KEY_K:
 			use_item()
+		elif event.keycode == KEY_U:
+			num_swap(9)
 #### END TESTING
-
-
-func _enter_tree() -> void:
-	for i: int in range(SLOT_COUNT):
-		var inventory_slot: InventorySlot = inventory_slot_scene.instantiate()
-		inventory_slot.name = "Slot " + str(i)
-		%GridContainer.add_child(inventory_slot)
-
 
 #toggle visibility
 func toggle() -> void:
 	self.visible = !self.visible
+
+
+#selection options
+func num_swap(num: int) -> void:
+	if num > 0 and num <= SLOT_COUNT:
+		slots[selected_panels_index].toggle_selected()
+		selected_panels_index = num - 1
+		slots[selected_panels_index].toggle_selected()
 
 
 func move_selector_right() -> void:
@@ -95,6 +99,7 @@ func move_selector_left() -> void:
 		slots[selected_panels_index].toggle_selected()
 
 
+#true if all slots in slots are full
 func is_full() -> bool:
 	for slot: InventorySlot in slots:
 		if not slot.full():
@@ -128,10 +133,33 @@ func add_item(item: Item) -> void:
 				break
 
 
+#use currently selected item
 func use_item() -> void:
 	slots[selected_panels_index].use()
 
 
+#swaps grid container children (InventorySlots) by index
+func swap_children(index_a, index_b):
+	if index_a >= 0 and index_b < %GridContainer.get_child_count() and index_b >= 0 and index_b < %GridContainer.get_child_count() and index_a != index_b:
+		var child_a = %GridContainer.get_child(index_a)
+		var child_b = %GridContainer.get_child(index_b)
+		
+		child_a.index = index_b
+		child_b.index = index_a
+		
+		if child_a.selected:
+			child_b.toggle_selected()
+			child_a.toggle_selected() 
+		elif child_b.selected:
+			child_b.toggle_selected()
+			child_a.toggle_selected() 
+		
+		%GridContainer.move_child(child_a, index_b)
+		%GridContainer.move_child(child_b, index_a)
+		
+	slots = %GridContainer.get_children()
+	
+	
 #setup window size change signal and
 #set first slot as selected
 func _ready() -> void:
@@ -144,3 +172,11 @@ func _ready() -> void:
 func _on_window_resize() -> void:
 	var window_size: Vector2 = get_viewport().size
 	position = Vector2(window_size.x / 2, window_size.y - 64)
+
+
+func _enter_tree() -> void:
+	for i: int in range(SLOT_COUNT):
+		var inventory_slot: InventorySlot = inventory_slot_scene.instantiate()
+		inventory_slot.name = "Slot " + str(i)
+		inventory_slot.index = i
+		%GridContainer.add_child(inventory_slot)

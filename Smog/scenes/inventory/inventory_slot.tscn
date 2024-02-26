@@ -56,13 +56,18 @@ theme_override_constants/shadow_outline_size = 6
 theme_override_fonts/font = ExtResource("4_jlp45")
 text = "nA"
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="itemCounter"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5463, 1.44086)
 theme_override_styles/normal = SubResource("StyleBoxTexture_jto2g")
 theme_override_styles/hover = SubResource("StyleBoxTexture_taxxr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p3dqr")
@@ -70,5 +75,5 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_dw0cl")
 theme_override_styles/focus = SubResource("StyleBoxTexture_wrjqt")
 icon_alignment = 1
 
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="button_down" from="itemCounter/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="itemCounter/Button" to="." method="_on_button_button_up"]

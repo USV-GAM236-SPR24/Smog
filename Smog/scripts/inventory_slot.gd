@@ -1,13 +1,17 @@
 class_name InventorySlot
 extends Panel
 
+const PICKUP_RANGE = 40
 
 const MAX_ITEMS = 16
+
+@export var index : int 
 
 var item_count: int = 0:
 	set(value):
 		item_count = value
 		_update_counter()
+		
 var first_item: Item:
 	get:
 		return %items.get_child(0)
@@ -15,13 +19,15 @@ var first_item: Item:
 #is item stack selected?
 var selected = false
 
+#is item being pressed?
 var pressed = false
 
-@onready var collision_rect := Rect2(position, size*scale)
 
-func _process(delta):
+#while pressed attatch to mouse
+func _process(_delta):
 	if pressed:
-		global_position = get_global_mouse_position()
+		self.global_position = get_global_mouse_position()
+
 
 #call use() on item in %items and free it afterwards, then update counter
 func use() -> void:
@@ -69,23 +75,28 @@ func _update_counter() -> void:
 #update UI on ready
 func _ready() -> void:
 	_update_counter()
-	print(collision_rect)
+	#print(collision_rect)
 
 
+#when item selected (and has items), pressed set true
 func _on_button_button_down():
-	pressed = true
+	if item_count > 0:
+		pressed = true
 
+
+#when item unselected (and was previously selected ), swap item with closest slot,
+# then pressed set false
 func _on_button_button_up():
+	var smallestSlot: InventorySlot = self
 	
-	var smallest: float = INF
-	var smallesSlot: InventorySlot = self
-	
-	if pressed:
-		for slot in get_parent().get_children():
-			var dist = self.global_position.distance_to(slot.global_position)
-			if self == slot:
-				continue
-			if dist < 20:
-				print(slot.name)
-				break
+	for slot in get_parent().get_children():
+		var dist: float = self.global_position.distance_to(slot.global_position)
+		
+		if self == slot:
+			continue
+		if dist < PICKUP_RANGE:
+			smallestSlot = slot
+			get_parent().get_parent().swap_children(self.index, smallestSlot.index)
+			#break
+			
 	pressed = false
