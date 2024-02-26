@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1mwyvg060k3x"]
 
-[ext_resource type="Script" path="res://scripts/item.gd" id="1_xnkc1"]
-[ext_resource type="Texture2D" uid="uid://kwp1yyw3rdo1" path="res://art/temp/sanity_bar_progress.png" id="2_7xlks"]
+[ext_resource type="Script" path="res://scripts/temp/item.gd" id="1_acjcp"]
+[ext_resource type="Texture2D" uid="uid://kwp1yyw3rdo1" path="res://art/temp/sanity_bar_progress.png" id="2_kt581"]
 
 [node name="Item" type="Node2D"]
 position = Vector2(8, 7)
 scale = Vector2(0.201354, 0.600001)
-script = ExtResource("1_xnkc1")
+script = ExtResource("1_acjcp")
 
 [node name="img" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(-0.159998, 0.36)
-texture = ExtResource("2_7xlks")
+texture = ExtResource("2_kt581")

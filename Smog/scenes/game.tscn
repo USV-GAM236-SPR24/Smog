@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://wstjrxw8m084"]
 
 [ext_resource type="PackedScene" uid="uid://yk5bgx46irl8" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
-[ext_resource type="PackedScene" uid="uid://cqpwn5svyt4ud" path="res://scenes/inventory.tscn" id="2_3yuhv"]
+[ext_resource type="PackedScene" uid="uid://cqpwn5svyt4ud" path="res://scenes/inventory/inventory.tscn" id="2_3yuhv"]
 
 [node name="Game" type="Node2D"]
 
 [node name="SanityBar" parent="." instance=ExtResource("1_qg41o")]
 
 [node name="Inventory" parent="." instance=ExtResource("2_3yuhv")]
+scale = Vector2(2, 2)
