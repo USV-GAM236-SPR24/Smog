@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxv1wjlj6r46"]
+[gd_scene load_steps=11 format=3 uid="uid://dxv1wjlj6r46"]
 
-[ext_resource type="Texture2D" uid="uid://c60ccw724kyl4" path="res://art/temp/item_slot.png" id="1_1kgc2"]
-[ext_resource type="Script" path="res://scripts/Panel.gd" id="2_evb3a"]
+[ext_resource type="Texture2D" uid="uid://labft85rsrix" path="res://art/temp/TempMenu4.png" id="1_spl72"]
+[ext_resource type="Script" path="res://scripts/Panel.gd" id="2_obpqf"]
+[ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://art/temp/ITEM_SLOT_SELECT.png" id="3_bmjtj"]
+[ext_resource type="FontFile" uid="uid://bhr5ahy1qof7j" path="res://fonts1/PixelifySans-VariableFont_wght.ttf" id="4_obgil"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_emcjm"]
-texture = ExtResource("1_1kgc2")
+texture = ExtResource("1_spl72")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jto2g"]
 
@@ -19,13 +21,24 @@ texture = ExtResource("1_1kgc2")
 [node name="Panel" type="Panel"]
 custom_minimum_size = Vector2(18, 18)
 theme_override_styles/panel = SubResource("StyleBoxTexture_emcjm")
-script = ExtResource("2_evb3a")
+script = ExtResource("2_obpqf")
 
 [node name="items" type="Control" parent="."]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="selectImg" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -3.0
+offset_top = -18.0
+offset_right = 37.0
+offset_bottom = 22.0
+scale = Vector2(0.558791, 0.558791)
+texture = ExtResource("3_bmjtj")
 
 [node name="itemCounter" type="Label" parent="."]
 unique_name_in_owner = true
@@ -41,6 +54,7 @@ theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 0
 theme_override_constants/outline_size = 0
 theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("4_obgil")
 text = "nA"
 
 [node name="Button" type="Button" parent="."]
@@ -55,5 +69,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_taxxr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p3dqr")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_dw0cl")
 theme_override_styles/focus = SubResource("StyleBoxTexture_wrjqt")
+icon_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Sanity="*res://scripts/sanity.gd"
 
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=288
+
 [dotnet]
 
 project/assembly_name="Smog"
