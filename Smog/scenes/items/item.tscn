@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1mwyvg060k3x"]
-
-[ext_resource type="Script" path="res://scripts/item.gd" id="1_xnkc1"]
-
-[node name="Item" type="Node2D"]
-position = Vector2(8, 7)
-scale = Vector2(0.201354, 0.600001)
-script = ExtResource("1_xnkc1")

@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://dxv1wjlj6r46"]
+
+[ext_resource type="Texture2D" uid="uid://labft85rsrix" path="res://art/temp/TempMenu4.png" id="1_e246g"]
+[ext_resource type="Script" path="res://scripts/inventory_slot.gd" id="2_ncere"]
+[ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://art/temp/ITEM_SLOT_SELECT.png" id="3_ceofm"]
+[ext_resource type="FontFile" uid="uid://bhr5ahy1qof7j" path="res://fonts1/PixelifySans-VariableFont_wght.ttf" id="4_jlp45"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_emcjm"]
+texture = ExtResource("1_e246g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jto2g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_taxxr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p3dqr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dw0cl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wrjqt"]
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(18, 18)
+offset_right = 18.0
+offset_bottom = 18.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_emcjm")
+script = ExtResource("2_ncere")
+
+[node name="items" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+
+[node name="selectImg" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -3.0
+offset_top = -18.0
+offset_right = 37.0
+offset_bottom = 22.0
+scale = Vector2(0.558791, 0.558791)
+texture = ExtResource("3_ceofm")
+
+[node name="itemCounter" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = -10.0
+offset_right = 30.0
+offset_bottom = 10.0
+theme_override_colors/font_color = Color(1, 0.866667, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("4_jlp45")
+text = "nA"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_jto2g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_taxxr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p3dqr")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_dw0cl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_wrjqt")
+icon_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

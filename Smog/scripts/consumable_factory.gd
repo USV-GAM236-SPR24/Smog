@@ -2,25 +2,28 @@
 extends Node
 
 
-var presets := {
-	"opium": {
-		"restore_power": 50,
-		"texture_path": "res://art/temp/item1.png"
-	},
-	"alcohol": {
-		"restore_power": 50,
-		"texture_path": "res://art/temp/item2.png"
-	},
-	"cigarette": {
-		"restore_power": 50,
-		"texture_path": "res://art/temp/item3.png"
-	}
-}
+var presets: Dictionary
+
+
+func _init() -> void:
+	var preset_file: FileAccess = FileAccess.open("res://consumable_presets.json", FileAccess.READ)
+	var raw_presets: Dictionary = JSON.parse_string(preset_file.get_as_text())
+	# parse json into dictionary
+	for preset_name in raw_presets:
+		presets[preset_name] = {}
+		for preset_value in raw_presets[preset_name]:
+			# preload textures
+			if preset_value == "texture_path":
+				var texture_path: String = raw_presets[preset_name].texture_path
+				presets[preset_name].texture = load(texture_path)
+				continue
+			presets[preset_name][preset_value] = raw_presets[preset_name][preset_value]
 
 
 func create(preset_name: String = "opium") -> Consumable:
-	var preset_restore_power: int = presets[preset_name]["restore_power"]
-	var preset_texture: Texture2D = load(presets[preset_name]["texture_path"])
+	var preset: Dictionary = presets[preset_name]
+	var preset_restore_power: int = preset.restore_power
+	var preset_texture: Texture2D = preset.texture
 	return _create(preset_name, preset_restore_power, preset_texture)
 
 
