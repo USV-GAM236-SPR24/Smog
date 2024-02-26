@@ -19,14 +19,13 @@ texture = ExtResource("1_e246g")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wrjqt"]
 
 [node name="Panel" type="Panel"]
-custom_minimum_size = Vector2(18, 18)
-offset_right = 18.0
-offset_bottom = 18.0
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_emcjm")
 script = ExtResource("2_ncere")
 
 [node name="items" type="Control" parent="."]
-unique_name_in_owner = true
 anchors_preset = 0
 
 [node name="selectImg" type="TextureRect" parent="."]
