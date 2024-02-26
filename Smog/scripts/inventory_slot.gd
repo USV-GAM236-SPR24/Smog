@@ -21,21 +21,23 @@ var selected = false
 
 var pressed = false
 
+var initial_positions_set = false
 var initial_items_position: Vector2
-var intial_label_position: Vector2
+var label_offset: Vector2
 
 
 func _process(delta):
+	if not initial_positions_set and global_position != Vector2.ZERO:
+		initial_items_position = items.global_position
+		label_offset = %itemCounter.global_position - items.global_position
+		initial_positions_set = true
 	if pressed:
-		if initial_items_position == Vector2.ZERO:
-			initial_items_position = items.global_position
-			intial_label_position = %itemCounter.global_position
 		items.global_position = get_global_mouse_position() - get_global_rect().size / 2
-		%itemCounter.global_position = items.global_position + Vector2(10, -10)
+		%itemCounter.global_position = items.global_position + label_offset
 		return
 	if initial_items_position != Vector2.ZERO:
 		items.global_position = initial_items_position
-		%itemCounter.global_position = intial_label_position
+		%itemCounter.global_position = initial_items_position + label_offset
 
 #call use() on item in %items and free it afterwards, then update counter
 func use() -> void:
@@ -109,5 +111,14 @@ func _on_button_button_up():
 				for item in temp_parent.get_children():
 					temp_parent.remove_child(item)
 					slot.items.add_child(item)
-					
+				temp_parent.queue_free()
+				#if selected:
+					#var index = slot.name.substr(5).to_int()
+					#while index != get_parent().get_parent().selected_panels_index:
+						#get_parent().get_parent().move_selector_right()
+				#elif slot.selected:
+					#var index = name.substr(5).to_int()
+					#while index != get_parent().get_parent().selected_panels_index:
+						#get_parent().get_parent().move_selector_right()
+				break
 	pressed = false
