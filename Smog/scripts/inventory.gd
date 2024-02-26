@@ -22,12 +22,12 @@ class_name Inventory
 extends Node2D
 
 
-const SLOT_COUNT: int = 12
+const SLOT_COUNT: int = 9
 
 var inventory_slot_scene: PackedScene = preload("res://scenes/inventory/inventory_slot.tscn")
 
 #index of currently selected slot in slots
-var selectedPanelIndex: int = 0
+var selected_panels_index: int = 0
 
 #list of inventory slots
 @onready var slots: Array = %GridContainer.get_children()
@@ -76,23 +76,23 @@ func toggle() -> void:
 
 
 func move_selector_right() -> void:
-	slots[selectedPanelIndex].toggle_selected()
-	if(selectedPanelIndex + 1 < %GridContainer.get_child_count()):
-		slots[selectedPanelIndex + 1].toggle_selected()
-		selectedPanelIndex += 1
+	slots[selected_panels_index].toggle_selected()
+	if(selected_panels_index + 1 < %GridContainer.get_child_count()):
+		slots[selected_panels_index + 1].toggle_selected()
+		selected_panels_index += 1
 	else:
-		selectedPanelIndex = 0
-		slots[selectedPanelIndex].toggle_selected()
+		selected_panels_index = 0
+		slots[selected_panels_index].toggle_selected()
 
 
 func move_selector_left() -> void:
-	slots[selectedPanelIndex].toggle_selected()
-	if( selectedPanelIndex > 0 ):
-		slots[selectedPanelIndex - 1].toggle_selected()
-		selectedPanelIndex -= 1
-	elif selectedPanelIndex == 0:
-		selectedPanelIndex = %GridContainer.get_child_count() - 1
-		slots[selectedPanelIndex].toggle_selected()
+	slots[selected_panels_index].toggle_selected()
+	if( selected_panels_index > 0 ):
+		slots[selected_panels_index - 1].toggle_selected()
+		selected_panels_index -= 1
+	elif selected_panels_index == 0:
+		selected_panels_index = %GridContainer.get_child_count() - 1
+		slots[selected_panels_index].toggle_selected()
 
 
 func is_full() -> bool:
@@ -129,14 +129,14 @@ func add_item(item: Item) -> void:
 
 
 func use_item() -> void:
-	slots[selectedPanelIndex].use()
+	slots[selected_panels_index].use()
 
 
 #setup window size change signal and
 #set first slot as selected
 func _ready() -> void:
 	get_viewport().connect("size_changed", _on_window_resize)
-	slots[selectedPanelIndex].toggle_selected()
+	slots[selected_panels_index].toggle_selected()
 	_on_window_resize()
 
 

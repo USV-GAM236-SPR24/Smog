@@ -15,6 +15,13 @@ var first_item: Item:
 #is item stack selected?
 var selected = false
 
+var pressed = false
+
+@onready var collision_rect := Rect2(position, size*scale)
+
+func _process(delta):
+	if pressed:
+		global_position = get_global_mouse_position()
 
 #call use() on item in %items and free it afterwards, then update counter
 func use() -> void:
@@ -62,9 +69,23 @@ func _update_counter() -> void:
 #update UI on ready
 func _ready() -> void:
 	_update_counter()
+	print(collision_rect)
 
 
-#use item on panel when button pressed - REMOVED FEATURE FOR NOW
-func _on_button_pressed() -> void:
-	#use()
-	pass
+func _on_button_button_down():
+	pressed = true
+
+func _on_button_button_up():
+	
+	var smallest: float = INF
+	var smallesSlot: InventorySlot = self
+	
+	if pressed:
+		for slot in get_parent().get_children():
+			var dist = self.global_position.distance_to(slot.global_position)
+			if self == slot:
+				continue
+			if dist < 20:
+				print(slot.name)
+				break
+	pressed = false

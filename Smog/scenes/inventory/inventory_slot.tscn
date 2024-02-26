@@ -70,4 +70,5 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_dw0cl")
 theme_override_styles/focus = SubResource("StyleBoxTexture_wrjqt")
 icon_alignment = 1
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
