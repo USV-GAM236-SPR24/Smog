@@ -21,23 +21,22 @@ var selected = false
 
 var pressed = false
 
-var initial_positions_set = false
 var initial_items_position: Vector2
 var label_offset: Vector2
 
 
-func _process(delta):
-	if not initial_positions_set and global_position != Vector2.ZERO:
-		initial_items_position = items.global_position
-		label_offset = %itemCounter.global_position - items.global_position
-		initial_positions_set = true
+#update UI on ready
+func _ready() -> void:
+	_update_counter()
+	_set_initial_positions.call_deferred()
+
+func _process(_delta):
 	if pressed:
 		items.global_position = get_global_mouse_position() - get_global_rect().size / 2
 		%itemCounter.global_position = items.global_position + label_offset
 		return
-	if initial_items_position != Vector2.ZERO:
-		items.global_position = initial_items_position
-		%itemCounter.global_position = initial_items_position + label_offset
+	items.global_position = initial_items_position
+	%itemCounter.global_position = initial_items_position + label_offset
 
 #call use() on item in %items and free it afterwards, then update counter
 func use() -> void:
@@ -77,19 +76,20 @@ func toggle_selected() -> void:
 	%selectImg.visible = selected
 
 
+func _set_initial_positions():
+	initial_items_position = items.global_position
+	label_offset = %itemCounter.global_position - items.global_position
+
+
 #update UI text
 func _update_counter() -> void:
 	%itemCounter.text = str(item_count)
 	%itemCounter.visible = item_count != 0
 
 
-#update UI on ready
-func _ready() -> void:
-	_update_counter()
-
-
 func _on_button_button_down():
 	pressed = true
+
 
 func _on_button_button_up():
 	if pressed:
