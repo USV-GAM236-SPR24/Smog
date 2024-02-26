@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://dxv1wjlj6r46"]
 
-[ext_resource type="Texture2D" uid="uid://c60ccw724kyl4" path="res://art/temp/item_slot.png" id="1_1kgc2"]
-[ext_resource type="Script" path="res://scripts/Panel.gd" id="2_evb3a"]
+[ext_resource type="Texture2D" uid="uid://c60ccw724kyl4" path="res://art/temp/item_slot.png" id="1_hnd21"]
+[ext_resource type="Script" path="res://scripts/inventory_slot.gd" id="2_1utjl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_emcjm"]
-texture = ExtResource("1_1kgc2")
+texture = ExtResource("1_hnd21")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jto2g"]
 
@@ -19,7 +19,7 @@ texture = ExtResource("1_1kgc2")
 [node name="Panel" type="Panel"]
 custom_minimum_size = Vector2(18, 18)
 theme_override_styles/panel = SubResource("StyleBoxTexture_emcjm")
-script = ExtResource("2_evb3a")
+script = ExtResource("2_1utjl")
 
 [node name="items" type="Control" parent="."]
 unique_name_in_owner = true

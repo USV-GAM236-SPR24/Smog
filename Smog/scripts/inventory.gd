@@ -7,38 +7,53 @@
 #                 - toggles visibility of the inventory system
 #
 #        -- IMPORTANT - To use an item, click on it in the UI
+class_name Inventory
 extends Node2D
 
-var item_scene : PackedScene = preload("res://scenes/items/item.tscn")
-var item2_scene : PackedScene = preload("res://scenes/items/item_2.tscn")
+
+const SLOT_COUNT: int = 18
+
+var inventory_slot_scene: PackedScene = preload("res://scenes/inventory_slot.tscn")
 
 #list of inventory slots
-@onready var panels = %GridContainer.get_children()
+@onready var slots: Array = %GridContainer.get_children()
+
+
+func _enter_tree() -> void:
+	for i in range(SLOT_COUNT):
+		var new_slot: InventorySlot = inventory_slot_scene.instantiate()
+		new_slot.name = "Slot " + str(i)
+		new_slot.index = i
+		%GridContainer.add_child(new_slot)
+
 
 #toggle visibility
 func toggle() -> void:
 	self.visible = !self.visible
 
+
 ###  START TESTING
-# T - add one instance of item.tscn
-# F - add three instances of item2.tscn
+# T - add one opium instance
+# F - add three cigarette instances
 # G - example of using toggle() to toggle display of inventory
 
 func _input(event : InputEvent) -> void:
-	# EXAMPLE : adding a single item from item.tscn
+	# EXAMPLE : adding a single instance of opium
 	if event is InputEventKey and event.is_pressed(): 
 		if event.keycode == KEY_T:
-			var item_instance = item_scene.instantiate()
+			var item_instance = ConsumableFactory.create("opium")
 			add_item(item_instance)
 		elif event.keycode == KEY_F: 
-		# EXAMPLE : Making three new instances from item2.tscn to add
+		# EXAMPLE : Making three new instances of cigarettes to add
 			for i in range(3):
-				var item2_instance = item2_scene.instantiate()
+				var item2_instance = ConsumableFactory.create("cigarette")
 				add_item(item2_instance)
-		#EXAMPLE : Using toggle()
+		# EXAMPLE : Using toggle()
 		elif event.keycode == KEY_G:
 			toggle()
-#### END TESTING
+			
+
+###  END TESTING
 
 
 func _count_all_descendants(node : Node):
@@ -49,34 +64,42 @@ func _count_all_descendants(node : Node):
 		count += _count_all_descendants(child) 
 	return count
 
+
 func is_full() -> bool:
-	var _full : bool = true
+	for slot in slots:
+		if not slot.full():
+			return false
 	
-	for panel in panels:
-		if !panel.full():
-			_full = false
-	
-	return _full
+	return true
+
 
 # NEEDS TO BE NEW INSTANCE OF THE ITEM THAT IS NOT ALREADY ADDED
 func add_item(item : Item) -> void:
 	if is_full():
-		print('Inventory full!')
-	else:
-		var found : bool = false
-		for panel in panels:
-			#has item
-			if panel.get_child(0).get_child_count() > 0:
-				if panel.get_child(0).get_child(0).ITEM_TYPE == item.ITEM_TYPE:
-					if(!panel.full()): 
-						panel.add_item(item)
-						found = true
-		if !found:
-			var foundNewSlot : bool = false
-			for panel in panels:
-				if panel.get_child(0).get_child_count() == 0 and !foundNewSlot:
-					panel.add_item(item)
-					foundNewSlot = true
-					
+		print("Inventory full!")
+		return
+	
+	var has_existing_slot: bool = false
+	var has_open_slot: bool = false
+	for slot in slots:
+		#has item
+		if slot.item_count > 0:
+			if slot.first_item.item_name == item.item_name:
+				if not slot.full():
+					slot.add_item(item)
+					has_existing_slot = true
+					break
+	
+	if not has_existing_slot:
+		for slot in slots:
+			if slot.item_count == 0:
+				slot.add_item(item)
+				has_open_slot = true
+				break
+		if not has_open_slot:
+			print("Inventory full!")
+			return
+
+
 func use_item(index) -> void:
-	panels[index].use()
+	slots[index].use()
