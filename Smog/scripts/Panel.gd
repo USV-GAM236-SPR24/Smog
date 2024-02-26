@@ -18,7 +18,7 @@ func use():
 
 #adds items to the panel, unless more items are in panel than allowed
 func add_item(item : Item):
-	if get_child(0).get_child_count() + 1 <= MAX_ITEMS: #and item.get_parent() == null:
+	if get_child(0).get_child_count() + 1 <= MAX_ITEMS and item.get_parent() == null:
 		%items.add_child(item)
 	_update_counter()
 

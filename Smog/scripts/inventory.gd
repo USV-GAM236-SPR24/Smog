@@ -21,8 +21,8 @@
 extends Node2D
 
 #example item scenes
-var item_scene : PackedScene = preload("res://scenes/temp/item.tscn")
-var item2_scene : PackedScene = preload("res://scenes/temp/item_2.tscn")
+var item_scene : PackedScene = preload("res://scenes/inventory/temp/item.tscn")
+var item2_scene : PackedScene = preload("res://scenes/inventory/temp/item_2.tscn")
 
 #index of currently selected panel in panels
 var selectedPanelIndex = 0
