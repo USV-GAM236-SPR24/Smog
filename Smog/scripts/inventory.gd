@@ -1,7 +1,7 @@
 # HOW TO USE:
 #    add_item(item : Item) -> void 
-#                     - to add an item to inventory
-#        -- IMPORTANT - Item must have ITEM_TYPE to determine stacking
+#                     - to add an item to inventory stack
+#        -- IMPORTANT - Item must have a type to determine stacking
 #                     - Item must have a use() function that applies its affects      
 #
 #    use_item() -> void
@@ -24,12 +24,11 @@ extends Node2D
 var item_scene : PackedScene = preload("res://scenes/inventory/temp/item.tscn")
 var item2_scene : PackedScene = preload("res://scenes/inventory/temp/item_2.tscn")
 
-#index of currently selected panel in panels
+#index of currently selected slot in slots
 var selectedPanelIndex = 0
 
 #list of inventory slots
-@onready var panels = %GridContainer.get_children()
-
+@onready var slots : Array = %GridContainer.get_children()
 
 ###  START TESTING
 # T - add one instance of item.tscn
@@ -65,28 +64,28 @@ func toggle() -> void:
 	self.visible = !self.visible
 	
 func move_selector_right() -> void:
-	panels[selectedPanelIndex].toggle_selected()
+	slots[selectedPanelIndex].toggle_selected()
 	if(selectedPanelIndex + 1 < %GridContainer.get_child_count()):
-		panels[selectedPanelIndex + 1].toggle_selected()
+		slots[selectedPanelIndex + 1].toggle_selected()
 		selectedPanelIndex += 1
 	else:
 		selectedPanelIndex = 0
-		panels[selectedPanelIndex].toggle_selected()
+		slots[selectedPanelIndex].toggle_selected()
 		
 func move_selector_left() -> void:
-	panels[selectedPanelIndex].toggle_selected()
+	slots[selectedPanelIndex].toggle_selected()
 	if( selectedPanelIndex > 0 ):
-		panels[selectedPanelIndex - 1].toggle_selected()
+		slots[selectedPanelIndex - 1].toggle_selected()
 		selectedPanelIndex -= 1
 	elif selectedPanelIndex == 0:
 		selectedPanelIndex = %GridContainer.get_child_count() - 1
-		panels[selectedPanelIndex].toggle_selected()
+		slots[selectedPanelIndex].toggle_selected()
 
 func is_full() -> bool:
 	var _full : bool = true
 	
-	for panel in panels:
-		if !panel.full():
+	for slot in slots:
+		if !slot.full():
 			_full = false
 	
 	return _full
@@ -99,27 +98,27 @@ func add_item(item : Item) -> void:
 		var found : bool = false
 		
 		#checking for similar stacks
-		for panel in panels:
+		for slot in slots:
 			#has item
-			if panel.get_child(0).get_child_count() > 0:
-				if panel.get_child(0).get_child(0).ITEM_TYPE == item.ITEM_TYPE:
-					if(!panel.full()): 
-						panel.add_item(item)
+			if slot.get_child(0).get_child_count() > 0:
+				if slot.get_child(0).get_child(0).ITEM_TYPE == item.ITEM_TYPE:
+					if(!slot.full()): 
+						slot.add_item(item)
 						found = true
 		if !found:
 			var foundNewSlot : bool = false
-			for panel in panels:
-				if panel.get_child(0).get_child_count() == 0 and !foundNewSlot:
-					panel.add_item(item)
+			for slot in slots:
+				if slot.get_child(0).get_child_count() == 0 and !foundNewSlot:
+					slot.add_item(item)
 					foundNewSlot = true
 func use_item() -> void:
-	panels[selectedPanelIndex].use()
+	slots[selectedPanelIndex].use()
 	
 #setup window size change signal and
 #set first slot as selected
 func _ready():
 	get_viewport().connect("size_changed", _on_window_resize)
-	panels[selectedPanelIndex].toggle_selected()
+	slots[selectedPanelIndex].toggle_selected()
 	_on_window_resize()
 
 #center inventory on window resize
