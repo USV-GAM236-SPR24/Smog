@@ -8,5 +8,4 @@
 [node name="SanityBar" parent="." instance=ExtResource("1_qg41o")]
 
 [node name="Inventory" parent="." instance=ExtResource("2_3yuhv")]
-position = Vector2(61, -20)
-scale = Vector2(1.11342, 1.11342)
+scale = Vector2(2, 2)

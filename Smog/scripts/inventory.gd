@@ -20,15 +20,27 @@
 #                 - returns true if all slots are full, false otherwise
 extends Node2D
 
+
+const SLOT_COUNT: int = 12
+
 #example item scenes
 var item_scene : PackedScene = preload("res://scenes/inventory/temp/item.tscn")
 var item2_scene : PackedScene = preload("res://scenes/inventory/temp/item_2.tscn")
+
+var inventory_slot_scene: PackedScene = preload("res://scenes/inventory/inventory_slot.tscn")
 
 #index of currently selected slot in slots
 var selectedPanelIndex = 0
 
 #list of inventory slots
 @onready var slots : Array = %GridContainer.get_children()
+
+
+func _enter_tree() -> void:
+	for i: int in range(SLOT_COUNT):
+		var inventory_slot: InventorySlot = inventory_slot_scene.instantiate()
+		inventory_slot.name = "Slot " + str(i)
+		%GridContainer.add_child(inventory_slot)
 
 ###  START TESTING
 # T - add one instance of item.tscn
@@ -124,4 +136,4 @@ func _ready():
 #center inventory on window resize
 func _on_window_resize() -> void:
 	var window_size = get_viewport().size
-	position = Vector2(window_size.x / 2, window_size.y - 20)
+	position = Vector2(window_size.x / 2, window_size.y - 64)

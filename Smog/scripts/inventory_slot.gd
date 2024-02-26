@@ -1,6 +1,12 @@
+class_name InventorySlot
 extends Panel
 
 const MAX_ITEMS = 16
+
+var item_count: int = 0:
+	set(value):
+		item_count = value
+		_update_counter()
 
 #is item stack selected?
 var selected = false
@@ -10,24 +16,22 @@ func use():
 	if %items.get_child_count() > 0:
 		var item = %items.get_child(0)
 		item.use()
-		item.free()
-		_update_counter()
+		item.queue_free()
+		item_count -= 1
 	else:
-		print('Error: Panel.use(), No items to use!')
-		_update_counter()
+		print('Error: InventorySlot.use(), No items to use!')
 
 #adds items to the panel, unless more items are in panel than allowed
-func add_item(item : Item):
+func add_item(item: Item):
 	if get_child(0).get_child_count() + 1 <= MAX_ITEMS and item.get_parent() == null:
 		%items.add_child(item)
-	_update_counter()
+		item_count += 1
 
 #if panel is full of items
 func full() -> bool:
 	if %items.get_child_count() == MAX_ITEMS:
 		return true
-	else:
-		return false
+	return false
 
 #toggle selection visibility and local var
 func toggle_selected():
@@ -36,7 +40,7 @@ func toggle_selected():
 
 #update UI text
 func _update_counter():
-	%itemCounter.text = str(%items.get_child_count())
+	%itemCounter.text = str(item_count)
 	
 #update UI on ready
 func _ready():
