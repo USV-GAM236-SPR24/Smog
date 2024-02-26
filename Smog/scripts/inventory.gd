@@ -1,13 +1,13 @@
 # HOW TO USE:
-#    add_item(item : Item) -> void 
+#    add_item(item : Item) -> void
 #                     - to add an item to inventory stack
 #        -- IMPORTANT - Item must have a type to determine stacking
-#                     - Item must have a use() function that applies its affects      
+#                     - Item must have a use() function that applies its affects
 #
 #    use_item() -> void
 #                 - calls use() on currently selected item
-#  
-#    toggle() -> void 
+#
+#    toggle() -> void
 #                 - toggles visibility of the inventory system
 #
 #    move_selector_right() -> void
@@ -15,50 +15,42 @@
 #
 #    move_selector_left() -> void
 #                 - moves selected item in inventory to the left
-#   
+#
 #          is_full() -> bool
 #                 - returns true if all slots are full, false otherwise
+class_name Inventory
 extends Node2D
 
 
 const SLOT_COUNT: int = 12
 
-#example item scenes
-var item_scene : PackedScene = preload("res://scenes/inventory/temp/item.tscn")
-var item2_scene : PackedScene = preload("res://scenes/inventory/temp/item_2.tscn")
-
 var inventory_slot_scene: PackedScene = preload("res://scenes/inventory/inventory_slot.tscn")
 
 #index of currently selected slot in slots
-var selectedPanelIndex = 0
+var selectedPanelIndex: int = 0
 
 #list of inventory slots
-@onready var slots : Array = %GridContainer.get_children()
+@onready var slots: Array = %GridContainer.get_children()
 
-
-func _enter_tree() -> void:
-	for i: int in range(SLOT_COUNT):
-		var inventory_slot: InventorySlot = inventory_slot_scene.instantiate()
-		inventory_slot.name = "Slot " + str(i)
-		%GridContainer.add_child(inventory_slot)
 
 ###  START TESTING
-# T - add one instance of item.tscn
-# F - add three instances of item2.tscn
+# T - add one opium instance
+# F - add three cigarette instances
 # G - example of using toggle() to toggle display of inventory
 # J - move_selector_left()
 # L - move_selector_right()
 # K - use currently selected item use_item()
 
-func _input(event : InputEvent) -> void:
-	# EXAMPLE : adding a single item from item.tscn
-	if event is InputEventKey and event.is_pressed(): 
+func _input(event: InputEvent) -> void:
+	# EXAMPLE : adding a single instance of opium
+	if event is InputEventKey and event.is_pressed():
 		if event.keycode == KEY_T:
-			var item_instance = item_scene.instantiate()
+			var item_instance = ConsumableFactory.create("opium")
 			add_item(item_instance)
-		elif event.keycode == KEY_F: 
+		elif event.keycode == KEY_F:
+		# EXAMPLE : Making three new instances of cigarettes to add
 			for i in range(3):
-				var item2_instance = item2_scene.instantiate()
+				var item2_instance = ConsumableFactory.create("cigarette")
 				add_item(item2_instance)
 		elif event.keycode == KEY_G:
 			toggle()
@@ -68,13 +60,21 @@ func _input(event : InputEvent) -> void:
 			move_selector_left()
 		elif event.keycode == KEY_K:
 			use_item()
-			
 #### END TESTING
+
+
+func _enter_tree() -> void:
+	for i: int in range(SLOT_COUNT):
+		var inventory_slot: InventorySlot = inventory_slot_scene.instantiate()
+		inventory_slot.name = "Slot " + str(i)
+		%GridContainer.add_child(inventory_slot)
+
 
 #toggle visibility
 func toggle() -> void:
 	self.visible = !self.visible
-	
+
+
 func move_selector_right() -> void:
 	slots[selectedPanelIndex].toggle_selected()
 	if(selectedPanelIndex + 1 < %GridContainer.get_child_count()):
@@ -83,7 +83,8 @@ func move_selector_right() -> void:
 	else:
 		selectedPanelIndex = 0
 		slots[selectedPanelIndex].toggle_selected()
-		
+
+
 func move_selector_left() -> void:
 	slots[selectedPanelIndex].toggle_selected()
 	if( selectedPanelIndex > 0 ):
@@ -93,47 +94,53 @@ func move_selector_left() -> void:
 		selectedPanelIndex = %GridContainer.get_child_count() - 1
 		slots[selectedPanelIndex].toggle_selected()
 
+
 func is_full() -> bool:
-	var _full : bool = true
-	
-	for slot in slots:
-		if !slot.full():
-			_full = false
-	
-	return _full
+	for slot: InventorySlot in slots:
+		if not slot.full():
+			return false
+
+	return true
+
 
 # NEEDS TO BE NEW INSTANCE OF THE ITEM THAT IS NOT ALREADY ADDED
-func add_item(item : Item) -> void:
+func add_item(item: Item) -> void:
 	if is_full():
 		print('Inventory full!')
-	else:
-		var found : bool = false
-		
-		#checking for similar stacks
-		for slot in slots:
-			#has item
-			if slot.get_child(0).get_child_count() > 0:
-				if slot.get_child(0).get_child(0).ITEM_TYPE == item.ITEM_TYPE:
-					if(!slot.full()): 
-						slot.add_item(item)
-						found = true
-		if !found:
-			var foundNewSlot : bool = false
-			for slot in slots:
-				if slot.get_child(0).get_child_count() == 0 and !foundNewSlot:
+		return
+	var found := false
+
+	#checking for similar stacks
+	for slot: InventorySlot in slots:
+		#has item
+		if slot.item_count > 0:
+			if slot.first_item.item_name == item.item_name:
+				if not slot.full():
 					slot.add_item(item)
-					foundNewSlot = true
+					found = true
+					break
+	if not found:
+		var foundNewSlot := false
+		for slot in slots:
+			if slot.item_count == 0 and not foundNewSlot:
+				slot.add_item(item)
+				foundNewSlot = true
+				break
+
+
 func use_item() -> void:
 	slots[selectedPanelIndex].use()
-	
+
+
 #setup window size change signal and
 #set first slot as selected
-func _ready():
+func _ready() -> void:
 	get_viewport().connect("size_changed", _on_window_resize)
 	slots[selectedPanelIndex].toggle_selected()
 	_on_window_resize()
 
+
 #center inventory on window resize
 func _on_window_resize() -> void:
-	var window_size = get_viewport().size
+	var window_size: Vector2 = get_viewport().size
 	position = Vector2(window_size.x / 2, window_size.y - 64)
