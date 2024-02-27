@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqpwn5svyt4ud"]
+[gd_scene load_steps=5 format=3 uid="uid://cqpwn5svyt4ud"]
 
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="1_rcocy"]
 [ext_resource type="Texture2D" uid="uid://dohtj16ph545f" path="res://art/temp/TempMenu2.png" id="2_mg8fo"]
+[ext_resource type="Texture2D" uid="uid://labft85rsrix" path="res://art/temp/TempMenu4.png" id="3_sa0va"]
+[ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://art/temp/ITEM_SLOT_SELECT.png" id="4_xemvr"]
 
 [node name="Inventory" type="Node2D"]
 script = ExtResource("1_rcocy")
@@ -22,6 +24,171 @@ scale = Vector2(6, 0.1)
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("2_mg8fo")
 
+[node name="ItemBgs" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="SlotSprite2" type="TextureRect" parent="ItemBgs"]
+offset_left = -139.0
+offset_top = -12.0
+offset_right = -99.0
+offset_bottom = 28.0
+scale = Vector2(0.534224, 0.534224)
+texture = ExtResource("3_sa0va")
+
+[node name="select1" type="TextureRect" parent="ItemBgs/SlotSprite2"]
+visible = false
+layout_mode = 0
+offset_left = -5.61562
+offset_top = -24.3344
+offset_right = 34.3844
+offset_bottom = 15.6656
+scale = Vector2(1.25543, 0.63318)
+texture = ExtResource("4_xemvr")
+
+[node name="SlotSprite3" type="TextureRect" parent="ItemBgs"]
+offset_left = -108.0
+offset_top = -12.0
+offset_right = -68.0
+offset_bottom = 28.0
+scale = Vector2(0.534224, 0.534224)
+texture = ExtResource("3_sa0va")
+
+[node name="select2" type="TextureRect" parent="ItemBgs/SlotSprite3"]
+visible = false
+layout_mode = 0
+offset_left = -7.48748
+offset_top = -24.3344
+offset_right = 32.5125
+offset_bottom = 15.6656
+scale = Vector2(1.25543, 0.63318)
+texture = ExtResource("4_xemvr")
+
+[node name="SlotSprite4" type="TextureRect" parent="ItemBgs"]
+offset_left = -76.0
+offset_top = -12.0
+offset_right = -36.0
+offset_bottom = 28.0
+scale = Vector2(0.534224, 0.534224)
+texture = ExtResource("3_sa0va")
+
+[node name="select3" type="TextureRect" parent="ItemBgs/SlotSprite4"]
+visible = false
+layout_mode = 0
+offset_left = -7.48749
+offset_top = -24.3344
+offset_right = 32.5125
+offset_bottom = 15.6656
+scale = Vector2(1.25543, 0.63318)
+texture = ExtResource("4_xemvr")
+
+[node name="SlotSprite5" type="TextureRect" parent="ItemBgs"]
+offset_left = -43.0
+offset_top = -12.0
+offset_right = -3.0
+offset_bottom = 28.0
+scale = Vector2(0.534224, 0.534224)
+texture = ExtResource("3_sa0va")
+
+[node name="select4" type="TextureRect" parent="ItemBgs/SlotSprite5"]
+visible = false
+layout_mode = 0
+offset_left = -5.61563
+offset_top = -24.3344
+offset_right = 34.3844
+offset_bottom = 15.6656
+scale = Vector2(1.25543, 0.63318)
+texture = ExtResource("4_xemvr")
+
+[node name="SlotSprite6" type="TextureRect" parent="ItemBgs"]
+offset_left = -11.0
+offset_top = -12.0
+offset_right = 29.0
+offset_bottom = 28.0
+scale = Vector2(0.534224, 0.534224)
+texture = ExtResource("3_sa0va")
+
+[node name="SlotSprite15" type="TextureRect" parent="ItemBgs/SlotSprite6"]
+visible = false
+layout_mode = 0
+offset_left = -7.4875
+offset_top = -24.3344
+offset_right = 32.5125
+offset_bottom = 15.6656
+scale = Vector2(1.25543, 0.63318)
+texture = ExtResource("4_xemvr")
+
+[node name="SlotSprite7" type="TextureRect" parent="ItemBgs"]
+offset_left = 20.0
+offset_top = -12.0
+offset_right = 60.0
+offset_bottom = 28.0
+scale = Vector2(0.534224, 0.534224)
+texture = ExtResource("3_sa0va")
+
+[node name="SlotSprite16" type="TextureRect" parent="ItemBgs/SlotSprite7"]
+visible = false
+layout_mode = 0
+offset_left = -3.74374
+offset_top = -24.3344
+offset_right = 36.2563
+offset_bottom = 15.6656
+scale = Vector2(1.25543, 0.63318)
+texture = ExtResource("4_xemvr")
+
+[node name="SlotSprite8" type="TextureRect" parent="ItemBgs"]
+offset_left = 52.0
+offset_top = -12.0
+offset_right = 92.0
+offset_bottom = 28.0
+scale = Vector2(0.534224, 0.534224)
+texture = ExtResource("3_sa0va")
+
+[node name="SlotSprite17" type="TextureRect" parent="ItemBgs/SlotSprite8"]
+visible = false
+layout_mode = 0
+offset_left = -7.4875
+offset_top = -24.3343
+offset_right = 32.5125
+offset_bottom = 15.6657
+scale = Vector2(1.25543, 0.63318)
+texture = ExtResource("4_xemvr")
+
+[node name="SlotSprite9" type="TextureRect" parent="ItemBgs"]
+offset_left = 84.0
+offset_top = -12.0
+offset_right = 124.0
+offset_bottom = 28.0
+scale = Vector2(0.534224, 0.534224)
+texture = ExtResource("3_sa0va")
+
+[node name="SlotSprite18" type="TextureRect" parent="ItemBgs/SlotSprite9"]
+visible = false
+layout_mode = 0
+offset_left = -5.6156
+offset_top = -24.3343
+offset_right = 34.3844
+offset_bottom = 15.6657
+scale = Vector2(1.25543, 0.63318)
+texture = ExtResource("4_xemvr")
+
+[node name="SlotSprite10" type="TextureRect" parent="ItemBgs"]
+offset_left = 117.0
+offset_top = -12.0
+offset_right = 157.0
+offset_bottom = 28.0
+scale = Vector2(0.534224, 0.534224)
+texture = ExtResource("3_sa0va")
+
+[node name="SlotSprite19" type="TextureRect" parent="ItemBgs/SlotSprite10"]
+visible = false
+layout_mode = 0
+offset_left = -9.35938
+offset_top = -24.3343
+offset_right = 30.6406
+offset_bottom = 15.6657
+scale = Vector2(1.25543, 0.63318)
+texture = ExtResource("4_xemvr")
+
 [node name="GridContainer" type="GridContainer" parent="."]
 unique_name_in_owner = true
 anchors_preset = 8
@@ -29,11 +196,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -185.0
-offset_top = -9.0
-offset_right = 185.0
-offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 14
-columns = 12
+columns = 9
