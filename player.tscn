@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx1c3v0cwytel"]
+
+[ext_resource type="Texture2D" uid="uid://c3m2euomo2ipb" path="res://Filler Stuff/NulBoy_SpriteSheet/CharacterSpriteSheet.png" id="1_mb4qa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vnc40"]
+
+[node name="player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_vnc40")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("1_mb4qa")
+hframes = 4
+vframes = 4

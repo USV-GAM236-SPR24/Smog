@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://ch172bcnq1uk4"]
+[gd_scene load_steps=3 format=3 uid="uid://hcltn3bfdt36"]
+
+[ext_resource type="PackedScene" uid="uid://fgq2768ox5ql" path="res://Enemy_Stalker.tscn" id="1_jgtuq"]
+[ext_resource type="PackedScene" uid="uid://dx1c3v0cwytel" path="res://player.tscn" id="2_elvgc"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(70, 86)
+
+[node name="EnemyStalker" parent="." instance=ExtResource("1_jgtuq")]
+position = Vector2(350, 129)
+scale = Vector2(0.25, 0.25)
+
+[node name="player" parent="." instance=ExtResource("2_elvgc")]
+position = Vector2(64, 125)
+scale = Vector2(4, 4)

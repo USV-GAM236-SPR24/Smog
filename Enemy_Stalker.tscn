@@ -1,27 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://fgq2768ox5ql"]
+[gd_scene load_steps=27 format=3 uid="uid://fgq2768ox5ql"]
 
-[ext_resource type="Script" path="res://Enemy_Stalker.gd" id="1_8tvwb"]
 [ext_resource type="Texture2D" uid="uid://c3m2euomo2ipb" path="res://Filler Stuff/NulBoy_SpriteSheet/CharacterSpriteSheet.png" id="2_ovtfn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vs6cg"]
-radius = 155.013
-
-[sub_resource type="Animation" id="Animation_cjb82"]
-resource_name = "walk_right"
-length = 0.80001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [8, 9, 10, 9]
-}
+[sub_resource type="GDScript" id="GDScript_gqf3k"]
+script/source = "extends CharacterBody2D
+"
 
 [sub_resource type="Animation" id="Animation_jnmb4"]
 length = 0.001
@@ -36,54 +19,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_ot0vf"]
-resource_name = "walk_left"
-length = 0.80001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_u56fv"]
-resource_name = "walk_up"
-length = 0.80001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [12, 13, 14, 15]
-}
-
-[sub_resource type="Animation" id="Animation_r53pt"]
-resource_name = "walk_down"
-length = 0.80001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_ytl8o"]
@@ -116,6 +51,71 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [13]
+}
+
+[sub_resource type="Animation" id="Animation_r53pt"]
+resource_name = "walk_down"
+length = 0.80001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ot0vf"]
+resource_name = "walk_left"
+length = 0.80001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_cjb82"]
+resource_name = "walk_right"
+length = 0.80001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 9]
+}
+
+[sub_resource type="Animation" id="Animation_u56fv"]
+resource_name = "walk_up"
+length = 0.80001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hpwqe"]
@@ -195,9 +195,15 @@ states/walk/position = Vector2(383, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_4owbo"), "Idle", "walk", SubResource("AnimationNodeStateMachineTransition_twb23"), "walk", "End", SubResource("AnimationNodeStateMachineTransition_8v1tt")]
 graph_offset = Vector2(-157, -2)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vs6cg"]
+radius = 1325.18
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bedtr"]
+size = Vector2(153, 214)
+
 [node name="EnemyStalker" type="CharacterBody2D"]
 z_index = 1
-script = ExtResource("1_8tvwb")
+script = SubResource("GDScript_gqf3k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2.9375, -14.6563)
@@ -205,9 +211,6 @@ scale = Vector2(14.9896, 14.8826)
 texture = ExtResource("2_ovtfn")
 hframes = 4
 vframes = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_vs6cg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -222,3 +225,19 @@ tree_root = SubResource("AnimationNodeStateMachine_5molt")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, 0.037037)
 parameters/walk/blend_position = Vector2(0, 0)
+
+[node name="Detection Area" type="Area2D" parent="."]
+position = Vector2(-249, -205)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Area"]
+position = Vector2(249, 205)
+shape = SubResource("CircleShape2D_vs6cg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, 5)
+shape = SubResource("RectangleShape2D_bedtr")
+
+[connection signal="area_entered" from="Detection Area" to="." method="_on_detection_area_area_entered"]
+[connection signal="body_exited" from="Detection Area" to="." method="_on_detection_area_body_exited"]
