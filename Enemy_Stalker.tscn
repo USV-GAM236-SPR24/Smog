@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://fgq2768ox5ql"]
+[gd_scene load_steps=26 format=3 uid="uid://fgq2768ox5ql"]
 
 [ext_resource type="Texture2D" uid="uid://c3m2euomo2ipb" path="res://Filler Stuff/NulBoy_SpriteSheet/CharacterSpriteSheet.png" id="2_ovtfn"]
 
@@ -195,9 +195,6 @@ states/walk/position = Vector2(383, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_4owbo"), "Idle", "walk", SubResource("AnimationNodeStateMachineTransition_twb23"), "walk", "End", SubResource("AnimationNodeStateMachineTransition_8v1tt")]
 graph_offset = Vector2(-157, -2)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vs6cg"]
-radius = 1325.18
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bedtr"]
 size = Vector2(153, 214)
 
@@ -226,18 +223,6 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, 0.037037)
 parameters/walk/blend_position = Vector2(0, 0)
 
-[node name="Detection Area" type="Area2D" parent="."]
-position = Vector2(-249, -205)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Area"]
-position = Vector2(249, 205)
-shape = SubResource("CircleShape2D_vs6cg")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.5, 5)
 shape = SubResource("RectangleShape2D_bedtr")
-
-[connection signal="area_entered" from="Detection Area" to="." method="_on_detection_area_area_entered"]
-[connection signal="body_exited" from="Detection Area" to="." method="_on_detection_area_body_exited"]
