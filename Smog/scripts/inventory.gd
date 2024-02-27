@@ -35,15 +35,14 @@ var selected_panels_index: int = 0
 #list of inventory slots
 @onready var slots: Array = %GridContainer.get_children()
 
-
 ###  START TESTING
 # T - add one opium instance
 # F - add three cigarette instances
 # G - example of using toggle() to toggle display of inventory
 # J - move_selector_left()
 # L - move_selector_right()
-# K - use currently selected item use_item()
-# U - Test num_swap()
+# K - use currently selected item use_item()s
+# (1 - 9) - Select item in inventory
 func _input(event: InputEvent) -> void:
 	# EXAMPLE : adding a single instance of opium
 	if event is InputEventKey and event.is_pressed():
@@ -203,4 +202,5 @@ func _enter_tree() -> void:
 		var inventory_slot: InventorySlot = inventory_slot_scene.instantiate()
 		inventory_slot.name = "Slot " + str(i)
 		inventory_slot.index = i
+		%GridContainer.columns = SLOT_COUNT
 		%GridContainer.add_child(inventory_slot)
