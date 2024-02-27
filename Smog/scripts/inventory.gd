@@ -39,13 +39,18 @@ var selected_panels_index: int = 0
 # T - add one opium instance
 # F - add three cigarette instances
 # G - example of using toggle() to toggle display of inventory
-# J - move_selector_left()
-# L - move_selector_right()
-# K - use currently selected item use_item()s
+# MWheelDown - move_selector_left()
+# MWheelUp - move_selector_right()
+# E - use currently selected item use_item()s
 # (1 - 9) - Select item in inventory
 func _input(event: InputEvent) -> void:
 	# EXAMPLE : adding a single instance of opium
-	if event is InputEventKey and event.is_pressed():
+	
+	if event.is_action_pressed("scroll_up"):
+			move_selector_right()
+	elif event.is_action_pressed("scroll_down"):
+			move_selector_left()
+	elif event is InputEventKey and event.is_pressed():
 		match event.keycode:
 			KEY_0:
 				num_swap(0)
@@ -77,11 +82,7 @@ func _input(event: InputEvent) -> void:
 				add_item(item2_instance)
 		elif event.keycode == KEY_G:
 			toggle()
-		elif event.keycode == KEY_L:
-			move_selector_right()
-		elif event.keycode == KEY_J:
-			move_selector_left()
-		elif event.keycode == KEY_K:
+		elif event.keycode == KEY_E:
 			use_item()
 #### END TESTING
 
@@ -160,7 +161,7 @@ func use_item() -> void:
 
 
 #swaps grid container children (InventorySlots) by index
-func swap_children(index_a, index_b):
+func swap_children(index_a, index_b) -> void:
 	var valid_index_b: bool = index_a >= 0 and index_b < %GridContainer.get_child_count()
 	var valid_index_a: bool = index_b >= 0 and index_b < %GridContainer.get_child_count()
 	if valid_index_b and valid_index_a and index_a != index_b:

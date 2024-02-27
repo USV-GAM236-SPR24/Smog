@@ -30,7 +30,6 @@ var slot_set_pos: Vector2
 func _process(_delta):
 	if pressed:
 		self.global_position = get_global_mouse_position()
-		%selectImg.visible = false
 
 
 #call use() on item in %items and free it afterwards, then update counter
@@ -67,9 +66,15 @@ func full() -> bool:
 
 #toggle selection visibility and local var
 func toggle_selected() -> void:
+	
+	var current_inv_select_sprite = get_parent().get_parent().get_child(1).get_child(index).get_child(0)
+	
 	selected = not selected
-	%selectImg.visible = selected
-
+	#%selectImg.visible = selected
+	if selected:
+		current_inv_select_sprite.visible = true
+	else:
+		current_inv_select_sprite.visible = false
 
 #update UI text
 func _update_counter() -> void:
@@ -83,9 +88,6 @@ func _update_counter() -> void:
 #update UI on ready
 func _ready() -> void:
 	_update_counter()
-	print(self.global_position)
-	#print(collision_rect)
-
 
 #when item selected (and has items), pressed set true
 func _on_button_button_down() -> void:
@@ -113,7 +115,5 @@ func _on_button_button_up() -> void:
 		get_parent().get_parent().swap_children(self.index, smallest_slot.index)
 	else:
 		self.global_position = slot_set_pos
-		if selected:
-			%selectImg.visible = true
 		
 	pressed = false
