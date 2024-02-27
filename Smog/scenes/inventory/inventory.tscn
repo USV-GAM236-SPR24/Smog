@@ -37,6 +37,7 @@ texture = ExtResource("3_sa0va")
 
 [node name="select1" type="TextureRect" parent="ItemBgs/SlotSprite2"]
 visible = false
+layout_mode = 0
 offset_left = -5.61562
 offset_top = -24.3344
 offset_right = 34.3844
@@ -54,6 +55,7 @@ texture = ExtResource("3_sa0va")
 
 [node name="select2" type="TextureRect" parent="ItemBgs/SlotSprite3"]
 visible = false
+layout_mode = 0
 offset_left = -7.48748
 offset_top = -24.3344
 offset_right = 32.5125
@@ -71,6 +73,7 @@ texture = ExtResource("3_sa0va")
 
 [node name="select3" type="TextureRect" parent="ItemBgs/SlotSprite4"]
 visible = false
+layout_mode = 0
 offset_left = -7.48749
 offset_top = -24.3344
 offset_right = 32.5125
@@ -88,6 +91,7 @@ texture = ExtResource("3_sa0va")
 
 [node name="select4" type="TextureRect" parent="ItemBgs/SlotSprite5"]
 visible = false
+layout_mode = 0
 offset_left = -5.61563
 offset_top = -24.3344
 offset_right = 34.3844
@@ -105,6 +109,7 @@ texture = ExtResource("3_sa0va")
 
 [node name="SlotSprite15" type="TextureRect" parent="ItemBgs/SlotSprite6"]
 visible = false
+layout_mode = 0
 offset_left = -7.4875
 offset_top = -24.3344
 offset_right = 32.5125
@@ -122,6 +127,7 @@ texture = ExtResource("3_sa0va")
 
 [node name="SlotSprite16" type="TextureRect" parent="ItemBgs/SlotSprite7"]
 visible = false
+layout_mode = 0
 offset_left = -3.74374
 offset_top = -24.3344
 offset_right = 36.2563
@@ -139,6 +145,7 @@ texture = ExtResource("3_sa0va")
 
 [node name="SlotSprite17" type="TextureRect" parent="ItemBgs/SlotSprite8"]
 visible = false
+layout_mode = 0
 offset_left = -7.4875
 offset_top = -24.3343
 offset_right = 32.5125
@@ -156,6 +163,7 @@ texture = ExtResource("3_sa0va")
 
 [node name="SlotSprite18" type="TextureRect" parent="ItemBgs/SlotSprite9"]
 visible = false
+layout_mode = 0
 offset_left = -5.6156
 offset_top = -24.3343
 offset_right = 34.3844
@@ -173,6 +181,7 @@ texture = ExtResource("3_sa0va")
 
 [node name="SlotSprite19" type="TextureRect" parent="ItemBgs/SlotSprite10"]
 visible = false
+layout_mode = 0
 offset_left = -9.35938
 offset_top = -24.3343
 offset_right = 30.6406

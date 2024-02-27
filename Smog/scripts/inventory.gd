@@ -39,17 +39,17 @@ var selected_panels_index: int = 0
 # T - add one opium instance
 # F - add three cigarette instances
 # G - example of using toggle() to toggle display of inventory
-# MWheelDown - move_selector_left()
-# MWheelUp - move_selector_right()
+# MWheelDown - move_selector_right()
+# MWheelUp - move_selector_left()
 # E - use currently selected item use_item()s
 # (1 - 9) - Select item in inventory
 func _input(event: InputEvent) -> void:
 	# EXAMPLE : adding a single instance of opium
 	
 	if event.is_action_pressed("scroll_up"):
-			move_selector_right()
-	elif event.is_action_pressed("scroll_down"):
 			move_selector_left()
+	elif event.is_action_pressed("scroll_down"):
+			move_selector_right()
 	elif event is InputEventKey and event.is_pressed():
 		match event.keycode:
 			KEY_0:
