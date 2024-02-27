@@ -19,7 +19,8 @@
 #    is_full() -> bool
 #                 - returns true if all slots are full, false otherwise
 #
-#    num_swap()
+#    num_swap(num: int) -> void
+#                 -swaps selected item to num
 class_name Inventory
 extends Node2D
 
@@ -42,10 +43,31 @@ var selected_panels_index: int = 0
 # J - move_selector_left()
 # L - move_selector_right()
 # K - use currently selected item use_item()
-
+# U - Test num_swap()
 func _input(event: InputEvent) -> void:
 	# EXAMPLE : adding a single instance of opium
 	if event is InputEventKey and event.is_pressed():
+		match event.keycode:
+			KEY_0:
+				num_swap(0)
+			KEY_1:
+				num_swap(1)
+			KEY_2:
+				num_swap(2)
+			KEY_3:
+				num_swap(3)
+			KEY_4:
+				num_swap(4)
+			KEY_5:
+				num_swap(5)
+			KEY_6:
+				num_swap(6)
+			KEY_7:
+				num_swap(7)
+			KEY_8:
+				num_swap(8)
+			KEY_9:
+				num_swap(9)
 		if event.keycode == KEY_T:
 			var item_instance = ConsumableFactory.create("opium")
 			add_item(item_instance)
@@ -62,8 +84,6 @@ func _input(event: InputEvent) -> void:
 			move_selector_left()
 		elif event.keycode == KEY_K:
 			use_item()
-		elif event.keycode == KEY_U:
-			num_swap(9)
 #### END TESTING
 
 #toggle visibility
@@ -73,12 +93,14 @@ func toggle() -> void:
 
 #selection options
 func num_swap(num: int) -> void:
-	if num > 0 and num <= SLOT_COUNT:
-		slots[selected_panels_index].toggle_selected()
-		selected_panels_index = num - 1
-		slots[selected_panels_index].toggle_selected()
-
-
+	if num > SLOT_COUNT or num <= 0:
+		return
+	slots[selected_panels_index].toggle_selected()
+	selected_panels_index = num - 1
+	slots[selected_panels_index].toggle_selected()
+	return
+	
+	
 func move_selector_right() -> void:
 	slots[selected_panels_index].toggle_selected()
 	if(selected_panels_index + 1 < %GridContainer.get_child_count()):
@@ -140,9 +162,11 @@ func use_item() -> void:
 
 #swaps grid container children (InventorySlots) by index
 func swap_children(index_a, index_b):
-	if index_a >= 0 and index_b < %GridContainer.get_child_count() and index_b >= 0 and index_b < %GridContainer.get_child_count() and index_a != index_b:
-		var child_a = %GridContainer.get_child(index_a)
-		var child_b = %GridContainer.get_child(index_b)
+	var valid_index_b: bool = index_a >= 0 and index_b < %GridContainer.get_child_count()
+	var valid_index_a: bool = index_b >= 0 and index_b < %GridContainer.get_child_count()
+	if valid_index_b and valid_index_a and index_a != index_b:
+		var child_a: InventorySlot = %GridContainer.get_child(index_a)
+		var child_b: InventorySlot = %GridContainer.get_child(index_b)
 		
 		child_a.index = index_b
 		child_b.index = index_a

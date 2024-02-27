@@ -22,12 +22,12 @@ var selected = false
 #is item being pressed?
 var pressed = false
 
+var slot_set_pos: Vector2
 
 #while pressed attatch to mouse
 func _process(_delta):
 	if pressed:
 		self.global_position = get_global_mouse_position()
-
 
 #call use() on item in %items and free it afterwards, then update counter
 func use() -> void:
@@ -82,21 +82,27 @@ func _ready() -> void:
 func _on_button_button_down():
 	if item_count > 0:
 		pressed = true
+	slot_set_pos = self.global_position
 
 
 #when item unselected (and was previously selected ), swap item with closest slot,
 # then pressed set false
 func _on_button_button_up():
-	var smallestSlot: InventorySlot = self
+	var smallest_slot: InventorySlot = self
+	var shortest_dist: float = INF
 	
 	for slot in get_parent().get_children():
 		var dist: float = self.global_position.distance_to(slot.global_position)
 		
 		if self == slot:
 			continue
-		if dist < PICKUP_RANGE:
-			smallestSlot = slot
-			get_parent().get_parent().swap_children(self.index, smallestSlot.index)
-			#break
-			
+		if dist < shortest_dist:
+			smallest_slot = slot
+			shortest_dist = dist
+	
+	if shortest_dist < PICKUP_RANGE:
+		get_parent().get_parent().swap_children(self.index, smallest_slot.index)
+	else:
+		self.global_position = slot_set_pos
+		
 	pressed = false
