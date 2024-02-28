@@ -35,8 +35,13 @@ var selected_panels_index: int = 0
 #list of inventory slots
 @onready var slots: Array = %GridContainer.get_children()
 
+
+#set first slot as selected
+func _ready() -> void:
+	slots[selected_panels_index].toggle_selected()
+
 ###  START TESTING
-# T - add one opium instance
+# R - add one opium instance
 # F - add three cigarette instances
 # G - example of using toggle() to toggle display of inventory
 # MWheelDown - move_selector_right()
@@ -72,7 +77,7 @@ func _input(event: InputEvent) -> void:
 				num_swap(8)
 			KEY_9:
 				num_swap(9)
-		if event.keycode == KEY_T:
+		if event.keycode == KEY_R:
 			var item_instance = ConsumableFactory.create("opium")
 			add_item(item_instance)
 		elif event.keycode == KEY_F:
@@ -136,7 +141,7 @@ func add_item(item: Item) -> void:
 		print('Inventory full!')
 		return
 	var found := false
-
+	
 	#checking for similar stacks
 	for slot: InventorySlot in slots:
 		#has item
@@ -171,12 +176,9 @@ func swap_children(index_a, index_b) -> void:
 		child_a.index = index_b
 		child_b.index = index_a
 		
-		if child_a.selected:
+		if child_a.selected or child_b.selected:
+			child_a.toggle_selected()
 			child_b.toggle_selected()
-			child_a.toggle_selected() 
-		elif child_b.selected:
-			child_b.toggle_selected()
-			child_a.toggle_selected() 
 		
 		%GridContainer.move_child(child_a, index_b)
 		%GridContainer.move_child(child_b, index_a)
@@ -184,21 +186,6 @@ func swap_children(index_a, index_b) -> void:
 	slots = %GridContainer.get_children()
 	
 	
-#setup window size change signal and
-#set first slot as selected
-func _ready() -> void:
-	get_viewport().connect("size_changed", _on_window_resize)
-	slots[selected_panels_index].toggle_selected()
-	_on_window_resize()
-
-
-#center inventory on window resize
-func _on_window_resize() -> void:
-	pass
-	#var window_size: Vector2 = get_viewport().size
-	#position = Vector2(window_size.x / 2, window_size.y - 64)
-
-
 func _enter_tree() -> void:
 	for i: int in range(SLOT_COUNT):
 		var inventory_slot: InventorySlot = inventory_slot_scene.instantiate()

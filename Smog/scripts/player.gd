@@ -5,8 +5,6 @@ var direction
 
 var SPEED = 160
 
-var reset_dir
-
 func _physics_process(_delta) -> void:
 	direction = Input.get_vector("left", "right", "up", "down")
 	
