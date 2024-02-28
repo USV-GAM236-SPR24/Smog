@@ -89,6 +89,7 @@ func _update_counter() -> void:
 func _ready() -> void:
 	_update_counter()
 
+
 #when item selected (and has items), pressed set true
 func _on_button_button_down() -> void:
 	if item_count > 0:
@@ -99,6 +100,8 @@ func _on_button_button_down() -> void:
 #when item unselected (and was previously selected ), swap item with closest slot,
 # then pressed set false
 func _on_button_button_up() -> void:
+	#make sure to not select panel if no items!
+	
 	var smallest_slot: InventorySlot = self
 	var shortest_dist: float = INF
 	

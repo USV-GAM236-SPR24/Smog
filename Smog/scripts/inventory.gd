@@ -194,8 +194,9 @@ func _ready() -> void:
 
 #center inventory on window resize
 func _on_window_resize() -> void:
-	var window_size: Vector2 = get_viewport().size
-	position = Vector2(window_size.x / 2, window_size.y - 64)
+	pass
+	#var window_size: Vector2 = get_viewport().size
+	#position = Vector2(window_size.x / 2, window_size.y - 64)
 
 
 func _enter_tree() -> void:
