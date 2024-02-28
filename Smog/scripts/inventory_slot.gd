@@ -101,6 +101,8 @@ func _on_button_button_down() -> void:
 # then pressed set false
 func _on_button_button_up() -> void:
 	#make sure to not select panel if no items!
+	if item_count == 0:
+		return
 	
 	var smallest_slot: InventorySlot = self
 	var shortest_dist: float = INF
