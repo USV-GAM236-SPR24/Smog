@@ -1,3 +1,32 @@
-[gd_scene format=3 uid="uid://wstjrxw8m084"]
+[gd_scene load_steps=7 format=3 uid="uid://wstjrxw8m084"]
+
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_42wk3"]
+[ext_resource type="Script" path="res://scenes/Area2D.gd" id="2_fpmua"]
+[ext_resource type="AudioStream" uid="uid://bw6lqplb6q8ma" path="res://Audio/SFX/682371__pnmcarrierailfan__car-crash-elements-sideswipe-01.mp3" id="3_ojem5"]
+[ext_resource type="Texture2D" uid="uid://b6eonu61ye651" path="res://Sprites/trainplaceholder.jpg" id="4_thyx6"]
+[ext_resource type="Script" path="res://scenes/Sprite2D.gd" id="5_j42jt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vqskt"]
+radius = 19.0
+height = 38.0
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_42wk3")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_fpmua")
+
+[node name="trainnoise" type="AudioStreamPlayer2D" parent="Area2D"]
+stream = ExtResource("3_ojem5")
+volume_db = -27.181
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(503, 358)
+shape = SubResource("CapsuleShape2D_vqskt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+visible = false
+position = Vector2(518, 358)
+scale = Vector2(0.309641, 0.535948)
+texture = ExtResource("4_thyx6")
+script = ExtResource("5_j42jt")
