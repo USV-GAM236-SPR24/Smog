@@ -5,7 +5,7 @@ const PICKUP_RANGE = 40
 
 const MAX_ITEMS = 16
 
-@export var index : int 
+var index : int 
 
 var item_count: int = 0:
 	set(value):
@@ -35,7 +35,7 @@ func _process(_delta):
 #call use() on item in %items and free it afterwards, then update counter
 func use() -> void:
 	if item_count == 0:
-		print('Error: InventorySlot.use(), No items to use!')
+		print('Error: InventorySlot.use() ... No items to use!')
 		return
 	
 	first_item.use()

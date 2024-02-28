@@ -99,6 +99,7 @@ func toggle() -> void:
 #selection options
 func num_swap(num: int) -> void:
 	if num > SLOT_COUNT or num <= 0:
+		print('Error: Inventory.num_swap(num: int) ... invalid swap index!')
 		return
 	slots[selected_panels_index].toggle_selected()
 	selected_panels_index = num - 1
