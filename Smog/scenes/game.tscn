@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://wstjrxw8m084"]
+[gd_scene load_steps=4 format=3 uid="uid://wstjrxw8m084"]
 
 [ext_resource type="PackedScene" uid="uid://yk5bgx46irl8" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
 [ext_resource type="PackedScene" uid="uid://cqpwn5svyt4ud" path="res://scenes/inventory/inventory.tscn" id="2_3yuhv"]
+[ext_resource type="PackedScene" uid="uid://cwvergowbk2o0" path="res://scenes/fodder.tscn" id="3_x5gbm"]
 
 [node name="Game" type="Node2D"]
 
@@ -9,3 +10,6 @@
 
 [node name="Inventory" parent="." instance=ExtResource("2_3yuhv")]
 scale = Vector2(2, 2)
+
+[node name="Fodder" parent="." instance=ExtResource("3_x5gbm")]
+position = Vector2(251, 434)
