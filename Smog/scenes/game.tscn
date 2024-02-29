@@ -8,6 +8,7 @@
 [node name="Game" type="Node2D"]
 
 [node name="SanityBar" parent="." instance=ExtResource("1_qg41o")]
+visible = false
 
 [node name="Inventory" parent="." instance=ExtResource("2_3yuhv")]
 scale = Vector2(2, 2)

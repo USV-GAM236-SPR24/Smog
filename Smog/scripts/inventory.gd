@@ -25,7 +25,7 @@ class_name Inventory
 extends Node2D
 
 
-const SLOT_COUNT: int = 9
+const SLOT_COUNT: int = 5
 
 var inventory_slot_scene: PackedScene = preload("res://scenes/inventory/inventory_slot.tscn")
 
@@ -44,45 +44,37 @@ var selected_panels_index: int = 0
 # E - use currently selected item use_item()s
 # (1 - 9) - Select item in inventory
 func _input(event: InputEvent) -> void:
-	# EXAMPLE : adding a single instance of opium
-	
 	if event.is_action_pressed("scroll_up"):
 			move_selector_left()
 	elif event.is_action_pressed("scroll_down"):
 			move_selector_right()
-	elif event is InputEventKey and event.is_pressed():
-		match event.keycode:
-			KEY_0:
-				num_swap(0)
-			KEY_1:
-				num_swap(1)
-			KEY_2:
-				num_swap(2)
-			KEY_3:
-				num_swap(3)
-			KEY_4:
-				num_swap(4)
-			KEY_5:
-				num_swap(5)
-			KEY_6:
-				num_swap(6)
-			KEY_7:
-				num_swap(7)
-			KEY_8:
-				num_swap(8)
-			KEY_9:
-				num_swap(9)
-		if event.keycode == KEY_T:
-			var item_instance = ConsumableFactory.create("opium")
-			add_item(item_instance)
-		elif event.keycode == KEY_F:
-		# EXAMPLE : Making three new instances of cigarettes to add
+	if not event is InputEventKey:
+		return
+	if not event.is_pressed():
+		return
+	match event.keycode:
+		KEY_1:
+			num_swap(1)
+		KEY_2:
+			num_swap(2)
+		KEY_3:
+			num_swap(3)
+		KEY_4:
+			num_swap(4)
+		KEY_5:
+			num_swap(5)
+		KEY_T:
+			# EXAMPLE : adding a single instance of opium
+			var consumable = ConsumableFactory.create("opium")
+			add_item(consumable)
+		KEY_F:
+			# EXAMPLE : Making three new instances of cigarettes to add
 			for i in range(3):
-				var item2_instance = ConsumableFactory.create("cigarette")
-				add_item(item2_instance)
-		elif event.keycode == KEY_G:
+				var consumable = ConsumableFactory.create("cigarette")
+				add_item(consumable)
+		KEY_G:
 			toggle()
-		elif event.keycode == KEY_E:
+		KEY_E:
 			use_item()
 #### END TESTING
 
@@ -194,8 +186,8 @@ func _ready() -> void:
 
 #center inventory on window resize
 func _on_window_resize() -> void:
-	var window_size: Vector2 = get_viewport().size
-	position = Vector2(window_size.x / 2, window_size.y - 64)
+	var window_size: Vector2 = get_viewport_rect().size
+	position = Vector2(window_size.x / 2, window_size.y - 16)
 
 
 func _enter_tree() -> void:

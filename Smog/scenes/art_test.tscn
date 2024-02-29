@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://bard67wdt8wdg"]
+
+[ext_resource type="SpriteFrames" uid="uid://cppn4nnfcni71" path="res://art/BloodWallAnimation2/blood_wall_animation.tres" id="1_dwmqc"]
+[ext_resource type="Script" path="res://scripts/animations/blood_wall.gd" id="2_4yu07"]
+
+[node name="ArtTest" type="Node2D"]
+
+[node name="BloodWallAnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 320)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("1_dwmqc")
+animation = &"trigger"
+script = ExtResource("2_4yu07")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 522.0
+offset_top = 545.0
+offset_right = 648.0
+offset_bottom = 576.0
+text = "Test Animation"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 482.0
+offset_top = 40.0
+offset_right = 677.0
+offset_bottom = 63.0
+text = "Current Animation:
+"
+
+[node name="AnimationNameLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 636.0
+offset_top = 40.0
+offset_right = 831.0
+offset_bottom = 63.0
+text = "none"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 482.0
+offset_top = 22.0
+offset_right = 677.0
+offset_bottom = 45.0
+text = "FPS:
+"
+
+[node name="FPSLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 518.0
+offset_top = 22.0
+offset_right = 713.0
+offset_bottom = 45.0
+text = "0"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 482.0
+offset_top = 60.0
+offset_right = 677.0
+offset_bottom = 83.0
+text = "Current Frame:
+"
+
+[node name="CurrentFrameLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 604.0
+offset_top = 60.0
+offset_right = 799.0
+offset_bottom = 83.0
+text = "0"
+
+[connection signal="pressed" from="Button" to="BloodWallAnimatedSprite" method="trigger"]
