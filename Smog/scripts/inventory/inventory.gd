@@ -22,7 +22,7 @@
 #    num_swap(num: int) -> void
 #                 -swaps selected item to num
 class_name Inventory
-extends Node2D
+extends Control
 
 
 const SLOT_COUNT: int = 5
@@ -63,19 +63,19 @@ func _input(event: InputEvent) -> void:
 			num_swap(4)
 		KEY_5:
 			num_swap(5)
-		KEY_T:
+		KEY_6:
 			# EXAMPLE : adding a single instance of opium
 			var consumable = ConsumableFactory.create("opium")
 			add_item(consumable)
-		KEY_F:
+		KEY_7:
 			# EXAMPLE : Making three new instances of cigarettes to add
 			for i in range(3):
 				var consumable = ConsumableFactory.create("cigarette")
 				add_item(consumable)
-		KEY_G:
-			toggle()
-		KEY_E:
+		KEY_F:
 			use_item()
+		KEY_TAB:
+			toggle()
 #### END TESTING
 
 #toggle visibility

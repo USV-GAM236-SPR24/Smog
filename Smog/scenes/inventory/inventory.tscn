@@ -1,15 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqpwn5svyt4ud"]
 
-[ext_resource type="Script" path="res://scripts/inventory.gd" id="1_rcocy"]
+[ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="1_tf3dv"]
 [ext_resource type="Texture2D" uid="uid://dohtj16ph545f" path="res://art/temp/TempMenu2.png" id="2_mg8fo"]
 [ext_resource type="Texture2D" uid="uid://labft85rsrix" path="res://art/temp/TempMenu4.png" id="3_sa0va"]
 [ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://art/temp/ITEM_SLOT_SELECT.png" id="4_xemvr"]
 
-[node name="Inventory" type="Node2D"]
-script = ExtResource("1_rcocy")
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tf3dv")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -25,10 +28,12 @@ scale = Vector2(6, 0.1)
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("2_mg8fo")
 
-[node name="ItemBgs" type="Node2D" parent="."]
+[node name="ItemBgs" type="Control" parent="."]
 unique_name_in_owner = true
+anchors_preset = 0
 
 [node name="GridContainer2" type="GridContainer" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -105,6 +110,7 @@ texture = ExtResource("4_xemvr")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

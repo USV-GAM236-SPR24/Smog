@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpc7p8ltbv6gh"
-path="res://.godot/imported/Wilton_Walking_Spritesheet.png-95c684f25bf3f2af37ec1a37e6ef65ae.ctex"
+path="res://.godot/imported/Wilton_Walking_Spritesheet.png-79b64514578a6b0ce5086d005319992e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Player/Wilton_Walking_Spritesheet.png"
-dest_files=["res://.godot/imported/Wilton_Walking_Spritesheet.png-95c684f25bf3f2af37ec1a37e6ef65ae.ctex"]
+source_file="res://art/Player/Wilton_Walking_Spritesheet.png"
+dest_files=["res://.godot/imported/Wilton_Walking_Spritesheet.png-79b64514578a6b0ce5086d005319992e.ctex"]
 
 [params]
 

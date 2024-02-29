@@ -9,7 +9,7 @@ func _init() -> void:
 	speed = 25
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player_chase:
 		velocity = position.direction_to(get_node("/root/Game/Player").position) * speed
 		$AnimatedSprite2D.play("walk")

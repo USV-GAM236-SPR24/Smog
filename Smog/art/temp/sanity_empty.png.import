@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brcgcqyw7k3os"
-path="res://.godot/imported/98948-200.png-1bca45c501c11da99d2fe3bf1aa616e2.ctex"
+uid="uid://c57ebwp7ed33w"
+path="res://.godot/imported/sanity_empty.png-432a92f8202f40ede9822b010908caad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Player/98948-200.png"
-dest_files=["res://.godot/imported/98948-200.png-1bca45c501c11da99d2fe3bf1aa616e2.ctex"]
+source_file="res://art/temp/sanity_empty.png"
+dest_files=["res://.godot/imported/sanity_empty.png-432a92f8202f40ede9822b010908caad.ctex"]
 
 [params]
 

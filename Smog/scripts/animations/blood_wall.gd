@@ -13,3 +13,10 @@ func trigger() -> void:
 
 func idle() -> void:
 	play("idle")
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if is_playing():
+		return
+	if body is Player:
+		trigger()

@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Smog"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/main_menu_ui.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Sanity="*res://scripts/sanity.gd"
-ConsumableFactory="*res://scripts/consumable_factory.gd"
+Sanity="*res://scripts/sanity/sanity.gd"
+ConsumableFactory="*res://scripts/consumables/consumable_factory.gd"
 
 [display]
 

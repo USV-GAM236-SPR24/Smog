@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dxv1wjlj6r46"]
 
-[ext_resource type="Script" path="res://scripts/inventory_slot.gd" id="2_ncere"]
+[ext_resource type="Script" path="res://scripts/inventory/inventory_slot.gd" id="2_ncere"]
 [ext_resource type="FontFile" uid="uid://bhr5ahy1qof7j" path="res://fonts1/PixelifySans-VariableFont_wght.ttf" id="4_jlp45"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ah2kc"]

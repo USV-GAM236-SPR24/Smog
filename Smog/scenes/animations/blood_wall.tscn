@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://djk72tgahvi7a"]
+
+[ext_resource type="SpriteFrames" uid="uid://cppn4nnfcni71" path="res://art/BloodWallAnimation2/blood_wall_spriteframes.tres" id="1_xxt2i"]
+[ext_resource type="Script" path="res://scripts/animations/blood_wall.gd" id="2_mo6sj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d1rp"]
+size = Vector2(32, 64)
+
+[node name="BloodWall" type="Node2D"]
+
+[node name="BloodWallAnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_xxt2i")
+animation = &"trigger"
+script = ExtResource("2_mo6sj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_0d1rp")
+
+[connection signal="body_entered" from="Area2D" to="BloodWallAnimatedSprite" method="_on_body_entered"]

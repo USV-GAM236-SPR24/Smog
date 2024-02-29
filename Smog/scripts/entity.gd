@@ -6,4 +6,4 @@ var speed: float
 
 
 func die():
-	pass
+	queue_free()
