@@ -5,6 +5,12 @@ var direction
 
 var SPEED = 160
 
+func shoot():
+	if %RayCast2D.is_colliding():
+		var collider = %RayCast2D.get_collider()
+		#collider.hit()
+		print(collider)
+
 func _physics_process(_delta) -> void:
 	_update_raycast()
 	
@@ -18,6 +24,14 @@ func _physics_process(_delta) -> void:
 	_update_anim()
 	move_and_slide()
 	
+	
+func _input(event):
+	if event is InputEventMouseButton:
+		match event.button_index:
+			MOUSE_BUTTON_LEFT:
+				shoot()
+
+
 func _update_anim() -> void:
 	
 	match direction:
@@ -30,6 +44,3 @@ func _update_anim() -> void:
 
 func _update_raycast():
 	%RayCast2D.target_position = get_global_mouse_position()
-	if %RayCast2D.is_colliding():
-		var collider = %RayCast2D.get_collider()
-		print(collider)
