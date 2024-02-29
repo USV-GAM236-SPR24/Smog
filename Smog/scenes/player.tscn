@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://beglrerj5k48"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_n7sla"]
-[ext_resource type="SpriteFrames" uid="uid://d3nvx623kxadr" path="res://art/Player/player_spriteframes.tres" id="3_svgqb"]
+[ext_resource type="SpriteFrames" uid="uid://d3nvx623kxadr" path="res://art/animations/player/player_spriteframes.tres" id="2_dmvm8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuupm"]
 size = Vector2(12, 22)
@@ -53,5 +53,6 @@ metadata/_edit_use_anchors_ = true
 target_position = Vector2(200, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("3_svgqb")
+sprite_frames = ExtResource("2_dmvm8")
 animation = &"idle_right"
+speed_scale = 3.0

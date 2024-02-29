@@ -78,6 +78,29 @@ func _input(event: InputEvent) -> void:
 			toggle()
 #### END TESTING
 
+#setup window size change signal and
+#set first slot as selected
+func _ready() -> void:
+	get_viewport().connect("size_changed", _on_window_resize)
+	slots[selected_panels_index].toggle_selected()
+	_on_window_resize()
+
+
+#center inventory on window resize
+func _on_window_resize() -> void:
+	var window_size: Vector2 = get_viewport_rect().size
+	position = Vector2(window_size.x / 2, window_size.y - 16)
+
+
+func _enter_tree() -> void:
+	for i: int in range(SLOT_COUNT):
+		var inventory_slot: InventorySlot = inventory_slot_scene.instantiate()
+		inventory_slot.name = "Slot " + str(i)
+		inventory_slot.index = i
+		%ItemSlots.columns = SLOT_COUNT
+		%ItemSlots.add_child(inventory_slot)
+
+
 #toggle visibility
 func toggle() -> void:
 	self.visible = !self.visible
@@ -174,26 +197,3 @@ func swap_children(index_a, index_b) -> void:
 		%ItemSlots.move_child(child_b, index_a)
 		
 	slots = %ItemSlots.get_children()
-	
-	
-#setup window size change signal and
-#set first slot as selected
-func _ready() -> void:
-	get_viewport().connect("size_changed", _on_window_resize)
-	slots[selected_panels_index].toggle_selected()
-	_on_window_resize()
-
-
-#center inventory on window resize
-func _on_window_resize() -> void:
-	var window_size: Vector2 = get_viewport_rect().size
-	position = Vector2(window_size.x / 2, window_size.y - 16)
-
-
-func _enter_tree() -> void:
-	for i: int in range(SLOT_COUNT):
-		var inventory_slot: InventorySlot = inventory_slot_scene.instantiate()
-		inventory_slot.name = "Slot " + str(i)
-		inventory_slot.index = i
-		%ItemSlots.columns = SLOT_COUNT
-		%ItemSlots.add_child(inventory_slot)
