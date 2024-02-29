@@ -14,6 +14,8 @@ func _init() -> void:
 
 
 func _physics_process(delta):
+	if health <= 0:
+		return
 	if player_chase:
 		velocity = position.direction_to(get_node("/root/Game/Player").position) * speed
 		$AnimatedSprite2D.play("walk")
@@ -47,3 +49,12 @@ func _on_hitbox_body_exited(body):
 	if body is Player:
 		draining = false
 		drain_tick_progress = drain_tick_rate
+
+
+func die():
+	if $AnimatedSprite2D.animation != "death":
+		$AnimatedSprite2D.play("death")
+		return
+	if $AnimatedSprite2D.is_playing():
+		return
+	super.die()

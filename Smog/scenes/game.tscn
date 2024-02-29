@@ -13,7 +13,7 @@
 position = Vector2(146, 33)
 
 [node name="InteractArea" parent="." instance=ExtResource("2_elo5s")]
-position = Vector2(47, 28)
+position = Vector2(38, 39)
 interact_label = "Opium"
 interact_type = "pickup"
 interact_value = "opium"
