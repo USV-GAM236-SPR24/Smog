@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://yntkc1ukkk6l"]
 
 [ext_resource type="FontFile" uid="uid://bhr5ahy1qof7j" path="res://fonts1/PixelifySans-VariableFont_wght.ttf" id="1_xkg4x"]
-[ext_resource type="Script" path="res://scenes/quit.gd" id="2_px7gh"]
+[ext_resource type="Script" path="res://scripts/quit.gd" id="2_px7gh"]
 
 [node name="MainMenuUI" type="CanvasLayer"]
 
