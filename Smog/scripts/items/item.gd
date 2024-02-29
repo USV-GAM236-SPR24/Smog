@@ -15,6 +15,11 @@ var sprite: Sprite2D
 @export var type := ItemType.DEFAULT
 
 
+func _init(new_name: String="item", new_texture: Texture2D=texture) -> void:
+	item_name = new_name
+	texture = new_texture
+
+
 func _enter_tree() -> void:
 	sprite = Sprite2D.new()
 	sprite.texture = texture
