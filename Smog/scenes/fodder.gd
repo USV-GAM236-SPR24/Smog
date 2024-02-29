@@ -7,7 +7,8 @@ var player_chase = false
 var player = null
 
 func _ready():
-	var _sanity_reference = get_node("res://scripts/sanity.gd")
+	#var _sanity_reference = get_node("res://scripts/sanity.gd")
+	pass
 
 func _physics_process(delta):
 	if player_chase:
