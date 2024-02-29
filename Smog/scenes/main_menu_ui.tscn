@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://yntkc1ukkk6l"]
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_fiyxg"]
-[ext_resource type="FontFile" uid="uid://bhr5ahy1qof7j" path="res://fonts1/PixelifySans-VariableFont_wght.ttf" id="1_xkg4x"]
+[ext_resource type="FontFile" uid="uid://dyk3j3j4samrl" path="res://fonts/smog.ttf" id="2_wihng"]
 
 [node name="MainMenuUI" type="CanvasLayer"]
 script = ExtResource("1_fiyxg")
@@ -65,8 +65,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_xkg4x")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("2_wihng")
+theme_override_font_sizes/font_size = 24
 text = "Smog"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -90,7 +90,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("1_xkg4x")
+theme_override_fonts/font = ExtResource("2_wihng")
+theme_override_font_sizes/font_size = 12
 text = "START"
 
 [node name="Quit" type="Button" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer"]
@@ -98,7 +99,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("1_xkg4x")
+theme_override_fonts/font = ExtResource("2_wihng")
+theme_override_font_sizes/font_size = 12
 text = "QUIT
 "
 

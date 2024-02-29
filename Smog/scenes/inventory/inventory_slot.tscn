@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dxv1wjlj6r46"]
 
 [ext_resource type="Script" path="res://scripts/inventory/inventory_slot.gd" id="2_ncere"]
-[ext_resource type="FontFile" uid="uid://bhr5ahy1qof7j" path="res://fonts1/PixelifySans-VariableFont_wght.ttf" id="4_jlp45"]
+[ext_resource type="FontFile" uid="uid://dyk3j3j4samrl" path="res://fonts/smog.ttf" id="2_yvf1k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ah2kc"]
 
@@ -43,16 +43,17 @@ icon_alignment = 1
 [node name="itemCounter" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 10.0
-offset_top = -10.0
-offset_right = 30.0
-offset_bottom = 10.0
+offset_left = 12.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 16.0
 theme_override_colors/font_color = Color(1, 0.866667, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 6
-theme_override_fonts/font = ExtResource("4_jlp45")
+theme_override_fonts/font = ExtResource("2_yvf1k")
 theme_override_font_sizes/font_size = 12
 text = "nA"
 

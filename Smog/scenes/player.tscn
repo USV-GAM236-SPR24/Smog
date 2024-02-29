@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://beglrerj5k48"]
+[gd_scene load_steps=6 format=3 uid="uid://beglrerj5k48"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_n7sla"]
+[ext_resource type="FontFile" uid="uid://dyk3j3j4samrl" path="res://fonts/smog.ttf" id="2_4x82q"]
 [ext_resource type="SpriteFrames" uid="uid://d3nvx623kxadr" path="res://art/animations/player/player_spriteframes.tres" id="2_dmvm8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuupm"]
@@ -44,6 +45,8 @@ offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_4x82q")
+theme_override_font_sizes/font_size = 12
 text = "Test"
 horizontal_alignment = 1
 vertical_alignment = 1
