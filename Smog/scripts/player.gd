@@ -41,6 +41,5 @@ func _update_anim() -> void:
 		Vector2.LEFT: %AnimationPlayer.play("left")
 		_: %AnimationPlayer.stop()
 
-
 func _update_raycast():
-	%RayCast2D.target_position = get_global_mouse_position()
+	%RayCast2D.target_position = get_local_mouse_position()
