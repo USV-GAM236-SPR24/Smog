@@ -11,6 +11,10 @@ radius = 15.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(150, 209)
+motion_mode = 1
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
 script = ExtResource("1_n7sla")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

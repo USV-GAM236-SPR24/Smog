@@ -136,6 +136,10 @@ radius = 28.0179
 radius = 8.0
 
 [node name="Fodder" type="CharacterBody2D"]
+motion_mode = 1
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
 script = ExtResource("1_a0he4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

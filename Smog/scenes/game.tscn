@@ -9,6 +9,9 @@
 
 [node name="Game" type="Node2D"]
 
+[node name="BloodWall" parent="." instance=ExtResource("3_arpep")]
+position = Vector2(146, 33)
+
 [node name="InteractArea" parent="." instance=ExtResource("5_1gemx")]
 position = Vector2(47, 28)
 interact_label = "Opium"
@@ -17,9 +20,6 @@ interact_value = "opium"
 
 [node name="Fodder" parent="." instance=ExtResource("3_x5gbm")]
 position = Vector2(121, 76)
-
-[node name="BloodWall" parent="." instance=ExtResource("3_arpep")]
-position = Vector2(146, 33)
 
 [node name="Player" parent="." instance=ExtResource("4_ikqgi")]
 position = Vector2(21, 79)
