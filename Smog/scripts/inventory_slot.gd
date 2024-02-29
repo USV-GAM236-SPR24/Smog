@@ -97,8 +97,9 @@ func _update_counter() -> void:
 func _on_button_button_down() -> void:
 	if pressed:
 		return
-	if item_count > 0:
-		pressed = true
+	if item_count == 0:
+		return
+	pressed = true
 	slot_set_pos = self.global_position
 	grab_offset = global_position - get_global_mouse_position()
 
