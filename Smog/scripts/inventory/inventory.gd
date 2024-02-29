@@ -33,7 +33,7 @@ var inventory_slot_scene: PackedScene = preload("res://scenes/inventory/inventor
 var selected_panels_index: int = 0
 
 #list of inventory slots
-@onready var slots: Array = %GridContainer.get_children()
+@onready var slots: Array = %ItemSlots.get_children()
 
 ###  START TESTING
 # T - add one opium instance
@@ -95,7 +95,7 @@ func num_swap(num: int) -> void:
 	
 func move_selector_right() -> void:
 	slots[selected_panels_index].toggle_selected()
-	if(selected_panels_index + 1 < %GridContainer.get_child_count()):
+	if(selected_panels_index + 1 < %ItemSlots.get_child_count()):
 		slots[selected_panels_index + 1].toggle_selected()
 		selected_panels_index += 1
 	else:
@@ -109,7 +109,7 @@ func move_selector_left() -> void:
 		slots[selected_panels_index - 1].toggle_selected()
 		selected_panels_index -= 1
 	elif selected_panels_index == 0:
-		selected_panels_index = %GridContainer.get_child_count() - 1
+		selected_panels_index = %ItemSlots.get_child_count() - 1
 		slots[selected_panels_index].toggle_selected()
 
 
@@ -154,11 +154,11 @@ func use_item() -> void:
 
 #swaps grid container children (InventorySlots) by index
 func swap_children(index_a, index_b) -> void:
-	var valid_index_b: bool = index_a >= 0 and index_b < %GridContainer.get_child_count()
-	var valid_index_a: bool = index_b >= 0 and index_b < %GridContainer.get_child_count()
+	var valid_index_b: bool = index_a >= 0 and index_b < %ItemSlots.get_child_count()
+	var valid_index_a: bool = index_b >= 0 and index_b < %ItemSlots.get_child_count()
 	if valid_index_b and valid_index_a and index_a != index_b:
-		var child_a: InventorySlot = %GridContainer.get_child(index_a)
-		var child_b: InventorySlot = %GridContainer.get_child(index_b)
+		var child_a: InventorySlot = %ItemSlots.get_child(index_a)
+		var child_b: InventorySlot = %ItemSlots.get_child(index_b)
 		
 		child_a.index = index_b
 		child_b.index = index_a
@@ -170,10 +170,10 @@ func swap_children(index_a, index_b) -> void:
 			child_b.toggle_selected()
 			child_a.toggle_selected() 
 		
-		%GridContainer.move_child(child_a, index_b)
-		%GridContainer.move_child(child_b, index_a)
+		%ItemSlots.move_child(child_a, index_b)
+		%ItemSlots.move_child(child_b, index_a)
 		
-	slots = %GridContainer.get_children()
+	slots = %ItemSlots.get_children()
 	
 	
 #setup window size change signal and
@@ -195,5 +195,5 @@ func _enter_tree() -> void:
 		var inventory_slot: InventorySlot = inventory_slot_scene.instantiate()
 		inventory_slot.name = "Slot " + str(i)
 		inventory_slot.index = i
-		%GridContainer.columns = SLOT_COUNT
-		%GridContainer.add_child(inventory_slot)
+		%ItemSlots.columns = SLOT_COUNT
+		%ItemSlots.add_child(inventory_slot)

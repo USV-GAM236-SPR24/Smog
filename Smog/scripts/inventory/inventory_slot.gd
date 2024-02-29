@@ -1,11 +1,11 @@
 class_name InventorySlot
 extends Panel
 
-const PICKUP_RANGE = 40
+const PICKUP_RANGE = 20
 
 const MAX_ITEMS = 16
 
-@export var index : int 
+var index : int 
 
 var item_count: int = 0:
 	set(value):
@@ -24,6 +24,7 @@ var pressed = false
 
 #original position of slot before being dragged
 var slot_set_pos: Vector2
+
 # offset when grabbing item
 var grab_offset: Vector2
 
@@ -74,7 +75,7 @@ func full() -> bool:
 #toggle selection visibility and local var
 func toggle_selected() -> void:
 	
-	var current_inv_select_sprite = get_parent().get_parent().find_child("GridContainer2").get_child(index).get_child(0)
+	var current_inv_select_sprite = get_parent().get_parent().find_child("StaticImages").get_child(index).get_child(0)
 	
 	selected = not selected
 	#%selectImg.visible = selected
@@ -107,13 +108,22 @@ func _on_button_button_down() -> void:
 #when item unselected (and was previously selected ), swap item with closest slot,
 # then pressed set false
 func _on_button_button_up() -> void:
+	#don't pick up item stack if no items
+	if item_count == 0:
+		return
+	
 	pressed = false
 	
 	for slot in get_parent().get_children():
 		if slot == self:
 			continue
 		
-		if slot.get_global_rect().has_point(get_global_mouse_position()):
+		var slot_rect: Rect2 = slot.get_global_rect()
+		var bigger_rect = Rect2(slot_rect.position.x - PICKUP_RANGE / 2.0,\
+		 slot_rect.position.y - PICKUP_RANGE / 2.0, slot_rect.size.x\
+		 + PICKUP_RANGE, slot_rect.size.y + PICKUP_RANGE)
+		
+		if bigger_rect.has_point(get_global_mouse_position()):
 			get_parent().get_parent().swap_children(self.index, slot.index)
 			return
 	
