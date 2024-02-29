@@ -1,12 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxv1wjlj6r46"]
+[gd_scene load_steps=9 format=3 uid="uid://dxv1wjlj6r46"]
 
-[ext_resource type="Texture2D" uid="uid://labft85rsrix" path="res://art/temp/TempMenu4.png" id="1_e246g"]
-[ext_resource type="Script" path="res://scripts/inventory_slot.gd" id="2_ncere"]
+[ext_resource type="Script" path="res://scripts/inventory/inventory_slot.gd" id="2_ncere"]
 [ext_resource type="FontFile" uid="uid://bhr5ahy1qof7j" path="res://fonts1/PixelifySans-VariableFont_wght.ttf" id="4_jlp45"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_emcjm"]
-texture = ExtResource("1_e246g")
-modulate_color = Color(1, 1, 1, 0)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ah2kc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jto2g"]
 
@@ -19,10 +16,10 @@ modulate_color = Color(1, 1, 1, 0)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wrjqt"]
 
 [node name="Panel" type="Panel"]
-custom_minimum_size = Vector2(18, 18)
-offset_right = 18.0
-offset_bottom = 18.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_emcjm")
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ah2kc")
 script = ExtResource("2_ncere")
 
 [node name="items" type="Control" parent="."]
@@ -34,13 +31,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = -3.0
-offset_right = -6.0
-offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.76417, 1.73296)
 theme_override_styles/normal = SubResource("StyleBoxTexture_jto2g")
 theme_override_styles/hover = SubResource("StyleBoxTexture_taxxr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p3dqr")
@@ -59,9 +51,9 @@ theme_override_colors/font_color = Color(1, 0.866667, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 0
-theme_override_constants/outline_size = 0
 theme_override_constants/shadow_outline_size = 6
 theme_override_fonts/font = ExtResource("4_jlp45")
+theme_override_font_sizes/font_size = 12
 text = "nA"
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
