@@ -149,3 +149,7 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_ryavd")
 }
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(0, 123)
