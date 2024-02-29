@@ -28,6 +28,21 @@ var _current: float = MAXIMUM
 var _is_empty: bool = false
 var _is_full: bool = true
 
+func _ready():
+	sanity_changed.connect(save_sanity_value)
+	
+	if SaveSystem.has("sanity_value") == false:
+		SaveSystem.set_var("sanity_value", _current)
+		SaveSystem.save()
+	else:
+		pass
+		#TODO set current sanity value to save system variable
+
+func save_sanity_value(old: float, new: float):
+	print("saved sanity value: ", old, " ", new)
+	SaveSystem.set_var("sanity_value", new)
+	SaveSystem.save()
+
 
 func fill() -> float:
 	var old: float = _current # to emit changed signal

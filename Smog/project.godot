@@ -17,12 +17,17 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SaveSystem="*res://addons/save_system/save_system.gd"
 Sanity="*res://scripts/sanity.gd"
 ConsumableFactory="*res://scripts/consumable_factory.gd"
 
 [dotnet]
 
 project/assembly_name="Smog"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/save_system/plugin.cfg")
 
 [input]
 
