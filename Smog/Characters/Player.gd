@@ -2,11 +2,16 @@ extends CharacterBody2D
 
 @export var player_move_speed : float = 10
 @export var player_acceleraction : float = 10
+@export var starting_direction : Vector2 = Vector2(0, 0.5)
+
+@onready var animation_tree = $AnimationTree
+@onready var state_machine = animation_tree.get("parameters/playback")
 
 @onready var all_interactions = []
 @onready var interactLabel = $"Interaction Components/InertactLabel"
 
 func _ready():
+	update_animation_parameters(starting_direction)
 	update_interactions()
 
 func _physics_process(_delta):
@@ -15,19 +20,38 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 		
-		
-	
+
 	#get input direction
 	var input_direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
 	
+	#udatpe animation
+	update_animation_parameters(input_direction)
+	
 	#update velocity
 	velocity = input_direction * player_move_speed
 	
+	
+	
 	#Move and Slide
 	move_and_slide()
+	
+	pick_new_state()
+	
+#Animation
+
+func update_animation_parameters(move_input : Vector2):
+	if(move_input != Vector2.ZERO):
+		animation_tree.set("parameters/Walk/blend_position", move_input)
+		animation_tree.set("parameters/Idle/blend_position", move_input)
+
+func pick_new_state():
+	if(velocity != Vector2.ZERO):
+		state_machine.travel("Walk")
+	else:
+		state_machine.travel("Idle")
 
 #Interaction Methods
 
@@ -44,6 +68,7 @@ func update_interactions():
 		interactLabel.text = all_interactions[0].interact_label
 	else:
 		interactLabel.text = ""
+
 func execute_interaction():
 	if all_interactions:
 		var cur_interaction = all_interactions[0]
