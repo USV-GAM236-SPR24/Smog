@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://4b8fow3t2txo"]
+
+[ext_resource type="Script" path="res://scenes/shootTest.gd" id="1_0v8hg"]
+[ext_resource type="Texture2D" uid="uid://de6rc1h02yu0o" path="res://USV-Logo_Horizontal_CMYK-Gradient.png" id="2_vf2vw"]
+[ext_resource type="Script" path="res://scenes/Enemy.gd" id="2_vykqw"]
+[ext_resource type="Texture2D" uid="uid://ceect6gfq0wmb" path="res://icon.svg" id="3_pqgl0"]
+[ext_resource type="Script" path="res://scenes/Player.gd" id="3_x446x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu337"]
+size = Vector2(196, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgw30"]
+size = Vector2(97, 90)
+
+[node name="Game" type="Node2D"]
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_left = 488.0
+offset_top = 382.0
+offset_right = 614.0
+offset_bottom = 506.0
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 386.0
+offset_top = 445.0
+offset_right = 438.0
+offset_bottom = 479.0
+text = "shoot"
+script = ExtResource("1_0v8hg")
+
+[node name="Enemy" type="StaticBody2D" parent="."]
+position = Vector2(168, 66)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("2_vykqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(737, 332)
+shape = SubResource("RectangleShape2D_iu337")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+position = Vector2(736, 332.25)
+scale = Vector2(0.646667, 0.484962)
+texture = ExtResource("2_vf2vw")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(150, 209)
+script = ExtResource("3_x446x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(20.5, 164)
+shape = SubResource("RectangleShape2D_jgw30")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(21, 164)
+scale = Vector2(0.757813, 0.6875)
+texture = ExtResource("3_pqgl0")
+
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+position = Vector2(72, 162)
+target_position = Vector2(218, 0)
+collision_mask = 2
+
+[connection signal="pressed" from="Button" to="Button" method="onClick"]
