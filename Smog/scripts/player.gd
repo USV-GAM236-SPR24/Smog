@@ -3,7 +3,8 @@ extends Entity
 
 
 var last_direction: Vector2 = Vector2.RIGHT
-var range = 500
+var shoot_range = 500
+var shooting_mode := false
 
 @export var player_acceleraction : float = 10
 
@@ -25,18 +26,23 @@ func _ready():
 
 func _process(_delta):
 	#interact
-	$RayCast2D.target_position = get_local_mouse_position().normalized() * range
+	$RayCast2D.target_position = get_local_mouse_position().normalized() * shoot_range
 	
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 	
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and shooting_mode:
 		if not $RayCast2D.is_colliding():
 			return
 		var collider = $RayCast2D.get_collider()
-		if collider.has_method("_on_shoot"):
+		if collider is Enemy:
 			print("hit")
 			collider._on_shoot()
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action("shoot_mode"):
+		shooting_mode = event.is_action_pressed("shoot_mode")
 
 
 func _physics_process(_delta):
