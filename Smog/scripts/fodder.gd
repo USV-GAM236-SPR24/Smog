@@ -22,8 +22,9 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2.ZERO
 		$AnimatedSprite2D.play("idle")
-	if draining:
+	if not drain_tick_progress >= drain_tick_rate:
 		drain_tick_progress += delta
+	if draining:
 		if drain_tick_progress >= drain_tick_rate:
 			Sanity.decrease(damage)
 			drain_tick_progress -= drain_tick_rate
@@ -48,7 +49,6 @@ func _on_hitbox_body_entered(body):
 func _on_hitbox_body_exited(body):
 	if body is Player:
 		draining = false
-		drain_tick_progress = drain_tick_rate
 
 
 func die():
