@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://yk5bgx46irl8"]
 
-[ext_resource type="Texture2D" uid="uid://1cp5rexbgp81" path="res://art/temp/sanity_bar_under.png" id="1_o60l5"]
-[ext_resource type="Texture2D" uid="uid://kwp1yyw3rdo1" path="res://art/temp/sanity_bar_progress.png" id="1_qjoat"]
-[ext_resource type="Script" path="res://scripts/sanity_bar.gd" id="2_i6mya"]
+[ext_resource type="Texture2D" uid="uid://c57ebwp7ed33w" path="res://art/temp/sanity_empty.png" id="1_6h50k"]
+[ext_resource type="Texture2D" uid="uid://cwcnc5k64xnla" path="res://art/temp/sanity_full.png" id="2_o60pj"]
+[ext_resource type="Script" path="res://scripts/sanity/sanity_bar.gd" id="3_tvckw"]
 
 [node name="SanityBar" type="TextureProgressBar"]
-offset_right = 256.0
-offset_bottom = 32.0
-texture_under = ExtResource("1_o60l5")
-texture_progress = ExtResource("1_qjoat")
-script = ExtResource("2_i6mya")
+offset_right = 64.0
+offset_bottom = 16.0
+texture_under = ExtResource("1_6h50k")
+texture_progress = ExtResource("2_o60pj")
+script = ExtResource("3_tvckw")
