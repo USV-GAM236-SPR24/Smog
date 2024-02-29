@@ -1,11 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://wstjrxw8m084"]
+[gd_scene load_steps=5 format=3 uid="uid://wstjrxw8m084"]
 
 [ext_resource type="PackedScene" uid="uid://yk5bgx46irl8" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
 [ext_resource type="PackedScene" uid="uid://cqpwn5svyt4ud" path="res://scenes/inventory/inventory.tscn" id="2_3yuhv"]
+[ext_resource type="SpriteFrames" uid="uid://cppn4nnfcni71" path="res://art/BloodWallAnimation2/blood_wall_animation.tres" id="3_h7bgi"]
+[ext_resource type="Script" path="res://scripts/animations/blood_wall.gd" id="4_l8aum"]
 
 [node name="Game" type="Node2D"]
 
 [node name="SanityBar" parent="." instance=ExtResource("1_qg41o")]
+visible = false
 
 [node name="Inventory" parent="." instance=ExtResource("2_3yuhv")]
-scale = Vector2(2, 2)
+
+[node name="BloodWallAnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(79, 65)
+sprite_frames = ExtResource("3_h7bgi")
+animation = &"trigger"
+script = ExtResource("4_l8aum")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 5.0
+offset_top = 52.0
+offset_right = 53.0
+offset_bottom = 83.0
+text = "anim"
+
+[connection signal="pressed" from="Button" to="BloodWallAnimatedSprite" method="trigger"]
