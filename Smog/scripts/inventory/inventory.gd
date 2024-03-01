@@ -27,31 +27,36 @@ extends Control
 
 const SLOT_COUNT: int = 5
 
+const ITEM_SLOT_GAP = 30
+
 var inventory_slot_scene: PackedScene = preload("res://scenes/inventory/inventory_slot.tscn")
 
 #index of currently selected slot in slots
 var selected_panels_index: int = 0
 
+var grabbing: bool = false
+
+var _grab_index: int = 0
+
 #list of inventory slots
 @onready var slots: Array = %ItemSlots.get_children()
 
-###  START TESTING
-# T - add one opium instance
-# F - add three cigarette instances
-# G - example of using toggle() to toggle display of inventory
-# MWheelDown - move_selector_right()
-# MWheelUp - move_selector_left()
-# E - use currently selected item use_item()s
-# (1 - 9) - Select item in inventory
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scroll_up"):
 			move_selector_left()
 	elif event.is_action_pressed("scroll_down"):
 			move_selector_right()
+	elif event.is_action_pressed("use_item"):
+			use_item()
+	elif event.is_action_pressed("item_grab"):
+			grab_item()
+			
 	if not event is InputEventKey:
 		return
 	if not event.is_pressed():
 		return
+		
 	match event.keycode:
 		KEY_1:
 			num_swap(1)
@@ -72,12 +77,8 @@ func _input(event: InputEvent) -> void:
 			for i in range(3):
 				var consumable = ConsumableFactory.create("cigarette")
 				add_item(consumable)
-		KEY_F:
-			use_item()
 		KEY_TAB:
 			toggle()
-#### END TESTING
-
 #setup window size change signal and
 #set first slot as selected
 func _ready() -> void:
@@ -117,6 +118,15 @@ func num_swap(num: int) -> void:
 	
 	
 func move_selector_right() -> void:
+	if grabbing:
+		#hit last slot
+		if _grab_index == SLOT_COUNT - 1:
+			_grab_index = 0
+			slots[selected_panels_index].position -= Vector2(ITEM_SLOT_GAP * SLOT_COUNT, 0)
+		else:
+			_grab_index += 1
+		slots[selected_panels_index].position += Vector2(ITEM_SLOT_GAP, 0)
+		return
 	slots[selected_panels_index].toggle_selected()
 	if(selected_panels_index + 1 < %ItemSlots.get_child_count()):
 		slots[selected_panels_index + 1].toggle_selected()
@@ -127,6 +137,15 @@ func move_selector_right() -> void:
 
 
 func move_selector_left() -> void:
+	if grabbing:
+		#hit first slot
+		if _grab_index == 0:
+			_grab_index = SLOT_COUNT - 1
+			slots[selected_panels_index].position += Vector2(ITEM_SLOT_GAP * SLOT_COUNT, 0)
+		else:
+			_grab_index -= 1
+		slots[selected_panels_index].position -= Vector2(ITEM_SLOT_GAP, 0)
+		return
 	slots[selected_panels_index].toggle_selected()
 	if( selected_panels_index > 0 ):
 		slots[selected_panels_index - 1].toggle_selected()
@@ -176,7 +195,7 @@ func use_item() -> void:
 
 
 #swaps grid container children (InventorySlots) by index
-func swap_children(index_a, index_b) -> void:
+func _swap_children(index_a, index_b) -> void:
 	var valid_index_b: bool = index_a >= 0 and index_b < %ItemSlots.get_child_count()
 	var valid_index_a: bool = index_b >= 0 and index_b < %ItemSlots.get_child_count()
 	if valid_index_b and valid_index_a and index_a != index_b:
@@ -197,3 +216,19 @@ func swap_children(index_a, index_b) -> void:
 		%ItemSlots.move_child(child_b, index_a)
 		
 	slots = %ItemSlots.get_children()
+
+
+func grab_item() -> void:
+	#put item back down
+	if grabbing:
+		slots[selected_panels_index].position += Vector2(0, 10) 
+		_swap_children(_grab_index, slots[selected_panels_index].index)
+		num_swap(_grab_index + 1)
+		grabbing = false
+		return
+	
+	#pick item up if it has items
+	if slots[selected_panels_index].item_count > 0:
+		grabbing = true
+		_grab_index = slots[selected_panels_index].index 
+		slots[selected_panels_index].position -= Vector2(0, 10) 
