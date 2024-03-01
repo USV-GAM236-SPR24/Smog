@@ -2,11 +2,13 @@ class_name EnemyFodder
 extends Enemy
 
 
+const anim_scene: PackedScene = preload("res://scenes/animations/blood_wall.tscn")
+
 var player_chase = false
 var draining = false
 var drain_tick_rate = 0.5
 var drain_tick_progress = drain_tick_rate
-
+var death_angle: Vector2
 
 func _init() -> void:
 	speed = 25
@@ -53,8 +55,17 @@ func _on_hitbox_body_exited(body):
 
 func die():
 	if $AnimatedSprite2D.animation != "death":
+		var anim_instance = anim_scene.instantiate()
 		$AnimatedSprite2D.play("death")
+		
+		anim_instance.name = "BloodAnim"
+		get_parent().add_child(anim_instance)
+		get_parent().move_child(get_parent().get_node("BloodAnim"), 0)
+		get_parent().get_node("BloodAnim").position = self.position + Vector2(0, 15) #offset
+		get_parent().get_node("BloodAnim").get_node("BloodWallAnimatedSprite")._update_direction(death_angle)
+		
 		return
+		
 	if $AnimatedSprite2D.is_playing():
 		return
 	super.die()

@@ -36,7 +36,8 @@ func _process(_delta):
 			return
 		var collider = $RayCast2D.get_collider()
 		if collider is Enemy:
-			print("hit")
+			#print("hit", $RayCast2D.target_position.normalized())
+			collider.death_angle = $RayCast2D.target_position.normalized()
 			collider._on_shoot()
 
 
