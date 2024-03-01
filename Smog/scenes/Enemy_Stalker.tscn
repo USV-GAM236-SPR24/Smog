@@ -1,7 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://fgq2768ox5ql"]
+[gd_scene load_steps=25 format=3 uid="uid://fgq2768ox5ql"]
 
-[ext_resource type="Script" path="res://Enemy_Stalker.gd" id="1_x3nmy"]
-[ext_resource type="Texture2D" uid="uid://c3m2euomo2ipb" path="res://Filler Stuff/NulBoy_SpriteSheet/CharacterSpriteSheet.png" id="2_ovtfn"]
+[ext_resource type="Script" path="res://scripts/Enemy_Stalker.gd" id="1_x3nmy"]
 
 [sub_resource type="Animation" id="Animation_jnmb4"]
 length = 0.001
@@ -202,9 +201,6 @@ script = ExtResource("1_x3nmy")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2.9375, -14.6563)
 scale = Vector2(14.9896, 14.8826)
-texture = ExtResource("2_ovtfn")
-hframes = 4
-vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -221,5 +217,5 @@ parameters/Idle/blend_position = Vector2(0, 0.037037)
 parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.5, 5)
+position = Vector2(76, 107)
 shape = SubResource("RectangleShape2D_bedtr")
