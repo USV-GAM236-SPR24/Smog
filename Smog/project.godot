@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Sanity="*res://scripts/sanity/sanity.gd"
 ConsumableFactory="*res://scripts/consumables/consumable_factory.gd"
+Global="*res://scripts/global.gd"
 
 [display]
 
