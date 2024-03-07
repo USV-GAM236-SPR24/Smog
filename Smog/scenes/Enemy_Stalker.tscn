@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://fgq2768ox5ql"]
 
 [ext_resource type="Script" path="res://scripts/Enemy_Stalker.gd" id="1_x3nmy"]
-[ext_resource type="Texture2D" uid="uid://bmk72smqs3eo1" path="res://art/temp/slime.png" id="2_vicjp"]
+[ext_resource type="Texture2D" uid="uid://drotcln1b3wlx" path="res://art/Stalker/stalkerSpritesheet.png" id="2_pddl0"]
 
 [sub_resource type="Animation" id="Animation_jnmb4"]
 length = 0.001
@@ -192,22 +192,22 @@ states/walk/position = Vector2(383, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_4owbo"), "Idle", "walk", SubResource("AnimationNodeStateMachineTransition_twb23"), "walk", "End", SubResource("AnimationNodeStateMachineTransition_8v1tt")]
 graph_offset = Vector2(-157, -2)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d70v6"]
-radius = 5.09902
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ih21"]
+radius = 16.0
+height = 54.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bedtr"]
-size = Vector2(38.3125, 31.375)
+size = Vector2(88.7891, 62.4219)
 
 [node name="EnemyStalker" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_x3nmy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -2)
-scale = Vector2(0.873377, 0.88227)
-texture = ExtResource("2_vicjp")
-hframes = 7
-vframes = 5
+position = Vector2(0, -1)
+scale = Vector2(0.575896, 0.58176)
+texture = ExtResource("2_pddl0")
+hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -224,7 +224,8 @@ parameters/Idle/blend_position = Vector2(0, 0.037037)
 parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="Colission" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_d70v6")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5ih21")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(9, 7)
@@ -233,5 +234,10 @@ position = Vector2(9, 7)
 position = Vector2(-9, -7)
 shape = SubResource("RectangleShape2D_bedtr")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
