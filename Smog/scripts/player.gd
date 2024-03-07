@@ -1,6 +1,7 @@
 class_name Player
 extends Entity
 
+signal position_changed(old: Vector2, new: Vector2)
 
 var last_direction: Vector2 = Vector2.RIGHT
 var shoot_range = 500
@@ -20,9 +21,23 @@ func _enter_tree() -> void:
 
 
 func _ready():
+	position_changed.connect(save_position_value)
+	if SaveSystem.has("positio_value") == false:
+		var current_pos = position
+		SaveSystem.set_var("position_value", current_pos)
+		SaveSystem.save()
+		print("set position value to current", current_pos)
+	else:
+		var saved_value
+		saved_value = SaveSystem.get_var("position_value")
+		print("Loaded position value: ", SaveSystem.get_var("position_value"))
 	$AnimatedSprite2D.play("idle_right")
 	update_interactions()
 
+func save_position_value(old:Vector2 , new:Vector2 ):
+	print("saved position value: ", old, " ", new)
+	SaveSystem.set_var("position_value", new)
+	SaveSystem.save()
 
 func _process(_delta):
 	#interact
