@@ -6,6 +6,11 @@ var last_direction: Vector2 = Vector2.RIGHT
 var shoot_range = 500
 var shooting_mode := false
 var attack_ip = false
+<<<<<<< Updated upstream
+=======
+var attack = 1
+#Global_player_attack = [weapon damage]
+>>>>>>> Stashed changes
 
 @export var player_acceleraction : float = 10
 
@@ -32,7 +37,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 	
-	if Input.is_action_just_pressed("shoot") and shooting_mode:
+	if Input.is_action_just_pressed("shoot") and shooting_mode == true:
 		if not $RayCast2D.is_colliding():
 			return
 		var collider = $RayCast2D.get_collider()
@@ -124,10 +129,18 @@ func execute_interaction():
 				get_node("/root/Game/Inventory").add_item(pickup)
 
 
+<<<<<<< Updated upstream
 func m_attack():
 	if Input.is_action_just_pressed("shoot") and shooting_mode == false:
 		Global.player_current_attack = true
 		attack_ip = true
+=======
+func m_attack_c():
+	if Input.is_action_just_pressed("shoot") and shooting_mode == false:
+		Global.player_current_attack = true
+		attack_ip = true
+		#emit_signal("player_damage", attack)
+>>>>>>> Stashed changes
 		#match last_direction:
 			#Vector2.RIGHT:
 				#$AnimatedSprite2D.play("m_attack_right")

@@ -12,4 +12,4 @@ func _process(_delta: float) -> void:
 
 
 func _on_shoot():
-	health -= 1
+	health -= Global.player_attack
