@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://4b8fow3t2txo"]
 
 [ext_resource type="Script" path="res://scenes/shootTest.gd" id="1_0v8hg"]
-[ext_resource type="Texture2D" uid="uid://de6rc1h02yu0o" path="res://USV-Logo_Horizontal_CMYK-Gradient.png" id="2_vf2vw"]
+[ext_resource type="Texture2D" uid="uid://h8ub4ktj1b0m" path="res://USV-Logo_Horizontal_CMYK-Gradient.png" id="2_vf2vw"]
 [ext_resource type="Script" path="res://scenes/Enemy.gd" id="2_vykqw"]
 [ext_resource type="Texture2D" uid="uid://dyuo2vqks5v8t" path="res://icon.svg" id="3_pqgl0"]
 [ext_resource type="Script" path="res://scenes/Player.gd" id="3_x446x"]
