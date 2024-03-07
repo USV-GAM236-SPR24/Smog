@@ -6,7 +6,7 @@ var health = 5
 var damage = 10
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if health <= 0:
 		die()
 
