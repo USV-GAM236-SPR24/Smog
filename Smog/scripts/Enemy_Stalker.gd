@@ -9,8 +9,9 @@ var drain_tick_rate = 1
 var drain_tick_progress = drain_tick_rate
 var player_chase = true
 
+#make sure if below stats are changed to change them on timer timeout too
 func _init() -> void:
-	speed = 5	
+	speed = 5
 	damage = 25
 	health = 5
 
@@ -21,7 +22,7 @@ func die():
 
 
 func _on_timer_timeout():
-	speed = 7
+	speed = 5
 	damage = 25
 	health = 5
 

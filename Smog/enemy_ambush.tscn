@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnjdgbay82ats"]
+
+[ext_resource type="Script" path="res://enemy_ambush.gd" id="1_8pfe3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mmxi8"]
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eojq4"]
+radius = 31.0161
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lkihw"]
+radius = 34.0
+
+[node name="Enemy_Ambush" type="CharacterBody2D"]
+script = ExtResource("1_8pfe3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_mmxi8")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="Hurtbox" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_eojq4")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(21, 0)
+
+[node name="Trigger Sphere" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-21, 0)
+shape = SubResource("CircleShape2D_lkihw")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
