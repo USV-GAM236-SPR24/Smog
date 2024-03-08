@@ -30,9 +30,8 @@ func _physics_process(delta):
 	if not player:
 		return
 	velocity = speed*position.direction_to(player.position)
-
 	
-	if position.distance_to(player.position) < 100:
+	if position.distance_to(player.position) < 200:
 		
 		player_chase = true
 	if player_chase:
@@ -49,7 +48,7 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	print("Detected!")
 	if body.name == "Player":
-		player_chase = true
+		#player_chase = true #Player_chase might/should actually be unnecessary code
 		draining = true
 #If player in zone, chase. If not, don't chase.
 
@@ -57,7 +56,7 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	if body.name == "Player":
-		player_chase = false
+		#player_chase = false
 		draining = false
 		drain_tick_progress = drain_tick_rate
 
