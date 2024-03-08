@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://beglrerj5k48"]
+[gd_scene load_steps=6 format=3 uid="uid://beglrerj5k48"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_n7sla"]
 [ext_resource type="SpriteFrames" uid="uid://d3nvx623kxadr" path="res://art/animations/player/player_spriteframes.tres" id="2_dmvm8"]
+[ext_resource type="Texture2D" uid="uid://2wv41dpry108" path="res://art/temp/gun.png" id="2_ev3s7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuupm"]
 size = Vector2(12, 22)
@@ -51,6 +52,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(200, 0)
+
+[node name="GunPivot" type="Marker2D" parent="RayCast2D"]
+unique_name_in_owner = true
+position = Vector2(9.53674e-07, 0)
+rotation = 0.0138833
+scale = Vector2(0.0865656, 0.0865656)
+
+[node name="Sprite2D" type="Sprite2D" parent="RayCast2D/GunPivot"]
+position = Vector2(161.712, -2.24524)
+scale = Vector2(1, 1)
+texture = ExtResource("2_ev3s7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_dmvm8")

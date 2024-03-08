@@ -12,4 +12,5 @@ func _process(_delta: float) -> void:
 
 
 func _on_shoot():
+	print('enemy hit!')
 	health -= 1

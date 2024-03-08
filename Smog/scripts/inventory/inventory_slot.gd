@@ -1,11 +1,11 @@
 class_name InventorySlot
 extends Panel
 
-const PICKUP_RANGE = 20
+const PICKUP_RANGE: int = 20
 
-const MAX_ITEMS = 16
+const MAX_ITEMS: int = 16
 
-@onready var inventory_reference = get_parent().get_parent()
+@onready var inventory_reference: Node = get_parent().get_parent()
 
 var index : int 
 
@@ -19,10 +19,10 @@ var first_item: Item:
 		return %items.get_child(0)
 
 #is item stack selected?
-var selected = false
+var selected: bool = false
 
 #is item being pressed?
-var pressed = false
+var pressed: bool = false
 
 #original position of slot before being dragged
 var slot_set_pos: Vector2
@@ -81,7 +81,7 @@ func full() -> bool:
 #toggle selection visibility and local var
 func toggle_selected() -> void:
 	
-	var current_inv_select_sprite = inventory_reference.find_child("StaticImages").get_child(index).get_child(0)
+	var current_inv_select_sprite: Node = inventory_reference.find_child("StaticImages").get_child(index).get_child(0)
 	
 	selected = not selected
 	#%selectImg.visible = selected
@@ -125,8 +125,8 @@ func _on_button_button_up() -> void:
 		if slot == self:
 			continue
 		
-		var slot_rect: Rect2 = slot.get_global_rect()
-		var bigger_rect = Rect2(slot_rect.position.x - PICKUP_RANGE / 2.0,\
+		var slot_rect: Rect2   = slot.get_global_rect()
+		var bigger_rect: Rect2 = Rect2(slot_rect.position.x - PICKUP_RANGE / 2.0,\
 		 slot_rect.position.y - PICKUP_RANGE / 2.0, slot_rect.size.x\
 		 + PICKUP_RANGE, slot_rect.size.y + PICKUP_RANGE)
 		

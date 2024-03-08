@@ -27,7 +27,7 @@ extends Control
 
 const SLOT_COUNT: int = 5
 
-const ITEM_SLOT_GAP = 30
+const ITEM_SLOT_GAP: int = 30
 
 var inventory_slot_scene: PackedScene = preload("res://scenes/inventory/inventory_slot.tscn")
 
@@ -79,6 +79,8 @@ func _input(event: InputEvent) -> void:
 				add_item(consumable)
 		KEY_TAB:
 			toggle()
+			
+			
 #setup window size change signal and
 #set first slot as selected
 func _ready() -> void:

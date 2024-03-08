@@ -5,6 +5,8 @@ extends Entity
 var last_direction: Vector2 = Vector2.RIGHT
 var shoot_range = 500
 var shooting_mode := false
+var _aim_input_mode: bool # 0 for mouse , 1 for pad
+var aim_dir
 
 @export var player_acceleraction : float = 10
 
@@ -25,8 +27,15 @@ func _ready():
 
 
 func _process(_delta):
-	#interact
-	$RayCast2D.target_position = get_local_mouse_position().normalized() * shoot_range
+	
+	#true if to the left
+	if _gun_side():
+			$RayCast2D/GunPivot/Sprite2D.scale = Vector2(1, -1)
+	else:
+			$RayCast2D/GunPivot/Sprite2D.scale = Vector2(1, 1)
+	
+	if shooting_mode and !aim_dir == Vector2.ZERO:
+		%GunPivot.look_at($RayCast2D.target_position)
 	
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
@@ -42,6 +51,14 @@ func _process(_delta):
 
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		$RayCast2D.target_position = get_local_mouse_position().normalized() * shoot_range
+		_aim_input_mode = 0
+	if event is InputEventJoypadMotion:
+		aim_dir = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
+		$RayCast2D.target_position = self.global_position + (aim_dir * shoot_range)
+		_aim_input_mode = 1
+	
 	if event.is_action("shoot_mode"):
 		shooting_mode = event.is_action_pressed("shoot_mode")
 
@@ -91,21 +108,6 @@ func update_animation(move_input : Vector2):
 			last_direction = Vector2.UP
 
 
-#Interaction Methods
-func _on_interaction_area_area_entered(area):
-	if not area is Interactable:
-		return
-	all_interactions.insert(0, area)
-	update_interactions()
-
-
-func _on_interaction_area_area_exited(area):
-	if not area is Interactable:
-		return
-	all_interactions.erase(area)
-	update_interactions()
-
-
 func update_interactions():
 	if all_interactions:
 		interactLabel.text = all_interactions[0].interact_label
@@ -121,3 +123,23 @@ func execute_interaction():
 			"pickup":
 				var pickup: Consumable = ConsumableFactory.create(cur_interaction.interact_value)
 				get_node("/root/Game/Inventory").add_item(pickup)
+
+
+#Interaction Methods
+func _on_interaction_area_area_entered(area):
+	if not area is Interactable:
+		return
+	all_interactions.insert(0, area)
+	update_interactions()
+
+
+func _on_interaction_area_area_exited(area):
+	if not area is Interactable:
+		return
+	all_interactions.erase(area)
+	update_interactions()
+	
+
+func _gun_side() -> bool:
+	return self.global_position.x - $RayCast2D/GunPivot/Sprite2D.global_position.x > 0
+
