@@ -27,8 +27,7 @@ func _ready():
 
 
 func _process(_delta):
-	
-	#true if to the left
+	#true if to the left, flip gun sprite
 	if _gun_side():
 			$RayCast2D/GunPivot/Sprite2D.scale = Vector2(1, -1)
 	else:
@@ -36,11 +35,16 @@ func _process(_delta):
 	
 	if shooting_mode and !aim_dir == Vector2.ZERO:
 		%GunPivot.look_at($RayCast2D.target_position)
-	
+		
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 	
 	if Input.is_action_just_pressed("shoot") and shooting_mode:
+		$RayCast2D/GunPivot/Sprite2D/Muzzle.visible = true
+		%AnimationPlayer.play("muzzle_flash")
+		await %AnimationPlayer.animation_finished 
+		$RayCast2D/GunPivot/Sprite2D/Muzzle.visible = false
+		
 		if not $RayCast2D.is_colliding():
 			return
 		var collider = $RayCast2D.get_collider()
@@ -64,7 +68,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(_delta):
-
+	
+	$RayCast2D/GunPivot/Sprite2D.visible = true if shooting_mode else false
+	
 	#get input direction
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	

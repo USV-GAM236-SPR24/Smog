@@ -1,14 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://beglrerj5k48"]
+[gd_scene load_steps=10 format=3 uid="uid://beglrerj5k48"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_n7sla"]
 [ext_resource type="SpriteFrames" uid="uid://d3nvx623kxadr" path="res://art/animations/player/player_spriteframes.tres" id="2_dmvm8"]
 [ext_resource type="Texture2D" uid="uid://2wv41dpry108" path="res://art/temp/gun.png" id="2_ev3s7"]
+[ext_resource type="Texture2D" uid="uid://b7vafg4nkok82" path="res://art/temp/muzzle_flash.png" id="3_5i6yg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuupm"]
 size = Vector2(12, 22)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pm7jj"]
 radius = 15.0
+
+[sub_resource type="Animation" id="Animation_hgtkh"]
+resource_name = "muzzle_flash"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RayCast2D/GunPivot/Sprite2D/Muzzle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_e8jxc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RayCast2D/GunPivot/Sprite2D/Muzzle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8v237"]
+_data = {
+"RESET": SubResource("Animation_e8jxc"),
+"muzzle_flash": SubResource("Animation_hgtkh")
+}
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(150, 209)
@@ -64,7 +102,19 @@ position = Vector2(161.712, -2.24524)
 scale = Vector2(1, 1)
 texture = ExtResource("2_ev3s7")
 
+[node name="Muzzle" type="Sprite2D" parent="RayCast2D/GunPivot/Sprite2D"]
+visible = false
+position = Vector2(80.2143, -47.3259)
+texture = ExtResource("3_5i6yg")
+hframes = 6
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_dmvm8")
 animation = &"idle_right"
 speed_scale = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_8v237")
+}
