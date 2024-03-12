@@ -24,6 +24,7 @@ func _physics_process(delta):
 	if player_chase == false:
 		#
 		#puddle animation
+		get_node(Hurtbox).disabled = true
 		#
 		speed = 0
 		damage = 0
@@ -73,3 +74,4 @@ func _on_hurtbox_body_exited(body):
 	if body.name == "Player":
 		draining = false
 		drain_tick_progress = drain_tick_rate
+		
