@@ -40,6 +40,7 @@ func _physics_process(delta):
 		
 	if draining:
 		drain_tick_progress += delta
+		
 		if drain_tick_progress >= drain_tick_rate:
 			Sanity.decrease(damage)
 			drain_tick_progress -= drain_tick_rate

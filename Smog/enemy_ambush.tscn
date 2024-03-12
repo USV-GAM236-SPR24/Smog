@@ -23,6 +23,7 @@ shape = SubResource("CapsuleShape2D_mmxi8")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_eojq4")
+disabled = true
 
 [node name="Detect Zone" type="Area2D" parent="."]
 position = Vector2(21, 0)
