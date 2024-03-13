@@ -4,7 +4,8 @@ extends Node
 enum InteractType {
 	NONE,
 	RESTORE,
-	PICKUP
+	PICKUP,
+	DISCOVERABLE
 }
 
 var interact_label: String
