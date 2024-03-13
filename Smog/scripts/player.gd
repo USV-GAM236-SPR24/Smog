@@ -115,8 +115,4 @@ func update_interactions():
 func execute_interaction():
 	if all_interactions:
 		var cur_interaction = all_interactions[0]
-		match cur_interaction.interact_type:
-			"print_text" : print(cur_interaction.interact_value)
-			"pickup":
-				var pickup: Consumable = ConsumableFactory.create(cur_interaction.interact_value)
-				get_node("/root/Game/Inventory").add_item(pickup)
+		cur_interaction.interact()

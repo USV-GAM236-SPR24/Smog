@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://wstjrxw8m084"]
+[gd_scene load_steps=8 format=3 uid="uid://wstjrxw8m084"]
 
 [ext_resource type="PackedScene" uid="uid://yk5bgx46irl8" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
 [ext_resource type="PackedScene" uid="uid://cqpwn5svyt4ud" path="res://scenes/inventory/inventory.tscn" id="2_3yuhv"]
 [ext_resource type="PackedScene" uid="uid://dvxam8o14r3ye" path="res://scenes/interactable.tscn" id="2_elo5s"]
 [ext_resource type="PackedScene" uid="uid://djk72tgahvi7a" path="res://scenes/animations/blood_wall.tscn" id="3_arpep"]
+[ext_resource type="Script" path="res://scripts/interactables/pickup.gd" id="3_ffy84"]
 [ext_resource type="PackedScene" uid="uid://cwvergowbk2o0" path="res://scenes/fodder.tscn" id="3_x5gbm"]
 [ext_resource type="PackedScene" uid="uid://beglrerj5k48" path="res://scenes/player.tscn" id="4_ikqgi"]
 
@@ -12,11 +13,10 @@
 [node name="BloodWall" parent="." instance=ExtResource("3_arpep")]
 position = Vector2(146, 33)
 
-[node name="InteractArea" parent="." instance=ExtResource("2_elo5s")]
+[node name="Interactable" parent="." instance=ExtResource("2_elo5s")]
 position = Vector2(38, 39)
-interact_label = "Opium"
-interact_type = "pickup"
-interact_value = "opium"
+script = ExtResource("3_ffy84")
+item_name = "key"
 
 [node name="Fodder" parent="." instance=ExtResource("3_x5gbm")]
 position = Vector2(121, 76)
