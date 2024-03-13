@@ -84,7 +84,7 @@ var factory_floor2_note := Discoverable.new(
 #endregion
 
 #region Washroom
-var washrooms_article := Discoverable.new(
+var washroom_article := Discoverable.new(
 	"Cavendish Arrested for Factory Arson and Murder",
 	"" # https://docs.google.com/document/u/2/d/1pJbitUodFei10rMPmQpapur0RnnILjjtFsq9Egbl3BA/edit
 )
