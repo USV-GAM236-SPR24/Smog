@@ -4,8 +4,6 @@ extends Entity
 
 var last_direction: Vector2 = Vector2.RIGHT
 var shoot_range = 500
-var shooting_mode := false
-var _aim_input_mode: bool # 0 for mouse , 1 for pad
 var aim_dir
 
 @export var player_acceleraction : float = 10
@@ -27,50 +25,11 @@ func _ready():
 
 
 func _process(_delta):
-	#true if to the left, flip gun sprite
-	if _gun_side():
-			$RayCast2D/GunPivot/Sprite2D.scale = Vector2(1, -1)
-	else:
-			$RayCast2D/GunPivot/Sprite2D.scale = Vector2(1, 1)
-	
-	if shooting_mode and !aim_dir == Vector2.ZERO:
-		%GunPivot.look_at($RayCast2D.target_position)
-		
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
-	
-	if Input.is_action_just_pressed("shoot") and shooting_mode:
-		$RayCast2D/GunPivot/Sprite2D/Muzzle.visible = true
-		%AnimationPlayer.play("muzzle_flash")
-		await %AnimationPlayer.animation_finished 
-		$RayCast2D/GunPivot/Sprite2D/Muzzle.visible = false
-		
-		if not $RayCast2D.is_colliding():
-			return
-		var collider = $RayCast2D.get_collider()
-		if collider is Enemy:
-			#print("hit", $RayCast2D.target_position.normalized())
-			collider.death_angle = $RayCast2D.target_position.normalized()
-			collider._on_shoot()
-
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		$RayCast2D.target_position = get_local_mouse_position().normalized() * shoot_range
-		_aim_input_mode = 0
-	if event is InputEventJoypadMotion:
-		aim_dir = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
-		$RayCast2D.target_position = self.global_position + (aim_dir * shoot_range)
-		_aim_input_mode = 1
-	
-	if event.is_action("shoot_mode"):
-		shooting_mode = event.is_action_pressed("shoot_mode")
 
 
 func _physics_process(_delta):
-	
-	$RayCast2D/GunPivot/Sprite2D.visible = true if shooting_mode else false
-	
 	#get input direction
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	
@@ -144,8 +103,4 @@ func _on_interaction_area_area_exited(area):
 		return
 	all_interactions.erase(area)
 	update_interactions()
-	
-
-func _gun_side() -> bool:
-	return self.global_position.x - $RayCast2D/GunPivot/Sprite2D.global_position.x > 0
 

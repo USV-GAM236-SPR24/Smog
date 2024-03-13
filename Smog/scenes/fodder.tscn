@@ -133,7 +133,6 @@ radius = 57.2189
 radius = 28.0179
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7sue0"]
-radius = 8.0
 
 [node name="Fodder" type="CharacterBody2D"]
 motion_mode = 1
@@ -150,12 +149,14 @@ animation = &"death"
 
 [node name="detection radius" type="CollisionShape2D" parent="detection_area"]
 shape = SubResource("CircleShape2D_0ul8c")
+debug_color = Color(0.709804, 0.4, 0.72549, 0.419608)
 
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="hitbox shape" type="CollisionShape2D" parent="hitbox"]
 rotation = 1.5708
 shape = SubResource("CircleShape2D_ilkaj")
+debug_color = Color(0.686275, 0.501961, 0.027451, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7sue0")

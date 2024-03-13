@@ -53,6 +53,14 @@ func _on_hitbox_body_exited(body):
 		drain_tick_progress = drain_tick_rate
 
 
+func _on_shoot():
+	await get_tree().create_timer(0.3).timeout
+	$AnimatedSprite2D.self_modulate = Color.RED
+	await get_tree().create_timer(0.3).timeout
+	$AnimatedSprite2D.self_modulate = Color.WHITE
+	super._on_shoot()
+
+
 func die():
 	if $AnimatedSprite2D.animation != "death":
 		var anim_instance = anim_scene.instantiate()
