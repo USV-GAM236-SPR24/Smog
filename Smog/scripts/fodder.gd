@@ -53,12 +53,12 @@ func _on_hitbox_body_exited(body):
 		drain_tick_progress = drain_tick_rate
 
 
-func _on_shoot():
+func _on_hit():
 	await get_tree().create_timer(0.3).timeout
 	$AnimatedSprite2D.self_modulate = Color.RED
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.5).timeout
 	$AnimatedSprite2D.self_modulate = Color.WHITE
-	super._on_shoot()
+	super._on_hit()
 
 
 func die():
