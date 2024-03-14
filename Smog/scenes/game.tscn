@@ -16,13 +16,14 @@
 y_sort_enabled = true
 
 [node name="Level_0" parent="World" instance=ExtResource("1_5t2wj")]
+position = Vector2(0, 0)
 
 [node name="BloodWall" parent="World" instance=ExtResource("3_arpep")]
 visible = false
 position = Vector2(146, 33)
 
 [node name="Interactable" parent="World" instance=ExtResource("2_elo5s")]
-position = Vector2(48, 39)
+position = Vector2(48, 24)
 script = ExtResource("3_ffy84")
 item_name = "key"
 
@@ -31,10 +32,10 @@ position = Vector2(72, 120)
 key = "book"
 
 [node name="Fodder" parent="World" instance=ExtResource("3_x5gbm")]
-position = Vector2(121, 76)
+position = Vector2(160, 76)
 
 [node name="Player" parent="World" instance=ExtResource("4_ikqgi")]
-position = Vector2(24, 72)
+position = Vector2(32, 76)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

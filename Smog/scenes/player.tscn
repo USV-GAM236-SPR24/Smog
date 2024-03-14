@@ -79,4 +79,4 @@ libraries = {
 
 [node name="Gun" parent="." instance=ExtResource("3_b7pyv")]
 unique_name_in_owner = true
-rotation = -0.0407208
+z_index = 1
