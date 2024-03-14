@@ -6,6 +6,9 @@ signal position_changed(old: Vector2, new: Vector2)
 var last_direction: Vector2 = Vector2.RIGHT
 var shoot_range = 500
 var shooting_mode := false
+var attack_ip = false
+var attack = 1
+#Global.player_attack = [weapon damage]
 
 @export var player_acceleraction : float = 10
 
@@ -46,7 +49,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 	
-	if Input.is_action_just_pressed("shoot") and shooting_mode:
+	if Input.is_action_just_pressed("shoot") and shooting_mode == true:
 		if not $RayCast2D.is_colliding():
 			return
 		var collider = $RayCast2D.get_collider()
@@ -78,16 +81,17 @@ func _physics_process(_delta):
 func update_animation(move_input : Vector2):
 	$AnimatedSprite2D.flip_h = false
 	if move_input == Vector2.ZERO:
-		match last_direction:
-			Vector2.RIGHT:
-				$AnimatedSprite2D.play("idle_right")
-			Vector2.LEFT:
-				$AnimatedSprite2D.flip_h = true
-				$AnimatedSprite2D.play("idle_right")
-			Vector2.UP:
-				$AnimatedSprite2D.play("idle_up")
-			Vector2.DOWN:
-				$AnimatedSprite2D.play("idle_down")
+		if attack_ip == false:
+			match last_direction:
+				Vector2.RIGHT:
+					$AnimatedSprite2D.play("idle_right")
+				Vector2.LEFT:
+					$AnimatedSprite2D.flip_h = true
+					$AnimatedSprite2D.play("idle_right")
+				Vector2.UP:
+					$AnimatedSprite2D.play("idle_up")
+				Vector2.DOWN:
+					$AnimatedSprite2D.play("idle_down")
 		return
 	if abs(move_input.x) >= abs(move_input.y): # moving left-right faster than up-down
 		$AnimatedSprite2D.play("walking_right")
@@ -135,3 +139,19 @@ func execute_interaction():
 			"pickup":
 				var pickup: Consumable = ConsumableFactory.create(cur_interaction.interact_value)
 				get_node("/root/Game/Inventory").add_item(pickup)
+
+
+func m_attack_c():
+	if Input.is_action_just_pressed("shoot") and shooting_mode == false:
+		Global.player_current_attack = true
+		attack_ip = true
+		#emit_signal("player_damage", attack)
+		#match last_direction:
+			#Vector2.RIGHT:
+				#$AnimatedSprite2D.play("m_attack_right")
+			#Vector2.LEFT:
+				#$AnimatedSprite2D.play("m_attack_left")
+			#Vector2.UP:
+				#$AnimatedSprite2D.play("m_attack_up")
+			#Vector2.DOWN:
+				#$AnimatedSprite2D.play("m_attack_down")

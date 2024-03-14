@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://i3hdg6fcyqsd"]
+
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_2m5kk"]
+[ext_resource type="Texture2D" uid="uid://b0qcnpq64wssj" path="res://art/temp/item2.png" id="2_tl0wi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5iga5"]
+size = Vector2(30, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56ckp"]
+size = Vector2(30, 27)
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_2m5kk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.75, 1.6875)
+texture = ExtResource("2_tl0wi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_5iga5")
+
+[node name="player_detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detect"]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_56ckp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="InteractLabel" type="Label" parent="."]
+z_index = 4
+offset_left = -21.0
+offset_top = -37.0
+offset_right = 21.0
+offset_bottom = -14.0
+text = "Open"
+
+[connection signal="area_entered" from="player_detect" to="." method="_on_player_detect_area_entered"]
+[connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]
+[connection signal="body_entered" from="player_detect" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="player_detect" to="." method="_on_player_detect_body_exited"]
