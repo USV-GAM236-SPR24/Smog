@@ -57,3 +57,5 @@ target_position = Vector2(200, 0)
 sprite_frames = ExtResource("2_dmvm8")
 animation = &"idle_right"
 speed_scale = 3.0
+
+[node name="Camera2D" type="Camera2D" parent="."]

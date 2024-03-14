@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://wstjrxw8m084"]
+[gd_scene load_steps=10 format=3 uid="uid://wstjrxw8m084"]
 
+[ext_resource type="PackedScene" uid="uid://cdw2gm7p0c3nv" path="res://levels/level_0.tscn" id="1_5t2wj"]
 [ext_resource type="PackedScene" uid="uid://yk5bgx46irl8" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
 [ext_resource type="PackedScene" uid="uid://cqpwn5svyt4ud" path="res://scenes/inventory/inventory.tscn" id="2_3yuhv"]
 [ext_resource type="PackedScene" uid="uid://dvxam8o14r3ye" path="res://scenes/interactable.tscn" id="2_elo5s"]
@@ -11,28 +12,36 @@
 
 [node name="Game" type="Node2D"]
 
-[node name="BloodWall" parent="." instance=ExtResource("3_arpep")]
+[node name="World" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Level_0" parent="World" instance=ExtResource("1_5t2wj")]
+
+[node name="BloodWall" parent="World" instance=ExtResource("3_arpep")]
+visible = false
 position = Vector2(146, 33)
 
-[node name="Interactable" parent="." instance=ExtResource("2_elo5s")]
-position = Vector2(38, 39)
+[node name="Interactable" parent="World" instance=ExtResource("2_elo5s")]
+position = Vector2(48, 39)
 script = ExtResource("3_ffy84")
 item_name = "key"
 
-[node name="Discoverable" parent="." instance=ExtResource("8_8wlif")]
-position = Vector2(60, 120)
+[node name="Discoverable" parent="World" instance=ExtResource("8_8wlif")]
+position = Vector2(72, 120)
 key = "book"
 
-[node name="Fodder" parent="." instance=ExtResource("3_x5gbm")]
+[node name="Fodder" parent="World" instance=ExtResource("3_x5gbm")]
 position = Vector2(121, 76)
 
-[node name="Player" parent="." instance=ExtResource("4_ikqgi")]
-position = Vector2(21, 79)
+[node name="Player" parent="World" instance=ExtResource("4_ikqgi")]
+position = Vector2(24, 72)
 
-[node name="Inventory" parent="." instance=ExtResource("2_3yuhv")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="SanityBar" parent="." instance=ExtResource("1_qg41o")]
+[node name="SanityBar" parent="CanvasLayer" instance=ExtResource("1_qg41o")]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 68.0
 offset_bottom = 20.0
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("2_3yuhv")]

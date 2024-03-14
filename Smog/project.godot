@@ -25,7 +25,7 @@ SaveSystem="*res://addons/save_system/save_system.gd"
 
 [display]
 
-window/size/viewport_width=188
+window/size/viewport_width=180
 window/size/viewport_height=144
 window/size/resizable=false
 window/size/window_width_override=1024
