@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://wstjrxw8m084"]
+[gd_scene load_steps=11 format=3 uid="uid://wstjrxw8m084"]
 
 [ext_resource type="PackedScene" uid="uid://cdw2gm7p0c3nv" path="res://levels/level_0.tscn" id="1_5t2wj"]
 [ext_resource type="PackedScene" uid="uid://yk5bgx46irl8" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cwvergowbk2o0" path="res://scenes/fodder.tscn" id="3_x5gbm"]
 [ext_resource type="PackedScene" uid="uid://beglrerj5k48" path="res://scenes/player.tscn" id="4_ikqgi"]
 [ext_resource type="PackedScene" uid="uid://icaf1y14cl2p" path="res://scenes/discoverable.tscn" id="8_8wlif"]
+[ext_resource type="PackedScene" uid="uid://dj4ufrnwir7jo" path="res://scenes/pause_ui.tscn" id="10_8ypd1"]
 
 [node name="Game" type="Node2D"]
 
@@ -46,3 +47,7 @@ offset_right = 68.0
 offset_bottom = 20.0
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("2_3yuhv")]
+visible = false
+
+[node name="PauseUI" parent="." instance=ExtResource("10_8ypd1")]
+visible = false
