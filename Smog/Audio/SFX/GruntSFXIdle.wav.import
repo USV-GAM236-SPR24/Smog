@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://5ncxceet45vt"
-path="res://.godot/imported/GruntSFXProto_Attack.wav-9304177f1a028c70d1d705d7dbf7032f.sample"
+path="res://.godot/imported/GruntSFXIdle.wav-06881fea9ef203d9fce956e5b2f6a0a5.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/GruntSFXProto_Attack.wav"
-dest_files=["res://.godot/imported/GruntSFXProto_Attack.wav-9304177f1a028c70d1d705d7dbf7032f.sample"]
+source_file="res://Audio/SFX/GruntSFXIdle.wav"
+dest_files=["res://.godot/imported/GruntSFXIdle.wav-06881fea9ef203d9fce956e5b2f6a0a5.sample"]
 
 [params]
 
