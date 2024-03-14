@@ -15,32 +15,33 @@ func _init() -> void:
 
 
 func _physics_process(delta):
-	if not player:
-		return
+	#if not player:
+		#return
 	if player_chase:
+		print("Chase!")
 		$Animation.play("Chase")
-		speed = 5
+		velocity = position.direction_to(get_node("/root/Game/Player").position) * speed
+		speed = 25
 		damage = 2
 		health = 1
+		move_and_slide()
 	if player_chase == false:
 		#
+		print("Chase = False!")
 		$Animation.play("Puddle")
-		get_node("Hurtbox/Hurtbox").disabled = true
+		#get_node("Hurtbox/Hurtbox").disabled = true
 		
-		speed = 0
-		damage = 0
-	if position.distance_to(player.position) < 200: #If Player not in range, revert to puddle
-		player_chase = false
-		draining = false
 		
-	
-		move_and_slide()
+	#if position.distance_to(player.position) > 200: #If Player not in range, revert to puddle
+		#player_chase = false
+		#draining = false
+		
 	if draining:
 		drain_tick_progress += delta
 		#
 		#grapple animation
 		#
-		player.speed = 0
+		#player.speed = 0
 		if drain_tick_progress >= drain_tick_rate:
 			Sanity.decrease(damage)
 			drain_tick_progress -= drain_tick_rate
@@ -51,19 +52,19 @@ func _physics_process(delta):
 
 
 func die():
-	player.speed = 100
+	#player.speed = 100
 	queue_free()
 
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		if player_chase == false:
-			timer.start(1) #delay before ambush
+			print("detected!")
 			$Animation.play("Emerge")
+			timer.start(5) #delay before ambush
 			player_chase = true
-			get_node("Hurtbox/Hurtbox").disabled = false
-
-
+			
+			#get_node("Hurtbox/Hurtbox").disabled = false
 
 
 func _on_hurtbox_body_entered(body):
