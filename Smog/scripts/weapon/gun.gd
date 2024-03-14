@@ -22,12 +22,8 @@ func _input(event) -> void:
 		aim_mode = 'pad'
 		
 		
-func _process(delta) -> void:
-	if not shoot_mode:
-		$Marker2D/GunSprite.visible = false
-		return
-	else:
-		$Marker2D/GunSprite.visible = true
+func _process(_delta) -> void:
+	$Marker2D/GunSprite.visible = shoot_mode
 	
 	
 	if aim_mode == 'pad':
@@ -60,7 +56,7 @@ func _shoot() -> void:
 	if $RayCast2D.is_colliding():
 		var collider = $RayCast2D.get_collider()
 		if collider is Enemy:
-			collider._on_shoot()
+			collider._take_damage(1)
 
 
 func _on_left() -> bool:
