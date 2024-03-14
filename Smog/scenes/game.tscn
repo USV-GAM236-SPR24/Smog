@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dvxam8o14r3ye" path="res://scenes/interactable.tscn" id="2_elo5s"]
 [ext_resource type="PackedScene" uid="uid://djk72tgahvi7a" path="res://scenes/animations/blood_wall.tscn" id="3_arpep"]
 [ext_resource type="Script" path="res://scripts/interactables/pickup.gd" id="3_ffy84"]
-[ext_resource type="PackedScene" uid="uid://cwvergowbk2o0" path="res://scenes/fodder.tscn" id="3_x5gbm"]
 [ext_resource type="PackedScene" uid="uid://beglrerj5k48" path="res://scenes/player.tscn" id="4_ikqgi"]
+[ext_resource type="PackedScene" uid="uid://cnjdgbay82ats" path="res://scenes/enemy_ambush.tscn" id="7_tqwnr"]
 [ext_resource type="PackedScene" uid="uid://icaf1y14cl2p" path="res://scenes/discoverable.tscn" id="8_8wlif"]
 [ext_resource type="PackedScene" uid="uid://dj4ufrnwir7jo" path="res://scenes/pause_ui.tscn" id="10_8ypd1"]
 
@@ -32,11 +32,11 @@ item_name = "key"
 position = Vector2(72, 120)
 key = "book"
 
-[node name="Fodder" parent="World" instance=ExtResource("3_x5gbm")]
-position = Vector2(160, 76)
-
 [node name="Player" parent="World" instance=ExtResource("4_ikqgi")]
 position = Vector2(32, 76)
+
+[node name="Enemy_Ambush" parent="World" instance=ExtResource("7_tqwnr")]
+position = Vector2(160, 72)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
