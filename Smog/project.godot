@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Sanity="*res://scripts/sanity/sanity.gd"
 ConsumableFactory="*res://scripts/items/consumable_factory.gd"
 ItemFactory="*res://scripts/items/item_factory.gd"
+DiscoverableSystem="*res://scripts/discoverable_system.gd"
 
 [display]
 
