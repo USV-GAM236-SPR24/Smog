@@ -25,23 +25,7 @@ position = Vector2(167, 18)
 [node name="Player" parent="." instance=ExtResource("4_ikqgi")]
 position = Vector2(16, 88)
 
-[node name="SanityBar" parent="." instance=ExtResource("1_qg41o")]
-offset_left = 46.0
-offset_top = 8.0
-offset_right = 110.0
-offset_bottom = 24.0
-
 [node name="Inventory" parent="." instance=ExtResource("2_3yuhv")]
-offset_left = 25.0
-offset_top = 140.0
-offset_right = 25.0
-offset_bottom = 140.0
-
-[node name="Interactable" parent="." instance=ExtResource("2_elo5s")]
-position = Vector2(-46, 30)
-interact_label = "key"
-interact_type = "pickup"
-interact_value = "key"
 
 [node name="SanityBar" parent="." instance=ExtResource("1_qg41o")]
 offset_left = 4.0
