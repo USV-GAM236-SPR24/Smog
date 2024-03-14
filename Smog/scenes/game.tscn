@@ -19,6 +19,10 @@ position = Vector2(38, 39)
 script = ExtResource("3_ffy84")
 item_name = "key"
 
+[node name="Discoverable" parent="." instance=ExtResource("8_8wlif")]
+position = Vector2(60, 120)
+key = "book"
+
 [node name="Fodder" parent="." instance=ExtResource("3_x5gbm")]
 position = Vector2(121, 76)
 
@@ -32,7 +36,3 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 68.0
 offset_bottom = 20.0
-
-[node name="Discoverable" parent="." instance=ExtResource("8_8wlif")]
-position = Vector2(60, 120)
-key = "book"

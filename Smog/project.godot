@@ -17,15 +17,15 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SaveSystem="*res://addons/save_system/save_system.gd"
 Sanity="*res://scripts/sanity/sanity.gd"
 ConsumableFactory="*res://scripts/items/consumable_factory.gd"
 ItemFactory="*res://scripts/items/item_factory.gd"
 DiscoverableSystem="*res://scripts/discoverable_system.gd"
+SaveSystem="*res://addons/save_system/save_system.gd"
 
 [display]
 
-window/size/viewport_width=180
+window/size/viewport_width=188
 window/size/viewport_height=144
 window/size/resizable=false
 window/size/window_width_override=1024
@@ -64,7 +64,7 @@ interact={
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/save_system/plugin.cfg")
+enabled=PackedStringArray("res://addons/ldtk-importer/plugin.cfg", "res://addons/save_system/plugin.cfg")
 
 [input]
 
