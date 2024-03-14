@@ -30,19 +30,32 @@ func _init(new_name := "Empty Discoverable", new_text := "Empty Text", new_type 
 	type = new_type
 	texture_path = new_texture
 	image_path = new_image
-	has_image = type == Discoverable.IMAGE
 	seen = false
+	has_image = type == Discoverable.IMAGE
+
+
+func _enter_tree() -> void:
+	if key.length() == 0:
+		return
+	var data: Dictionary = DiscoverableSystem.discoverables[room][key]
+	display_name = data.display_name
+	text = data.text
+	type = data.type
+	texture_path = data.texture_path
+	has_image = type == Discoverable.IMAGE
+	if has_image:
+		image_path = data.image_path
 	
 	if texture_path == "":
 		texture = PlaceholderTexture2D.new()
 		texture.size = Vector2(16, 16)
 	
 	interact_label = display_name
-	interact_type = InteractType.DISCOVERABLE
-	is_single_use = false
 
 
 func _ready() -> void:
+	$Area2D.body_entered.connect(_on_body_entered)
+	$Area2D.body_exited.connect(_on_body_exited)
 	if texture_path != "":
 		texture = ResourceLoader.load_threaded_get(texture_path)
 	if has_image:
@@ -51,4 +64,19 @@ func _ready() -> void:
 
 
 func _interact() -> void:
-	pass
+	super._interact()
+	print(text)
+
+
+func _on_body_entered(body: Node):
+	if not body is Player:
+		return
+	body.all_interactions.insert(0, self)
+	body.update_interactions()
+
+
+func _on_body_exited(body: Node):
+	if not body is Player:
+		return
+	body.all_interactions.erase(self)
+	body.update_interactions()
