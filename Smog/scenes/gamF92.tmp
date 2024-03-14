@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://djk72tgahvi7a" path="res://scenes/animations/blood_wall.tscn" id="3_arpep"]
 [ext_resource type="PackedScene" uid="uid://cwvergowbk2o0" path="res://scenes/fodder.tscn" id="3_x5gbm"]
 [ext_resource type="PackedScene" uid="uid://beglrerj5k48" path="res://scenes/player.tscn" id="4_ikqgi"]
-[ext_resource type="PackedScene" uid="uid://cnjdgbay82ats" path="res://scenes/enemy_ambush.tscn" id="7_v5h66"]
+[ext_resource type="PackedScene" uid="uid://i3hdg6fcyqsd" path="res://scenes/door.tscn" id="7_6m347"]
 
 [node name="Game" type="Node2D"]
 
@@ -20,10 +20,10 @@ interact_type = "pickup"
 interact_value = "opium"
 
 [node name="Fodder" parent="." instance=ExtResource("3_x5gbm")]
-position = Vector2(167, 18)
+position = Vector2(121, 76)
 
 [node name="Player" parent="." instance=ExtResource("4_ikqgi")]
-position = Vector2(16, 88)
+position = Vector2(21, 79)
 
 [node name="SanityBar" parent="." instance=ExtResource("1_qg41o")]
 offset_left = 46.0
@@ -43,11 +43,5 @@ interact_label = "key"
 interact_type = "pickup"
 interact_value = "key"
 
-[node name="SanityBar" parent="." instance=ExtResource("1_qg41o")]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 68.0
-offset_bottom = 20.0
-
-[node name="Enemy_Ambush" parent="." instance=ExtResource("7_v5h66")]
-position = Vector2(103, 115)
+[node name="Door" parent="." instance=ExtResource("7_6m347")]
+position = Vector2(-4, 16)
