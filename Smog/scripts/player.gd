@@ -61,16 +61,17 @@ func _physics_process(_delta):
 func update_animation(move_input : Vector2):
 	$AnimatedSprite2D.flip_h = false
 	if move_input == Vector2.ZERO:
-		match last_direction:
-			Vector2.RIGHT:
-				$AnimatedSprite2D.play("idle_right")
-			Vector2.LEFT:
-				$AnimatedSprite2D.flip_h = true
-				$AnimatedSprite2D.play("idle_right")
-			Vector2.UP:
-				$AnimatedSprite2D.play("idle_up")
-			Vector2.DOWN:
-				$AnimatedSprite2D.play("idle_down")
+		if attack_ip == false:
+			match last_direction:
+				Vector2.RIGHT:
+					$AnimatedSprite2D.play("idle_right")
+				Vector2.LEFT:
+					$AnimatedSprite2D.flip_h = true
+					$AnimatedSprite2D.play("idle_right")
+				Vector2.UP:
+					$AnimatedSprite2D.play("idle_up")
+				Vector2.DOWN:
+					$AnimatedSprite2D.play("idle_down")
 		return
 	if abs(move_input.x) >= abs(move_input.y): # moving left-right faster than up-down
 		$AnimatedSprite2D.play("walking_right")
