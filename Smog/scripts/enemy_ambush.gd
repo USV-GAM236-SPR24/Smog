@@ -1,8 +1,8 @@
 extends Enemy
 
 @onready var timer: Timer = $Timer
-@onready var player = $/root/Game/Player
-@onready var Hurtbox = $root/Enemy_Ambush/Hurtbox/Hurtbox
+@onready var player = $root/Game/Player
+@onready var Hurtbox = $Hurtbox/Hurtbox
 var draining = false
 var drain_tick_rate = .1
 var drain_tick_progress = drain_tick_rate
@@ -18,14 +18,15 @@ func _physics_process(delta):
 	if not player:
 		return
 	if player_chase:
+		$Animation.play("Chase")
 		speed = 5
 		damage = 2
 		health = 1
 	if player_chase == false:
 		#
-		#puddle animation
-		get_node(Hurtbox).disabled = true
-		#
+		$Animation.play("Puddle")
+		get_node("Hurtbox/Hurtbox").disabled = true
+		
 		speed = 0
 		damage = 0
 	if position.distance_to(player.position) < 200: #If Player not in range, revert to puddle
@@ -58,9 +59,9 @@ func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		if player_chase == false:
 			timer.start(1) #delay before ambush
-			#animation here
+			$Animation.play("Emerge")
 			player_chase = true
-			get_node(Hurtbox).disabled = false
+			get_node("Hurtbox/Hurtbox").disabled = false
 
 
 
