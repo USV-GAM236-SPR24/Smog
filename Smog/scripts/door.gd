@@ -11,6 +11,7 @@ func open_door():
 	#$AnimationPlayer.play()
 	#await $AnimationPlayer.animation_finished
 	$player_detect/CollisionShape2D.disabled = true
+	$CollisionShape2D.disabled = true
 	player_entered = false
 
 func _on_player_detect_body_entered(body):
