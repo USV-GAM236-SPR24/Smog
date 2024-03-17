@@ -1,45 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b70pj2rlxtaka"]
+[gd_scene load_steps=3 format=3 uid="uid://b70pj2rlxtaka"]
 
 [ext_resource type="Script" path="res://scripts/weapon/gun.gd" id="1_57fuw"]
 [ext_resource type="Texture2D" uid="uid://2wv41dpry108" path="res://art/temp/gun.png" id="1_cdhkv"]
-[ext_resource type="Texture2D" uid="uid://b7vafg4nkok82" path="res://art/temp/muzzle_flash.png" id="3_70nww"]
-
-[sub_resource type="Animation" id="Animation_h7ukl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Marker2D/GunSprite/muzzle/Muzzle:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_0lkig"]
-resource_name = "muzzle_flash"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Marker2D/GunSprite/muzzle/Muzzle:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ik7qi"]
-_data = {
-"RESET": SubResource("Animation_h7ukl"),
-"muzzle_flash": SubResource("Animation_0lkig")
-}
 
 [node name="Gun" type="Node2D"]
 script = ExtResource("1_57fuw")
@@ -54,19 +16,5 @@ rotation = -0.0037243
 scale = Vector2(0.0816051, 0.0816051)
 texture = ExtResource("1_cdhkv")
 
-[node name="muzzle" type="Marker2D" parent="Marker2D/GunSprite"]
-position = Vector2(73.765, -61.7457)
-
-[node name="Muzzle" type="Sprite2D" parent="Marker2D/GunSprite/muzzle"]
-visible = false
-texture = ExtResource("3_70nww")
-hframes = 6
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(67, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_ik7qi")
-}

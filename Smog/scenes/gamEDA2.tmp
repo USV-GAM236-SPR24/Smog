@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://wstjrxw8m084"]
+
+[ext_resource type="PackedScene" uid="uid://yk5bgx46irl8" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
+[ext_resource type="PackedScene" uid="uid://cqpwn5svyt4ud" path="res://scenes/inventory/inventory.tscn" id="2_3yuhv"]
+[ext_resource type="PackedScene" uid="uid://dvxam8o14r3ye" path="res://scenes/interactable.tscn" id="2_elo5s"]
+[ext_resource type="PackedScene" uid="uid://djk72tgahvi7a" path="res://scenes/animations/blood_wall.tscn" id="3_arpep"]
+[ext_resource type="PackedScene" uid="uid://cwvergowbk2o0" path="res://scenes/fodder.tscn" id="3_x5gbm"]
+[ext_resource type="PackedScene" uid="uid://beglrerj5k48" path="res://scenes/player.tscn" id="4_ikqgi"]
+[ext_resource type="PackedScene" uid="uid://cnjdgbay82ats" path="res://scenes/enemy_ambush.tscn" id="7_v5h66"]
+
+[node name="Game" type="Node2D"]
+
+[node name="BloodWall" parent="." instance=ExtResource("3_arpep")]
+position = Vector2(146, 33)
+
+[node name="InteractArea" parent="." instance=ExtResource("2_elo5s")]
+position = Vector2(38, 39)
+interact_label = "Opium"
+interact_type = "pickup"
+interact_value = "opium"
+
+[node name="Fodder" parent="." instance=ExtResource("3_x5gbm")]
+position = Vector2(167, 18)
+
+[node name="Player" parent="." instance=ExtResource("4_ikqgi")]
+position = Vector2(16, 88)
+
+[node name="Inventory" parent="." instance=ExtResource("2_3yuhv")]
+
+[node name="SanityBar" parent="." instance=ExtResource("1_qg41o")]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 68.0
+offset_bottom = 20.0
+
+[node name="Enemy_Ambush" parent="." instance=ExtResource("7_v5h66")]
+position = Vector2(103, 115)

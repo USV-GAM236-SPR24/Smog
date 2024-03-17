@@ -133,7 +133,6 @@ radius = 57.2189
 radius = 28.0179
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7sue0"]
-radius = 11.0
 
 [node name="Fodder" type="CharacterBody2D"]
 motion_mode = 1

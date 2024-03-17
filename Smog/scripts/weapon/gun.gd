@@ -1,6 +1,5 @@
 extends Weapon
 
-@onready var player: CharacterBody2D = get_parent()
 
 var aim_direction: Vector2 = Vector2.ZERO
 var gun_range: float = 250
@@ -12,7 +11,7 @@ var shoot_mode: bool = false
 
 func _input(event) -> void:
 	
-	if Input.is_action_pressed("shoot_mode") and not player.swinging_axe:
+	if Input.is_action_pressed("shoot_mode"):
 		shoot_mode = true
 	else:
 		shoot_mode = false
@@ -23,12 +22,8 @@ func _input(event) -> void:
 		aim_mode = 'pad'
 		
 		
-func _process(delta) -> void:
-	if not shoot_mode:
-		$Marker2D/GunSprite.visible = false
-		return
-	else:
-		$Marker2D/GunSprite.visible = true
+func _process(_delta) -> void:
+	$Marker2D/GunSprite.visible = shoot_mode
 	
 	
 	if aim_mode == 'pad':
@@ -43,11 +38,11 @@ func _process(delta) -> void:
 	$RayCast2D.target_position = endpoint
 	
 	
-	if Input.is_action_just_pressed("shoot") and shoot_mode:
+	if Input.is_action_just_pressed("shoot"):
 		_shoot()
 		
 		
-	if self.global_position.x - $Marker2D/GunSprite.global_position.x > 0:
+	if _on_left():
 		if unflipped:
 			$Marker2D/GunSprite.scale *= Vector2(1, -1)
 			unflipped = false
@@ -58,15 +53,12 @@ func _process(delta) -> void:
 		
 		
 func _shoot() -> void:
-	%AnimationPlayer.play("muzzle_flash")
-	$Marker2D/GunSprite/muzzle/Muzzle.visible = true
-	
 	if $RayCast2D.is_colliding():
 		var collider = $RayCast2D.get_collider()
 		if collider is Enemy:
-			collider._on_hit()
-			
-	await get_tree().create_timer(0.5).timeout
-	$Marker2D/GunSprite/muzzle/Muzzle.visible = false
-	return
+			collider._take_damage(1)
+
+
+func _on_left() -> bool:
+	return self.global_position.x - $Marker2D/GunSprite.global_position.x > 0
 	

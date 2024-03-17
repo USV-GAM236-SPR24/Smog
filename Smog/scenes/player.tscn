@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://beglrerj5k48"]
+[gd_scene load_steps=9 format=3 uid="uid://beglrerj5k48"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_n7sla"]
 [ext_resource type="SpriteFrames" uid="uid://d3nvx623kxadr" path="res://art/animations/player/player_spriteframes.tres" id="2_dmvm8"]
 [ext_resource type="PackedScene" uid="uid://b70pj2rlxtaka" path="res://scenes/weapons/gun.tscn" id="3_b7pyv"]
-[ext_resource type="Texture2D" uid="uid://laaykrl2wmun" path="res://art/animations/player/Wilton_Axe_swing_sheet.png" id="4_qikmu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuupm"]
 size = Vector2(12, 22)
@@ -13,118 +12,16 @@ radius = 15.0
 
 [sub_resource type="Animation" id="Animation_e8jxc"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AxeSwingSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_hgtkh"]
 resource_name = "muzzle_flash"
 length = 0.5
 
-[sub_resource type="Animation" id="Animation_n61se"]
-resource_name = "swing_down"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AxeSwingSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-
-[sub_resource type="Animation" id="Animation_j5a6o"]
-resource_name = "swing_left"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AxeSwingSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [18, 17, 16, 15]
-}
-
-[sub_resource type="Animation" id="Animation_bftjl"]
-resource_name = "swing_right"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AxeSwingSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [5, 6, 7, 8]
-}
-
-[sub_resource type="Animation" id="Animation_hnevs"]
-resource_name = "swing_up"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AxeSwingSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [14, 13, 12, 11, 10]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AxeSwingSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8v237"]
 _data = {
 "RESET": SubResource("Animation_e8jxc"),
-"muzzle_flash": SubResource("Animation_hgtkh"),
-"swing_down": SubResource("Animation_n61se"),
-"swing_left": SubResource("Animation_j5a6o"),
-"swing_right": SubResource("Animation_bftjl"),
-"swing_up": SubResource("Animation_hnevs")
+"muzzle_flash": SubResource("Animation_hgtkh")
 }
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_shik0"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nwf81"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruye0"]
-size = Vector2(24, 14)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sv6qa"]
-size = Vector2(24.5, 13)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(150, 209)
@@ -133,6 +30,7 @@ slide_on_ceiling = false
 floor_stop_on_slope = false
 floor_block_on_wall = false
 script = ExtResource("1_n7sla")
+player_acceleraction = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.375)
@@ -168,8 +66,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_dmvm8")
-animation = &"walking_up"
+animation = &"walking_down"
 speed_scale = 3.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -179,45 +79,4 @@ libraries = {
 
 [node name="Gun" parent="." instance=ExtResource("3_b7pyv")]
 unique_name_in_owner = true
-rotation = -0.0407208
-
-[node name="AxeSwingSprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(3, 3)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_qikmu")
-hframes = 5
-vframes = 4
-
-[node name="SwingCollisions" type="Node2D" parent="."]
-
-[node name="right_swing_collision" type="Area2D" parent="SwingCollisions"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SwingCollisions/right_swing_collision"]
-position = Vector2(15, 0)
-shape = SubResource("CapsuleShape2D_shik0")
-
-[node name="left_swing_collision" type="Area2D" parent="SwingCollisions"]
-position = Vector2(-25, -3)
-disable_mode = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SwingCollisions/left_swing_collision"]
-position = Vector2(9, 3)
-shape = SubResource("CapsuleShape2D_nwf81")
-
-[node name="down_swing_collision" type="Area2D" parent="SwingCollisions"]
-position = Vector2(-13, 18)
-disable_mode = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SwingCollisions/down_swing_collision"]
-position = Vector2(13, -4)
-shape = SubResource("RectangleShape2D_ruye0")
-
-[node name="up_swing_collision" type="Area2D" parent="SwingCollisions"]
-disable_mode = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SwingCollisions/up_swing_collision"]
-position = Vector2(0, -15)
-shape = SubResource("RectangleShape2D_sv6qa")
-
-[connection signal="area_entered" from="SwingCollisions/right_swing_collision" to="." method="_on_right_swing_collision_area_entered"]
+z_index = 1
