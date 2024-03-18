@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://wstjrxw8m084"]
+[gd_scene load_steps=12 format=3 uid="uid://wstjrxw8m084"]
 
 [ext_resource type="PackedScene" uid="uid://cdw2gm7p0c3nv" path="res://levels/level_0.tscn" id="1_5t2wj"]
 [ext_resource type="PackedScene" uid="uid://yk5bgx46irl8" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://beglrerj5k48" path="res://scenes/player.tscn" id="4_ikqgi"]
 [ext_resource type="PackedScene" uid="uid://cnjdgbay82ats" path="res://scenes/enemy_ambush.tscn" id="7_tqwnr"]
 [ext_resource type="PackedScene" uid="uid://icaf1y14cl2p" path="res://scenes/discoverable.tscn" id="8_8wlif"]
+[ext_resource type="PackedScene" uid="uid://b5wi7fiv6ghp7" path="res://scenes/UI/weapon_hud.tscn" id="10_7edw4"]
 [ext_resource type="PackedScene" uid="uid://dj4ufrnwir7jo" path="res://scenes/pause_ui.tscn" id="10_8ypd1"]
 
 [node name="Game" type="Node2D"]
@@ -48,6 +49,13 @@ offset_bottom = 20.0
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("2_3yuhv")]
 visible = false
+
+[node name="WeaponHUD" parent="CanvasLayer" instance=ExtResource("10_7edw4")]
+offset_left = 4.0
+offset_top = 20.0
+offset_right = 4.0
+offset_bottom = 20.0
+scale = Vector2(0.922043, 1.10799)
 
 [node name="PauseUI" parent="." instance=ExtResource("10_8ypd1")]
 visible = false

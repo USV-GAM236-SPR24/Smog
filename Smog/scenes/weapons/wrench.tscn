@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://v7338kf5rg4"]
-
-[ext_resource type="Script" path="res://scenes/wrench.gd" id="1_v8nhv"]
-
-[node name="Wrench" type="Node2D"]
-script = ExtResource("1_v8nhv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

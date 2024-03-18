@@ -15,19 +15,21 @@ func _init() -> void:
 
 
 func _physics_process(delta):
-	#if not player:
-		#return
+	if not player:
+		return
+		
 	if player_chase:
-		print("Chase!")
+		#print("Chase!")
 		$Animation.play("Chase")
 		velocity = position.direction_to(player.position) * speed
 		speed = 25
 		damage = 2
 		health = 1
 		move_and_slide()
+		
 	if player_chase == false:
 		#
-		print("Chase = False!")
+		#print("Chase = False!")
 		$Animation.play("Puddle")
 		#get_node("Hurtbox/Hurtbox").disabled = true
 		
@@ -49,7 +51,9 @@ func _physics_process(delta):
 	
 
 #chase player, grapple, chases player, reverts back to puddle if range is off screen
-
+func take_damage(delta):
+	super._take_damage(delta)
+	print(health)
 
 func die():
 	#player.speed = 100
