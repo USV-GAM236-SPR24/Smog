@@ -1,8 +1,33 @@
-[gd_scene load_steps=26 format=3 uid="uid://cnjdgbay82ats"]
+[gd_scene load_steps=33 format=3 uid="uid://cnjdgbay82ats"]
 
 [ext_resource type="Script" path="res://scripts/enemy_ambush.gd" id="1_v7v1j"]
-[ext_resource type="Texture2D" uid="uid://cafix4hj4xwcx" path="res://art/Ambush/Ambush_coming_out_of_puddle_sprite.png" id="2_2e53y"]
-[ext_resource type="Texture2D" uid="uid://dtnn7hofg0qn2" path="res://art/Ambush/puddles_nothing_sprite.png" id="3_yw0pk"]
+[ext_resource type="Texture2D" uid="uid://cafix4hj4xwcx" path="res://Art/Ambush/Ambush_coming_out_of_puddle_sprite.png" id="2_2e53y"]
+[ext_resource type="Texture2D" uid="uid://d0mupf6lxyq7a" path="res://Art/Ambush/Ambush_Idle_v3.png" id="2_d1hei"]
+[ext_resource type="Texture2D" uid="uid://dtnn7hofg0qn2" path="res://Art/Ambush/puddles_nothing_sprite.png" id="3_yw0pk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x22ma"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyn40"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv752"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqy6i"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he27t"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy5tn"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(160, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iawq0"]
 atlas = ExtResource("2_2e53y")
@@ -78,10 +103,28 @@ region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kvm55"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x22ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyn40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv752")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqy6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he27t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy5tn")
+}],
 "loop": true,
-"name": &"Chase",
-"speed": 5.0
+"name": &"Chase (Down)",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -163,8 +206,7 @@ script = ExtResource("1_v7v1j")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kvm55")
-animation = &"Puddle"
-autoplay = "Puddle"
+animation = &"Emerge"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_mmxi8")
@@ -186,3 +228,4 @@ shape = SubResource("CircleShape2D_lkihw")
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_exited" from="Hurtbox" to="." method="_on_hurtbox_body_exited"]
 [connection signal="body_entered" from="Detect Zone" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
