@@ -20,14 +20,35 @@ func _physics_process(delta):
 		#return
 	if player_chase:
 		print("Chase!")
-		$Animation.play("Chase (Down)")
+		
 		velocity = position.direction_to(player.position) * speed
 		speed = 25
 		damage = 2
 		health = 1
+		
+		if (velocity.x > 0 && (abs(velocity.y) < abs(velocity.x))): #right
+			$Animation.play("Chase R")
+			print ("Chase Right!")
+			print(velocity.x)
+			print(velocity.y)
+		if (velocity.x <= 0 && (abs(velocity.y) < abs(velocity.x))): #left
+			$Animation.play("Chase L")
+			print ("Chase Left!")
+			print(velocity.x)
+			print(velocity.y)
+		if (velocity.y >= 0 && (abs(velocity.y) > abs(velocity.x))): #down
+			$Animation.play("Chase D")
+			print ("Chase Down!")
+			print(velocity.x)
+			print(velocity.y)
+		if (velocity.y < 0 && (abs(velocity.y) > abs(velocity.x))): #up
+			$Animation.play("Chase U")
+			print ("Chase Up!")
+			print(velocity.x)
+			print(velocity.y)
 		move_and_slide()
+	
 	if (player_chase == false && detected == false):
-		#
 		
 		$Animation.play("Puddle")
 		#get_node("Hurtbox/Hurtbox").disabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cnjdgbay82ats"]
+[gd_scene load_steps=45 format=3 uid="uid://cnjdgbay82ats"]
 
 [ext_resource type="Script" path="res://scripts/enemy_ambush.gd" id="1_v7v1j"]
 [ext_resource type="Texture2D" uid="uid://cafix4hj4xwcx" path="res://art/Ambush/Ambush_coming_out_of_puddle_sprite.png" id="2_2e53y"]
@@ -28,6 +28,54 @@ region = Rect2(128, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sy5tn"]
 atlas = ExtResource("2_d1hei")
 region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0eyf"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsjd0"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydpfj"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5b30"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhj8c"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44awj"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64oae"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md85m"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rp4kx"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x1aq"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y62o2"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bghrp"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(64, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iawq0"]
 atlas = ExtResource("2_2e53y")
@@ -123,7 +171,58 @@ animations = [{
 "texture": SubResource("AtlasTexture_sy5tn")
 }],
 "loop": true,
-"name": &"Chase (Down)",
+"name": &"Chase D",
+"speed": 8.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Chase L",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0eyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsjd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydpfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5b30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhj8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44awj")
+}],
+"loop": true,
+"name": &"Chase R",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64oae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md85m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rp4kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x1aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y62o2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bghrp")
+}],
+"loop": true,
+"name": &"Chase U",
 "speed": 8.0
 }, {
 "frames": [{
@@ -207,7 +306,7 @@ script = ExtResource("1_v7v1j")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kvm55")
-animation = &"Chase (Down)"
+animation = &"Chase D"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_mmxi8")
