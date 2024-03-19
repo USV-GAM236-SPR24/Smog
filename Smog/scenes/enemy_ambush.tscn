@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cnjdgbay82ats"]
+[gd_scene load_steps=51 format=3 uid="uid://cnjdgbay82ats"]
 
 [ext_resource type="Script" path="res://scripts/enemy_ambush.gd" id="1_v7v1j"]
 [ext_resource type="Texture2D" uid="uid://cafix4hj4xwcx" path="res://art/Ambush/Ambush_coming_out_of_puddle_sprite.png" id="2_2e53y"]
@@ -28,6 +28,30 @@ region = Rect2(128, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sy5tn"]
 atlas = ExtResource("2_d1hei")
 region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hash0"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we0lk"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyiwy"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf1jj"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pevl"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl4m6"]
+atlas = ExtResource("2_d1hei")
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0eyf"]
 atlas = ExtResource("2_d1hei")
@@ -174,10 +198,28 @@ animations = [{
 "name": &"Chase D",
 "speed": 8.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hash0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we0lk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyiwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf1jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pevl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl4m6")
+}],
 "loop": true,
 "name": &"Chase L",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -306,7 +348,7 @@ script = ExtResource("1_v7v1j")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kvm55")
-animation = &"Chase D"
+animation = &"Chase R"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_mmxi8")

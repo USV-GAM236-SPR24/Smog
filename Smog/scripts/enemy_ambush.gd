@@ -28,26 +28,20 @@ func _physics_process(delta):
 		
 		if (velocity.x > 0 && (abs(velocity.y) < abs(velocity.x))): #right
 			$Animation.play("Chase R")
-			print ("Chase Right!")
-			print(velocity.x)
-			print(velocity.y)
+			$Animation.flip_h = false
 		if (velocity.x <= 0 && (abs(velocity.y) < abs(velocity.x))): #left
-			$Animation.play("Chase L")
-			print ("Chase Left!")
-			print(velocity.x)
-			print(velocity.y)
+			$Animation.play("Chase R")
+			$Animation.flip_h = true
+			
 		if (velocity.y >= 0 && (abs(velocity.y) > abs(velocity.x))): #down
 			$Animation.play("Chase D")
-			print ("Chase Down!")
-			print(velocity.x)
-			print(velocity.y)
+			$Animation.flip_h = false
 		if (velocity.y < 0 && (abs(velocity.y) > abs(velocity.x))): #up
 			$Animation.play("Chase U")
-			print ("Chase Up!")
-			print(velocity.x)
-			print(velocity.y)
+			$Animation.flip_h = false
 		move_and_slide()
 	
+
 	if (player_chase == false && detected == false):
 		
 		$Animation.play("Puddle")
