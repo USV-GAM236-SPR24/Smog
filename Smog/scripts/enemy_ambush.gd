@@ -6,6 +6,7 @@ var draining = false
 var drain_tick_rate = .1
 var drain_tick_progress = drain_tick_rate
 var player_chase = false
+var detected = false
 var player: Player
 
 func _init() -> void:
@@ -19,15 +20,15 @@ func _physics_process(delta):
 		#return
 	if player_chase:
 		print("Chase!")
-		$Animation.play("Chase")
+		$Animation.play("Chase (Down)")
 		velocity = position.direction_to(player.position) * speed
 		speed = 25
 		damage = 2
 		health = 1
 		move_and_slide()
-	if player_chase == false:
+	if (player_chase == false && detected == false):
 		#
-		print("Chase = False!")
+		
 		$Animation.play("Puddle")
 		#get_node("Hurtbox/Hurtbox").disabled = true
 		
@@ -60,10 +61,11 @@ func _on_area_2d_body_entered(body):
 	if body is Player:
 		player = body
 		if player_chase == false:
+			detected = true
 			print("detected!")
 			$Animation.play("Emerge")
-			timer.start(5) #delay before ambush
-			player_chase = true
+			timer.start(1) #delay before ambush
+			
 			
 			#get_node("Hurtbox/Hurtbox").disabled = false
 
@@ -80,3 +82,8 @@ func _on_hurtbox_body_exited(body):
 		draining = false
 		drain_tick_progress = drain_tick_rate
 		
+
+
+
+func _on_timer_timeout():
+	player_chase = true

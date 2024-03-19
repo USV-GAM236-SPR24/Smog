@@ -1,9 +1,9 @@
 [gd_scene load_steps=33 format=3 uid="uid://cnjdgbay82ats"]
 
 [ext_resource type="Script" path="res://scripts/enemy_ambush.gd" id="1_v7v1j"]
-[ext_resource type="Texture2D" uid="uid://cafix4hj4xwcx" path="res://Art/Ambush/Ambush_coming_out_of_puddle_sprite.png" id="2_2e53y"]
-[ext_resource type="Texture2D" uid="uid://d0mupf6lxyq7a" path="res://Art/Ambush/Ambush_Idle_v3.png" id="2_d1hei"]
-[ext_resource type="Texture2D" uid="uid://dtnn7hofg0qn2" path="res://Art/Ambush/puddles_nothing_sprite.png" id="3_yw0pk"]
+[ext_resource type="Texture2D" uid="uid://cafix4hj4xwcx" path="res://art/Ambush/Ambush_coming_out_of_puddle_sprite.png" id="2_2e53y"]
+[ext_resource type="Texture2D" uid="uid://d0mupf6lxyq7a" path="res://art/Ambush/Ambush_Idle_v3.png" id="2_d1hei"]
+[ext_resource type="Texture2D" uid="uid://dtnn7hofg0qn2" path="res://art/Ambush/puddles_nothing_sprite.png" id="3_yw0pk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x22ma"]
 atlas = ExtResource("2_d1hei")
@@ -207,7 +207,7 @@ script = ExtResource("1_v7v1j")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kvm55")
-animation = &"Emerge"
+animation = &"Chase (Down)"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_mmxi8")

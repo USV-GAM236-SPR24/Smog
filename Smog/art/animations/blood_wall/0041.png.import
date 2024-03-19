@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byqdedu7w3rn5"
-path="res://.godot/imported/0041.png-894d603d098087a191fe1607d1fbd791.ctex"
+path="res://.godot/imported/0041.png-3acadc1e0b0ead5da02bf4bb9425be1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/animations/blood_wall/0041.png"
-dest_files=["res://.godot/imported/0041.png-894d603d098087a191fe1607d1fbd791.ctex"]
+source_file="res://art/animations/blood_wall/0041.png"
+dest_files=["res://.godot/imported/0041.png-3acadc1e0b0ead5da02bf4bb9425be1b.ctex"]
 
 [params]
 

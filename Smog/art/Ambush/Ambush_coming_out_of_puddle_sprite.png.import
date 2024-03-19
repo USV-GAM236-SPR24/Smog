@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cafix4hj4xwcx"
-path="res://.godot/imported/Ambush_coming_out_of_puddle_sprite.png-051a2babc8a30fb88aba14ad48095a92.ctex"
+path="res://.godot/imported/Ambush_coming_out_of_puddle_sprite.png-7bbebfc4ea8f1d814c779474a64301d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Ambush/Ambush_coming_out_of_puddle_sprite.png"
-dest_files=["res://.godot/imported/Ambush_coming_out_of_puddle_sprite.png-051a2babc8a30fb88aba14ad48095a92.ctex"]
+source_file="res://art/Ambush/Ambush_coming_out_of_puddle_sprite.png"
+dest_files=["res://.godot/imported/Ambush_coming_out_of_puddle_sprite.png-7bbebfc4ea8f1d814c779474a64301d8.ctex"]
 
 [params]
 
