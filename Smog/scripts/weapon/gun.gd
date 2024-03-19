@@ -16,7 +16,7 @@ var current_ammo: int = MAX_AMMO:
 
 func reload() -> void:
 	current_ammo = MAX_AMMO
-	
+
 func update_gun_aim(dir: Vector2) -> void:
 	match dir:
 		Vector2.UP:
@@ -30,42 +30,42 @@ func update_gun_aim(dir: Vector2) -> void:
 				$Marker2D/GunSprite.scale *= Vector2(1, -1)
 				flipped = true
 			%Marker2D.rotation_degrees = 180
-			
-			
+
+
 	aim_direction = dir
 
 
 func _input(event) -> void:
-	
+
 	if Input.is_action_pressed("shoot_mode") and get_parent().can_poke:
 		shoot_mode = true
 	else:
 		shoot_mode = false
-		
+
 	if Input.is_action_just_pressed("reload"):
 		reload()
-		
-		
+
+
 func _process(_delta) -> void:
-	
+
 	$Marker2D/GunSprite.visible = shoot_mode
-	
+
 	if Input.is_action_just_pressed("shoot") and can_shoot and get_parent().can_poke:
 		_shoot() #dont shoot if caning
-		
+
 		await get_tree().create_timer(1).timeout
 		can_shoot = true
-		
+
 func _shoot() -> void:
 	if current_ammo == 0 || not shoot_mode || not can_shoot:
 		return
-	
+
 	can_shoot = false
-	
+
 	current_ammo -= 1
-	
+
 	%AnimationPlayer.play("shoot")
-	
+
 	if $Marker2D/RayCast2D.is_colliding():
 		var collider = $Marker2D/RayCast2D.get_collider()
 		if collider is Enemy:
@@ -74,4 +74,3 @@ func _shoot() -> void:
 func _update_ammo_ui(value) -> void:
 	var hudref: Control = get_node("/root/Game/CanvasLayer/WeaponHUD")
 	hudref.ammo_amount = value
-	

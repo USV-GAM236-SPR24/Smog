@@ -17,7 +17,7 @@ func _init() -> void:
 func _physics_process(delta):
 	if not player:
 		return
-		
+
 	if player_chase:
 		#print("Chase!")
 		$Animation.play("Chase")
@@ -26,18 +26,18 @@ func _physics_process(delta):
 		damage = 2
 		health = 1
 		move_and_slide()
-		
+
 	if player_chase == false:
 		#
 		#print("Chase = False!")
 		$Animation.play("Puddle")
 		#get_node("Hurtbox/Hurtbox").disabled = true
-		
-		
+
+
 	#if position.distance_to(player.position) > 200: #If Player not in range, revert to puddle
 		#player_chase = false
 		#draining = false
-		
+
 	if draining:
 		drain_tick_progress += delta
 		#
@@ -47,8 +47,8 @@ func _physics_process(delta):
 		if drain_tick_progress >= drain_tick_rate:
 			Sanity.decrease(damage)
 			drain_tick_progress -= drain_tick_rate
-				
-	
+
+
 
 #chase player, grapple, chases player, reverts back to puddle if range is off screen
 func take_damage(delta):
@@ -68,7 +68,7 @@ func _on_area_2d_body_entered(body):
 			$Animation.play("Emerge")
 			timer.start(5) #delay before ambush
 			player_chase = true
-			
+
 			#get_node("Hurtbox/Hurtbox").disabled = false
 
 
@@ -83,4 +83,3 @@ func _on_hurtbox_body_exited(body):
 		player = body
 		draining = false
 		drain_tick_progress = drain_tick_rate
-		

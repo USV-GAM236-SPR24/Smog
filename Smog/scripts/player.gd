@@ -43,11 +43,11 @@ func save_position_value(old:Vector2 , new:Vector2 ):
 func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
-		
+
 	if Input.is_action_just_pressed("melee") and can_poke and not %Gun.shoot_mode:
 		%Cane.poke()
 		can_poke = false
-		
+
 		#can only poke once every ___ seconds
 		await get_tree().create_timer(0.6).timeout
 		can_poke = true
@@ -56,16 +56,16 @@ func _process(_delta):
 func _physics_process(_delta):
 	#get input direction
 	input_direction = _round_to_nearest_direction(Input.get_vector("left", "right", "up", "down"))
-	
+
 	#udatpe animation
 	update_animation(input_direction)
-	
+
 	#update gun aim
 	%Gun.update_gun_aim(input_direction)
-	
+
 	#update poke collisions
 	%Cane._update_collision()
-	
+
 	#update velocity
 	velocity = input_direction * speed
 	#Move and Slide
@@ -129,18 +129,18 @@ func _on_interaction_area_area_exited(area):
 		return
 	all_interactions.erase(area)
 	update_interactions()
-	
+
 func _round_to_nearest_direction(input_vector: Vector2) -> Vector2:
-	var rounded_vector = input_vector.normalized() 
+	var rounded_vector = input_vector.normalized()
 	if abs(rounded_vector.x) >= abs(rounded_vector.y):
 		rounded_vector.y = 0
-		rounded_vector.x = round(rounded_vector.x) 
+		rounded_vector.x = round(rounded_vector.x)
 	else:
 		rounded_vector.x = 0
-		rounded_vector.y = round(rounded_vector.y) 
-	
+		rounded_vector.y = round(rounded_vector.y)
+
 	return rounded_vector
-	
+
 func _hide(vis: bool):
 	$AnimatedSprite2D.visible = not vis
 	print("Toggling hide: ", $AnimatedSprite2D.visible)
