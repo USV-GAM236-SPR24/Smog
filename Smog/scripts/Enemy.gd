@@ -11,5 +11,6 @@ func _process(_delta: float) -> void:
 		die()
 
 
-func _on_shoot():
-	health -= Global.player_attack
+func _take_damage(delta: int = 0):
+	print('enemy hit!')
+	health -= delta

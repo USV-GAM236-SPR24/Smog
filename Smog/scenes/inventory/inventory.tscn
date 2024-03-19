@@ -58,6 +58,7 @@ layout_mode = 0
 offset_top = -12.0
 offset_right = 16.0
 offset_bottom = 4.0
+scale = Vector2(1, 0.72)
 texture = ExtResource("4_xemvr")
 
 [node name="SlotSprite3" type="TextureRect" parent="StaticImages"]
@@ -70,6 +71,7 @@ layout_mode = 0
 offset_top = -12.0
 offset_right = 16.0
 offset_bottom = 4.0
+scale = Vector2(1, 0.72)
 texture = ExtResource("4_xemvr")
 
 [node name="SlotSprite4" type="TextureRect" parent="StaticImages"]
@@ -82,6 +84,7 @@ layout_mode = 0
 offset_top = -12.0
 offset_right = 16.0
 offset_bottom = 4.0
+scale = Vector2(1, 0.72)
 texture = ExtResource("4_xemvr")
 
 [node name="SlotSprite5" type="TextureRect" parent="StaticImages"]
@@ -94,6 +97,7 @@ layout_mode = 0
 offset_top = -12.0
 offset_right = 16.0
 offset_bottom = 4.0
+scale = Vector2(1, 0.72)
 texture = ExtResource("4_xemvr")
 
 [node name="SlotSprite6" type="TextureRect" parent="StaticImages"]
@@ -106,6 +110,7 @@ layout_mode = 0
 offset_top = -12.0
 offset_right = 16.0
 offset_bottom = 4.0
+scale = Vector2(1, 0.72)
 texture = ExtResource("4_xemvr")
 
 [node name="ItemSlots" type="GridContainer" parent="."]

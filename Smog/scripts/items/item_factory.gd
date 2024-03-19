@@ -1,4 +1,4 @@
-# autoload: ConsumableFacotry
+# autoload: ItemFacotry
 extends Node
 
 
@@ -6,7 +6,7 @@ var presets: Dictionary
 
 
 func _init() -> void:
-	var preset_file: FileAccess = FileAccess.open("res://consumable_presets.json", FileAccess.READ)
+	var preset_file: FileAccess = FileAccess.open("res://item_presets.json", FileAccess.READ)
 	var raw_presets: Dictionary = JSON.parse_string(preset_file.get_as_text())
 	# parse json into dictionary
 	for preset_name in raw_presets:
@@ -20,12 +20,16 @@ func _init() -> void:
 			presets[preset_name][preset_value] = raw_presets[preset_name][preset_value]
 
 
-func create(preset_name: String = "opium") -> Consumable:
+func create(preset_name: String="") -> Item:
+	if not presets.has(preset_name):
+		if ConsumableFactory.presets.has(preset_name):
+			return ConsumableFactory.create(preset_name)
+		return Item.new("error")
+	
 	var preset: Dictionary = presets[preset_name]
-	var preset_restore_power: int = preset.restore_power
 	var preset_texture: Texture2D = preset.texture
-	return _create(preset_name, preset_restore_power, preset_texture)
+	return _create(preset_name, preset_texture)
 
 
-func _create(new_name: String, new_restore_power: int, new_texture: Texture2D) -> Consumable:
-	return Consumable.new(new_name, new_restore_power, new_texture)
+func _create(new_name: String, new_texture: Texture2D) -> Item:
+	return Item.new(new_name, new_texture)

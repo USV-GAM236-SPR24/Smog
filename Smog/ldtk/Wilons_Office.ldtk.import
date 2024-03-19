@@ -1,0 +1,33 @@
+[remap]
+
+importer="ldtk.import"
+type="PackedScene"
+uid="uid://bc2bi505av14p"
+path="res://.godot/imported/Wilons_Office.ldtk-30a5eb54e27e445c80ba7ff62c97c91e.scn"
+
+[deps]
+
+files=["res://ldtk/tilesets/tileset16x16.res"]
+
+source_file="res://ldtk/Wilons_Office.ldtk"
+dest_files=["res://.godot/imported/Wilons_Office.ldtk-30a5eb54e27e445c80ba7ff62c97c91e.scn", "res://ldtk/tilesets/tileset16x16.res"]
+
+[params]
+
+World=""
+separate_world_layers=false
+Level=""
+Tileset=""
+force_tileset_reimport=true
+tileset_custom_data=false
+atlas_texture_type=0
+Entity=""
+use_entity_placeholders=false
+Post Import=""
+tileset_post_import=""
+entities_post_import=""
+level_post_import=""
+world_post_import=""
+Debug=""
+verbose_output=false
+verbose_post_import=false

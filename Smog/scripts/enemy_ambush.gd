@@ -1,12 +1,12 @@
 extends Enemy
 
 @onready var timer: Timer = $Timer
-@onready var player = $root/Game/Player
 @onready var Hurtbox = $Hurtbox/Hurtbox
 var draining = false
 var drain_tick_rate = .1
 var drain_tick_progress = drain_tick_rate
 var player_chase = false
+var player: Player
 
 func _init() -> void:
 	speed = 0
@@ -20,7 +20,7 @@ func _physics_process(delta):
 	if player_chase:
 		print("Chase!")
 		$Animation.play("Chase")
-		velocity = position.direction_to(get_node("/root/Game/Player").position) * speed
+		velocity = position.direction_to(player.position) * speed
 		speed = 25
 		damage = 2
 		health = 1
@@ -57,7 +57,8 @@ func die():
 
 
 func _on_area_2d_body_entered(body):
-	if body.name == "Player":
+	if body is Player:
+		player = body
 		if player_chase == false:
 			print("detected!")
 			$Animation.play("Emerge")
@@ -69,11 +70,13 @@ func _on_area_2d_body_entered(body):
 
 func _on_hurtbox_body_entered(body):
 	if body.name == "Player":
+		player = body
 		draining = true
 
 
 func _on_hurtbox_body_exited(body):
 	if body.name == "Player":
+		player = body
 		draining = false
 		drain_tick_progress = drain_tick_rate
 		
