@@ -201,6 +201,7 @@ size = Vector2(88.7891, 62.4219)
 
 [node name="EnemyStalker" type="CharacterBody2D"]
 z_index = 1
+motion_mode = 1
 script = ExtResource("1_x3nmy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
