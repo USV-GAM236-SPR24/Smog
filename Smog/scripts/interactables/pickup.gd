@@ -1,6 +1,6 @@
 extends Interactable
 
-
+var key_ring: KeyRing
 var inventory: Inventory
 var item: Item
 
@@ -14,6 +14,7 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
+	key_ring = get_node("/root/Game/CanvasLayer0/KeyRing")
 	inventory = get_node("/root/Game/CanvasLayer/Inventory")
 	item = ItemFactory.create(interact_value)
 	interact_label = item.item_name.capitalize()

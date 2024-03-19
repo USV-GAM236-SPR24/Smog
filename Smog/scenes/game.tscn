@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://wstjrxw8m084"]
+[gd_scene load_steps=13 format=3 uid="uid://wstjrxw8m084"]
 
 [ext_resource type="PackedScene" uid="uid://cdw2gm7p0c3nv" path="res://levels/level_0.tscn" id="1_5t2wj"]
 [ext_resource type="PackedScene" uid="uid://yk5bgx46irl8" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://icaf1y14cl2p" path="res://scenes/discoverable.tscn" id="8_8wlif"]
 [ext_resource type="PackedScene" uid="uid://b5wi7fiv6ghp7" path="res://scenes/UI/weapon_hud.tscn" id="10_7edw4"]
 [ext_resource type="PackedScene" uid="uid://dj4ufrnwir7jo" path="res://scenes/pause_ui.tscn" id="10_8ypd1"]
+[ext_resource type="PackedScene" uid="uid://dmkeex6m7d18r" path="res://scenes/UI/key_ring.tscn" id="11_nrht7"]
 
 [node name="Game" type="Node2D"]
 
@@ -39,7 +40,14 @@ position = Vector2(32, 76)
 [node name="Enemy_Ambush" parent="World" instance=ExtResource("7_tqwnr")]
 position = Vector2(160, 72)
 
+[node name="CanvasLayer0" type="CanvasLayer" parent="."]
+
+[node name="KeyRing" parent="CanvasLayer0" instance=ExtResource("11_nrht7")]
+anchors_preset = 15
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_priority = 1
+layer = 3
 
 [node name="SanityBar" parent="CanvasLayer" instance=ExtResource("1_qg41o")]
 offset_left = 4.0
