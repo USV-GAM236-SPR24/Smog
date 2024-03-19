@@ -20,7 +20,7 @@ func _physics_process(delta):
 	if player_chase:
 		print("Chase!")
 		$Animation.play("Chase")
-		velocity = position.direction_to(player.position) * speed
+d		velocity = position.direction_to(player.position) * speed
 		speed = 25
 		damage = 2
 		health = 1
