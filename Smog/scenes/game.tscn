@@ -40,6 +40,11 @@ position = Vector2(72, 49)
 script = ExtResource("3_ffy84")
 item_name = "key"
 
+[node name="Interactable4" parent="World" instance=ExtResource("2_elo5s")]
+position = Vector2(82, 72)
+script = ExtResource("3_ffy84")
+item_name = "key"
+
 [node name="Discoverable" parent="World" instance=ExtResource("8_8wlif")]
 position = Vector2(72, 120)
 key = "book"

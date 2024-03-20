@@ -6,7 +6,7 @@ const MAX_ITEMS: int = 3
 
 func _add_item(item: Item) -> void:
 	
-	if not item.type == int(Item.ItemType.KEYITEM) or _full():
+	if not item.type == int(Item.ItemType.KEY) or _full():
 		print('Error: KeyRing.gd... _add_item(item: Item), item is not type KEYITEM!')
 		return
 	

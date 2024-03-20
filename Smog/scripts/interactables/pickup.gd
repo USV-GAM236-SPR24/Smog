@@ -22,12 +22,16 @@ func _ready() -> void:
 
 
 func _interact() -> void:
-	super._interact()
-	item.name = "item_pickup"
 	
-	if interact_value == "key":
-		item.type = Item.ItemType.KEYITEM
+	item.name = "item"
+	super._interact()
+	
+	
+	if interact_value == "key" and not key_ring._full():
+		item.type = Item.ItemType.KEY
 		key_ring._add_item(item)
+		print('key ring not full')
+		
 		
 	elif interact_value == "default":
 		item.type = Item.ItemType.DEFAULT
