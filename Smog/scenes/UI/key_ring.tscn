@@ -5,6 +5,7 @@
 
 [node name="KeyRing" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -16,14 +17,15 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.667
 anchor_bottom = 0.694
-offset_left = -40.0
-offset_top = 82.0
-offset_right = -40.06
-offset_bottom = 82.064
+offset_left = -39.0
+offset_top = 61.0
+offset_right = -39.06
+offset_bottom = 61.064
 texture = ExtResource("1_pddhl")
 
 [node name="GridContainer" type="GridContainer" parent="TextureRect"]
 unique_name_in_owner = true
+clip_contents = true
 layout_mode = 0
 offset_left = 51.0
 offset_top = 43.0
@@ -32,11 +34,17 @@ offset_bottom = 83.0
 scale = Vector2(0.445583, 0.153583)
 columns = 3
 
-[node name="Panel" type="Panel" parent="TextureRect/GridContainer"]
+[node name="Panel" type="Control" parent="TextureRect/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Panel2" type="Panel" parent="TextureRect/GridContainer"]
+[node name="Panel2" type="Control" parent="TextureRect/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Panel3" type="Panel" parent="TextureRect/GridContainer"]
+[node name="Panel3" type="Control" parent="TextureRect/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

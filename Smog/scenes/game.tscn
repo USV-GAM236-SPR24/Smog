@@ -30,6 +30,16 @@ position = Vector2(48, 24)
 script = ExtResource("3_ffy84")
 item_name = "key"
 
+[node name="Interactable2" parent="World" instance=ExtResource("2_elo5s")]
+position = Vector2(92, 29)
+script = ExtResource("3_ffy84")
+item_name = "key"
+
+[node name="Interactable3" parent="World" instance=ExtResource("2_elo5s")]
+position = Vector2(72, 49)
+script = ExtResource("3_ffy84")
+item_name = "key"
+
 [node name="Discoverable" parent="World" instance=ExtResource("8_8wlif")]
 position = Vector2(72, 120)
 key = "book"
@@ -43,7 +53,6 @@ position = Vector2(160, 72)
 [node name="CanvasLayer0" type="CanvasLayer" parent="."]
 
 [node name="KeyRing" parent="CanvasLayer0" instance=ExtResource("11_nrht7")]
-anchors_preset = 15
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_priority = 1

@@ -1,15 +1,24 @@
 class_name KeyRing
 extends Control
 
-@onready var items: Array[Node] = %GridContainer.get_children():
-	get:
-		return %GridContainer.get_children()
-		
-		
-func _ready():
-	pass#_add_item()
+const MAX_ITEMS: int = 3
+
+
+func _add_item(item: Item) -> void:
 	
+	if not item.type == int(Item.ItemType.KEYITEM) or _full():
+		print('Error: KeyRing.gd... _add_item(item: Item), item is not type KEYITEM!')
+		return
 	
-func _add_item(item: Item):
-	if item.ItemType == Item.ItemType:
-		pass 
+	for _item in %GridContainer.get_children():
+		if _item.get_child_count() == 0:
+			_item.add_child(item)
+			return
+	
+
+func _full() -> bool:
+	for panel in %GridContainer.get_children():
+		if panel.get_child_count() == 0:
+			return false
+			
+	return true

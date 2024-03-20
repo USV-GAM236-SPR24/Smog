@@ -23,5 +23,14 @@ func _ready() -> void:
 
 func _interact() -> void:
 	super._interact()
-	inventory.add_item(item)
+	item.name = "item_pickup"
 	
+	if interact_value == "key":
+		item.type = Item.ItemType.KEYITEM
+		key_ring._add_item(item)
+		
+	elif interact_value == "default":
+		item.type = Item.ItemType.DEFAULT
+		inventory.add_item(item)
+		
+
