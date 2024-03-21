@@ -43,7 +43,7 @@ interact_label = "key"
 interact_type = "pickup"
 interact_value = "key"
 
-[node name="SanityBar" parent="." instance=ExtResource("1_qg41o")]
+[node name="SanityBar2" parent="." instance=ExtResource("1_qg41o")]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 68.0
