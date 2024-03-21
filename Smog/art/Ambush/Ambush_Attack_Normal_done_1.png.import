@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b21hcqyvdf8bf"
-path="res://.godot/imported/leftright-stalker2.png-550420c7172cd1b0d57e6523f322e4e0.ctex"
+uid="uid://dpfroyuqqx3gt"
+path="res://.godot/imported/Ambush_Attack_Normal_done_1.png-a2d4b521cff9b2fd9a80f9497ff30db6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Stalker/leftright-stalker2.png"
-dest_files=["res://.godot/imported/leftright-stalker2.png-550420c7172cd1b0d57e6523f322e4e0.ctex"]
+source_file="res://art/Ambush/Ambush_Attack_Normal_done_1.png"
+dest_files=["res://.godot/imported/Ambush_Attack_Normal_done_1.png-a2d4b521cff9b2fd9a80f9497ff30db6.ctex"]
 
 [params]
 

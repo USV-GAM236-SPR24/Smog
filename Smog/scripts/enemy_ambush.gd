@@ -12,7 +12,7 @@ var player: Player
 func _init() -> void:
 	speed = 0
 	damage = 0
-	health = 5
+	health = 3
 
 
 func _physics_process(delta):
@@ -26,17 +26,17 @@ func _physics_process(delta):
 		damage = 2
 		health = 1
 		
-		if (velocity.x > 0 && (abs(velocity.y) < abs(velocity.x))): #right
+		if (velocity.x > 0 && (abs(velocity.y) < abs(velocity.x)) && (draining == false)): #right
 			$Animation.play("Chase R")
 			$Animation.flip_h = false
-		if (velocity.x <= 0 && (abs(velocity.y) < abs(velocity.x))): #left
+		if (velocity.x <= 0 && (abs(velocity.y) < abs(velocity.x)) && (draining == false)): #left
 			$Animation.play("Chase R")
 			$Animation.flip_h = true
 			
-		if (velocity.y >= 0 && (abs(velocity.y) > abs(velocity.x))): #down
+		if (velocity.y >= 0 && (abs(velocity.y) > abs(velocity.x)) && (draining == false)): #down
 			$Animation.play("Chase D")
 			$Animation.flip_h = false
-		if (velocity.y < 0 && (abs(velocity.y) > abs(velocity.x))): #up
+		if (velocity.y < 0 && (abs(velocity.y) > abs(velocity.x)) && (draining == false)): #up
 			$Animation.play("Chase U")
 			$Animation.flip_h = false
 		move_and_slide()
@@ -53,6 +53,21 @@ func _physics_process(delta):
 		#draining = false
 		
 	if draining:
+		player.speed = 30
+		if (velocity.x > 0 && (abs(velocity.y) < abs(velocity.x))): #right
+			$Animation.play("Atk R")
+			
+		if (velocity.x <= 0 && (abs(velocity.y) < abs(velocity.x))): #left
+			$Animation.play("Atk R")
+			
+			
+		if (velocity.y >= 0 && (abs(velocity.y) > abs(velocity.x))): #down
+			$Animation.play("Atk D")
+			
+		if (velocity.y < 0 && (abs(velocity.y) > abs(velocity.x))): #up
+			$Animation.play("Atk U")
+		
+		
 		drain_tick_progress += delta
 		#
 		#grapple animation
@@ -68,7 +83,7 @@ func _physics_process(delta):
 
 
 func die():
-	#player.speed = 100
+	player.speed = 100
 	queue_free()
 
 
@@ -96,6 +111,7 @@ func _on_hurtbox_body_exited(body):
 		player = body
 		draining = false
 		drain_tick_progress = drain_tick_rate
+		player.speed = 100
 		
 
 

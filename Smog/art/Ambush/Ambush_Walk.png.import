@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drotcln1b3wlx"
-path="res://.godot/imported/stalkerSpritesheet.png-767fd8b2e26247c2042ff13dc456636c.ctex"
+uid="uid://baiu4rr67pt48"
+path="res://.godot/imported/Ambush_Walk.png-1b65abb310c5aafd3515f062775386f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Stalker/stalkerSpritesheet.png"
-dest_files=["res://.godot/imported/stalkerSpritesheet.png-767fd8b2e26247c2042ff13dc456636c.ctex"]
+source_file="res://art/Ambush/Ambush_Walk.png"
+dest_files=["res://.godot/imported/Ambush_Walk.png-1b65abb310c5aafd3515f062775386f2.ctex"]
 
 [params]
 
