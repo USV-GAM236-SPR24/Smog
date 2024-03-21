@@ -3,9 +3,10 @@ extends Entity
 
 signal position_changed(old: Vector2, new: Vector2)
 
+var input_direction: Vector2 = Vector2.ZERO
 var last_direction: Vector2 = Vector2.RIGHT
 var shoot_range = 500
-var aim_dir
+var can_poke: bool = true
 
 @export var player_acceleraction : float = 10
 
@@ -22,7 +23,7 @@ func _enter_tree() -> void:
 
 func _ready():
 	position_changed.connect(save_position_value)
-	if SaveSystem.has("positio_value") == false:
+	if SaveSystem.has("position_value") == false:
 		var current_pos = position
 		SaveSystem.set_var("position_value", current_pos)
 		SaveSystem.save()
@@ -43,13 +44,27 @@ func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 
+	if Input.is_action_just_pressed("melee") and can_poke and not %Gun.shoot_mode:
+		%Cane.poke()
+		can_poke = false
+
+		#can only poke once every ___ seconds
+		await get_tree().create_timer(0.6).timeout
+		can_poke = true
+
 
 func _physics_process(_delta):
 	#get input direction
-	var input_direction = Input.get_vector("left", "right", "up", "down")
+	input_direction = _round_to_nearest_direction(Input.get_vector("left", "right", "up", "down"))
 
 	#udatpe animation
 	update_animation(input_direction)
+
+	#update gun aim
+	%Gun.update_gun_aim(input_direction)
+
+	#update poke collisions
+	%Cane._update_collision()
 
 	#update velocity
 	velocity = input_direction * speed
@@ -114,3 +129,18 @@ func _on_interaction_area_area_exited(area):
 		return
 	all_interactions.erase(area)
 	update_interactions()
+
+func _round_to_nearest_direction(input_vector: Vector2) -> Vector2:
+	var rounded_vector = input_vector.normalized()
+	if abs(rounded_vector.x) >= abs(rounded_vector.y):
+		rounded_vector.y = 0
+		rounded_vector.x = round(rounded_vector.x)
+	else:
+		rounded_vector.x = 0
+		rounded_vector.y = round(rounded_vector.y)
+
+	return rounded_vector
+
+func _hide(vis: bool):
+	$AnimatedSprite2D.visible = not vis
+	print("Toggling hide: ", $AnimatedSprite2D.visible)

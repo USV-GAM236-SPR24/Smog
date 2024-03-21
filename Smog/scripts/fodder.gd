@@ -68,12 +68,12 @@ func _on_hitbox_body_exited(body):
 		player = body
 
 
-func _on_shoot():
+func take_damage():
 	await get_tree().create_timer(0.3).timeout
 	$AnimatedSprite2D.self_modulate = Color.RED
 	await get_tree().create_timer(0.3).timeout
 	$AnimatedSprite2D.self_modulate = Color.WHITE
-	super._on_shoot()
+	super._take_damage()
 
 
 func die():
