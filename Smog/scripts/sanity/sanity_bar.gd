@@ -11,11 +11,10 @@ func _on_sanity_changed(_old: float, new: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_released():
-		return
-	if event.is_action("ui_accept"):
-		Sanity.change(randi_range(0, 100))
-	elif event.is_action("ui_left"):
-		Sanity.decrease(step)
-	elif event.is_action("ui_right"):
-		Sanity.increase(step)
+	
+	if event is InputEventKey:
+		match event.keycode: 
+			KEY_RIGHT: Sanity.increase(step)
+			KEY_LEFT: Sanity.decrease(step)
+			KEY_SPACE: Sanity.change(randi_range(0, 100))
+			_: return

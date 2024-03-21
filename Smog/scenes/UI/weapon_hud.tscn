@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5wi7fiv6ghp7"]
+
+[ext_resource type="Texture2D" uid="uid://cpmpewqldat3c" path="res://art/UI/ammoBG.png" id="1_kg8mi"]
+[ext_resource type="Script" path="res://scripts/menu/weapon_hud.gd" id="1_w22n7"]
+[ext_resource type="Texture2D" uid="uid://bjo2dm6xl4d6a" path="res://art/UI/gun_LOWPIXEL.png" id="3_sjbjj"]
+
+[node name="WeaponHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w22n7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.811765, 0.635294, 0.913725, 1)
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 40.0
+scale = Vector2(0.777764, 0.250762)
+texture = ExtResource("1_kg8mi")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 9.00016
+offset_top = -1.52124e-05
+offset_right = 49.0002
+offset_bottom = 40.0
+scale = Vector2(0.603264, 0.910555)
+texture = ExtResource("3_sjbjj")
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 0
+offset_left = 36.0006
+offset_top = 11.9635
+offset_right = 91.0006
+offset_bottom = 51.9635
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
+position = Vector2(1.22617e-06, -1.52124e-05)
+scale = Vector2(1.28574, 3.98784)

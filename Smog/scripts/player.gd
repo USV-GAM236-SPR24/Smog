@@ -3,12 +3,10 @@ extends Entity
 
 signal position_changed(old: Vector2, new: Vector2)
 
+var input_direction: Vector2 = Vector2.ZERO
 var last_direction: Vector2 = Vector2.RIGHT
 var shoot_range = 500
-var shooting_mode := false
-var attack_ip = false
-var attack = 1
-#Global.player_attack = [weapon damage]
+var can_poke: bool = true
 
 @export var player_acceleraction : float = 10
 
@@ -25,7 +23,7 @@ func _enter_tree() -> void:
 
 func _ready():
 	position_changed.connect(save_position_value)
-	if SaveSystem.has("positio_value") == false:
+	if SaveSystem.has("position_value") == false:
 		var current_pos = position
 		SaveSystem.set_var("position_value", current_pos)
 		SaveSystem.save()
@@ -43,34 +41,31 @@ func save_position_value(old:Vector2 , new:Vector2 ):
 	SaveSystem.save()
 
 func _process(_delta):
-	#interact
-	$RayCast2D.target_position = get_local_mouse_position().normalized() * shoot_range
-	
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
-	
-	if Input.is_action_just_pressed("shoot") and shooting_mode == true:
-		if not $RayCast2D.is_colliding():
-			return
-		var collider = $RayCast2D.get_collider()
-		if collider is Enemy:
-			print("hit")
-			collider._on_shoot()
 
+	if Input.is_action_just_pressed("melee") and can_poke and not %Gun.shoot_mode:
+		%Cane.poke()
+		can_poke = false
 
-func _input(event: InputEvent) -> void:
-	if event.is_action("shoot_mode"):
-		shooting_mode = event.is_action_pressed("shoot_mode")
+		#can only poke once every ___ seconds
+		await get_tree().create_timer(0.6).timeout
+		can_poke = true
 
 
 func _physics_process(_delta):
-
 	#get input direction
-	var input_direction = Input.get_vector("left", "right", "up", "down")
-	
+	input_direction = _round_to_nearest_direction(Input.get_vector("left", "right", "up", "down"))
+
 	#udatpe animation
 	update_animation(input_direction)
-	
+
+	#update gun aim
+	%Gun.update_gun_aim(input_direction)
+
+	#update poke collisions
+	%Cane._update_collision()
+
 	#update velocity
 	velocity = input_direction * speed
 	#Move and Slide
@@ -81,17 +76,16 @@ func _physics_process(_delta):
 func update_animation(move_input : Vector2):
 	$AnimatedSprite2D.flip_h = false
 	if move_input == Vector2.ZERO:
-		if attack_ip == false:
-			match last_direction:
-				Vector2.RIGHT:
-					$AnimatedSprite2D.play("idle_right")
-				Vector2.LEFT:
-					$AnimatedSprite2D.flip_h = true
-					$AnimatedSprite2D.play("idle_right")
-				Vector2.UP:
-					$AnimatedSprite2D.play("idle_up")
-				Vector2.DOWN:
-					$AnimatedSprite2D.play("idle_down")
+		match last_direction:
+			Vector2.RIGHT:
+				$AnimatedSprite2D.play("idle_right")
+			Vector2.LEFT:
+				$AnimatedSprite2D.flip_h = true
+				$AnimatedSprite2D.play("idle_right")
+			Vector2.UP:
+				$AnimatedSprite2D.play("idle_up")
+			Vector2.DOWN:
+				$AnimatedSprite2D.play("idle_down")
 		return
 	if abs(move_input.x) >= abs(move_input.y): # moving left-right faster than up-down
 		$AnimatedSprite2D.play("walking_right")
@@ -109,6 +103,19 @@ func update_animation(move_input : Vector2):
 			last_direction = Vector2.UP
 
 
+func update_interactions():
+	if all_interactions:
+		interactLabel.text = all_interactions[0].interact_label
+	else:
+		interactLabel.text = ""
+
+
+func execute_interaction():
+	if all_interactions:
+		var cur_interaction = all_interactions[0]
+		cur_interaction.interact()
+
+
 #Interaction Methods
 func _on_interaction_area_area_entered(area):
 	if not area is Interactable:
@@ -123,35 +130,17 @@ func _on_interaction_area_area_exited(area):
 	all_interactions.erase(area)
 	update_interactions()
 
-
-func update_interactions():
-	if all_interactions:
-		interactLabel.text = all_interactions[0].interact_label
+func _round_to_nearest_direction(input_vector: Vector2) -> Vector2:
+	var rounded_vector = input_vector.normalized()
+	if abs(rounded_vector.x) >= abs(rounded_vector.y):
+		rounded_vector.y = 0
+		rounded_vector.x = round(rounded_vector.x)
 	else:
-		interactLabel.text = ""
+		rounded_vector.x = 0
+		rounded_vector.y = round(rounded_vector.y)
 
+	return rounded_vector
 
-func execute_interaction():
-	if all_interactions:
-		var cur_interaction = all_interactions[0]
-		match cur_interaction.interact_type:
-			"print_text" : print(cur_interaction.interact_value)
-			"pickup":
-				var pickup: Consumable = ConsumableFactory.create(cur_interaction.interact_value)
-				get_node("/root/Game/Inventory").add_item(pickup)
-
-
-func m_attack_c():
-	if Input.is_action_just_pressed("shoot") and shooting_mode == false:
-		Global.player_current_attack = true
-		attack_ip = true
-		#emit_signal("player_damage", attack)
-		#match last_direction:
-			#Vector2.RIGHT:
-				#$AnimatedSprite2D.play("m_attack_right")
-			#Vector2.LEFT:
-				#$AnimatedSprite2D.play("m_attack_left")
-			#Vector2.UP:
-				#$AnimatedSprite2D.play("m_attack_up")
-			#Vector2.DOWN:
-				#$AnimatedSprite2D.play("m_attack_down")
+func _hide(vis: bool):
+	$AnimatedSprite2D.visible = not vis
+	print("Toggling hide: ", $AnimatedSprite2D.visible)
