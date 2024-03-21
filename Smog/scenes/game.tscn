@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://wstjrxw8m084"]
+[gd_scene load_steps=12 format=3 uid="uid://wstjrxw8m084"]
 
 [ext_resource type="PackedScene" uid="uid://cdw2gm7p0c3nv" path="res://levels/level_0.tscn" id="1_5t2wj"]
 [ext_resource type="PackedScene" uid="uid://yk5bgx46irl8" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
@@ -7,21 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://djk72tgahvi7a" path="res://scenes/animations/blood_wall.tscn" id="3_arpep"]
 [ext_resource type="Script" path="res://scripts/interactables/pickup.gd" id="3_ffy84"]
 [ext_resource type="PackedScene" uid="uid://beglrerj5k48" path="res://scenes/player.tscn" id="4_ikqgi"]
-[ext_resource type="Script" path="res://scripts/weapon/axe.gd" id="7_jowoy"]
 [ext_resource type="PackedScene" uid="uid://cnjdgbay82ats" path="res://scenes/enemy_ambush.tscn" id="7_tqwnr"]
 [ext_resource type="PackedScene" uid="uid://icaf1y14cl2p" path="res://scenes/discoverable.tscn" id="8_8wlif"]
-[ext_resource type="Texture2D" uid="uid://bhxaw6sggn2t5" path="res://Art/temp/Wilton_Axe_Swing_Spritesheet.png" id="8_hdnfi"]
+[ext_resource type="PackedScene" uid="uid://b5wi7fiv6ghp7" path="res://scenes/UI/weapon_hud.tscn" id="10_7edw4"]
 [ext_resource type="PackedScene" uid="uid://dj4ufrnwir7jo" path="res://scenes/pause_ui.tscn" id="10_8ypd1"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lvuf"]
-
-[sub_resource type="Animation" id="Animation_ssrj4"]
-resource_name = "axe_swing"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_g8ieq"]
-_data = {
-"axe_swing": SubResource("Animation_ssrj4")
-}
 
 [node name="Game" type="Node2D"]
 
@@ -47,24 +36,6 @@ key = "book"
 [node name="Player" parent="World" instance=ExtResource("4_ikqgi")]
 position = Vector2(32, 76)
 
-[node name="Axe" type="Area2D" parent="World/Player"]
-script = ExtResource("7_jowoy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Player/Axe"]
-position = Vector2(26, 1)
-shape = SubResource("RectangleShape2D_1lvuf")
-
-[node name="Sprite2D" type="Sprite2D" parent="World/Player/Axe"]
-texture = ExtResource("8_hdnfi")
-hframes = 5
-vframes = 4
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Player/Axe"]
-root_node = NodePath("../../../..")
-libraries = {
-"": SubResource("AnimationLibrary_g8ieq")
-}
-
 [node name="Enemy_Ambush" parent="World" instance=ExtResource("7_tqwnr")]
 position = Vector2(160, 72)
 
@@ -79,7 +50,12 @@ offset_bottom = 20.0
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("2_3yuhv")]
 visible = false
 
+[node name="WeaponHUD" parent="CanvasLayer" instance=ExtResource("10_7edw4")]
+offset_left = 4.0
+offset_top = 20.0
+offset_right = 4.0
+offset_bottom = 20.0
+scale = Vector2(0.922043, 1.10799)
+
 [node name="PauseUI" parent="." instance=ExtResource("10_8ypd1")]
 visible = false
-
-[connection signal="body_entered" from="World/Player/Axe" to="World/Player/Axe" method="_on_body_entered"]
