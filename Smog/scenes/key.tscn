@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://nfk3mhai8hnj"]
+
+[ext_resource type="Script" path="res://scripts/key.gd" id="1_mtd02"]
+[ext_resource type="Texture2D" uid="uid://dww1avs51vv1g" path="res://art/temp/keys-icon-vector-2545976.jpg" id="2_eeyyq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_puuao"]
+radius = 19.0
+
+[node name="Key" type="Node2D"]
+script = ExtResource("1_mtd02")
+
+[node name="Keys-icon-vector-2545976" type="Sprite2D" parent="."]
+position = Vector2(0.5, 0)
+scale = Vector2(0.017, 0.018)
+texture = ExtResource("2_eeyyq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_puuao")

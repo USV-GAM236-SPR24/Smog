@@ -1,0 +1,14 @@
+{
+	"opium": {
+		"restore_power": 50,
+		"texture_path": "res://art/temp/item1.png"
+	},
+	"alcohol": {
+		"restore_power": 20,
+		"texture_path": "res://art/temp/item2.png"
+	},
+	"cigarette": {
+		"restore_power": 10,
+		"texture_path": "res://art/temp/item3.png"
+	}
+}
