@@ -27,6 +27,7 @@ unique_name_in_owner = true
 anchors_preset = 0
 
 [node name="Button" type="Button" parent="."]
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

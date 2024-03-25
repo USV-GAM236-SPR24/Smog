@@ -115,6 +115,7 @@ func _on_button_button_down() -> void:
 #when item unselected (and was previously selected ), swap item with closest slot,
 # then pressed set false
 func _on_button_button_up() -> void:
+	
 	#don't pick up item stack if no items
 	if item_count == 0:
 		return

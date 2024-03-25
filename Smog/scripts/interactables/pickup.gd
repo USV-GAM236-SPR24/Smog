@@ -14,8 +14,8 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
-	key_ring = get_node("/root/Game/CanvasLayer0/KeyRing")
-	inventory = get_node("/root/Game/CanvasLayer/Inventory")
+	key_ring = get_node("/root/Game/KeyRingLayer/KeyRing")
+	inventory = get_node("/root/Game/InventoryLayer/Inventory")
 	item = ItemFactory.create(interact_value)
 	interact_label = item.item_name.capitalize()
 	$Sprite2D.texture = item.texture
@@ -24,17 +24,17 @@ func _ready() -> void:
 func _interact() -> void:
 	
 	item.name = "item"
+	
 	super._interact()
 	
-	
-	if interact_value == "key" and not key_ring._full():
-		item.type = Item.ItemType.KEY
-		key_ring._add_item(item)
-		print('key ring not full')
+	if interact_value == "key":
+		is_single_use = false
 		
+		if not key_ring._full():
+			is_single_use = true
+			item.type = Item.ItemType.KEY
+			key_ring._add_item(item)
 		
-	elif interact_value == "default":
+	if interact_value == "default":
 		item.type = Item.ItemType.DEFAULT
 		inventory.add_item(item)
-		
-
