@@ -55,7 +55,13 @@
 	"messhall": {
 		"recipe": {
 			"display_name": "Bread Recipe",
-			"text": "- 5 cups Flour\n- 2 cups Chalk\n- 1 cup Plaster of Paris\n- 1 Tsp. Salt\n- 1 Tbl. Lard\n- 3 Tbl. Dry Yeast",
+			"text": 
+"- 5 cups Flour
+- 2 cups Chalk
+- 1 cup Plaster of Paris
+- 1 Tsp. Salt
+- 1 Tbl. Lard
+- 3 Tbl. Dry Yeast",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null

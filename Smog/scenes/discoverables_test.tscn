@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://boymuk5gtyuon"]
+
+[ext_resource type="PackedScene" uid="uid://icaf1y14cl2p" path="res://scenes/discoverable.tscn" id="1_n6uyr"]
+[ext_resource type="PackedScene" uid="uid://beglrerj5k48" path="res://scenes/player.tscn" id="2_uf5xp"]
+
+[node name="DiscoverablesTest" type="Node2D"]
+
+[node name="Discoverable" parent="." instance=ExtResource("1_n6uyr")]
+position = Vector2(16, 16)
+room = "messhall"
+key = "recipe"
+
+[node name="Player" parent="." instance=ExtResource("2_uf5xp")]
+position = Vector2(90, 72)
