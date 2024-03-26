@@ -6,12 +6,13 @@ signal position_changed(old: Vector2, new: Vector2)
 var input_direction: Vector2 = Vector2.ZERO
 var last_direction: Vector2 = Vector2.RIGHT
 var shoot_range = 500
-var can_poke: bool = true
+var poking: bool = false
 
 @export var player_acceleraction : float = 10
 
 @onready var all_interactions = []
 @onready var interactLabel = $"Interaction Components/InertactLabel"
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _enter_tree() -> void:
@@ -22,6 +23,7 @@ func _enter_tree() -> void:
 
 
 func _ready():
+	#sprite.animation_finished.connect(Callable(func(): sprite.offset = Vector2.ZERO))
 	position_changed.connect(save_position_value)
 	if SaveSystem.has("position_value") == false:
 		var current_pos = position
@@ -32,7 +34,7 @@ func _ready():
 		var saved_value
 		saved_value = SaveSystem.get_var("position_value")
 		print("Loaded position value: ", SaveSystem.get_var("position_value"))
-	$AnimatedSprite2D.play("idle_right")
+	$AnimatedSprite2D.play("idle_side")
 	update_interactions()
 
 func save_position_value(old:Vector2 , new:Vector2 ):
@@ -44,21 +46,24 @@ func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 
-	if Input.is_action_just_pressed("melee") and can_poke and not %Gun.shoot_mode:
-		%Cane.poke()
-		can_poke = false
-
-		#can only poke once every ___ seconds
-		await get_tree().create_timer(0.6).timeout
-		can_poke = true
+	if Input.is_action_just_pressed("melee") and not poking and not %Gun.shoot_mode:
+		attack()
+	
+	sprite.offset.y = 0
+	if sprite.animation == "cane_up":
+		sprite.offset.y = -1
+	elif sprite.animation == "cane_down":
+		sprite.offset.y = 6
+	
+	#update animation
+	update_animation(input_direction)
 
 
 func _physics_process(_delta):
 	#get input direction
 	input_direction = _round_to_nearest_direction(Input.get_vector("left", "right", "up", "down"))
 
-	#udatpe animation
-	update_animation(input_direction)
+	
 
 	#update gun aim
 	%Gun.update_gun_aim(input_direction)
@@ -68,27 +73,33 @@ func _physics_process(_delta):
 
 	#update velocity
 	velocity = input_direction * speed
+	
+	if poking:
+		velocity = Vector2.ZERO
+	
 	#Move and Slide
 	move_and_slide()
 
 
 #Animation
 func update_animation(move_input : Vector2):
+	if poking:
+		return
 	$AnimatedSprite2D.flip_h = false
 	if move_input == Vector2.ZERO:
 		match last_direction:
 			Vector2.RIGHT:
-				$AnimatedSprite2D.play("idle_right")
+				$AnimatedSprite2D.play("idle_side")
 			Vector2.LEFT:
 				$AnimatedSprite2D.flip_h = true
-				$AnimatedSprite2D.play("idle_right")
+				$AnimatedSprite2D.play("idle_side")
 			Vector2.UP:
 				$AnimatedSprite2D.play("idle_up")
 			Vector2.DOWN:
 				$AnimatedSprite2D.play("idle_down")
 		return
 	if abs(move_input.x) >= abs(move_input.y): # moving left-right faster than up-down
-		$AnimatedSprite2D.play("walking_right")
+		$AnimatedSprite2D.play("walk_side")
 		if move_input.x > 0:
 			last_direction = Vector2.RIGHT
 		else:
@@ -96,10 +107,10 @@ func update_animation(move_input : Vector2):
 			last_direction = Vector2.LEFT
 	else: # moving up-down faster than left-right
 		if move_input.y > 0:
-			$AnimatedSprite2D.play("walking_down")
+			$AnimatedSprite2D.play("walk_down")
 			last_direction = Vector2.DOWN
 		else:
-			$AnimatedSprite2D.play("walking_up")
+			$AnimatedSprite2D.play("walk_up")
 			last_direction = Vector2.UP
 
 
@@ -142,5 +153,24 @@ func _round_to_nearest_direction(input_vector: Vector2) -> Vector2:
 	return rounded_vector
 
 func _hide(vis: bool):
-	$AnimatedSprite2D.visible = not vis
+	#$AnimatedSprite2D.visible = not vis
 	print("Toggling hide: ", $AnimatedSprite2D.visible)
+
+
+func attack() -> void:
+	#%Cane.poke()
+	poking = true
+	$AnimatedSprite2D.flip_h = false
+	
+	match last_direction:
+		Vector2.RIGHT:
+			sprite.play("cane_right")
+		Vector2.LEFT:
+			sprite.play("cane_left")
+		Vector2.UP:
+			sprite.play("cane_up")
+		Vector2.DOWN:
+			sprite.play("cane_down")
+	await sprite.animation_finished
+	
+	poking = false

@@ -1,7 +1,7 @@
 class_name Entity
 extends CharacterBody2D
 
-var speed: float
+var speed: int
 
 func die():
 	queue_free()
