@@ -143,4 +143,3 @@ func _round_to_nearest_direction(input_vector: Vector2) -> Vector2:
 
 func _hide(vis: bool):
 	$AnimatedSprite2D.visible = not vis
-	print("Toggling hide: ", $AnimatedSprite2D.visible)

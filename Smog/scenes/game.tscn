@@ -51,6 +51,7 @@ key = "book"
 
 [node name="Player" parent="World" instance=ExtResource("4_ikqgi")]
 position = Vector2(32, 76)
+player_acceleraction = 10.0
 
 [node name="Enemy_Ambush" parent="World" instance=ExtResource("7_tqwnr")]
 position = Vector2(160, 72)
