@@ -6,3 +6,7 @@ extends Node2D
 
 var weapon_name: String
 var damage: int
+
+func _input(event):
+	if event.is_action_pressed("melee"):
+		pass
