@@ -32,7 +32,6 @@ slide_on_ceiling = false
 floor_stop_on_slope = false
 floor_block_on_wall = false
 script = ExtResource("1_n7sla")
-player_acceleraction = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.375)
@@ -87,4 +86,6 @@ z_index = 1
 unique_name_in_owner = true
 
 [node name="Axe" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1, 0)
 script = ExtResource("5_lidu0")

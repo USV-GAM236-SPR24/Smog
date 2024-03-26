@@ -1,6 +1,11 @@
-extends Node2D
+extends MeleeWeapon
 
 @onready var _player: CharacterBody2D = get_parent()
+
+func _ready():
+	weapon_name = "cane"
+	## This sets the damage value of the axe melee weapon.
+	damage = 1
 
 var direction_data: Dictionary = {
 	Vector2.RIGHT: { "rotation": 0, "animation": "poke_right" },
@@ -27,5 +32,5 @@ func poke() -> void:
 
 func _call_hit_events(bodies: Array) -> void:
 	for body: Entity in bodies:
-		if body.has_method("take_damage"):
-			body.take_damage(1)
+		if body.has_method("take_damage"): #and weapon_name == "axe":
+			body.take_damage(damage)
