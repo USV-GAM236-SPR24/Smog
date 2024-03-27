@@ -1,9 +1,10 @@
-[gd_scene load_steps=76 format=3 uid="uid://cnjdgbay82ats"]
+[gd_scene load_steps=87 format=3 uid="uid://cnjdgbay82ats"]
 
 [ext_resource type="Script" path="res://scripts/enemy_ambush.gd" id="1_v7v1j"]
 [ext_resource type="Texture2D" uid="uid://cafix4hj4xwcx" path="res://art/Ambush/Ambush_coming_out_of_puddle_sprite.png" id="2_2e53y"]
 [ext_resource type="Texture2D" uid="uid://d0mupf6lxyq7a" path="res://art/Ambush/Ambush_Idle_v3.png" id="2_d1hei"]
 [ext_resource type="Texture2D" uid="uid://dpfroyuqqx3gt" path="res://art/Ambush/Ambush_Attack_Normal_done_1.png" id="2_ruuvt"]
+[ext_resource type="Texture2D" uid="uid://baiu4rr67pt48" path="res://art/Ambush/Ambush_Walk.png" id="3_6saft"]
 [ext_resource type="Texture2D" uid="uid://dtnn7hofg0qn2" path="res://art/Ambush/puddles_nothing_sprite.png" id="3_yw0pk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k5836"]
@@ -101,6 +102,46 @@ region = Rect2(192, 96, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1q7l"]
 atlas = ExtResource("2_ruuvt")
 region = Rect2(240, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcvvm"]
+atlas = ExtResource("3_6saft")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko0lu"]
+atlas = ExtResource("3_6saft")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia32p"]
+atlas = ExtResource("3_6saft")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml0e2"]
+atlas = ExtResource("3_6saft")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i28id"]
+atlas = ExtResource("3_6saft")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bu4o"]
+atlas = ExtResource("3_6saft")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfb3t"]
+atlas = ExtResource("3_6saft")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shl8a"]
+atlas = ExtResource("3_6saft")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28m2t"]
+atlas = ExtResource("3_6saft")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhb1l"]
+atlas = ExtResource("3_6saft")
+region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iawq0"]
 atlas = ExtResource("2_2e53y")
@@ -364,22 +405,47 @@ animations = [{
 "name": &"Atk U",
 "speed": 8.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcvvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko0lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia32p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml0e2")
+}],
 "loop": true,
 "name": &"Chase D",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"Chase L",
-"speed": 5.0
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i28id")
 }, {
-"frames": [],
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bu4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfb3t")
+}],
 "loop": true,
 "name": &"Chase R",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shl8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28m2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhb1l")
+}],
 "loop": true,
 "name": &"Chase U",
 "speed": 5.0
@@ -557,7 +623,8 @@ script = ExtResource("1_v7v1j")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kvm55")
-animation = &"Chase D"
+animation = &"Idle U"
+frame_progress = 0.704004
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_mmxi8")

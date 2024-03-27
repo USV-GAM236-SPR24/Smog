@@ -54,19 +54,19 @@ func _physics_process(delta):
 		
 	if draining:
 		player.speed = 30
-		if (velocity.x > 0 && (abs(velocity.y) < abs(velocity.x))): #right
+		if (velocity.x > 0 && (abs(velocity.y) < abs(velocity.x)) && draining): #right
 			$Animation.play("Atk R")
+			$Animation.flip_h = false
+		if (velocity.x <= 0 && (abs(velocity.y) < abs(velocity.x)) && draining): #left
+			$Animation.play("Atk L")
+			$Animation.flip_h = false
 			
-		if (velocity.x <= 0 && (abs(velocity.y) < abs(velocity.x))): #left
-			$Animation.play("Atk R")
-			
-			
-		if (velocity.y >= 0 && (abs(velocity.y) > abs(velocity.x))): #down
+		if (velocity.y >= 0 && (abs(velocity.y) > abs(velocity.x)) && draining): #down
 			$Animation.play("Atk D")
-			
-		if (velocity.y < 0 && (abs(velocity.y) > abs(velocity.x))): #up
+			$Animation.flip_h = false
+		if (velocity.y < 0 && (abs(velocity.y) > abs(velocity.x)) && draining): #up
 			$Animation.play("Atk U")
-		
+			$Animation.flip_h = false
 		
 		drain_tick_progress += delta
 		#
@@ -96,15 +96,12 @@ func _on_area_2d_body_entered(body):
 			$Animation.play("Emerge")
 			timer.start(1) #delay before ambush
 			
-			
 			#get_node("Hurtbox/Hurtbox").disabled = false
-
 
 func _on_hurtbox_body_entered(body):
 	if body.name == "Player":
 		player = body
 		draining = true
-
 
 func _on_hurtbox_body_exited(body):
 	if body.name == "Player":
@@ -113,8 +110,6 @@ func _on_hurtbox_body_exited(body):
 		drain_tick_progress = drain_tick_rate
 		player.speed = 100
 		
-
-
 
 func _on_timer_timeout():
 	player_chase = true
