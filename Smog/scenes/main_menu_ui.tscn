@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_fiyxg"]
 [ext_resource type="FontFile" uid="uid://bhr5ahy1qof7j" path="res://fonts1/PixelifySans-VariableFont_wght.ttf" id="1_xkg4x"]
-[ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://art/temp/ITEM_SLOT_SELECT.png" id="3_4xjwp"]
+[ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://Art/temp/ITEM_SLOT_SELECT.png" id="3_4xjwp"]
 
 [node name="MainMenuUI" type="CanvasLayer"]
 script = ExtResource("1_fiyxg")
@@ -127,6 +127,7 @@ text = "QUIT
 
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Quit"]
 visible = false
+layout_mode = 0
 offset_left = -18.0
 offset_top = 30.0001
 offset_right = 50.0
@@ -137,6 +138,7 @@ texture = ExtResource("3_4xjwp")
 
 [node name="TextureRect2" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Quit"]
 visible = false
+layout_mode = 0
 offset_left = 62.0
 offset_right = 130.0
 offset_bottom = 48.0
