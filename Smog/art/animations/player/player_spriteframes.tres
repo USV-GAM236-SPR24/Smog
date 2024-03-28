@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" load_steps=30 format=3 uid="uid://d3nvx623kxadr"]
 
-[ext_resource type="Texture2D" uid="uid://lotnl22vta8k" path="res://Art/animations/player/Wilton_Standing_Sprites.png" id="1_1mqec"]
-[ext_resource type="Texture2D" uid="uid://dpc7p8ltbv6gh" path="res://Art/animations/player/Wilton_Walking_Spritesheet.png" id="2_b5t3c"]
+[ext_resource type="Texture2D" uid="uid://lotnl22vta8k" path="res://art/animations/player/Wilton_Standing_Sprites.png" id="1_1mqec"]
+[ext_resource type="Texture2D" uid="uid://dpc7p8ltbv6gh" path="res://art/animations/player/Wilton_Walking_Spritesheet.png" id="2_b5t3c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q35qx"]
 atlas = ExtResource("1_1mqec")
