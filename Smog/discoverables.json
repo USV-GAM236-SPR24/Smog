@@ -1,17 +1,24 @@
 {
 	"office1": {
 		"article": {
-			"display_name": "",
-			"text": "",
+			"display_name": "Up in Flames.",
+			"text": "Date 1870
+		Up in Flames
+Just yesterday evening, a factory run by business partners Reginald Wilton and Archibald Cavendish burned and collapsed in the middle of London. The factory was in charge of the development of the newly improved industrial transportation. They had more than 100 workers in total.
+
+Wilton and Cavendish were in charge of producing the massive railroad cars that London’s pedestrians use to travel in a timely fashion. One of these railcars has suddenly fallen out of the assembly line, at least that is what some witnesses have claimed. Almost the entire staff including some officers of the law that were investigating Wilton died in the events of the disaster. 
+
+Still waiting for word from Wilton or Cavendish at this moment. 
+",
 			"type": "TEXT",
-			"texture_path": "res://art/temp/item1.png",
+			"texture_path": "res://art/discoverables/discoverable_1.tres",
 			"image_path": null
 		},
 		"book": {
 			"display_name": "Dante's Inferno",
 			"text": "Turn back and seek the safety of the shore; tempt not the deep, lest, losing unawares me and yourselves, you come to port no more.",
 			"type": "TEXT",
-			"texture_path": "res://art/temp/item1.png",
+			"texture_path": "res://art/discoverables/discoverable_2.tres",
 			"image_path": null
 		},
 		"letter": {
@@ -25,23 +32,36 @@ I must confess, for both of our sakes. They will grant us clemency for coming cl
 	All I request in return is your cooperation when the Scotland Yard police next arrive at the factor as I am, Ever your friend,
 	A. Cavendish",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_3.tres",
 			"image_path": null
 		}
 	},
 	"mailroom": {
 		"letter": {
 			"display_name": "Letter to Wilton from Cavendish",
-			"text": "",
+			"text": "Dear Reginald 
+
+You thought I wouldn’t have noticed but God as my witness I did. After learning you have framed me I learned that you are selfish, egotistic, and self-served.
+
+After all these years I believe that you were my friend, but now you have betrayed me. 
+
+We both have made mistakes in the past and I have stuck out my neck for you but when the authorities came knocking at our doors, you did nothing. And this is your form of repayment? By stabbing your friend in the back for all I had done for you?
+
+Now it is your turn to repay this debt. Soon the world will know what you have done. Your days are numbered, next time we meet will be your last.
+
+Your old friend, 
+Cavendish. 
+
+",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_4.tres",
 			"image_path": null
 		},
 		"photograph": {
 			"display_name": "Photograph",
 			"text": "This photograph depicts Wilton and Cavendish shaking hands and smiling at the camera. There is writing on the back that reads “To our new business venture as partners",
 			"type": "IMAGE",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_5.tres",
 			"image_path": ""
 		},
 		"trash_letters": {
@@ -70,7 +90,7 @@ I must confess, for both of our sakes. They will grant us clemency for coming cl
 - 1 Tbl. Lard
 - 3 Tbl. Dry Yeast",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_6.tres",
 			"image_path": null
 		},
 		"note": {
@@ -91,7 +111,7 @@ Just like him and Mr. Cavendish.
 
 Morbid today, aren’t",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_7.tres",
 			"image_path": null
 		},
 		"schedule": {
@@ -110,7 +130,7 @@ Yours truly,
 Billy
 ",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_8.tres",
 			"image_path": null
 		}
 	},
@@ -119,12 +139,19 @@ Billy
 			"display_name": "Police Badge",
 			"text": "",
 			"type": "DIALOGUE",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_9.tres",
 			"image_path": null
 		},
 		"article": {
 			"display_name": "London is Sick -- is Industry to Blame?",
-			"text": "https://docs.google.com/document/d/1OZqseCzXkRAs8--ErRQQXj7vYET45-JAxLvhkZblGsI/edit",
+			"text": "Date 1871
+		London is Sick-- is Industry to Blame?
+That the once clear blue sky hovering over London is now coated with dark clouds is a surprise to none! With the increasing number of factories erected in the city, locals are beginning to lay blame upon industry! 
+
+This terrible combination of smoke and fog is theorized to correlate to the rising illnesses across London. Unfortunately, there seems to be no end to the production as the thick black smoke from burning coal continues to pump out from facilities day and night. Add to that the recent events of factories burning down due to faulty machinery, and it's no surprise that many suspect that the smoke and fog are to blame for the rising death toll and illness all across London.
+
+Regardless, it is no secret that concerns must be raised for this slow-creeping disaster to come to any sort of resolution.
+",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
@@ -141,7 +168,7 @@ If my memory serves me right, you are well-acquainted with a doctor. Will you be
 P.S. Enclosed with my letter is £200. Use it as you w ill to disseminate this information to the press and convince the people that their assertations of us are wholly and woefully unfounded.
 ",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_10.tres",
 			"image_path": null
 		}
 	},
@@ -172,7 +199,7 @@ Henry Clark",
 			"display_name": "Ominous Note",
 			"text": "I have come to lead you to the other shore; into eternal darkness; into fire and into ice.",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_12.tres",
 			"image_path": null
 		}
 	},
@@ -204,7 +231,7 @@ Reginald Wilton declined to comment on the matter.",
 			"display_name": "Ominous Note",
 			"text": "I am damned ... there is no escape from the hellfire",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_13.tres",
 			"image_path": null
 		}
 	},
@@ -213,7 +240,7 @@ Reginald Wilton declined to comment on the matter.",
 			"display_name": "Letter to Cavendish from Wilton",
 			"text": "https://docs.google.com/document/u/0/d/1xqe3L37fBPuWmvBQ8gj3aNqkX2yGT1HDbtKiksxtY2Q/edit",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_14.tres",
 			"image_path": null
 		},
 		"handkerchief": {
@@ -221,7 +248,7 @@ Reginald Wilton declined to comment on the matter.",
 			"text": 
 "The embroidered handkerchief you had custom-made for Cavendish last Christmas. To think that blasted man kept it after all of this time… he didn’t even give you anything worthwhile in return! Nothing but an unremarkable bottle of booze from his family’s dusty old wine cellar…",
 			"type": "IMAGE",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_15.tres",
 			"image_path": ""
 		}
 	}

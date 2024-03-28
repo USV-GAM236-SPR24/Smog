@@ -7,7 +7,6 @@ var drain_tick_rate = .1
 var drain_tick_progress = drain_tick_rate
 var player_chase = false
 var detected = false
-var player: Player
 
 func _init() -> void:
 	speed = 0
