@@ -35,7 +35,7 @@ func update_gun_aim(dir: Vector2) -> void:
 	aim_direction = dir
 
 
-func _input(event) -> void:
+func _input(_event) -> void:
 
 	if Input.is_action_pressed("shoot_mode") and get_parent().can_poke:
 		shoot_mode = true

@@ -1,11 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj4ufrnwir7jo"]
 
 [ext_resource type="Script" path="res://scenes/pause_ui.gd" id="1_fr7io"]
-[ext_resource type="FontFile" uid="uid://bhr5ahy1qof7j" path="res://fonts1/PixelifySans-VariableFont_wght.ttf" id="2_wo526"]
+[ext_resource type="Theme" uid="uid://dc5bncpo7eujv" path="res://main_theme.tres" id="2_cklld"]
 
 [node name="PauseUI" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_fr7io")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0901961, 0.0392157, 0, 0.752941)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -14,6 +22,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_cklld")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.109804, 0.109804, 0.109804, 0.313726)
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -66,8 +84,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_wo526")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 15
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -91,15 +108,13 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("2_wo526")
-text = "START"
+text = "RESUME"
 
 [node name="Quit" type="Button" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("2_wo526")
 text = "QUIT
 "
 

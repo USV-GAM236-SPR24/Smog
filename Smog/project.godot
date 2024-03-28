@@ -22,6 +22,7 @@ ConsumableFactory="*res://scripts/items/consumable_factory.gd"
 ItemFactory="*res://scripts/items/item_factory.gd"
 DiscoverableSystem="*res://scripts/discoverable_system.gd"
 SaveSystem="*res://addons/save_system/save_system.gd"
+Checkpoint="*res://scenes/checkpoint.gd"
 
 [display]
 

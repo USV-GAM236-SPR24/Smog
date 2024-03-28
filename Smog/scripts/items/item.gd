@@ -6,7 +6,8 @@ enum ItemType {
 	DEFAULT,
 	CONSUMABLE,
 	REUSABLE,
-	UNSTACKABLE
+	UNSTACKABLE,
+	KEY
 }
 
 var sprite: Sprite2D

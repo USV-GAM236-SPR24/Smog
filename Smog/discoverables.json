@@ -16,7 +16,14 @@
 		},
 		"letter": {
 			"display_name": "Letter to Wilton from Cavendish",
-			"text": "https://docs.google.com/document/d/1oVwX6PdUqShLCurGnM892XkfxB5Ukr1lhY9TuSJvXR4/edit",
+			"text": 
+"The date on the letter reads (insert date here).
+	My Dear Reginald,
+It has grown cumbersome anticipating how to best hold my tongue during the authorities’ dreadful investigations. Thankful as I am that our hour of reckoning has yet to arrive, too many of our factory workers have departed this life under our supervision, and my wealth is, regrettably, not infinite.
+Prudence would dictate that I withhold this admission to our very last breath. But pursuing a life of nothing but bribes to the tabloids and physicians is well beyond my liking. Especially not when sweeteners to the press have since stirred rumors of a new plague. I wish not to deal with the fallout.
+I must confess, for both of our sakes. They will grant us clemency for coming clean with some amount of money, I am sure. Worry not about the bail— I shall cover it and this scandal will be naught but a faint memory.
+	All I request in return is your cooperation when the Scotland Yard police next arrive at the factor as I am, Ever your friend,
+	A. Cavendish",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
@@ -55,21 +62,53 @@
 	"messhall": {
 		"recipe": {
 			"display_name": "Bread Recipe",
-			"text": "- 5 cups Flour\n- 2 cups Chalk\n- 1 cup Plaster of Paris\n- 1 Tsp. Salt\n- 1 Tbl. Lard\n- 3 Tbl. Dry Yeast",
+			"text": 
+"- 5 cups Flour
+- 2 cups Chalk
+- 1 cup Plaster of Paris
+- 1 Tsp. Salt
+- 1 Tbl. Lard
+- 3 Tbl. Dry Yeast",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
 		},
 		"note": {
 			"display_name": "Passed Note",
-			"text": "https://docs.google.com/document/u/2/d/1cc30M_M1RW-rTlwy4pf2ku1eHg5Gfmg6DVFDeYGhgyM/edit",
+			"text": "Is something wrong?
+
+No, everything is quite fine right now.
+
+Have you got the morbs?
+
+Well, little Billy might have caught them. He’s been coughing up blood since last night.
+
+Coughing up blood? The smoke must be making it worse. Do you think we should tell the boss about this?
+
+If we told him, he would throw us in the fire.
+
+Just like him and Mr. Cavendish.
+
+Morbid today, aren’t",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
 		},
 		"schedule": {
-			"display_name": "Billy's Work Schedule, Age 7",
-			"text": "https://docs.google.com/document/d/1_FQktL5UonaaLt3OdZbYq0zOtkmjFgoQMXuNaZiBOPc/edit",
+			"display_name": "Billy's Diary",
+			"text": "Dear Diary,
+
+	Here's me schedule for work at th' factory. It's a bit rough, but Papa says it's important to help bring in some extra coin for th' family.
+
+Monday through Saturday, I'm up bright and early at six in th' mornin'. Then it's straight to work until noon. Only a short break for lunch, mind you, just thirty minutes. After that, it's back to th' grindstone until half-past six in th' evenin' and that’s me done for th’ day.
+
+And on Sundays, it's not much better. I start at noon and keep going until six in th' evenin'. Then, after a quick supper, it's back to work until eleven.
+
+It's tough, but I reckon it's what we gotta do to make ends meet. Maybe I’d visit Granny if I’ve got the time.
+
+Yours truly,
+Billy
+",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
@@ -92,7 +131,15 @@
 		},
 		"letter": {
 			"display_name": "Letter from Cavendish to Wilton",
-			"text": "https://docs.google.com/document/d/111-8pBKmY-oeWuUZpMvfeDMN2GTu_-xFJvSzU3_Vlko/edit",
+			"text": 
+"The date on the letter reads (date 1868).
+	My Dear Wilton,
+I beg you ten thousand pardons for the disgraceful state of this letter, but the current state of affairs is quite grim. You must understand that it was a match against time to deliver this to you posthaste. For, after a most unsightly hacking fit of blood during his shift, another one of our workers has passed at the hospital. Witnesses to the scene dare to suggest that we — their superiors! — are to blame for the man’s sudden passing and have since begun using this tragedy to rally around biting the hand that so graciously feeds them.
+If my memory serves me right, you are well-acquainted with a doctor. Will you be so kind as to get in correspondence with him and discuss manners in which you can sway the people? Quickly now, so that we may banish this painful subject from all our minds.
+	I am, My Dear Sir, Ever your affectionate friend,
+	A. Cavendish
+P.S. Enclosed with my letter is £200. Use it as you w ill to disseminate this information to the press and convince the people that their assertations of us are wholly and woefully unfounded.
+",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
@@ -101,7 +148,15 @@
 	"factory_floor2": {
 		"letter": {
 			"display_name": "Letter from journalist to Wilton",
-			"text": "https://docs.google.com/document/u/2/d/1dx5CpJjTmQYUd9yBkYnN2xNFS8z9K_QuNF6ToNm6b4I/edit",
+			"text": "Mr. Reginald Wilton,
+
+I have received your payment at the office and will be writing the article with the information provided. The article will be published in four days.
+
+We are all thankful for your financial contributions here at the London Gazette.
+
+Yours very respectfully,
+
+Henry Clark",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
@@ -124,7 +179,21 @@
 	"washroom": {
 		"article": {
 			"display_name": "Cavendish Arrested for Factory Arson and Murder",
-			"text": "https://docs.google.com/document/u/2/d/1pJbitUodFei10rMPmQpapur0RnnILjjtFsq9Egbl3BA/edit",
+			"text": "Title: Factory Owner Archibald Cavendish Arrested For Arson and Murder
+
+Date: 1870
+
+Byline: Oliver Pembroke, Investigative Journalist
+
+Archibald Cavendish was arrested last night for committing arson in one of his and Reginald Wilton’s factories. Although many suffered from this tragedy, Cavendish was found escaping through the exit near his office during an investigation of the factory’s mysterious plague. The federal officer, Arthur Wright, passed away during the incident, and hundreds more have been injured due to the burns. Much of the evidence has been destroyed in the factory fire.
+
+Officer Charles Clark spoke about the tragedy to the investigators: “It’s quite a shock to all of us. Although we are mourning the loss of Officer Arthur Wright, we will continue to investigate the situation thoroughly and immediately.”
+
+Many continue to mourn the loss of those who died from the mysterious plague. Pink carnations are selling out in mere hours, and the plague continues to spread.
+
+“I feel that it is hard to live on without my husband,” said the wife of one of the factory workers who died of the plague, “but I must live on and take care of my children.”
+
+Reginald Wilton declined to comment on the matter.",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
@@ -149,7 +218,8 @@
 		},
 		"handkerchief": {
 			"display_name": "Embroidered Handkerchief",
-			"text": "The embroidered handkerchief you had custom-made for Cavendish last Christmas. To think that blasted man kept it after all of this time… he didn’t even give you anything worthwhile in return! Nothing but an unremarkable bottle of booze from his family’s dusty old wine cellar…",
+			"text": 
+"The embroidered handkerchief you had custom-made for Cavendish last Christmas. To think that blasted man kept it after all of this time… he didn’t even give you anything worthwhile in return! Nothing but an unremarkable bottle of booze from his family’s dusty old wine cellar…",
 			"type": "IMAGE",
 			"texture_path": "",
 			"image_path": ""

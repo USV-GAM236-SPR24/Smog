@@ -1,5 +1,9 @@
 {
-	"key": {
+	"default": {
 		"texture_path": "res://art/temp/item1.png"
+	},
+	
+	"key": {
+		"texture_path": "res://art/temp/item2.png"
 	}
 }

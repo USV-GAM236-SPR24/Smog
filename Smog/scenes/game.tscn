@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://wstjrxw8m084"]
+[gd_scene load_steps=13 format=3 uid="uid://wstjrxw8m084"]
 
 [ext_resource type="PackedScene" uid="uid://cdw2gm7p0c3nv" path="res://levels/level_0.tscn" id="1_5t2wj"]
 [ext_resource type="PackedScene" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" path="res://scenes/discoverable.tscn" id="8_8wlif"]
 [ext_resource type="PackedScene" uid="uid://b5wi7fiv6ghp7" path="res://scenes/UI/weapon_hud.tscn" id="10_7edw4"]
 [ext_resource type="PackedScene" uid="uid://dj4ufrnwir7jo" path="res://scenes/pause_ui.tscn" id="10_8ypd1"]
+[ext_resource type="PackedScene" uid="uid://dmkeex6m7d18r" path="res://scenes/UI/key_ring.tscn" id="11_nrht7"]
 
 [node name="Game" type="Node2D"]
 
@@ -29,26 +30,50 @@ position = Vector2(48, 24)
 script = ExtResource("3_ffy84")
 item_name = "key"
 
+[node name="Interactable2" parent="World" instance=ExtResource("2_elo5s")]
+position = Vector2(92, 29)
+script = ExtResource("3_ffy84")
+item_name = "key"
+
+[node name="Interactable3" parent="World" instance=ExtResource("2_elo5s")]
+position = Vector2(72, 49)
+script = ExtResource("3_ffy84")
+item_name = "default"
+
+[node name="Interactable4" parent="World" instance=ExtResource("2_elo5s")]
+position = Vector2(82, 72)
+script = ExtResource("3_ffy84")
+item_name = "default"
+
 [node name="Discoverable" parent="World" instance=ExtResource("8_8wlif")]
 position = Vector2(72, 120)
 key = "book"
 
 [node name="Player" parent="World" instance=ExtResource("4_ikqgi")]
 position = Vector2(32, 76)
+player_acceleraction = 10.0
 
 [node name="Enemy_Ambush" parent="World" instance=ExtResource("7_tqwnr")]
 position = Vector2(160, 72)
 
+[node name="KeyRingLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="KeyRing" parent="KeyRingLayer" instance=ExtResource("11_nrht7")]
+visible = false
+offset_left = 135.0
+offset_top = -91.0
+offset_right = 135.0
+offset_bottom = -91.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_priority = 1
 
 [node name="SanityBar" parent="CanvasLayer" instance=ExtResource("1_qg41o")]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 68.0
 offset_bottom = 20.0
-
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource("2_3yuhv")]
-visible = false
 
 [node name="WeaponHUD" parent="CanvasLayer" instance=ExtResource("10_7edw4")]
 offset_left = 4.0
@@ -57,5 +82,14 @@ offset_right = 4.0
 offset_bottom = 20.0
 scale = Vector2(0.922043, 1.10799)
 
+[node name="InventoryLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Inventory" parent="InventoryLayer" instance=ExtResource("2_3yuhv")]
+visible = false
+mouse_filter = 1
+mouse_default_cursor_shape = 1
+
 [node name="PauseUI" parent="." instance=ExtResource("10_8ypd1")]
+layer = 3
 visible = false
