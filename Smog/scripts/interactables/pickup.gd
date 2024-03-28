@@ -14,8 +14,8 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
-	key_ring = get_node("/root/Game/KeyRingLayer/KeyRing")
-	inventory = get_node("/root/Game/InventoryLayer/Inventory")
+	key_ring = get_node("/root/Game/CanvasLayer/KeyRing")
+	inventory = get_node("/root/Game/CanvasLayer/Inventory")
 	item = ItemFactory.create(interact_value)
 	interact_label = item.item_name.capitalize()
 	$Sprite2D.texture = item.texture

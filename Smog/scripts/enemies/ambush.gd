@@ -58,7 +58,6 @@ func play_attack_animation(direction: Vector2) -> void:
 	if not grabbing:
 		return
 	if sprite.animation.begins_with("attack") and sprite.is_playing():
-		print("here")
 		return
 	if abs(direction.x) >= abs(direction.y):
 		sprite.flip_h = false
@@ -84,7 +83,6 @@ func _on_body_entered(body: Node) -> void:
 
 
 func _on_body_entered_grab(body: Node) -> void:
-	print(body)
 	if not emerged or not body is Player:
 		return
 	if not player:

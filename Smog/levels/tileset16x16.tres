@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://p508asikmll6"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://bv3u734sybfeg"]
 
 [ext_resource type="Texture2D" uid="uid://bp6hpfmixj5qy" path="res://art/temp/roguelikeIndoor_transparent.png" id="1_cftkm"]
 [ext_resource type="Texture2D" uid="uid://blppqyagxakhx" path="res://art/temp/Walls.png" id="2_ibeel"]
