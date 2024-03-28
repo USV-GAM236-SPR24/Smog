@@ -1,11 +1,15 @@
 extends MeleeWeapon
 
+
+@onready var _player: CharacterBody2D = get_parent()
+
 var direction_data: Dictionary = {
 	Vector2.RIGHT: { "rotation": 0, "animation": "cane_right" },
 	Vector2.LEFT:  { "rotation": 180, "animation": "cane_left" },
 	Vector2.UP:    { "rotation": 270, "animation": "cane_up" },
 	Vector2.DOWN:  { "rotation": 90, "animation": "cane_down", "offset": Vector2(0, 6) }
 }
+
 
 func _init() -> void:
 	weapon_name = "cane"
