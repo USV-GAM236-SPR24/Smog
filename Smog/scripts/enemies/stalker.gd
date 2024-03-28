@@ -100,5 +100,5 @@ func die():
 	sprite.play(sprite.animation)
 	stunned = false
 	health = 5
-	damage = 5
+	damage = 20
 	speed = 5
