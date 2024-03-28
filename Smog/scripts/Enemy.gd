@@ -95,7 +95,9 @@ func update_animation() -> void:
 		sprite.flip_h = false
 		sprite.play("idle_down")
 		return
-	play_walk_animation(velocity)
+	if not player:
+		return
+	play_walk_animation(position.direction_to(player.position))
 
 
 func _on_body_entered(body: Node) -> void:

@@ -24,7 +24,7 @@ func _parse_json() -> void:
 				if not ResourceLoader.load_threaded_get_status(room[key].texture_path):
 					ResourceLoader.load_threaded_request(room[key].texture_path)
 					var status: int = ResourceLoader.load_threaded_get_status(room[key].texture_path)
-					print_debug("%s: %s" % [status, room[key].texture_path])
+					#print_debug("%s: %s" % [status, room[key].texture_path])
 			if room[key].type != "IMAGE":
 				continue
 			discoverables[room_name][key].image_path = room[key].image_path
@@ -32,7 +32,7 @@ func _parse_json() -> void:
 				if not ResourceLoader.load_threaded_get_status(room[key].image_path):
 					ResourceLoader.load_threaded_request(room[key].image_path)
 					var status: int = ResourceLoader.load_threaded_get_status(room[key].image_path)
-					print_debug("%s: %s" % [status, room[key].image_path])
+					#print_debug("%s: %s" % [status, room[key].image_path])
 
 
 func _string_type(typename: String) -> int:

@@ -157,3 +157,8 @@ func attack() -> void:
 	await sprite.animation_finished
 	sprite.offset = Vector2.ZERO
 	attacking = false
+
+
+func die():
+	Sanity.fill()
+	get_tree().reload_current_scene()

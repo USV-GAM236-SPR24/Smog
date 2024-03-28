@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bih10h7cyl8bc"]
+[gd_scene load_steps=6 format=3 uid="uid://bih10h7cyl8bc"]
 
 [ext_resource type="SpriteFrames" uid="uid://qhrhc51duhgc" path="res://art/characters/ambush/ambush_sprite_frames.tres" id="1_2hede"]
 [ext_resource type="Script" path="res://scripts/enemies/ambush.gd" id="1_hqboi"]
@@ -8,6 +8,9 @@ size = Vector2(32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01cpl"]
 size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pamyj"]
+size = Vector2(48, 48)
 
 [node name="Ambush" type="CharacterBody2D"]
 position = Vector2(32, 32)
@@ -26,5 +29,10 @@ shape = SubResource("RectangleShape2D_rnequ")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
 shape = SubResource("RectangleShape2D_01cpl")
+
+[node name="GrabArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea2D"]
+shape = SubResource("RectangleShape2D_pamyj")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
