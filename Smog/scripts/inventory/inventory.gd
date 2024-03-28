@@ -233,4 +233,4 @@ func grab_item() -> void:
 	if slots[selected_panels_index].item_count > 0:
 		grabbing = true
 		_grab_index = slots[selected_panels_index].index 
-		slots[selected_panels_index].position -= Vector2(0, 10) 
+		slots[selected_panels_index].position -= Vector2(0, 10)
