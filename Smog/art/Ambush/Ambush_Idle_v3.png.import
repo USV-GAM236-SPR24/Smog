@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0mupf6lxyq7a"
-path="res://.godot/imported/Ambush_Idle_v3.png-bf37f4f795bb1d8c686ca3154230cb1a.ctex"
+path="res://.godot/imported/Ambush_Idle_v3.png-4e1ce966f5e1a4cb42df6010e5af8a1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Ambush/Ambush_Idle_v3.png"
-dest_files=["res://.godot/imported/Ambush_Idle_v3.png-bf37f4f795bb1d8c686ca3154230cb1a.ctex"]
+source_file="res://art/Ambush/Ambush_Idle_v3.png"
+dest_files=["res://.godot/imported/Ambush_Idle_v3.png-4e1ce966f5e1a4cb42df6010e5af8a1d.ctex"]
 
 [params]
 
