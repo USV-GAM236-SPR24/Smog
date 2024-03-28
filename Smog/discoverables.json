@@ -95,8 +95,20 @@ Morbid today, aren’t",
 			"image_path": null
 		},
 		"schedule": {
-			"display_name": "Billy's Work Schedule, Age 7",
-			"text": "https://docs.google.com/document/d/1_FQktL5UonaaLt3OdZbYq0zOtkmjFgoQMXuNaZiBOPc/edit",
+			"display_name": "Billy's Diary",
+			"text": "Dear Diary,
+
+	Here's me schedule for work at th' factory. It's a bit rough, but Papa says it's important to help bring in some extra coin for th' family.
+
+Monday through Saturday, I'm up bright and early at six in th' mornin'. Then it's straight to work until noon. Only a short break for lunch, mind you, just thirty minutes. After that, it's back to th' grindstone until half-past six in th' evenin' and that’s me done for th’ day.
+
+And on Sundays, it's not much better. I start at noon and keep going until six in th' evenin'. Then, after a quick supper, it's back to work until eleven.
+
+It's tough, but I reckon it's what we gotta do to make ends meet. Maybe I’d visit Granny if I’ve got the time.
+
+Yours truly,
+Billy
+",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
