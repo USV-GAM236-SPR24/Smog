@@ -21,6 +21,12 @@ func _enter_tree() -> void:
 	speed = 100
 
 
+func die():
+	Sanity.fill()
+	get_tree().reload_current_scene()
+	#super.die()
+
+
 func _ready():
 	position_changed.connect(save_position_value)
 	if SaveSystem.has("position_value") == false:

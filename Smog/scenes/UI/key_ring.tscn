@@ -29,11 +29,11 @@ texture = ExtResource("1_pddhl")
 unique_name_in_owner = true
 clip_contents = true
 layout_mode = 0
-offset_left = 45.691
-offset_top = 41.8929
-offset_right = 108.691
-offset_bottom = 81.8929
-scale = Vector2(0.39656, 0.239777)
+offset_left = 49.4364
+offset_top = 42.8902
+offset_right = 112.436
+offset_bottom = 82.8902
+scale = Vector2(0.323005, 0.197644)
 columns = 3
 
 [node name="Panel" type="PanelContainer" parent="TextureRect/GridContainer"]
