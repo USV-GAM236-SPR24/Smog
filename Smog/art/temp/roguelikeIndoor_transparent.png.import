@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bp6hpfmixj5qy"
-path="res://.godot/imported/roguelikeIndoor_transparent.png-3267223fd2766aa73f4b91aa7c6615b7.ctex"
+path="res://.godot/imported/roguelikeIndoor_transparent.png-2c4b792a90218d33058ecc1d5fd039db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/temp/roguelikeIndoor_transparent.png"
-dest_files=["res://.godot/imported/roguelikeIndoor_transparent.png-3267223fd2766aa73f4b91aa7c6615b7.ctex"]
+source_file="res://art/temp/roguelikeIndoor_transparent.png"
+dest_files=["res://.godot/imported/roguelikeIndoor_transparent.png-2c4b792a90218d33058ecc1d5fd039db.ctex"]
 
 [params]
 
