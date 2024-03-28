@@ -1,0 +1,158 @@
+{
+	"office1": {
+		"article": {
+			"display_name": "",
+			"text": "",
+			"type": "TEXT",
+			"texture_path": "res://art/temp/item1.png",
+			"image_path": null
+		},
+		"book": {
+			"display_name": "Dante's Inferno",
+			"text": "Turn back and seek the safety of the shore; tempt not the deep, lest, losing unawares me and yourselves, you come to port no more.",
+			"type": "TEXT",
+			"texture_path": "res://art/temp/item1.png",
+			"image_path": null
+		},
+		"letter": {
+			"display_name": "Letter to Wilton from Cavendish",
+			"text": "https://docs.google.com/document/d/1oVwX6PdUqShLCurGnM892XkfxB5Ukr1lhY9TuSJvXR4/edit",
+			"type": "TEXT",
+			"texture_path": "",
+			"image_path": null
+		}
+	},
+	"mailroom": {
+		"letter": {
+			"display_name": "Letter to Wilton from Cavendish",
+			"text": "",
+			"type": "TEXT",
+			"texture_path": "",
+			"image_path": null
+		},
+		"photograph": {
+			"display_name": "Photograph",
+			"text": "This photograph depicts Wilton and Cavendish shaking hands and smiling at the camera. There is writing on the back that reads “To our new business venture as partners",
+			"type": "IMAGE",
+			"texture_path": "",
+			"image_path": ""
+		},
+		"trash_letters": {
+			"display_name": "Piles of Unopened Letters in the Trash",
+			"text": "Piles and piles of unopened letters from Scotland Yard and local journalists addressed to Mr. Reginald Wilton– all in the trash.",
+			"type": "IMAGE",
+			"texture_path": "",
+			"image_path": ""
+		},
+		"mail_bin": {
+			"display_name": "Cavendish’s Mail Bin",
+			"text": "This mail bin belonging to A. Cavendish seems to be overflowing.",
+			"type": "IMAGE",
+			"texture_path": "",
+			"image_path": ""
+		}
+	},
+	"messhall": {
+		"recipe": {
+			"display_name": "Bread Recipe",
+			"text": "- 5 cups Flour\n- 2 cups Chalk\n- 1 cup Plaster of Paris\n- 1 Tsp. Salt\n- 1 Tbl. Lard\n- 3 Tbl. Dry Yeast",
+			"type": "TEXT",
+			"texture_path": "",
+			"image_path": null
+		},
+		"note": {
+			"display_name": "Passed Note",
+			"text": "https://docs.google.com/document/u/2/d/1cc30M_M1RW-rTlwy4pf2ku1eHg5Gfmg6DVFDeYGhgyM/edit",
+			"type": "TEXT",
+			"texture_path": "",
+			"image_path": null
+		},
+		"schedule": {
+			"display_name": "Billy's Work Schedule, Age 7",
+			"text": "https://docs.google.com/document/d/1_FQktL5UonaaLt3OdZbYq0zOtkmjFgoQMXuNaZiBOPc/edit",
+			"type": "TEXT",
+			"texture_path": "",
+			"image_path": null
+		}
+	},
+	"factory_floor1": {
+		"badge": {
+			"display_name": "Police Badge",
+			"text": "",
+			"type": "DIALOGUE",
+			"texture_path": "",
+			"image_path": null
+		},
+		"article": {
+			"display_name": "London is Sick -- is Industry to Blame?",
+			"text": "https://docs.google.com/document/d/1OZqseCzXkRAs8--ErRQQXj7vYET45-JAxLvhkZblGsI/edit",
+			"type": "TEXT",
+			"texture_path": "",
+			"image_path": null
+		},
+		"letter": {
+			"display_name": "Letter from Cavendish to Wilton",
+			"text": "https://docs.google.com/document/d/111-8pBKmY-oeWuUZpMvfeDMN2GTu_-xFJvSzU3_Vlko/edit",
+			"type": "TEXT",
+			"texture_path": "",
+			"image_path": null
+		}
+	},
+	"factory_floor2": {
+		"letter": {
+			"display_name": "Letter from journalist to Wilton",
+			"text": "https://docs.google.com/document/u/2/d/1dx5CpJjTmQYUd9yBkYnN2xNFS8z9K_QuNF6ToNm6b4I/edit",
+			"type": "TEXT",
+			"texture_path": "",
+			"image_path": null
+		},
+		"article": {
+			"display_name": "Mysterious Plague Strikes Local Factory Workers: Dr. Wright Confirms",
+			"text": "https://docs.google.com/document/d/1NVvSYetcwI_TkwxuB_4mQiPr4R6fGEtkIfdPNdsooR4/edit",
+			"type": "TEXT",
+			"texture_path": "",
+			"image_path": null
+		},
+		"note": {
+			"display_name": "Ominous Note",
+			"text": "I have come to lead you to the other shore; into eternal darkness; into fire and into ice.",
+			"type": "TEXT",
+			"texture_path": "",
+			"image_path": null
+		}
+	},
+	"washroom": {
+		"article": {
+			"display_name": "Cavendish Arrested for Factory Arson and Murder",
+			"text": "https://docs.google.com/document/u/2/d/1pJbitUodFei10rMPmQpapur0RnnILjjtFsq9Egbl3BA/edit",
+			"type": "TEXT",
+			"texture_path": "",
+			"image_path": null
+		}
+	},
+	"storage": {
+		"note": {
+			"display_name": "Ominous Note",
+			"text": "I am damned ... there is no escape from the hellfire",
+			"type": "TEXT",
+			"texture_path": "",
+			"image_path": null
+		}
+	},
+	"office2": {
+		"letter": {
+			"display_name": "Letter to Cavendish from Wilton",
+			"text": "https://docs.google.com/document/u/0/d/1xqe3L37fBPuWmvBQ8gj3aNqkX2yGT1HDbtKiksxtY2Q/edit",
+			"type": "TEXT",
+			"texture_path": "",
+			"image_path": null
+		},
+		"handkerchief": {
+			"display_name": "Embroidered Handkerchief",
+			"text": "The embroidered handkerchief you had custom-made for Cavendish last Christmas. To think that blasted man kept it after all of this time… he didn’t even give you anything worthwhile in return! Nothing but an unremarkable bottle of booze from his family’s dusty old wine cellar…",
+			"type": "IMAGE",
+			"texture_path": "",
+			"image_path": ""
+		}
+	}
+}

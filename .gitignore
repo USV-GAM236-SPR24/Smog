@@ -13,3 +13,7 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+Smog/.idea/.idea.Smog.dir/.idea/encodings.xml
+Smog/.idea/.idea.Smog.dir/.idea/indexLayout.xml
+Smog/.idea/.idea.Smog.dir/.idea/libraries/GdSdk_4_2_1.xml
+Smog/.idea/.idea.Smog.dir/.idea/vcs.xml

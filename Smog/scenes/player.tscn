@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://beglrerj5k48"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_n7sla"]
+[ext_resource type="SpriteFrames" uid="uid://d3nvx623kxadr" path="res://art/animations/player/player_spriteframes.tres" id="2_dmvm8"]
+[ext_resource type="PackedScene" uid="uid://b70pj2rlxtaka" path="res://scenes/weapons/gun.tscn" id="3_b7pyv"]
+[ext_resource type="PackedScene" uid="uid://bv8sow2vxlbc0" path="res://scenes/weapons/cane.tscn" id="4_5t2yn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuupm"]
+size = Vector2(12, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pm7jj"]
+radius = 15.0
+
+[sub_resource type="Animation" id="Animation_e8jxc"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_hgtkh"]
+resource_name = "muzzle_flash"
+length = 0.5
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8v237"]
+_data = {
+"RESET": SubResource("Animation_e8jxc"),
+"muzzle_flash": SubResource("Animation_hgtkh")
+}
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(150, 209)
+motion_mode = 1
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("1_n7sla")
+player_acceleraction = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.375)
+shape = SubResource("RectangleShape2D_yuupm")
+
+[node name="Interaction Components" type="Node2D" parent="."]
+z_index = 1
+
+[node name="InteractionArea" type="Area2D" parent="Interaction Components"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Components/InteractionArea"]
+shape = SubResource("CircleShape2D_pm7jj")
+
+[node name="InertactLabel" type="Label" parent="Interaction Components"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -40.0
+offset_right = 17.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_dmvm8")
+animation = &"walking_down"
+speed_scale = 3.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_8v237")
+}
+
+[node name="Gun" parent="." instance=ExtResource("3_b7pyv")]
+unique_name_in_owner = true
+z_index = 1
+
+[node name="Cane" parent="." instance=ExtResource("4_5t2yn")]
+unique_name_in_owner = true
