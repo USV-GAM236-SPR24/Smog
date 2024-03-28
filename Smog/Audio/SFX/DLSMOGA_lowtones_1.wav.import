@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://sggy6e5f06vj"
-path="res://.godot/imported/DLSMOGA_lowtones_1.wav-8e8bde032ce9a2719c74be563b9cfc68.sample"
+path="res://.godot/imported/DLSMOGA_lowtones_1.wav-210f2092d0cc74f88d98566466d5b3a7.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/DLSMOGA_lowtones_1.wav"
-dest_files=["res://.godot/imported/DLSMOGA_lowtones_1.wav-8e8bde032ce9a2719c74be563b9cfc68.sample"]
+source_file="res://audio/SFX/DLSMOGA_lowtones_1.wav"
+dest_files=["res://.godot/imported/DLSMOGA_lowtones_1.wav-210f2092d0cc74f88d98566466d5b3a7.sample"]
 
 [params]
 

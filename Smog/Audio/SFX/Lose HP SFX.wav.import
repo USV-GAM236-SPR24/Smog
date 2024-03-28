@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://qrj3wfxplxjo"
-path="res://.godot/imported/Lose HP SFX.wav-56db54bcf9f436c88eed0a9ff5e33f86.sample"
+path="res://.godot/imported/Lose HP SFX.wav-db6582e45124821bb69b149a32f7bb9a.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Lose HP SFX.wav"
-dest_files=["res://.godot/imported/Lose HP SFX.wav-56db54bcf9f436c88eed0a9ff5e33f86.sample"]
+source_file="res://audio/SFX/Lose HP SFX.wav"
+dest_files=["res://.godot/imported/Lose HP SFX.wav-db6582e45124821bb69b149a32f7bb9a.sample"]
 
 [params]
 

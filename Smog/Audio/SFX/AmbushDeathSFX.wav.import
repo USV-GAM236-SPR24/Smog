@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://gjnc8quqm2pb"
-path="res://.godot/imported/AmbushDeathSFX.wav-216e3c140616be9d9395660686fb384f.sample"
+path="res://.godot/imported/AmbushDeathSFX.wav-95b9574b093510fa6a4fb08debfbc030.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/AmbushDeathSFX.wav"
-dest_files=["res://.godot/imported/AmbushDeathSFX.wav-216e3c140616be9d9395660686fb384f.sample"]
+source_file="res://audio/SFX/AmbushDeathSFX.wav"
+dest_files=["res://.godot/imported/AmbushDeathSFX.wav-95b9574b093510fa6a4fb08debfbc030.sample"]
 
 [params]
 
