@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmkeex6m7d18r"]
+
+[ext_resource type="Script" path="res://scripts/menu/key_ring.gd" id="1_0clea"]
+[ext_resource type="Texture2D" uid="uid://b4oqkye2oga3r" path="res://art/UI/Chaise.png" id="1_pddhl"]
+
+[node name="KeyRing" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0clea")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.667
+anchor_bottom = 0.694
+offset_left = -53.0
+offset_top = 56.0
+offset_right = -53.06
+offset_bottom = 56.064
+scale = Vector2(1.33505, 1.00256)
+texture = ExtResource("1_pddhl")
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 0
+offset_left = 49.4364
+offset_top = 42.8902
+offset_right = 112.436
+offset_bottom = 82.8902
+scale = Vector2(0.323005, 0.197644)
+columns = 3
+
+[node name="Panel" type="PanelContainer" parent="TextureRect/GridContainer"]
+self_modulate = Color(1, 1, 1, 0)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel2" type="PanelContainer" parent="TextureRect/GridContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel3" type="PanelContainer" parent="TextureRect/GridContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
