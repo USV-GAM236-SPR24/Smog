@@ -12,7 +12,7 @@ var drain_area: Area2D
 
 func _init() -> void:
 	health = 5
-	damage = 5
+	damage = 20
 	speed = 5
 
 
@@ -46,7 +46,9 @@ func _physics_process(delta: float) -> void:
 func update_animation() -> void:
 	dirty_animation = false
 	if draining:
-		play_attack_animation(velocity)
+		if not player:
+			return
+		play_attack_animation(position.direction_to(player.position))
 		return
 	super.update_animation()
 
@@ -85,13 +87,14 @@ func _on_body_exited_drain(body):
 	if not body is Player:
 		return
 	draining = false
-	drain_tick_progress = drain_tick_rate
+	drain_tick_progress = 0
 
 
 func die():
 	damage = 0
 	speed = 0
 	stunned = true
+	sprite.play("idle_down")
 	sprite.pause()
 	await get_tree().create_timer(stun_time).timeout
 	sprite.play(sprite.animation)

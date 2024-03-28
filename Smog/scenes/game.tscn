@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://wstjrxw8m084"]
+[gd_scene load_steps=14 format=3 uid="uid://wstjrxw8m084"]
 
-[ext_resource type="PackedScene" uid="uid://cdw2gm7p0c3nv" path="res://levels/level_0.tscn" id="1_5t2wj"]
+[ext_resource type="PackedScene" uid="uid://cbghei1aopagv" path="res://levels/factory_floor_level.tscn" id="1_7l7g4"]
 [ext_resource type="PackedScene" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
 [ext_resource type="PackedScene" uid="uid://cqpwn5svyt4ud" path="res://scenes/inventory/inventory.tscn" id="2_3yuhv"]
 [ext_resource type="PackedScene" path="res://scenes/interactable.tscn" id="2_elo5s"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bih10h7cyl8bc" path="res://scenes/enemies/ambush.tscn" id="7_bknnp"]
 [ext_resource type="PackedScene" path="res://scenes/discoverable.tscn" id="8_8wlif"]
 [ext_resource type="PackedScene" uid="uid://xy4qp81v6sni" path="res://scenes/enemies/stalker.tscn" id="8_kdqrf"]
+[ext_resource type="PackedScene" uid="uid://chpg25lbcv755" path="res://scenes/enemies/grunt.tscn" id="9_vyonr"]
 [ext_resource type="PackedScene" uid="uid://b5wi7fiv6ghp7" path="res://scenes/UI/weapon_hud.tscn" id="10_7edw4"]
 [ext_resource type="PackedScene" uid="uid://dj4ufrnwir7jo" path="res://scenes/pause_ui.tscn" id="10_8ypd1"]
 
@@ -18,29 +19,59 @@
 [node name="World" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Level_0" parent="World" instance=ExtResource("1_5t2wj")]
+[node name="Factory_Floor_Level" parent="World" instance=ExtResource("1_7l7g4")]
+y_sort_enabled = true
 
 [node name="BloodWall" parent="World" instance=ExtResource("3_arpep")]
 visible = false
 position = Vector2(146, 33)
 
 [node name="Interactable" parent="World" instance=ExtResource("2_elo5s")]
-position = Vector2(48, 24)
+position = Vector2(648, 360)
 script = ExtResource("3_ffy84")
-item_name = "key"
+item_name = "cherry"
+
+[node name="Interactable2" parent="World" instance=ExtResource("2_elo5s")]
+position = Vector2(752, 256)
+script = ExtResource("3_ffy84")
+item_name = "alcohol"
 
 [node name="Discoverable" parent="World" instance=ExtResource("8_8wlif")]
-position = Vector2(72, 120)
+position = Vector2(736, 272)
 key = "book"
 
 [node name="Player" parent="World" instance=ExtResource("4_ikqgi")]
-position = Vector2(32, 76)
+position = Vector2(504, 80)
 
 [node name="Ambush" parent="World" instance=ExtResource("7_bknnp")]
-position = Vector2(160, 64)
+position = Vector2(568, 232)
 
 [node name="Stalker" parent="World" instance=ExtResource("8_kdqrf")]
-position = Vector2(-87, -37)
+position = Vector2(920, 288)
+
+[node name="Grunt" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(456, 160)
+
+[node name="Grunt2" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(600, 488)
+
+[node name="Grunt3" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(128, 512)
+
+[node name="Grunt4" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(112, 480)
+
+[node name="Grunt5" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(120, 88)
+
+[node name="Grunt6" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(760, 280)
+
+[node name="Grunt7" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(896, 544)
+
+[node name="Grunt8" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(896, 544)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -4,7 +4,8 @@ extends Enemy
 var emerged := false
 
 var grab_area: Area2D
-var grabbing: bool = false
+var grabbing := false
+var damaged_this_attack := false
 var player_speed: int
 
 
@@ -31,6 +32,12 @@ func _physics_process(delta: float) -> void:
 		return
 	if grab_area.get_overlapping_bodies().has(player):
 		grabbing = true
+		if sprite.animation.begins_with("attack") and sprite.frame == 4:
+			if not damaged_this_attack:
+				Sanity.decrease(damage)
+				damaged_this_attack = true
+		else:
+			damaged_this_attack = false
 		return
 	grabbing = false
 
@@ -51,7 +58,7 @@ func play_attack_animation(direction: Vector2) -> void:
 	if not grabbing:
 		return
 	if sprite.animation.begins_with("attack") and sprite.is_playing():
-		await sprite.animation_finished
+		print("here")
 		return
 	if abs(direction.x) >= abs(direction.y):
 		sprite.flip_h = false
