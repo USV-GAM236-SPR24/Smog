@@ -309,7 +309,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Atk D",
-"speed": 18.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -341,7 +341,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Atk LR",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -379,7 +379,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Atk U",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -412,7 +412,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Melee LR",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -532,7 +532,7 @@ radius = 18.0
 height = 68.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bedtr"]
-size = Vector2(110, 68)
+size = Vector2(94, 70)
 
 [node name="EnemyStalker" type="CharacterBody2D"]
 z_index = 1
@@ -540,9 +540,9 @@ motion_mode = 1
 script = ExtResource("1_x3nmy")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.557701, 0.56338)
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_icbap")
-animation = &"Atk D"
+animation = &"Melee D"
 autoplay = "Idle"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
