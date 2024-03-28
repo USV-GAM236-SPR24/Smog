@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cjhtv1x6qqvtp"
-path="res://.godot/imported/DLSMOGA_whitenoise.wav-15a656690b800bdda01fa750360dafdc.sample"
+path="res://.godot/imported/DLSMOGA_whitenoise.wav-64512fd759beeea6bcc0bff85f52abb3.sample"
 
 [deps]
 
-source_file="res://audio/SFX/DLSMOGA_whitenoise.wav"
-dest_files=["res://.godot/imported/DLSMOGA_whitenoise.wav-15a656690b800bdda01fa750360dafdc.sample"]
+source_file="res://Audio/SFX/DLSMOGA_whitenoise.wav"
+dest_files=["res://.godot/imported/DLSMOGA_whitenoise.wav-64512fd759beeea6bcc0bff85f52abb3.sample"]
 
 [params]
 

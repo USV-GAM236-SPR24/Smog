@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://0rsahc43q8vn"
-path="res://.godot/imported/WiltonHurtSFXVL.wav-47b32204f221cc317204c3d3cfa0c17b.sample"
+path="res://.godot/imported/WiltonHurtSFXVL.wav-26e3a1ed4400c774b2119a4c90466a1e.sample"
 
 [deps]
 
-source_file="res://audio/SFX/WiltonHurtSFXVL.wav"
-dest_files=["res://.godot/imported/WiltonHurtSFXVL.wav-47b32204f221cc317204c3d3cfa0c17b.sample"]
+source_file="res://Audio/SFX/WiltonHurtSFXVL.wav"
+dest_files=["res://.godot/imported/WiltonHurtSFXVL.wav-26e3a1ed4400c774b2119a4c90466a1e.sample"]
 
 [params]
 

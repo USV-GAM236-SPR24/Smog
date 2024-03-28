@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://crl17t68qj08t"
-path="res://.godot/imported/white_bar.png-acd94af0265e1fdb825859eb72a8cd87.ctex"
+path="res://.godot/imported/white_bar.png-d43619f999ab765f11f696a7b7663371.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/white_bar.png"
-dest_files=["res://.godot/imported/white_bar.png-acd94af0265e1fdb825859eb72a8cd87.ctex"]
+source_file="res://Art/UI/white_bar.png"
+dest_files=["res://.godot/imported/white_bar.png-d43619f999ab765f11f696a7b7663371.ctex"]
 
 [params]
 

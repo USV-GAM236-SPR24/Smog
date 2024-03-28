@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://hrg41l17bq3e"
-path="res://.godot/imported/GainHPSFX.wav-715e8f773ff1591086b7aae76328984e.sample"
+path="res://.godot/imported/GainHPSFX.wav-17a52ff223168782b63d0b11f8995b0c.sample"
 
 [deps]
 
-source_file="res://audio/SFX/GainHPSFX.wav"
-dest_files=["res://.godot/imported/GainHPSFX.wav-715e8f773ff1591086b7aae76328984e.sample"]
+source_file="res://Audio/SFX/GainHPSFX.wav"
+dest_files=["res://.godot/imported/GainHPSFX.wav-17a52ff223168782b63d0b11f8995b0c.sample"]
 
 [params]
 
