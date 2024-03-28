@@ -7,7 +7,7 @@
 size = Vector2(32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01cpl"]
-size = Vector2(96, 96)
+size = Vector2(128, 128)
 
 [node name="Ambush" type="CharacterBody2D"]
 position = Vector2(32, 32)

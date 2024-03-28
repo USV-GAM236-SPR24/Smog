@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6eonu61ye651"
-path="res://.godot/imported/trainplaceholder.jpg-3f8673dea95e6a95d372b2c1b9660872.ctex"
+uid="uid://bn4lbhrkq585h"
+path="res://.godot/imported/discoverables.png-990c78f1f0a5f20ce5868ebda3b5489b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/trainplaceholder.jpg"
-dest_files=["res://.godot/imported/trainplaceholder.jpg-3f8673dea95e6a95d372b2c1b9660872.ctex"]
+source_file="res://art/discoverables/discoverables.png"
+dest_files=["res://.godot/imported/discoverables.png-990c78f1f0a5f20ce5868ebda3b5489b.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=2
+detect_3d/compress_to=1
