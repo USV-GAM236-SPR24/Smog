@@ -1,8 +1,15 @@
 {
 	"office1": {
 		"article": {
-			"display_name": "",
-			"text": "",
+			"display_name": "Up in Flames.",
+			"text": "Date 1870
+		Up in Flames
+Just yesterday evening, a factory run by business partners Reginald Wilton and Archibald Cavendish burned and collapsed in the middle of London. The factory was in charge of the development of the newly improved industrial transportation. They had more than 100 workers in total.
+
+Wilton and Cavendish were in charge of producing the massive railroad cars that London’s pedestrians use to travel in a timely fashion. One of these railcars has suddenly fallen out of the assembly line, at least that is what some witnesses have claimed. Almost the entire staff including some officers of the law that were investigating Wilton died in the events of the disaster. 
+
+Still waiting for word from Wilton or Cavendish at this moment. 
+",
 			"type": "TEXT",
 			"texture_path": "res://art/temp/item1.png",
 			"image_path": null
@@ -32,7 +39,20 @@ I must confess, for both of our sakes. They will grant us clemency for coming cl
 	"mailroom": {
 		"letter": {
 			"display_name": "Letter to Wilton from Cavendish",
-			"text": "",
+			"text": "Dear Reginald 
+
+You thought I wouldn’t have noticed but God as my witness I did. After learning you have framed me I learned that you are selfish, egotistic, and self-served.
+
+After all these years I believe that you were my friend, but now you have betrayed me. 
+
+We both have made mistakes in the past and I have stuck out my neck for you but when the authorities came knocking at our doors, you did nothing. And this is your form of repayment? By stabbing your friend in the back for all I had done for you?
+
+Now it is your turn to repay this debt. Soon the world will know what you have done. Your days are numbered, next time we meet will be your last.
+
+Your old friend, 
+Cavendish. 
+
+",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
@@ -124,7 +144,14 @@ Billy
 		},
 		"article": {
 			"display_name": "London is Sick -- is Industry to Blame?",
-			"text": "https://docs.google.com/document/d/1OZqseCzXkRAs8--ErRQQXj7vYET45-JAxLvhkZblGsI/edit",
+			"text": "Date 1871
+		London is Sick-- is Industry to Blame?
+That the once clear blue sky hovering over London is now coated with dark clouds is a surprise to none! With the increasing number of factories erected in the city, locals are beginning to lay blame upon industry! 
+
+This terrible combination of smoke and fog is theorized to correlate to the rising illnesses across London. Unfortunately, there seems to be no end to the production as the thick black smoke from burning coal continues to pump out from facilities day and night. Add to that the recent events of factories burning down due to faulty machinery, and it's no surprise that many suspect that the smoke and fog are to blame for the rising death toll and illness all across London.
+
+Regardless, it is no secret that concerns must be raised for this slow-creeping disaster to come to any sort of resolution.
+",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
