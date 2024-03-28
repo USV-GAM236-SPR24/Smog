@@ -71,6 +71,7 @@ func _physics_process(_delta):
 
 	#update poke collisions
 	%Cane._update_collision()
+	#%Axe._update_collision()
 
 	#update velocity
 	velocity = input_direction * speed
