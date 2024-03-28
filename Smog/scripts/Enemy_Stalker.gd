@@ -1,7 +1,6 @@
 extends Enemy
 
 @onready var timer: Timer = $Timer
-@onready var player = $/root/Game/Player
 
 var StunTime = 5
 var draining = false

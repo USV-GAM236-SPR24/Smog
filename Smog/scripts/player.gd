@@ -6,7 +6,8 @@ signal position_changed(old: Vector2, new: Vector2)
 var input_direction: Vector2 = Vector2.ZERO
 var last_direction: Vector2 = Vector2.RIGHT
 var shoot_range = 500
-var poking: bool = false
+var attacking: bool = false
+var weapon: Weapon
 
 @export var player_acceleraction : float = 10
 
@@ -19,10 +20,11 @@ func _enter_tree() -> void:
 	$"Interaction Components/InteractionArea".area_entered.connect(_on_interaction_area_area_entered)
 	$"Interaction Components/InteractionArea".area_exited.connect(_on_interaction_area_area_exited)
 	Sanity.sanity_empty.connect(die)
-	speed = 100
+	speed = 60
 
 
 func _ready():
+	weapon = %Cane
 	#sprite.animation_finished.connect(Callable(func(): sprite.offset = Vector2.ZERO))
 	position_changed.connect(save_position_value)
 	if SaveSystem.has("position_value") == false:
@@ -34,7 +36,7 @@ func _ready():
 		var saved_value
 		saved_value = SaveSystem.get_var("position_value")
 		print("Loaded position value: ", SaveSystem.get_var("position_value"))
-	$AnimatedSprite2D.play("idle_side")
+	sprite.play("idle_side")
 	update_interactions()
 
 func save_position_value(old:Vector2 , new:Vector2 ):
@@ -46,14 +48,8 @@ func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 
-	if Input.is_action_just_pressed("melee") and not poking and not %Gun.shoot_mode:
+	if Input.is_action_just_pressed("melee") and not attacking and not %Gun.shoot_mode:
 		attack()
-	
-	sprite.offset.y = 0
-	if sprite.animation == "cane_up":
-		sprite.offset.y = -1
-	elif sprite.animation == "cane_down":
-		sprite.offset.y = 6
 	
 	#update animation
 	update_animation(input_direction)
@@ -68,13 +64,10 @@ func _physics_process(_delta):
 	#update gun aim
 	%Gun.update_gun_aim(input_direction)
 
-	#update poke collisions
-	%Cane._update_collision()
-
 	#update velocity
 	velocity = input_direction * speed
 	
-	if poking:
+	if attacking:
 		velocity = Vector2.ZERO
 	
 	#Move and Slide
@@ -83,34 +76,34 @@ func _physics_process(_delta):
 
 #Animation
 func update_animation(move_input : Vector2):
-	if poking:
+	if attacking:
 		return
-	$AnimatedSprite2D.flip_h = false
+	sprite.flip_h = false
 	if move_input == Vector2.ZERO:
 		match last_direction:
 			Vector2.RIGHT:
-				$AnimatedSprite2D.play("idle_side")
+				sprite.play("idle_side")
 			Vector2.LEFT:
-				$AnimatedSprite2D.flip_h = true
-				$AnimatedSprite2D.play("idle_side")
+				sprite.flip_h = true
+				sprite.play("idle_side")
 			Vector2.UP:
-				$AnimatedSprite2D.play("idle_up")
+				sprite.play("idle_up")
 			Vector2.DOWN:
-				$AnimatedSprite2D.play("idle_down")
+				sprite.play("idle_down")
 		return
 	if abs(move_input.x) >= abs(move_input.y): # moving left-right faster than up-down
-		$AnimatedSprite2D.play("walk_side")
+		sprite.play("walk_side")
 		if move_input.x > 0:
 			last_direction = Vector2.RIGHT
 		else:
-			$AnimatedSprite2D.flip_h = true
+			sprite.flip_h = true
 			last_direction = Vector2.LEFT
 	else: # moving up-down faster than left-right
 		if move_input.y > 0:
-			$AnimatedSprite2D.play("walk_down")
+			sprite.play("walk_down")
 			last_direction = Vector2.DOWN
 		else:
-			$AnimatedSprite2D.play("walk_up")
+			sprite.play("walk_up")
 			last_direction = Vector2.UP
 
 
@@ -154,23 +147,13 @@ func _round_to_nearest_direction(input_vector: Vector2) -> Vector2:
 
 func _hide(vis: bool):
 	#$AnimatedSprite2D.visible = not vis
-	print("Toggling hide: ", $AnimatedSprite2D.visible)
+	print("Toggling hide: ", sprite.visible)
 
 
 func attack() -> void:
-	#%Cane.poke()
-	poking = true
-	$AnimatedSprite2D.flip_h = false
-	
-	match last_direction:
-		Vector2.RIGHT:
-			sprite.play("cane_right")
-		Vector2.LEFT:
-			sprite.play("cane_left")
-		Vector2.UP:
-			sprite.play("cane_up")
-		Vector2.DOWN:
-			sprite.play("cane_down")
+	attacking = true
+	sprite.flip_h = false
+	await weapon.attack(last_direction, sprite)
 	await sprite.animation_finished
-	
-	poking = false
+	sprite.offset = Vector2.ZERO
+	attacking = false
