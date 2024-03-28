@@ -6,3 +6,7 @@ extends Node2D
 
 var weapon_name: String
 var damage: int
+
+
+func attack(direction: Vector2, sprite: AnimatedSprite2D):
+	pass

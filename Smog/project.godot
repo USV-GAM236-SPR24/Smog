@@ -176,10 +176,13 @@ reload={
 
 2d_physics/layer_3="interaction"
 
+[navigation]
+
+2d/default_edge_connection_margin=8.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 anti_aliasing/screen_space_roughness_limiter/enabled=false
-2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
