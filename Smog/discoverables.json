@@ -16,7 +16,14 @@
 		},
 		"letter": {
 			"display_name": "Letter to Wilton from Cavendish",
-			"text": "https://docs.google.com/document/d/1oVwX6PdUqShLCurGnM892XkfxB5Ukr1lhY9TuSJvXR4/edit",
+			"text": 
+"The date on the letter reads (insert date here).
+	My Dear Reginald,
+It has grown cumbersome anticipating how to best hold my tongue during the authorities’ dreadful investigations. Thankful as I am that our hour of reckoning has yet to arrive, too many of our factory workers have departed this life under our supervision, and my wealth is, regrettably, not infinite.
+Prudence would dictate that I withhold this admission to our very last breath. But pursuing a life of nothing but bribes to the tabloids and physicians is well beyond my liking. Especially not when sweeteners to the press have since stirred rumors of a new plague. I wish not to deal with the fallout.
+I must confess, for both of our sakes. They will grant us clemency for coming clean with some amount of money, I am sure. Worry not about the bail— I shall cover it and this scandal will be naught but a faint memory.
+	All I request in return is your cooperation when the Scotland Yard police next arrive at the factor as I am, Ever your friend,
+	A. Cavendish",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
@@ -112,7 +119,15 @@ Morbid today, aren’t",
 		},
 		"letter": {
 			"display_name": "Letter from Cavendish to Wilton",
-			"text": "https://docs.google.com/document/d/111-8pBKmY-oeWuUZpMvfeDMN2GTu_-xFJvSzU3_Vlko/edit",
+			"text": 
+"The date on the letter reads (date 1868).
+	My Dear Wilton,
+I beg you ten thousand pardons for the disgraceful state of this letter, but the current state of affairs is quite grim. You must understand that it was a match against time to deliver this to you posthaste. For, after a most unsightly hacking fit of blood during his shift, another one of our workers has passed at the hospital. Witnesses to the scene dare to suggest that we — their superiors! — are to blame for the man’s sudden passing and have since begun using this tragedy to rally around biting the hand that so graciously feeds them.
+If my memory serves me right, you are well-acquainted with a doctor. Will you be so kind as to get in correspondence with him and discuss manners in which you can sway the people? Quickly now, so that we may banish this painful subject from all our minds.
+	I am, My Dear Sir, Ever your affectionate friend,
+	A. Cavendish
+P.S. Enclosed with my letter is £200. Use it as you w ill to disseminate this information to the press and convince the people that their assertations of us are wholly and woefully unfounded.
+",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
@@ -191,7 +206,8 @@ Reginald Wilton declined to comment on the matter.",
 		},
 		"handkerchief": {
 			"display_name": "Embroidered Handkerchief",
-			"text": "The embroidered handkerchief you had custom-made for Cavendish last Christmas. To think that blasted man kept it after all of this time… he didn’t even give you anything worthwhile in return! Nothing but an unremarkable bottle of booze from his family’s dusty old wine cellar…",
+			"text": 
+"The embroidered handkerchief you had custom-made for Cavendish last Christmas. To think that blasted man kept it after all of this time… he didn’t even give you anything worthwhile in return! Nothing but an unremarkable bottle of booze from his family’s dusty old wine cellar…",
 			"type": "IMAGE",
 			"texture_path": "",
 			"image_path": ""
