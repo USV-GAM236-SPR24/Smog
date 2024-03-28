@@ -68,7 +68,21 @@
 		},
 		"note": {
 			"display_name": "Passed Note",
-			"text": "https://docs.google.com/document/u/2/d/1cc30M_M1RW-rTlwy4pf2ku1eHg5Gfmg6DVFDeYGhgyM/edit",
+			"text": "Is something wrong?
+
+No, everything is quite fine right now.
+
+Have you got the morbs?
+
+Well, little Billy might have caught them. He’s been coughing up blood since last night.
+
+Coughing up blood? The smoke must be making it worse. Do you think we should tell the boss about this?
+
+If we told him, he would throw us in the fire.
+
+Just like him and Mr. Cavendish.
+
+Morbid today, aren’t",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
@@ -107,7 +121,15 @@
 	"factory_floor2": {
 		"letter": {
 			"display_name": "Letter from journalist to Wilton",
-			"text": "https://docs.google.com/document/u/2/d/1dx5CpJjTmQYUd9yBkYnN2xNFS8z9K_QuNF6ToNm6b4I/edit",
+			"text": "Mr. Reginald Wilton,
+
+I have received your payment at the office and will be writing the article with the information provided. The article will be published in four days.
+
+We are all thankful for your financial contributions here at the London Gazette.
+
+Yours very respectfully,
+
+Henry Clark",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
@@ -130,7 +152,21 @@
 	"washroom": {
 		"article": {
 			"display_name": "Cavendish Arrested for Factory Arson and Murder",
-			"text": "https://docs.google.com/document/u/2/d/1pJbitUodFei10rMPmQpapur0RnnILjjtFsq9Egbl3BA/edit",
+			"text": "Title: Factory Owner Archibald Cavendish Arrested For Arson and Murder
+
+Date: 1870
+
+Byline: Oliver Pembroke, Investigative Journalist
+
+Archibald Cavendish was arrested last night for committing arson in one of his and Reginald Wilton’s factories. Although many suffered from this tragedy, Cavendish was found escaping through the exit near his office during an investigation of the factory’s mysterious plague. The federal officer, Arthur Wright, passed away during the incident, and hundreds more have been injured due to the burns. Much of the evidence has been destroyed in the factory fire.
+
+Officer Charles Clark spoke about the tragedy to the investigators: “It’s quite a shock to all of us. Although we are mourning the loss of Officer Arthur Wright, we will continue to investigate the situation thoroughly and immediately.”
+
+Many continue to mourn the loss of those who died from the mysterious plague. Pink carnations are selling out in mere hours, and the plague continues to spread.
+
+“I feel that it is hard to live on without my husband,” said the wife of one of the factory workers who died of the plague, “but I must live on and take care of my children.”
+
+Reginald Wilton declined to comment on the matter.",
 			"type": "TEXT",
 			"texture_path": "",
 			"image_path": null
