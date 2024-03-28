@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwcnc5k64xnla"
-path="res://.godot/imported/sanity_full.png-d95059e9c2fa533a2dbc4379b8c1c003.ctex"
+path="res://.godot/imported/sanity_full.png-2401e7ce15206b9d08fb167db8f552c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/temp/sanity_full.png"
-dest_files=["res://.godot/imported/sanity_full.png-d95059e9c2fa533a2dbc4379b8c1c003.ctex"]
+source_file="res://art/temp/sanity_full.png"
+dest_files=["res://.godot/imported/sanity_full.png-2401e7ce15206b9d08fb167db8f552c4.ctex"]
 
 [params]
 

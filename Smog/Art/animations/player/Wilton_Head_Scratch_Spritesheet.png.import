@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcm31mwk3xwkd"
-path="res://.godot/imported/Wilton_Head_Scratch_Spritesheet.png-ec5b950b23bba64c691975e3d5c19b98.ctex"
+path="res://.godot/imported/Wilton_Head_Scratch_Spritesheet.png-cc5e7f9406fed48cd52fecf7b0127b5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/animations/player/Wilton_Head_Scratch_Spritesheet.png"
-dest_files=["res://.godot/imported/Wilton_Head_Scratch_Spritesheet.png-ec5b950b23bba64c691975e3d5c19b98.ctex"]
+source_file="res://art/animations/player/Wilton_Head_Scratch_Spritesheet.png"
+dest_files=["res://.godot/imported/Wilton_Head_Scratch_Spritesheet.png-cc5e7f9406fed48cd52fecf7b0127b5f.ctex"]
 
 [params]
 
