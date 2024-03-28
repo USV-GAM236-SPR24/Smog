@@ -16,8 +16,8 @@ func _init() -> void:
 
 
 func _physics_process(delta):
-	#if not player:
-		#return
+	if not player:
+		return
 	if player_chase:
 		print("Chase!")
 		
