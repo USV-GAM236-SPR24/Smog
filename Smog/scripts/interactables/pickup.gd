@@ -22,11 +22,6 @@ func _ready() -> void:
 
 
 func _interact() -> void:
-	
-	item.name = "item"
-	
-	super._interact()
-	
 	if interact_value == "key":
 		is_single_use = false
 		
@@ -37,4 +32,4 @@ func _interact() -> void:
 		
 	if interact_value == "default":
 		item.type = Item.ItemType.DEFAULT
-		inventory.add_item(item)
+	inventory.add_item(item)
