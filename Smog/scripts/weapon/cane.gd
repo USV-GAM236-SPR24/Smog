@@ -27,5 +27,5 @@ func poke() -> void:
 
 func _call_hit_events(bodies: Array) -> void:
 	for body: Entity in bodies:
-		if body.has_method("take_damage"):
-			body.take_damage(1)
+		if body.has_method("_take_damage"):
+			body._take_damage(1)
