@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds6rr6sujud05"
-path="res://.godot/imported/leftright-stalker.png-214c7779af72949780b95f542788c12d.ctex"
+uid="uid://4ilj836t3las"
+path="res://.godot/imported/StalkerLeftRight_Walk_Spritesheet.png-fbf0a0331c4ebd10036823e01d49f7bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Stalker/leftright-stalker.png"
-dest_files=["res://.godot/imported/leftright-stalker.png-214c7779af72949780b95f542788c12d.ctex"]
+source_file="res://art/Stalker/StalkerLeftRight_Walk_Spritesheet.png"
+dest_files=["res://.godot/imported/StalkerLeftRight_Walk_Spritesheet.png-fbf0a0331c4ebd10036823e01d49f7bd.ctex"]
 
 [params]
 

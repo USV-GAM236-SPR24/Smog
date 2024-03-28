@@ -127,6 +127,7 @@ text = "QUIT
 
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Quit"]
 visible = false
+layout_mode = 0
 offset_left = -18.0
 offset_top = 30.0001
 offset_right = 50.0
@@ -137,6 +138,7 @@ texture = ExtResource("3_4xjwp")
 
 [node name="TextureRect2" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Quit"]
 visible = false
+layout_mode = 0
 offset_left = 62.0
 offset_right = 130.0
 offset_bottom = 48.0

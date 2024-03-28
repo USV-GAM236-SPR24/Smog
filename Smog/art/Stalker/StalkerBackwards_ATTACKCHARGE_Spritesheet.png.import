@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b21hcqyvdf8bf"
-path="res://.godot/imported/leftright-stalker2.png-550420c7172cd1b0d57e6523f322e4e0.ctex"
+uid="uid://cyc0h1hmx15xt"
+path="res://.godot/imported/StalkerBackwards_ATTACKCHARGE_Spritesheet.png-f097e05509f82e8884f705c78a029487.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Stalker/leftright-stalker2.png"
-dest_files=["res://.godot/imported/leftright-stalker2.png-550420c7172cd1b0d57e6523f322e4e0.ctex"]
+source_file="res://art/Stalker/StalkerBackwards_ATTACKCHARGE_Spritesheet.png"
+dest_files=["res://.godot/imported/StalkerBackwards_ATTACKCHARGE_Spritesheet.png-f097e05509f82e8884f705c78a029487.ctex"]
 
 [params]
 
