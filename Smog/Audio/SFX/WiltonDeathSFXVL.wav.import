@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://hw5ga0dynwbd"
-path="res://.godot/imported/WiltonDeathSFXVL.wav-229c7f05b8883f1b5ecb4db6eb1827f1.sample"
+path="res://.godot/imported/WiltonDeathSFXVL.wav-00a2857c799921e926f582d8df9b8732.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/WiltonDeathSFXVL.wav"
-dest_files=["res://.godot/imported/WiltonDeathSFXVL.wav-229c7f05b8883f1b5ecb4db6eb1827f1.sample"]
+source_file="res://audio/SFX/WiltonDeathSFXVL.wav"
+dest_files=["res://.godot/imported/WiltonDeathSFXVL.wav-00a2857c799921e926f582d8df9b8732.sample"]
 
 [params]
 
