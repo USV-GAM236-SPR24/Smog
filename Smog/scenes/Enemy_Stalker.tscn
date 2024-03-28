@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://fgq2768ox5ql"]
+[gd_scene load_steps=27 format=3 uid="uid://dswmu5m7jbanl"]
 
 [ext_resource type="Script" path="res://scripts/Enemy_Stalker.gd" id="1_x3nmy"]
 [ext_resource type="Texture2D" uid="uid://drotcln1b3wlx" path="res://art/Stalker/stalkerSpritesheet.png" id="2_pddl0"]
