@@ -2,12 +2,14 @@ extends CanvasLayer
 
 
 var game_scene: PackedScene = preload("res://scenes/game.tscn")
+var settings_scene: PackedScene = preload("res://scenes/user_settings.tscn")
 
 var _selected_option: bool = false
 
 func _enter_tree() -> void:
 	%Start.pressed.connect(_on_start_pressed)
 	%Quit.pressed.connect(_on_quit_pressed)
+	%Settings.pressed.connect(_on_settings_pressed)
 
 
 func _on_start_pressed():
@@ -16,6 +18,11 @@ func _on_start_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_settings_pressed():
+	get_tree().change_scene_to_packed(settings_scene)
+
 
 func _input(event):
 	if event is InputEvent:

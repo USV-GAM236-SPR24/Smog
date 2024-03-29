@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bkh2yq81mc0p0"
-path="res://.godot/imported/GruntSFXAtk.wav-24d4d822cae2c8f47b30d742dbde9ef1.sample"
+path="res://.godot/imported/GruntSFXAtk.wav-dd257b7b51788bda2d52231c1963fdfe.sample"
 
 [deps]
 
-source_file="res://audio/SFX/GruntSFXAtk.wav"
-dest_files=["res://.godot/imported/GruntSFXAtk.wav-24d4d822cae2c8f47b30d742dbde9ef1.sample"]
+source_file="res://Audio/SFX/GruntSFXAtk.wav"
+dest_files=["res://.godot/imported/GruntSFXAtk.wav-dd257b7b51788bda2d52231c1963fdfe.sample"]
 
 [params]
 

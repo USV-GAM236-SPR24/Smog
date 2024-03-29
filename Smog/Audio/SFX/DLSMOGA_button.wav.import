@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dwubcwp12pcio"
-path="res://.godot/imported/DLSMOGA_button.wav-98511e576b18d49f827fcb8f97ca9145.sample"
+path="res://.godot/imported/DLSMOGA_button.wav-4423010f212f36eacce4b643868d1ff4.sample"
 
 [deps]
 
-source_file="res://audio/SFX/DLSMOGA_button.wav"
-dest_files=["res://.godot/imported/DLSMOGA_button.wav-98511e576b18d49f827fcb8f97ca9145.sample"]
+source_file="res://Audio/SFX/DLSMOGA_button.wav"
+dest_files=["res://.godot/imported/DLSMOGA_button.wav-4423010f212f36eacce4b643868d1ff4.sample"]
 
 [params]
 
