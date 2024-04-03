@@ -27,8 +27,18 @@ color = Color(0.133333, 0.133333, 0.133333, 1)
 [node name="Tree" type="Tree" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 15.0
-offset_top = 13.0
-offset_right = 167.0
-offset_bottom = 134.0
+offset_top = 1.0
+offset_right = 178.0
+offset_bottom = 142.0
 hide_root = true
+
+[node name="BackButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 127.0
+offset_top = 118.0
+offset_right = 177.0
+offset_bottom = 140.0
+text = "Back"
+
+[connection signal="pressed" from="Control/BackButton" to="." method="_load_main_menu"]
