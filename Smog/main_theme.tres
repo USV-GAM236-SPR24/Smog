@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://8410y4ephbga"]
 
-[ext_resource type="Texture2D" path="res://art/UI/button_nine_slice.png" id="1_8qu4p"]
-[ext_resource type="FontFile" path="res://fonts1/Micro_Chat (2).ttf" id="2_qekal"]
+[ext_resource type="Texture2D" uid="uid://0ik8k8mr8yvr" path="res://art/UI/button_nine_slice.png" id="1_8qu4p"]
+[ext_resource type="FontFile" uid="uid://dkyh4orvgmlbs" path="res://fonts1/Micro_Chat (2).ttf" id="2_qekal"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ol1rj"]
 content_margin_left = 5.0
