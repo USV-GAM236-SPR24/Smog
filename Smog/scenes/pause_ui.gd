@@ -13,17 +13,14 @@ func pause_game():
 	is_paused = true
 	show()
 	get_tree().paused = true
-	print("game is paused")
 
 func resume_game():
 	is_paused = false
 	hide()
 	get_tree().paused = false
-	print("game is resumed")
 
 func _on_resume_pressed():
 	resume_game()
-
 
 func _on_quit_pressed():
 	get_tree().quit()

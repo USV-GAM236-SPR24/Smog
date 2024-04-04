@@ -1,16 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://xy4qp81v6sni"]
 
 [ext_resource type="Script" path="res://scripts/enemies/stalker.gd" id="1_unnku"]
-[ext_resource type="SpriteFrames" uid="uid://qhrhc51duhgc" path="res://art/characters/ambush/ambush_sprite_frames.tres" id="2_sr5t1"]
+[ext_resource type="SpriteFrames" uid="uid://c4pou4l3er82g" path="res://art/characters/stalker/stalker_sprite_frames.tres" id="2_pmdcw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnequ"]
-size = Vector2(32, 16)
+size = Vector2(120, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01cpl"]
-size = Vector2(256, 256)
+size = Vector2(384, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0yik"]
-size = Vector2(128, 128)
+size = Vector2(192, 192)
 
 [node name="Stalker" type="CharacterBody2D"]
 position = Vector2(32, 32)
@@ -18,11 +18,11 @@ motion_mode = 1
 script = ExtResource("1_unnku")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_sr5t1")
-animation = &"puddle"
+sprite_frames = ExtResource("2_pmdcw")
+animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(-4, 16)
 shape = SubResource("RectangleShape2D_rnequ")
 
 [node name="DetectionArea2D" type="Area2D" parent="."]

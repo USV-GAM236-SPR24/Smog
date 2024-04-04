@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://beglrerj5k48" path="res://scenes/player.tscn" id="1_ajiuy"]
 [ext_resource type="PackedScene" uid="uid://bih10h7cyl8bc" path="res://scenes/enemies/ambush.tscn" id="2_57sut"]
-[ext_resource type="PackedScene" uid="uid://cuiq6aqoj1vg3" path="res://levels/level_1.tscn" id="3_caj4h"]
+[ext_resource type="PackedScene" path="res://levels/level_1.tscn" id="3_caj4h"]
 [ext_resource type="PackedScene" uid="uid://chpg25lbcv755" path="res://scenes/enemies/grunt.tscn" id="4_r20nq"]
 
 [node name="GameTest" type="Node2D"]

@@ -11,14 +11,14 @@ Wilton and Cavendish were in charge of producing the massive railroad cars that 
 Still waiting for word from Wilton or Cavendish at this moment. 
 ",
 			"type": "TEXT",
-			"texture_path": "res://art/temp/item1.png",
+			"texture_path": "res://art/discoverables/discoverable_1.tres",
 			"image_path": null
 		},
 		"book": {
 			"display_name": "Dante's Inferno",
 			"text": "Turn back and seek the safety of the shore; tempt not the deep, lest, losing unawares me and yourselves, you come to port no more.",
 			"type": "TEXT",
-			"texture_path": "res://art/temp/item1.png",
+			"texture_path": "res://art/discoverables/discoverable_2.tres",
 			"image_path": null
 		},
 		"letter": {
@@ -32,7 +32,7 @@ I must confess, for both of our sakes. They will grant us clemency for coming cl
 	All I request in return is your cooperation when the Scotland Yard police next arrive at the factor as I am, Ever your friend,
 	A. Cavendish",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_3.tres",
 			"image_path": null
 		}
 	},
@@ -54,14 +54,14 @@ Cavendish.
 
 ",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_4.tres",
 			"image_path": null
 		},
 		"photograph": {
 			"display_name": "Photograph",
 			"text": "This photograph depicts Wilton and Cavendish shaking hands and smiling at the camera. There is writing on the back that reads “To our new business venture as partners",
 			"type": "IMAGE",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_5.tres",
 			"image_path": ""
 		},
 		"trash_letters": {
@@ -90,7 +90,7 @@ Cavendish.
 - 1 Tbl. Lard
 - 3 Tbl. Dry Yeast",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_6.tres",
 			"image_path": null
 		},
 		"note": {
@@ -111,7 +111,7 @@ Just like him and Mr. Cavendish.
 
 Morbid today, aren’t",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_7.tres",
 			"image_path": null
 		},
 		"schedule": {
@@ -130,7 +130,7 @@ Yours truly,
 Billy
 ",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_8.tres",
 			"image_path": null
 		}
 	},
@@ -139,7 +139,7 @@ Billy
 			"display_name": "Police Badge",
 			"text": "",
 			"type": "DIALOGUE",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_9.tres",
 			"image_path": null
 		},
 		"article": {
@@ -168,7 +168,7 @@ If my memory serves me right, you are well-acquainted with a doctor. Will you be
 P.S. Enclosed with my letter is £200. Use it as you w ill to disseminate this information to the press and convince the people that their assertations of us are wholly and woefully unfounded.
 ",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_10.tres",
 			"image_path": null
 		}
 	},
@@ -199,7 +199,7 @@ Henry Clark",
 			"display_name": "Ominous Note",
 			"text": "I have come to lead you to the other shore; into eternal darkness; into fire and into ice.",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_12.tres",
 			"image_path": null
 		}
 	},
@@ -231,7 +231,7 @@ Reginald Wilton declined to comment on the matter.",
 			"display_name": "Ominous Note",
 			"text": "I am damned ... there is no escape from the hellfire",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_13.tres",
 			"image_path": null
 		}
 	},
@@ -240,7 +240,7 @@ Reginald Wilton declined to comment on the matter.",
 			"display_name": "Letter to Cavendish from Wilton",
 			"text": "https://docs.google.com/document/u/0/d/1xqe3L37fBPuWmvBQ8gj3aNqkX2yGT1HDbtKiksxtY2Q/edit",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_14.tres",
 			"image_path": null
 		},
 		"handkerchief": {
@@ -248,7 +248,7 @@ Reginald Wilton declined to comment on the matter.",
 			"text": 
 "The embroidered handkerchief you had custom-made for Cavendish last Christmas. To think that blasted man kept it after all of this time… he didn’t even give you anything worthwhile in return! Nothing but an unremarkable bottle of booze from his family’s dusty old wine cellar…",
 			"type": "IMAGE",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_15.tres",
 			"image_path": ""
 		}
 	}

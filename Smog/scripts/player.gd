@@ -59,8 +59,6 @@ func _physics_process(_delta):
 	#get input direction
 	input_direction = _round_to_nearest_direction(Input.get_vector("left", "right", "up", "down"))
 
-	
-
 	#update gun aim
 	%Gun.update_gun_aim(input_direction)
 
@@ -157,3 +155,8 @@ func attack() -> void:
 	await sprite.animation_finished
 	sprite.offset = Vector2.ZERO
 	attacking = false
+
+
+func die():
+	Sanity.fill()
+	get_tree().reload_current_scene()
