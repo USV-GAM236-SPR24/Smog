@@ -1,0 +1,56 @@
+{
+	"office1": {
+		"article": {
+			"trigger": "article",
+			"text": "Is this how they write about the factory?"
+		},
+		"": {
+			"trigger": "",
+			"text": ""
+		},
+		"": {
+			"trigger": "",
+			"text": ""
+		}
+	},
+	"mailroom": {
+		"": {
+			"trigger": "",
+			"text": ""
+		},
+		"": {
+			"trigger": "",
+			"text": ""
+		},
+		"": {
+			"trigger": "",
+			"text": ""
+		}
+	},
+	"factory_floor1": {
+		"": {
+			"trigger": "",
+			"text": ""
+		},
+		"": {
+			"trigger": "",
+			"text": ""
+		}
+	},
+	"storage": {
+		"": {
+			"trigger": "",
+			"text": ""
+		}
+	},
+	"office2": {
+		"": {
+			"trigger": "",
+			"text": ""
+		},
+		"": {
+			"trigger": "",
+			"text": ""
+		}
+	}
+}
