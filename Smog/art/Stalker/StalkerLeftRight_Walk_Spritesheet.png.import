@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4ilj836t3las"
-path="res://.godot/imported/StalkerLeftRight_Walk_Spritesheet.png-fbf0a0331c4ebd10036823e01d49f7bd.ctex"
+path="res://.godot/imported/StalkerLeftRight_Walk_Spritesheet.png-5c21b3ecc448669c51db827c85e76440.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Stalker/StalkerLeftRight_Walk_Spritesheet.png"
-dest_files=["res://.godot/imported/StalkerLeftRight_Walk_Spritesheet.png-fbf0a0331c4ebd10036823e01d49f7bd.ctex"]
+source_file="res://Art/Stalker/StalkerLeftRight_Walk_Spritesheet.png"
+dest_files=["res://.godot/imported/StalkerLeftRight_Walk_Spritesheet.png-5c21b3ecc448669c51db827c85e76440.ctex"]
 
 [params]
 

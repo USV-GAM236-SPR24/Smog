@@ -4,53 +4,53 @@
 			"trigger": "article",
 			"text": "Is this how they write about the factory?"
 		},
-		"": {
-			"trigger": "",
-			"text": ""
+		"Empty Bottles": {
+			"trigger": "Empty Bottles",
+			"text": "“No… I need to find more.”"
 		},
-		"": {
-			"trigger": "",
-			"text": ""
+		"Dante's Inferno Book": {
+			"trigger": "Dante's Inferno Book",
+			"text": "The darkest places of hell are reserved for– oh, blast it! What does Dante know?"
 		}
 	},
 	"mailroom": {
-		"": {
-			"trigger": "",
-			"text": ""
+		"Safe Zone": {
+			"trigger": "Safe Zone",
+			"text": "Those buggers cannot follow me in here, can they?"
 		},
-		"": {
-			"trigger": "",
-			"text": ""
+		"First Monster": {
+			"trigger": "First Monster",
+			"text": "W-what are these ghastly beings?!",
+			"text2": "I must be a bit peaky… Yes– yes, that’s it!"
 		},
-		"": {
-			"trigger": "",
-			"text": ""
+		"Cavendish's Mail Bin": {
+			"trigger": "Cavendish's Mail Bin",
+			"text": "He was always so prompt with his correspondence."
 		}
 	},
 	"factory_floor1": {
-		"": {
-			"trigger": "",
-			"text": ""
+		"Police Badge": {
+			"trigger": "Police Badge",
+			"text": "“A police badge? Here?!”",
+			"text2": "But there is nothing else for them to find. I’ve made sure of it..."
 		},
-		"": {
-			"trigger": "",
-			"text": ""
+		"Engine Falling": {
+			"trigger": "Engine Falling",
+			"text": "Bloody hell! What is causing all of this?!"
 		}
 	},
 	"storage": {
-		"": {
-			"trigger": "",
-			"text": ""
+		"Factory Key": {
+			"trigger": "Factory Key",
+			"text": "Finally… a way out of this hellhole.",
+			"text2": "I should make my way to the factory floor exit. Posthaste."
 		}
 	},
 	"office2": {
-		"": {
-			"trigger": "",
-			"text": ""
-		},
-		"": {
-			"trigger": "",
-			"text": ""
+		"Enter Cavendish's Office": {
+			"trigger": "Enter Cavendish's Office",
+			"text": "Archie always snatched up the most luxurious decor for his office… however garish they were.",
+			"text2": "If I had his kind of money, my office would-- Bah… if only."
 		}
 	}
 }

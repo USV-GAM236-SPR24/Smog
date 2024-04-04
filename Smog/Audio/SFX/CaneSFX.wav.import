@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b5rha4wqotmvh"
-path="res://.godot/imported/CaneSFX.wav-a1cd9faee3399f18179524bde19469fc.sample"
+path="res://.godot/imported/CaneSFX.wav-4f9021d48d1d4b288b97f3223cab4643.sample"
 
 [deps]
 
-source_file="res://audio/SFX/CaneSFX.wav"
-dest_files=["res://.godot/imported/CaneSFX.wav-a1cd9faee3399f18179524bde19469fc.sample"]
+source_file="res://Audio/SFX/CaneSFX.wav"
+dest_files=["res://.godot/imported/CaneSFX.wav-4f9021d48d1d4b288b97f3223cab4643.sample"]
 
 [params]
 
