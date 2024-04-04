@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://wstjrxw8m084"]
 
-[ext_resource type="PackedScene" path="res://levels/factory_floor_level.tscn" id="1_7l7g4"]
-[ext_resource type="PackedScene" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
+[ext_resource type="PackedScene" uid="uid://cbghei1aopagv" path="res://levels/factory_floor_level.tscn" id="1_7l7g4"]
+[ext_resource type="PackedScene" uid="uid://oer2643hsff7" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
 [ext_resource type="PackedScene" uid="uid://cqpwn5svyt4ud" path="res://scenes/inventory/inventory.tscn" id="2_3yuhv"]
 [ext_resource type="PackedScene" path="res://scenes/interactable.tscn" id="2_elo5s"]
 [ext_resource type="PackedScene" uid="uid://djk72tgahvi7a" path="res://scenes/animations/blood_wall.tscn" id="3_arpep"]

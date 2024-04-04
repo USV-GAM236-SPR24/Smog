@@ -13,7 +13,7 @@ config_version=5
 config/name="Smog"
 run/main_scene="res://scenes/main_menu_ui.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://art/client_icon.png"
 
 [autoload]
 

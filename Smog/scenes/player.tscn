@@ -5,7 +5,6 @@
 [ext_resource type="SpriteFrames" uid="uid://cnh5pl7evc0ff" path="res://art/characters/wilton/wilton_sprite_frames.tres" id="2_ru7qh"]
 [ext_resource type="PackedScene" uid="uid://b70pj2rlxtaka" path="res://scenes/weapons/gun.tscn" id="3_b7pyv"]
 [ext_resource type="PackedScene" uid="uid://bv8sow2vxlbc0" path="res://scenes/weapons/cane.tscn" id="4_5t2yn"]
-[ext_resource type="Script" path="res://scripts/weapon/axe.gd" id="5_lidu0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuupm"]
 size = Vector2(16, 16)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6eonu61ye651"
-path="res://.godot/imported/trainplaceholder.jpg-f9a0af1ece6df8c1bce9ae75df0fd506.ctex"
+uid="uid://bkywmx6dmv41g"
+path="res://.godot/imported/sanity_icons.png-cdf4f45dfe44a041e5fde4071e93b3bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/trainplaceholder.jpg"
-dest_files=["res://.godot/imported/trainplaceholder.jpg-f9a0af1ece6df8c1bce9ae75df0fd506.ctex"]
+source_file="res://art/UI/sanity_icons.png"
+dest_files=["res://.godot/imported/sanity_icons.png-cdf4f45dfe44a041e5fde4071e93b3bf.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=2
+detect_3d/compress_to=1
