@@ -22,6 +22,7 @@ func attack(direction: Vector2, sprite: AnimatedSprite2D) -> void:
 	if direction_data.has(direction):
 		var data = direction_data[direction]
 		_update_collision(direction)
+		$CaneSFX.play()
 		sprite.play(data["animation"])
 		if data.has("offset"):
 			sprite.offset = data["offset"]

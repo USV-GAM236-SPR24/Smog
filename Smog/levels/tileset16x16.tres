@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=6 format=3 uid="uid://bv3u734sybfeg"]
 
-[ext_resource type="Texture2D" uid="uid://bp6hpfmixj5qy" path="res://art/temp/roguelikeIndoor_transparent.png" id="1_cftkm"]
-[ext_resource type="Texture2D" uid="uid://blppqyagxakhx" path="res://art/temp/Walls.png" id="2_ibeel"]
+[ext_resource type="Texture2D" uid="uid://bp6hpfmixj5qy" path="res://Art/temp/roguelikeIndoor_transparent.png" id="1_cftkm"]
+[ext_resource type="Texture2D" uid="uid://blppqyagxakhx" path="res://Art/temp/Walls.png" id="2_ibeel"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33vse"]
 resource_name = "RoguelikeIndoor_transparent"

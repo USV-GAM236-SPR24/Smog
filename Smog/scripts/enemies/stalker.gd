@@ -48,6 +48,8 @@ func update_animation() -> void:
 	if draining:
 		if not player:
 			return
+		if !$StalkerATK.is_playing():
+			$StalkerATK.play()
 		play_attack_animation(position.direction_to(player.position))
 		return
 	super.update_animation()
@@ -94,6 +96,7 @@ func die():
 	damage = 0
 	speed = 0
 	stunned = true
+	$StalkerStun.play()
 	sprite.play("idle_down")
 	sprite.pause()
 	await get_tree().create_timer(stun_time).timeout
@@ -102,3 +105,5 @@ func die():
 	health = 5
 	damage = 20
 	speed = 5
+
+	

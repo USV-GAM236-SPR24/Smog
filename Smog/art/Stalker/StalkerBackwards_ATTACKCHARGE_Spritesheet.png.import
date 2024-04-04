@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyc0h1hmx15xt"
-path="res://.godot/imported/StalkerBackwards_ATTACKCHARGE_Spritesheet.png-f097e05509f82e8884f705c78a029487.ctex"
+path="res://.godot/imported/StalkerBackwards_ATTACKCHARGE_Spritesheet.png-dea152f65ee7dab4742fae479ab78f5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Stalker/StalkerBackwards_ATTACKCHARGE_Spritesheet.png"
-dest_files=["res://.godot/imported/StalkerBackwards_ATTACKCHARGE_Spritesheet.png-f097e05509f82e8884f705c78a029487.ctex"]
+source_file="res://Art/Stalker/StalkerBackwards_ATTACKCHARGE_Spritesheet.png"
+dest_files=["res://.godot/imported/StalkerBackwards_ATTACKCHARGE_Spritesheet.png-dea152f65ee7dab4742fae479ab78f5e.ctex"]
 
 [params]
 
