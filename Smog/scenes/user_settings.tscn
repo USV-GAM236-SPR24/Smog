@@ -27,9 +27,11 @@ color = Color(0.133333, 0.133333, 0.133333, 1)
 [node name="Tree" type="Tree" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 0
+offset_left = 1.0
 offset_top = 1.0
 offset_right = 178.0
 offset_bottom = 142.0
+allow_search = false
 hide_root = true
 
 [node name="BackButton" type="Button" parent="Control"]

@@ -4,13 +4,21 @@ extends CanvasLayer
 @onready var binding_change_button_texture: Texture2D = load("res://art/UI/whitebar_8x4.png")
 @onready var tree: Tree = %Tree
 
+@onready var scrollbar: VScrollBar = get_node("Control/Tree/@VScrollBar@19")
+
+var first: bool = true
+
 var pad_mode: bool = false: 
 	get: 
 		return pad_mode
 	set(value):
 		pad_mode = value
-		_update_children(KeyBindMenu)
-	
+		if pad_mode and first:
+			_update_children(KeyBindMenu)
+			tree.set_selected(KeyBindMenu, 0)
+			current_item = KeyBindMenu
+			first = false
+			
 var listening: bool = false:
 	get:
 		return listening
@@ -24,6 +32,13 @@ var current_button_index: int = 0
 
 var KeyBindMenu: TreeItem
 var GraphicsMenu: TreeItem
+
+var current_item: TreeItem:
+	get:
+		return current_item
+	set(value):
+		print(value)
+		current_item = value
 
 var settings: Dictionary = {
 	"Keybindings": {
@@ -39,13 +54,67 @@ var settings: Dictionary = {
 		"escape" : "Esc",
 		"reload" : "R"
 	}
-}
+}	
 
+func _process(_delta) -> void:
+	if listening:
+		return
+	
+	if Input.is_action_just_pressed("down") and pad_mode:
+		tree.deselect_all()
+		var down_item
+		if current_item != null:
+			down_item = current_item.get_next_visible(true)
+		if down_item == GraphicsMenu.get_next_visible(true):
+			current_item = KeyBindMenu
+			scrollbar.value = scrollbar.min_value
+			print('reached the bottom')
+		else:
+			current_item = down_item
+			scrollbar.value += 35
+		
+		#if current_item
+		tree.set_selected(current_item, 0)
+		
+
+	elif Input.is_action_just_pressed("up") and pad_mode:
+		tree.deselect_all()
+		
+		var up_item
+		if current_item != null:
+			up_item = current_item.get_prev_visible(true)
+			
+		if up_item == null:
+			current_item = GraphicsMenu
+			scrollbar.value = scrollbar.max_value
+			print('reached the top')
+			
+		else:
+			current_item = up_item
+			scrollbar.value -= 35
+			
+		tree.set_selected(current_item, 0)
+		
+		
+	elif Input.is_action_just_pressed("right") and pad_mode:
+		if tree.get_selected() == KeyBindMenu or tree.get_selected() == GraphicsMenu:
+			current_item.collapsed = false
+			scrollbar.value = scrollbar.min_value
+			#tree.set_selected(KeyBindMenu, 0)
+			
+	elif Input.is_action_just_pressed("left") and pad_mode:
+		if tree.get_selected() == KeyBindMenu or tree.get_selected() == GraphicsMenu:
+			current_item.collapsed = true
+			
+			
+func _item_selected():
+	pass
 
 func _ready() -> void:
 	tree.grab_focus()
 	
 	var root: TreeItem = tree.create_item()
+	root.set_selectable(0, false)
 	
 	tree.button_clicked.connect(button_one)
 	tree.item_selected.connect(_item_selected)
@@ -73,10 +142,9 @@ func _ready() -> void:
 	
 	collapse_all(KeyBindMenu)
 	
-	
+
 #listen for user keybind input if listening and valid input
 func _input(event: InputEvent) -> void:
-	print(event.as_text())
 	if event.as_text().find("Joypad") != -1:
 		pad_mode = true
 	else:
@@ -85,11 +153,9 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion or not listening:
 		return
 	
-	if event is InputEventJoypadButton or InputEventMouseButton or InputEventKey or InputEventJoypadMotion:
+	if event is InputEventJoypadButton or InputEventMouseButton or InputEventKey or InputEventJoypadMotion and listening:
 		_update_binds(event, _get_bind_from_index(current_button_index))
 		listening = false
-		
-		print("DEBUG ------ Listening : ", listening)
 
 
 # InputEvent will be assigned as new binding for binding
@@ -104,7 +170,7 @@ func _update_binds(input: InputEvent, binding: String) -> void:
 		
 		return
 	
-	print('DEBUG ------ New input set! : ', input.keycode)
+	
 	InputMap.action_erase_events(binding)
 	InputMap.action_add_event(binding, input)
 	
@@ -135,7 +201,6 @@ func _update_children(t_item: TreeItem):
 		binding.set_selectable(0, pad_mode)
 		button_id += 1
 		
-		
 # callback for Tree.button_clicked
 func button_one(_item: TreeItem, _column: int, id: int, mouse_button_index: int) -> void:
 	current_button_index = id
@@ -143,9 +208,12 @@ func button_one(_item: TreeItem, _column: int, id: int, mouse_button_index: int)
 	print("DEBUG ------ Listening : ", listening, " on button number: ", id)
 
 
-func _item_selected():
-	print('yo')
-
+func _pad_select_down():
+	tree.set_selected(KeyBindMenu.get_children()[3], 0)
+	
+func _pad_select_up():
+	pass
+	
 func _load_main_menu():
 	get_tree().change_scene_to_packed(main_menu)
 
@@ -186,9 +254,20 @@ func _get_str_from_input_event(input: InputEvent) -> String:
 			7: return "Mouse " + str(input.button_index)
 			8: return "Mouse 4"
 			9: return "Mouse 5" 
+	
+	if input is InputEventJoypadMotion:
+		print(input)
 		
+	
+	if input is InputEventJoypadButton:
+		#print(input)
+		match input.button_index:
+			0: return "Bottom button"
+			1: return "Right button"
+			2: return "Left button"
+			3: return "Top button"
 		
-	if input is InputEventKey or InputEventJoypadButton:
+	if input is InputEventKey:
 		match input.keycode:
 			KEY_NONE: return ""
 			KEY_SPECIAL: return ""
@@ -382,7 +461,7 @@ func _get_str_from_input_event(input: InputEvent) -> String:
 			KEY_BRACERIGHT: return ""
 			KEY_ASCIITILDE: return ""
 	
-	return str(input.keycode)
+	return "err"
 	
 
 func _remove_underscores(val: String) -> String:
