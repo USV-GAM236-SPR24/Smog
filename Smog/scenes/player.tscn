@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://beglrerj5k48"]
+[gd_scene load_steps=9 format=3 uid="uid://beglrerj5k48"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_n7sla"]
 [ext_resource type="Theme" uid="uid://8410y4ephbga" path="res://main_theme.tres" id="2_mrhdm"]
 [ext_resource type="SpriteFrames" uid="uid://cnh5pl7evc0ff" path="res://art/characters/wilton/wilton_sprite_frames.tres" id="2_ru7qh"]
 [ext_resource type="PackedScene" uid="uid://b70pj2rlxtaka" path="res://scenes/weapons/gun.tscn" id="3_b7pyv"]
 [ext_resource type="PackedScene" uid="uid://bv8sow2vxlbc0" path="res://scenes/weapons/cane.tscn" id="4_5t2yn"]
-[ext_resource type="Script" path="res://scripts/weapon/axe.gd" id="5_lidu0"]
+[ext_resource type="AudioStream" uid="uid://hw5ga0dynwbd" path="res://Audio/SFX/WiltonDeathSFXVL.wav" id="6_rywsh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuupm"]
 size = Vector2(16, 16)
@@ -69,3 +69,6 @@ z_index = 1
 [node name="Cane" parent="." instance=ExtResource("4_5t2yn")]
 unique_name_in_owner = true
 visible = false
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rywsh")
