@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var binding_change_button_texture: Texture2D = load("res://art/UI/whitebar_8x4.png")
 @onready var tree: Tree = %Tree
 
-@onready var scrollbar: VScrollBar = get_node("Control/Tree/@VScrollBar@19")
+@onready var scrollbar: VScrollBar = tree.get_child(3, true)
 
 var first: bool = true
 
@@ -12,22 +12,27 @@ var pad_mode: bool = false:
 	get: 
 		return pad_mode
 	set(value):
+		var o_pad_mode: bool = pad_mode
 		pad_mode = value
 		if pad_mode and first:
 			_update_children(KeyBindMenu)
 			tree.set_selected(KeyBindMenu, 0)
 			current_item = KeyBindMenu
 			first = false
+		if !pad_mode:
+			_update_children(KeyBindMenu)
+		if pad_mode and !o_pad_mode and not listening: # if pad mode changing while not listening
+			_update_children(KeyBindMenu)
+			tree.set_selected(KeyBindMenu, 0)
+			current_item = KeyBindMenu
+			scrollbar.value = scrollbar.min_value
 			
 var listening: bool = false:
 	get:
 		return listening
 	set(value):
 		listening = value
-		var i: int = 0
-		for bind in KeyBindMenu.get_children():
-			bind.set_button_disabled(0, i, listening)
-			
+		
 var current_button_index: int = 0
 
 var KeyBindMenu: TreeItem
@@ -37,7 +42,6 @@ var current_item: TreeItem:
 	get:
 		return current_item
 	set(value):
-		print(value)
 		current_item = value
 
 var settings: Dictionary = {
@@ -56,19 +60,43 @@ var settings: Dictionary = {
 	}
 }	
 
+# LISTENING
+func _input(event: InputEvent) -> void:
+	if event.as_text().find("Joypad") != -1:
+		if !event is InputEventJoypadMotion:
+			pad_mode = true
+	else:
+		pad_mode = false
+		
+	if not listening:
+		return
+	
+	if event is InputEventMouseMotion:
+		return
+		
+	if event is InputEventJoypadMotion:
+		if abs(event.axis_value) < 0.5:
+			return
+	
+	if (event is InputEventJoypadButton or InputEventMouseButton or InputEventKey) and listening:
+		_update_bind(event, _get_bind_from_index(current_button_index))
+		listening = false
+
+# NOT LISTENING
 func _process(_delta) -> void:
 	if listening:
 		return
 	
-	if Input.is_action_just_pressed("down") and pad_mode:
+	if Input.is_action_just_pressed("ui_settings_down") and pad_mode:
 		tree.deselect_all()
 		var down_item
 		if current_item != null:
 			down_item = current_item.get_next_visible(true)
+			
 		if down_item == GraphicsMenu.get_next_visible(true):
 			current_item = KeyBindMenu
 			scrollbar.value = scrollbar.min_value
-			print('reached the bottom')
+			
 		else:
 			current_item = down_item
 			scrollbar.value += 35
@@ -77,7 +105,7 @@ func _process(_delta) -> void:
 		tree.set_selected(current_item, 0)
 		
 
-	elif Input.is_action_just_pressed("up") and pad_mode:
+	elif Input.is_action_just_pressed("ui_settings_up") and pad_mode:
 		tree.deselect_all()
 		
 		var up_item
@@ -87,7 +115,6 @@ func _process(_delta) -> void:
 		if up_item == null:
 			current_item = GraphicsMenu
 			scrollbar.value = scrollbar.max_value
-			print('reached the top')
 			
 		else:
 			current_item = up_item
@@ -96,21 +123,23 @@ func _process(_delta) -> void:
 		tree.set_selected(current_item, 0)
 		
 		
-	elif Input.is_action_just_pressed("right") and pad_mode:
+	elif Input.is_action_just_pressed("ui_settings_right") and pad_mode:
 		if tree.get_selected() == KeyBindMenu or tree.get_selected() == GraphicsMenu:
 			current_item.collapsed = false
 			scrollbar.value = scrollbar.min_value
 			#tree.set_selected(KeyBindMenu, 0)
 			
-	elif Input.is_action_just_pressed("left") and pad_mode:
+	elif Input.is_action_just_pressed("ui_settings_left") and pad_mode:
 		if tree.get_selected() == KeyBindMenu or tree.get_selected() == GraphicsMenu:
 			current_item.collapsed = true
 			
 			
 func _item_selected():
-	pass
+	if current_item == KeyBindMenu:
+		scrollbar.value = scrollbar.min_value
 
 func _ready() -> void:
+	_config_load()
 	tree.grab_focus()
 	
 	var root: TreeItem = tree.create_item()
@@ -141,35 +170,30 @@ func _ready() -> void:
 		button_id += 1
 	
 	collapse_all(KeyBindMenu)
-	
+	_update_all_binds()
 
-#listen for user keybind input if listening and valid input
-func _input(event: InputEvent) -> void:
-	if event.as_text().find("Joypad") != -1:
-		pad_mode = true
-	else:
-		pad_mode = false
-	
-	if event is InputEventMouseMotion or not listening:
-		return
-	
-	if event is InputEventJoypadButton or InputEventMouseButton or InputEventKey or InputEventJoypadMotion and listening:
-		_update_binds(event, _get_bind_from_index(current_button_index))
-		listening = false
+func _update_all_binds():
+	for binding in settings["Keybindings"]:
+		if _get_input_event_from_str(settings["Keybindings"][binding]) != null:
+			_update_bind(_get_input_event_from_str(settings["Keybindings"][binding]), binding)
 
 
 # InputEvent will be assigned as new binding for binding
-func _update_binds(input: InputEvent, binding: String) -> void:
-	if input is InputEventMouseButton:
-		print('mouse button lol... ', input.button_index)
-		InputMap.action_erase_events(binding)
-		InputMap.action_add_event(binding, input)
-		
-		settings["Keybindings"][binding] = _get_str_from_input_event(input)
-		_update_children(KeyBindMenu)
-		
-		return
+func _update_bind(input: InputEvent, binding: String) -> void:
+	#if input is InputEventMouseButton:
+		#print('mouse button lol... ', input.button_index)
+		#InputMap.action_erase_events(binding)
+		#InputMap.action_add_event(binding, input)
+		#
+		#settings["Keybindings"][binding] = _get_str_from_input_event(input)
+		#_update_children(KeyBindMenu)
+		#
+		#return
 	
+	#print('INPUT: ', input)
+	#for _binding in settings["Keybindings"]
+	#if InputMap.action_has_event(binding, input):
+		
 	
 	InputMap.action_erase_events(binding)
 	InputMap.action_add_event(binding, input)
@@ -184,10 +208,6 @@ func _update_children(t_item: TreeItem):
 	KeyBindMenu.set_selectable(0, pad_mode)
 	GraphicsMenu.set_selectable(0, pad_mode)
 	
-	if(!pad_mode):
-		KeyBindMenu.deselect(0)
-		GraphicsMenu.deselect(0)
-	
 	for child in t_item.get_children():
 		t_item.remove_child(child)
 		child.free()
@@ -201,20 +221,19 @@ func _update_children(t_item: TreeItem):
 		binding.set_selectable(0, pad_mode)
 		button_id += 1
 		
+	if(!pad_mode):
+		KeyBindMenu.deselect(0)
+		GraphicsMenu.deselect(0)
+		
+		
 # callback for Tree.button_clicked
 func button_one(_item: TreeItem, _column: int, id: int, mouse_button_index: int) -> void:
 	current_button_index = id
 	listening = true
 	print("DEBUG ------ Listening : ", listening, " on button number: ", id)
 
-
-func _pad_select_down():
-	tree.set_selected(KeyBindMenu.get_children()[3], 0)
 	
-func _pad_select_up():
-	pass
-	
-func _load_main_menu():
+func _load_main_menu() -> void:
 	get_tree().change_scene_to_packed(main_menu)
 
 
@@ -248,16 +267,35 @@ func _get_str_from_input_event(input: InputEvent) -> String:
 			1: return "Mouse " + str(input.button_index)
 			2: return "Mouse " + str(input.button_index)
 			3: return "Middle Mouse"
-			4: return "Scroll up"
-			5: return "Scroll down"
+			4: return "Scroll Up"
+			5: return "Scroll Down"
 			6: return "Mouse " + str(input.button_index)
 			7: return "Mouse " + str(input.button_index)
 			8: return "Mouse 4"
 			9: return "Mouse 5" 
 	
 	if input is InputEventJoypadMotion:
-		print(input)
-		
+		match input.axis:
+			JOY_AXIS_LEFT_X:
+				if input.axis_value > 0:
+					return "LStick Right"
+				else:
+					return "LStick Left"
+			JOY_AXIS_LEFT_Y:
+				if input.axis_value > 0:
+					return "LStick Down"
+				else:
+					return "LStick Up"
+			JOY_AXIS_RIGHT_X:
+				if input.axis_value > 0:
+					return "RStick Right"
+				else:
+					return "RStick Left"
+			JOY_AXIS_RIGHT_Y:
+				if input.axis_value > 0:
+					return "RStick Down"
+				else:
+					return "RStick Up"
 	
 	if input is InputEventJoypadButton:
 		#print(input)
@@ -266,38 +304,33 @@ func _get_str_from_input_event(input: InputEvent) -> String:
 			1: return "Right button"
 			2: return "Left button"
 			3: return "Top button"
-		
+			4: return "4 button"
+			5: return "5 button"
+			6: return "6 button"
+			7: return "7 button"
+			8: return "8 button"
+			9: return "9 button"
+			10: return "10 button"
+			11: return "DPad Up"
+			12: return "DPad Down"
+			13: return "DPad Left"
+			14: return "DPad Right"
+			
 	if input is InputEventKey:
 		match input.keycode:
-			KEY_NONE: return ""
-			KEY_SPECIAL: return ""
 			KEY_ESCAPE: return "Esc"
 			KEY_TAB: return "Tab"
 			KEY_BACKTAB: return "Shift Tab"
 			KEY_BACKSPACE: return "Backspace"
 			KEY_ENTER: return "Enter"
-			KEY_KP_ENTER: return ""
-			KEY_INSERT: return ""
-			KEY_DELETE: return ""
-			KEY_PAUSE: return ""
-			KEY_PRINT: return ""
-			KEY_SYSREQ: return ""
-			KEY_CLEAR: return ""
-			KEY_HOME: return ""
-			KEY_END: return ""
 			KEY_LEFT: return "Left Arrow"
 			KEY_UP: return "Up Arrow"
 			KEY_RIGHT: return "Right Arrow"
 			KEY_DOWN: return "Down Arrow"
-			KEY_PAGEUP: return ""
-			KEY_PAGEDOWN: return ""
 			KEY_SHIFT: return "Shift"
 			KEY_CTRL: return "Ctrl"
-			KEY_META: return ""
 			KEY_ALT: return "Alt"
 			KEY_CAPSLOCK: return "Caps"
-			KEY_NUMLOCK: return ""
-			KEY_SCROLLLOCK: return ""
 			KEY_F1: return "F1"
 			KEY_F2: return "F2"
 			KEY_F3: return "F3"
@@ -333,79 +366,7 @@ func _get_str_from_input_event(input: InputEvent) -> String:
 			KEY_F33: return "F33"
 			KEY_F34: return "F34"
 			KEY_F35: return "F35"
-			KEY_KP_MULTIPLY: return ""
-			KEY_KP_DIVIDE: return ""
-			KEY_KP_SUBTRACT: return ""
-			KEY_KP_PERIOD: return ""
-			KEY_KP_ADD: return ""
-			KEY_KP_0: return ""
-			KEY_KP_1: return ""
-			KEY_KP_2: return ""
-			KEY_KP_3: return ""
-			KEY_KP_4: return ""
-			KEY_KP_5: return ""
-			KEY_KP_6: return ""
-			KEY_KP_7: return ""
-			KEY_KP_8: return ""
-			KEY_KP_9: return ""
-			KEY_MENU: return ""
-			KEY_HYPER: return ""
-			KEY_HELP: return ""
-			KEY_BACK: return ""
-			KEY_FORWARD: return ""
-			KEY_STOP: return ""
-			KEY_REFRESH: return ""
-			KEY_VOLUMEDOWN: return ""
-			KEY_VOLUMEMUTE: return ""
-			KEY_VOLUMEUP: return ""
-			KEY_MEDIAPLAY: return ""
-			KEY_MEDIASTOP: return ""
-			KEY_MEDIAPREVIOUS: return ""
-			KEY_MEDIANEXT: return ""
-			KEY_MEDIARECORD: return ""
-			KEY_HOMEPAGE: return ""
-			KEY_FAVORITES: return ""
-			KEY_SEARCH: return ""
-			KEY_STANDBY: return ""
-			KEY_OPENURL: return ""
-			KEY_LAUNCHMAIL: return ""
-			KEY_LAUNCHMEDIA: return ""
-			KEY_LAUNCH0: return ""
-			KEY_LAUNCH1: return ""
-			KEY_LAUNCH2: return ""
-			KEY_LAUNCH3: return ""
-			KEY_LAUNCH4: return ""
-			KEY_LAUNCH5: return ""
-			KEY_LAUNCH6: return ""
-			KEY_LAUNCH7: return ""
-			KEY_LAUNCH8: return ""
-			KEY_LAUNCH9: return ""
-			KEY_LAUNCHA: return ""
-			KEY_LAUNCHB: return ""
-			KEY_LAUNCHC: return ""
-			KEY_LAUNCHD: return ""
-			KEY_LAUNCHE: return ""
-			KEY_LAUNCHF: return ""
-			KEY_GLOBE: return ""
-			KEY_KEYBOARD: return ""
-			KEY_JIS_EISU: return ""
-			KEY_JIS_KANA: return ""
-			KEY_UNKNOWN: return ""
 			KEY_SPACE: return "Space"
-			KEY_EXCLAM: return ""
-			KEY_QUOTEDBL: return ""
-			KEY_NUMBERSIGN: return ""
-			KEY_DOLLAR: return ""
-			KEY_PERCENT: return ""
-			KEY_AMPERSAND: return ""
-			KEY_APOSTROPHE: return ""
-			KEY_PARENLEFT: return ""
-			KEY_PARENRIGHT: return ""
-			KEY_ASTERISK: return ""
-			KEY_PLUS: return ""
-			KEY_COMMA: return ""
-			KEY_MINUS: return ""
-			KEY_PERIOD: return ""
 			KEY_SLASH: return "/"
 			KEY_0: return "0"
 			KEY_1: return "1"
@@ -417,13 +378,7 @@ func _get_str_from_input_event(input: InputEvent) -> String:
 			KEY_7: return "7"
 			KEY_8: return "8"
 			KEY_9: return "9"
-			KEY_COLON: return ""
 			KEY_SEMICOLON: return ";"
-			KEY_LESS: return ""
-			KEY_EQUAL: return ""
-			KEY_GREATER: return ""
-			KEY_QUESTION: return ""
-			KEY_AT: return ""
 			KEY_A: return "A"
 			KEY_B: return "B"
 			KEY_C: return "C"
@@ -453,18 +408,212 @@ func _get_str_from_input_event(input: InputEvent) -> String:
 			KEY_BRACKETLEFT: return "["
 			KEY_BACKSLASH: return "\\"
 			KEY_BRACKETRIGHT: return "]"
-			KEY_ASCIICIRCUM: return ""
-			KEY_UNDERSCORE: return ""
-			KEY_QUOTELEFT: return ""
-			KEY_BRACELEFT: return ""
-			KEY_BAR: return ""
-			KEY_BRACERIGHT: return ""
-			KEY_ASCIITILDE: return ""
 	
 	return "err"
+
+
+func _get_input_event_from_str(string: String) -> InputEvent:
+	match string:
+		"Mouse 1": return create_mouse_button_event(1)
+		"Mouse 2": return create_mouse_button_event(2)
+		"Middle Mouse": return create_mouse_button_event(3)
+		"Scroll Up": return create_mouse_button_event(4)
+		"Scroll Down": return create_mouse_button_event(5)
+		"Mouse 4": return create_mouse_button_event(8)
+		"Mouse 5": return create_mouse_button_event(9)
+		"Mouse 6": return create_mouse_button_event(6)
+		"Mouse 7" : return create_mouse_button_event(7)
+		
+		"LStick Right": return create_joypad_motion_event(JOY_AXIS_LEFT_X, 0.50)
+		"LStick Left": return create_joypad_motion_event(JOY_AXIS_LEFT_X, -0.50)
+		"LStick Up": return create_joypad_motion_event(JOY_AXIS_LEFT_Y, -0.50)
+		"LStick Down": return create_joypad_motion_event(JOY_AXIS_LEFT_Y, 0.50)
+
+		"RStick Right": return create_joypad_motion_event(JOY_AXIS_RIGHT_X, 0.50)
+		"RStick Left": return create_joypad_motion_event(JOY_AXIS_RIGHT_X, -0.50)
+		"RStick Up": return create_joypad_motion_event(JOY_AXIS_RIGHT_Y, -0.50)
+		"RStick Down": return create_joypad_motion_event(JOY_AXIS_RIGHT_Y, 0.50)
+		
+		"Bottom button": return create_joypad_button_event(0)
+		"Right button": return create_joypad_button_event(1)
+		"Left button": return create_joypad_button_event(2)
+		"Top button": return create_joypad_button_event(3)
+		"4 button": return create_joypad_button_event(4)
+		"5 button": return create_joypad_button_event(5)
+		"6 button": return create_joypad_button_event(6)
+		"7 button": return create_joypad_button_event(7)
+		"8 button": return create_joypad_button_event(8)
+		"9 button": return create_joypad_button_event(9)
+		"10 button": return create_joypad_button_event(10)
+		"DPad Up": return create_joypad_button_event(11)
+		"DPad Down": return create_joypad_button_event(12)
+		"DPad Left": return create_joypad_button_event(13)
+		"DPad Right": return create_joypad_button_event(14)
+		
 	
+		"Esc": return create_key_event(KEY_ESCAPE)
+		"Tab": return create_key_event(KEY_TAB)
+		"Shift Tab": return create_key_event(KEY_BACKTAB)
+		"Backspace": return create_key_event(KEY_BACKSPACE)
+		"Enter": return create_key_event(KEY_ENTER)
+		"Left Arrow": return create_key_event(KEY_LEFT)
+		"Up Arrow": return create_key_event(KEY_UP)
+		"Right Arrow": return create_key_event(KEY_RIGHT)
+		"Down Arrow": return create_key_event(KEY_DOWN)
+		"Shift": return create_key_event(KEY_SHIFT)
+		"Ctrl": return create_key_event(KEY_CTRL)
+		"Alt": return create_key_event(KEY_ALT)
+		"Caps": return create_key_event(KEY_CAPSLOCK)
+		"F1": return create_key_event(KEY_F1)
+		"F2": return create_key_event(KEY_F2)
+		"F3": return create_key_event(KEY_F3)
+		"F4": return create_key_event(KEY_F4)
+		"F5": return create_key_event(KEY_F5)
+		"F6": return create_key_event(KEY_F6)
+		"F7": return create_key_event(KEY_F7)
+		"F8": return create_key_event(KEY_F8)
+		"F9": return create_key_event(KEY_F9)
+		"F10": return create_key_event(KEY_F10)
+		"F11": return create_key_event(KEY_F11)
+		"F12": return create_key_event(KEY_F12)
+		"F13": return create_key_event(KEY_F13)
+		"F14": return create_key_event(KEY_F14)
+		"F15": return create_key_event(KEY_F15)
+		"F16": return create_key_event(KEY_F16)
+		"F17": return create_key_event(KEY_F17)
+		"F18": return create_key_event(KEY_F18)
+		"F19": return create_key_event(KEY_F19)
+		"F20": return create_key_event(KEY_F20)
+		"F21": return create_key_event(KEY_F21)
+		"F22": return create_key_event(KEY_F22)
+		"F23": return create_key_event(KEY_F23)
+		"F24": return create_key_event(KEY_F24)
+		"F25": return create_key_event(KEY_F25)
+		"F26": return create_key_event(KEY_F26)
+		"F27": return create_key_event(KEY_F27)
+		"F28": return create_key_event(KEY_F28)
+		"F29": return create_key_event(KEY_F29)
+		"F30": return create_key_event(KEY_F30)
+		"F31": return create_key_event(KEY_F31)
+		"F32": return create_key_event(KEY_F32)
+		"F33": return create_key_event(KEY_F33)
+		"F34": return create_key_event(KEY_F34)
+		"F35": return create_key_event(KEY_F35)
+		"Space": return create_key_event(KEY_SPACE)
+		"/": return create_key_event(KEY_SLASH)
+		"0": return create_key_event(KEY_0)
+		"1": return create_key_event(KEY_1)
+		"2": return create_key_event(KEY_2)
+		"3": return create_key_event(KEY_3)
+		"4": return create_key_event(KEY_4)
+		"5": return create_key_event(KEY_5)
+		"6": return create_key_event(KEY_6)
+		"7": return create_key_event(KEY_7)
+		"8": return create_key_event(KEY_8)
+		"9": return create_key_event(KEY_9)
+		";": return create_key_event(KEY_SEMICOLON)
+		"A": return create_key_event(KEY_A)
+		"B": return create_key_event(KEY_B)
+		"C": return create_key_event(KEY_C)
+		"D": return create_key_event(KEY_D)
+		"E": return create_key_event(KEY_E)
+		"F": return create_key_event(KEY_F)
+		"G": return create_key_event(KEY_G)
+		"H": return create_key_event(KEY_H)
+		"I": return create_key_event(KEY_I)
+		"J": return create_key_event(KEY_J)
+		"K": return create_key_event(KEY_K)
+		"L": return create_key_event(KEY_L)
+		"M": return create_key_event(KEY_M)
+		"N": return create_key_event(KEY_N)
+		"O": return create_key_event(KEY_O)
+		"P": return create_key_event(KEY_P)
+		"Q": return create_key_event(KEY_Q)
+		"R": return create_key_event(KEY_R)
+		"S": return create_key_event(KEY_S)
+		"T": return create_key_event(KEY_T)
+		"U": return create_key_event(KEY_U)
+		"V": return create_key_event(KEY_V)
+		"W": return create_key_event(KEY_W)
+		"X": return create_key_event(KEY_X)
+		"Y": return create_key_event(KEY_Y)
+		"Z": return create_key_event(KEY_Z)
+		"[": return create_key_event(KEY_BRACKETLEFT)
+		"\\": return create_key_event(KEY_BACKSLASH)
+		"]": return create_key_event(KEY_BRACKETRIGHT)
+		_: return null
+
+
+func create_key_event(key_code, pressed=true, echo=false) -> InputEventKey:
+	var event = InputEventKey.new()
+	event.keycode = key_code
+	event.pressed = pressed
+	event.echo = echo
+	return event
+
+
+func create_mouse_button_event(button_index, pressed=true) -> InputEventMouseButton:
+	var event = InputEventMouseButton.new()
+	event.button_index = button_index 
+	event.pressed = pressed
+	return event
+
+
+func create_joypad_button_event(button_index, pressed=true) -> InputEventJoypadButton:
+	var event = InputEventJoypadButton.new()
+	event.button_index = button_index
+	event.pressed = pressed
+	return event
+
+
+func create_joypad_motion_event(_axis, _axis_value) -> InputEventJoypadMotion:
+	var event = InputEventJoypadMotion.new()
+	event.axis = _axis
+	event.axis_value = _axis_value
+	return event
+
 
 func _remove_underscores(val: String) -> String:
 	if val.find("_") != -1:
 		return val.replace("_", " ")
 	return val
+
+## CONFIG 
+func _exit_tree():
+	_config_save()
+	
+func _config_load() -> void:
+	
+	var config = ConfigFile.new()
+	var err = config.load("user://custom_settings")
+	
+	if err != OK:
+		return
+		
+	var _settings = config.get_value("user", "settings")
+	
+	settings = sort_keybindings(_settings)
+
+
+func sort_keybindings(dict: Dictionary) -> Dictionary:
+	var order = ["up", "left", "down", "right", "melee", "interact",
+				 "use_item", "shoot_mode", "item_grab", "escape", "reload"]
+	
+	var keybindings = dict.get("Keybindings", {})
+	
+	var sorted_keybindings = {}
+	
+	for key in order:
+		if key in keybindings:
+			sorted_keybindings[key] = keybindings[key]
+	
+	# Update the 'Keybindings' in settings with the sorted dictionary
+	dict["Keybindings"] = sorted_keybindings
+	
+	return dict
+
+
+func _config_save() -> void:
+	var config = ConfigFile.new()
+	config.set_value("user", "settings", settings)
+	config.save("user://custom_settings")
