@@ -60,6 +60,10 @@ func _ready() -> void:
 		texture = ResourceLoader.load_threaded_get(texture_path)
 	if has_image:
 		image = ResourceLoader.load_threaded_get(image_path)
+	# why is texture null after reloading current scene? look into this. must have something to...
+	# ...do with discoverables stuff being an autoload
+	if not texture:
+		texture = load(texture_path)
 	sprite.texture = texture
 
 

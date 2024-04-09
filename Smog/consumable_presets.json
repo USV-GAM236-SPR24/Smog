@@ -5,10 +5,14 @@
 	},
 	"alcohol": {
 		"restore_power": 20,
-		"texture_path": "res://art/temp/item2.png"
+		"texture_path": "res://art/consumables/alcohol.tres"
 	},
 	"cigarette": {
 		"restore_power": 10,
 		"texture_path": "res://art/temp/item3.png"
+	},
+	"cherry": {
+		"restore_power": 100,
+		"texture_path": "res://art/consumables/cherries.png"
 	}
 }

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://udjag5f07qiq"]
+
+[ext_resource type="PackedScene" uid="uid://beglrerj5k48" path="res://scenes/player.tscn" id="1_ajiuy"]
+[ext_resource type="PackedScene" uid="uid://bih10h7cyl8bc" path="res://scenes/ambush.tscn" id="2_57sut"]
+[ext_resource type="PackedScene" uid="uid://cuiq6aqoj1vg3" path="res://levels/level_1.tscn" id="3_caj4h"]
+
+[node name="GameTest" type="Node2D"]
+
+[node name="Level_1" parent="." instance=ExtResource("3_caj4h")]
+
+[node name="Player" parent="." instance=ExtResource("1_ajiuy")]
+position = Vector2(156, 70)
+
+[node name="Ambush" parent="." instance=ExtResource("2_57sut")]

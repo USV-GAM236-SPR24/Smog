@@ -61,6 +61,7 @@ unique_name_in_owner = true
 rotation = 1.5708
 
 [node name="GunSprite" type="Sprite2D" parent="Marker2D"]
+visible = false
 position = Vector2(9, 0.999999)
 rotation = -0.0687263
 scale = Vector2(0.0816051, 0.0816051)

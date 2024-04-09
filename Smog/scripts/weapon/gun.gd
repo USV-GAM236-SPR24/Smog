@@ -37,7 +37,7 @@ func update_gun_aim(dir: Vector2) -> void:
 
 func _input(_event) -> void:
 
-	if Input.is_action_pressed("shoot_mode") and get_parent().can_poke:
+	if Input.is_action_pressed("shoot_mode") and not get_parent().attacking:
 		shoot_mode = true
 	else:
 		shoot_mode = false
@@ -50,8 +50,8 @@ func _process(_delta) -> void:
 
 	$Marker2D/GunSprite.visible = shoot_mode
 
-	if Input.is_action_just_pressed("shoot") and can_shoot and get_parent().can_poke:
-		_shoot() #dont shoot if caning
+	if Input.is_action_just_pressed("shoot") and can_shoot and not get_parent().attacking:
+		_shoot() #dont shoot if attacking
 
 		await get_tree().create_timer(1).timeout
 		can_shoot = true
@@ -73,4 +73,5 @@ func _shoot() -> void:
 
 func _update_ammo_ui(value) -> void:
 	var hudref: Control = get_node("/root/Game/CanvasLayer/WeaponHUD")
-	hudref.ammo_amount = value
+	if hudref:
+		hudref.ammo_amount = value

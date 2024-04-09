@@ -2,8 +2,6 @@ class_name EnemyFodder
 extends Enemy
 
 
-
-var player: Player
 const anim_scene: PackedScene = preload("res://scenes/animations/blood_wall.tscn")
 
 var player_chase = false
@@ -35,45 +33,25 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _on_detection_area_body_entered(body):
-	if not body is Player:
-		return
-	player_chase = true
-	if not player:
-		player = body
-
-
-func _on_detection_area_body_exited(body):
-	if not body is Player:
-		return
-	player_chase = false
-	if not player:
-		player = body
-
-
-func _on_hitbox_body_entered(body):
+func _on_body_entered_drain(body):
 	if not body is Player:
 		return
 	draining = true
-	if not player:
-		player = body
 
 
-func _on_hitbox_body_exited(body):
+func _on_body_exited_drain(body):
 	if not body is Player:
 		return
 	draining = false
 	drain_tick_progress = drain_tick_rate
-	if not player:
-		player = body
 
 
-func take_damage():
+func _take_damage(delta: int = 1):
 	await get_tree().create_timer(0.3).timeout
 	$AnimatedSprite2D.self_modulate = Color.RED
 	await get_tree().create_timer(0.3).timeout
 	$AnimatedSprite2D.self_modulate = Color.WHITE
-	super._take_damage()
+	super._take_damage(delta)
 
 
 func die():

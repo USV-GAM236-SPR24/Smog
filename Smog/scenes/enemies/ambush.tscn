@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bih10h7cyl8bc"]
+
+[ext_resource type="SpriteFrames" uid="uid://qhrhc51duhgc" path="res://art/characters/ambush/ambush_sprite_frames.tres" id="1_2hede"]
+[ext_resource type="Script" path="res://scripts/enemies/ambush.gd" id="1_hqboi"]
+[ext_resource type="AudioStream" uid="uid://gjnc8quqm2pb" path="res://Audio/SFX/AmbushDeathSFX.wav" id="3_w2gcw"]
+[ext_resource type="AudioStream" uid="uid://cin7xuxs6i3rv" path="res://Audio/SFX/AmbushTellWet.wav" id="4_cn5qq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnequ"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01cpl"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pamyj"]
+size = Vector2(48, 48)
+
+[node name="Ambush" type="CharacterBody2D"]
+position = Vector2(32, 32)
+motion_mode = 1
+script = ExtResource("1_hqboi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_2hede")
+animation = &"puddle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_rnequ")
+
+[node name="DetectionArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
+shape = SubResource("RectangleShape2D_01cpl")
+
+[node name="GrabArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea2D"]
+shape = SubResource("RectangleShape2D_pamyj")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_w2gcw")
+
+[node name="Puddle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_cn5qq")
+autoplay = true
+max_distance = 140.0
