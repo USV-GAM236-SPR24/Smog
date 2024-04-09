@@ -54,7 +54,6 @@ var settings: Dictionary = {
 		"interact" : "E",
 		"use_item" : "F",
 		"shoot_mode" : "Mouse 2",
-		"item_grab" : "Joypad B3",
 		"escape" : "Esc",
 		"reload" : "R"
 	}
@@ -139,6 +138,7 @@ func _item_selected():
 		scrollbar.value = scrollbar.min_value
 
 func _ready() -> void:
+	#_config_save() USE FOR ONE TIME INITIALIZATION OF settings
 	_config_load()
 	tree.grab_focus()
 	
@@ -191,9 +191,12 @@ func _update_bind(input: InputEvent, binding: String) -> void:
 		#return
 	
 	#print('INPUT: ', input)
-	#for _binding in settings["Keybindings"]
-	#if InputMap.action_has_event(binding, input):
-		
+	for _binding in settings["Keybindings"]:
+		if _binding != binding:
+			if InputMap.action_has_event(_binding, input):
+				return
+				#InputMap.action_erase_events(_binding)
+				#print('erasing: ', _binding)
 	
 	InputMap.action_erase_events(binding)
 	InputMap.action_add_event(binding, input)
