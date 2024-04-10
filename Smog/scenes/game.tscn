@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://wstjrxw8m084"]
+[gd_scene load_steps=16 format=3 uid="uid://wstjrxw8m084"]
 
 [ext_resource type="PackedScene" uid="uid://cbghei1aopagv" path="res://levels/factory_floor_level.tscn" id="1_7l7g4"]
-[ext_resource type="PackedScene" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
+[ext_resource type="PackedScene" uid="uid://yk5bgx46irl8" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
 [ext_resource type="PackedScene" uid="uid://cqpwn5svyt4ud" path="res://scenes/inventory/inventory.tscn" id="2_3yuhv"]
 [ext_resource type="PackedScene" path="res://scenes/interactable.tscn" id="2_elo5s"]
 [ext_resource type="PackedScene" uid="uid://djk72tgahvi7a" path="res://scenes/animations/blood_wall.tscn" id="3_arpep"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b5wi7fiv6ghp7" path="res://scenes/UI/weapon_hud.tscn" id="10_7edw4"]
 [ext_resource type="PackedScene" uid="uid://dj4ufrnwir7jo" path="res://scenes/pause_ui.tscn" id="10_8ypd1"]
 [ext_resource type="PackedScene" uid="uid://bb00q3ytdb1ol" path="res://scenes/UI/key_ring.tscn" id="11_nrht7"]
+[ext_resource type="PackedScene" uid="uid://cmlltusxbqhfy" path="res://scenes/discoverable_ui.tscn" id="14_8yqx7"]
 
 [node name="Game" type="Node2D"]
 
@@ -94,6 +95,9 @@ offset_top = 20.0
 offset_right = 4.0
 offset_bottom = 20.0
 scale = Vector2(0.922043, 1.10799)
+
+[node name="DiscoverableUI" parent="." instance=ExtResource("14_8yqx7")]
+visible = false
 
 [node name="PauseUI" parent="." instance=ExtResource("10_8ypd1")]
 visible = false

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bxgma42esjx2v"
-path="res://.godot/imported/GainSanitySFX.wav-096a139ccce8814d54d545064dcac475.sample"
+path="res://.godot/imported/GainSanitySFX.wav-9c24abe181b5f18bd6071a3af2b444e5.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/GainSanitySFX.wav"
-dest_files=["res://.godot/imported/GainSanitySFX.wav-096a139ccce8814d54d545064dcac475.sample"]
+source_file="res://audio/SFX/GainSanitySFX.wav"
+dest_files=["res://.godot/imported/GainSanitySFX.wav-9c24abe181b5f18bd6071a3af2b444e5.sample"]
 
 [params]
 

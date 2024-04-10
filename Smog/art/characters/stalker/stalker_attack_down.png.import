@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqwauitov1vc6"
-path="res://.godot/imported/stalker_attack_down.png-a48fbc370375e435d3643cc1f6fc63e9.ctex"
+path="res://.godot/imported/stalker_attack_down.png-e8b9c5be95eedca8aba87d935df6d500.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/characters/stalker/stalker_attack_down.png"
-dest_files=["res://.godot/imported/stalker_attack_down.png-a48fbc370375e435d3643cc1f6fc63e9.ctex"]
+source_file="res://art/characters/stalker/stalker_attack_down.png"
+dest_files=["res://.godot/imported/stalker_attack_down.png-e8b9c5be95eedca8aba87d935df6d500.ctex"]
 
 [params]
 

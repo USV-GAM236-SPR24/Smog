@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtaa5fqeqmbfd"
-path="res://.godot/imported/Stalker_FORWARDATTACKCHARGE_SWING.png-998866a4a269196deaa500dbf849711b.ctex"
+path="res://.godot/imported/Stalker_FORWARDATTACKCHARGE_SWING.png-7199a2079dd0b0cb18efa96047d6f8db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Stalker/Stalker_FORWARDATTACKCHARGE_SWING.png"
-dest_files=["res://.godot/imported/Stalker_FORWARDATTACKCHARGE_SWING.png-998866a4a269196deaa500dbf849711b.ctex"]
+source_file="res://art/Stalker/Stalker_FORWARDATTACKCHARGE_SWING.png"
+dest_files=["res://.godot/imported/Stalker_FORWARDATTACKCHARGE_SWING.png-7199a2079dd0b0cb18efa96047d6f8db.ctex"]
 
 [params]
 
