@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://rxqr7fosqajl"
-path="res://.godot/imported/WheezeSFX.wav-4323a96acf434425b9f7b418869633d7.sample"
+path="res://.godot/imported/WheezeSFX.wav-d3fc797c1b3be817fd48981a3d0d895f.sample"
 
 [deps]
 
-source_file="res://audio/SFX/WheezeSFX.wav"
-dest_files=["res://.godot/imported/WheezeSFX.wav-4323a96acf434425b9f7b418869633d7.sample"]
+source_file="res://Audio/SFX/WheezeSFX.wav"
+dest_files=["res://.godot/imported/WheezeSFX.wav-d3fc797c1b3be817fd48981a3d0d895f.sample"]
 
 [params]
 
