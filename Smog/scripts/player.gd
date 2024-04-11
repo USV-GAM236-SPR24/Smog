@@ -38,7 +38,6 @@ func _ready():
 		var saved_value
 		saved_value = SaveSystem.get_var("position_value")
 		print("Loaded position value: ", SaveSystem.get_var("position_value"))
-	sprite.play("idle_side")
 	update_interactions()
 
 func save_position_value(old:Vector2 , new:Vector2 ):
@@ -47,7 +46,7 @@ func save_position_value(old:Vector2 , new:Vector2 ):
 	SaveSystem.save()
 
 func _process(_delta):
-	var input_magnitude: float = Input.get_vector("left", "right", "up", "down").length()
+	#var input_magnitude: float = Input.get_vector("left", "right", "up", "down").length()
 	#input_direction = _round_to_nearest_direction(Input.get_vector("left", "right", "up", "down"))
 	if Input.is_action_just_pressed("left"):
 		input_array.append(Vector2.LEFT)
@@ -66,8 +65,11 @@ func _process(_delta):
 		input_array.erase(Vector2.UP)
 	if Input.is_action_just_released("down"):
 		input_array.erase(Vector2.DOWN)
+
+	input_direction = input_array[-1]
 	
-	input_direction = input_array[-1] * input_magnitude
+	#update gun aim
+	%Gun.update_gun_aim(input_direction)
 	
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
@@ -75,20 +77,17 @@ func _process(_delta):
 	if Input.is_action_just_pressed("melee") and not attacking and not %Gun.shoot_mode:
 		attack()
 	
+	if attacking or %Gun.shoot_mode:
+		input_direction = Vector2.ZERO
+	
 	#update animation
 	update_animation(input_direction)
 
 
 func _physics_process(_delta):
 
-	#update gun aim
-	%Gun.update_gun_aim(input_direction)
-
 	#update velocity
 	velocity = input_direction * speed
-	
-	if attacking:
-		velocity = Vector2.ZERO
 	
 	#Move and Slide
 	move_and_slide()
