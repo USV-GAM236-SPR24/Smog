@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://hlvx6fmxxlkv"
-path="res://.godot/imported/DLSMOGA_whispers_1.wav-8d9cfb4b54e8fcb83f528361cf403847.sample"
+path="res://.godot/imported/DLSMOGA_whispers_1.wav-15725a11ee3fdaed5e03c20cc3d167cf.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/DLSMOGA_whispers_1.wav"
-dest_files=["res://.godot/imported/DLSMOGA_whispers_1.wav-8d9cfb4b54e8fcb83f528361cf403847.sample"]
+source_file="res://audio/SFX/DLSMOGA_whispers_1.wav"
+dest_files=["res://.godot/imported/DLSMOGA_whispers_1.wav-15725a11ee3fdaed5e03c20cc3d167cf.sample"]
 
 [params]
 
