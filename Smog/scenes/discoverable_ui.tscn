@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmlltusxbqhfy"]
+
+[ext_resource type="Script" path="res://scripts/discoverable_ui.gd" id="1_3cf5q"]
+[ext_resource type="Theme" uid="uid://8410y4ephbga" path="res://main_theme.tres" id="1_qfbc3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hovdh"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q6k0w"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+
+[node name="DiscoverableUI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_3cf5q")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hovdh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="DiscoverableName" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme = ExtResource("1_qfbc3")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_q6k0w")
+horizontal_scroll_mode = 0
+
+[node name="DiscoverableText" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_qfbc3")
+theme_override_font_sizes/font_size = 5
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="ExitLabel" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("1_qfbc3")
+theme_override_font_sizes/font_size = 5
+text = "Press any button to exit..."
