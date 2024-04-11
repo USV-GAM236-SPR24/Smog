@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://chpg25lbcv755"]
+[gd_scene load_steps=8 format=3 uid="uid://chpg25lbcv755"]
 
 [ext_resource type="Script" path="res://scripts/enemies/grunt.gd" id="1_00cvh"]
 [ext_resource type="SpriteFrames" uid="uid://bnbthjosonx11" path="res://art/characters/grunt/grunt_sprite_frames.tres" id="2_2asp0"]
+[ext_resource type="AudioStream" uid="uid://5ncxceet45vt" path="res://Audio/SFX/GruntSFXIdle.wav" id="3_gcicj"]
+[ext_resource type="AudioStream" uid="uid://638mladocka6" path="res://Audio/SFX/GruntDeathSFX.wav" id="3_ig8aw"]
+[ext_resource type="AudioStream" uid="uid://bkh2yq81mc0p0" path="res://Audio/SFX/GruntSFXAtk.wav" id="5_4nyn2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnequ"]
 size = Vector2(32, 16)
@@ -28,3 +31,15 @@ shape = SubResource("RectangleShape2D_rnequ")
 shape = SubResource("RectangleShape2D_01cpl")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Idle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gcicj")
+autoplay = true
+max_distance = 120.0
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ig8aw")
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4nyn2")
+max_distance = 300.0
