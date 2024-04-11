@@ -86,6 +86,9 @@ func _process(_delta) -> void:
 	if listening:
 		return
 	
+	#if Input.is_action_just_pressed("ui_settings_pad_select") and pad_mode:
+		
+	
 	if Input.is_action_just_pressed("ui_settings_down") and pad_mode:
 		tree.deselect_all()
 		var down_item

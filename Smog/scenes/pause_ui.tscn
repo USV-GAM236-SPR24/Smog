@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj4ufrnwir7jo"]
 
 [ext_resource type="Script" path="res://scenes/pause_ui.gd" id="1_fr7io"]
-[ext_resource type="Theme" uid="uid://dc5bncpo7eujv" path="res://main_theme.tres" id="2_cklld"]
+[ext_resource type="Theme" uid="uid://8410y4ephbga" path="res://main_theme.tres" id="2_cklld"]
 
 [node name="PauseUI" type="CanvasLayer"]
 process_mode = 3
