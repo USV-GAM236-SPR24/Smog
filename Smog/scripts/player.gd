@@ -4,6 +4,7 @@ extends Entity
 signal position_changed(old: Vector2, new: Vector2)
 
 var input_direction: Vector2 = Vector2.ZERO
+var input_array: Array[Vector2] = [Vector2.ZERO]
 var last_direction: Vector2 = Vector2.RIGHT
 var shoot_range = 500
 var attacking: bool = false
@@ -46,6 +47,28 @@ func save_position_value(old:Vector2 , new:Vector2 ):
 	SaveSystem.save()
 
 func _process(_delta):
+	var input_magnitude: float = Input.get_vector("left", "right", "up", "down").length()
+	#input_direction = _round_to_nearest_direction(Input.get_vector("left", "right", "up", "down"))
+	if Input.is_action_just_pressed("left"):
+		input_array.append(Vector2.LEFT)
+	if Input.is_action_just_pressed("right"):
+		input_array.append(Vector2.RIGHT)
+	if Input.is_action_just_pressed("up"):
+		input_array.append(Vector2.UP)
+	if Input.is_action_just_pressed("down"):
+		input_array.append(Vector2.DOWN)
+	
+	if Input.is_action_just_released("left"):
+		input_array.erase(Vector2.LEFT)
+	if Input.is_action_just_released("right"):
+		input_array.erase(Vector2.RIGHT)
+	if Input.is_action_just_released("up"):
+		input_array.erase(Vector2.UP)
+	if Input.is_action_just_released("down"):
+		input_array.erase(Vector2.DOWN)
+	
+	input_direction = input_array[-1] * input_magnitude
+	
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 
@@ -57,8 +80,6 @@ func _process(_delta):
 
 
 func _physics_process(_delta):
-	#get input direction
-	input_direction = _round_to_nearest_direction(Input.get_vector("left", "right", "up", "down"))
 
 	#update gun aim
 	%Gun.update_gun_aim(input_direction)
