@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkkdj8lmoytfj"]
+
+[ext_resource type="Theme" uid="uid://dc5bncpo7eujv" path="res://main_theme.tres" id="1_6ggl8"]
+[ext_resource type="Script" path="res://scripts/menu/user_settings.gd" id="1_aqjp1"]
+
+[node name="UserSettings" type="CanvasLayer"]
+script = ExtResource("1_aqjp1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6ggl8")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.133333, 0.133333, 1)
+
+[node name="Tree" type="Tree" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+hide_root = true
+
+[node name="BackButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 127.0
+offset_top = 118.0
+offset_right = 177.0
+offset_bottom = 140.0
+text = "Back"
+
+[connection signal="pressed" from="Control/BackButton" to="." method="_load_main_menu"]

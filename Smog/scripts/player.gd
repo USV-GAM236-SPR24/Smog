@@ -15,6 +15,7 @@ var weapon: Weapon
 @onready var interactLabel = $"Interaction Components/InertactLabel"
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var death_sfx = $Death
 
 func _enter_tree() -> void:
 	$"Interaction Components/InteractionArea".area_entered.connect(_on_interaction_area_area_entered)
@@ -122,7 +123,7 @@ func execute_interaction():
 func _on_interaction_area_area_entered(area):
 	if not area is Interactable:
 		return
-	all_interactions.insert(0, area)
+	all_interactions.append(area)
 	update_interactions()
 
 
@@ -158,5 +159,6 @@ func attack() -> void:
 
 
 func die():
+	death_sfx.play()
 	Sanity.fill()
 	get_tree().reload_current_scene()

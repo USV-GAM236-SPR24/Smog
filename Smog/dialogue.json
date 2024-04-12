@@ -1,0 +1,52 @@
+{
+	"office1": {
+		"article": {
+			"trigger": "article_discoverable",
+			"text": "Is this how they write about the factory?"
+		},
+		"empty_bottles": {
+			"trigger": "alcohol_pickup",
+			"text": "“No… I need to find more.”"
+		},
+		"dantes_inferno": {
+			"trigger": "dantes_inferno_discoverable",
+			"text": "The darkest places of hell are reserved for– oh, blast it! What does Dante know?"
+		}
+	},
+	"mailroom": {
+		"safezone": {
+			"trigger": "safezone_entry",
+			"text": "Those buggers cannot follow me in here, can they?"
+		},
+		"first_monster": {
+			"trigger": "first_monster",
+			"text": ["W-what are these ghastly beings?!", "I must be a bit peaky… Yes– yes, that’s it!"]
+		},
+		"mailbin": {
+			"trigger": "mailbin_discoverable",
+			"text": "He was always so prompt with his correspondence."
+		}
+	},
+	"factory_floor1": {
+		"police_badge": {
+			"trigger": "police_badge_discoverable",
+			"text": ["A police badge? Here?!", "But there is nothing else for them to find. I’ve made sure of it..."]
+		},
+		"engine_fall": {
+			"trigger": "engine_fall",
+			"text": "Bloody hell! What is causing all of this?!"
+		}
+	},
+	"storage": {
+		"factory_key": {
+			"trigger": "key_pickup",
+			"text": ["Finally… a way out of this hellhole.", "I should make my way to the factory floor exit. Posthaste."]
+		}
+	},
+	"office2": {
+		"cavendish_office": {
+			"trigger": "cavendish_office_entry",
+			"text": ["Archie always snatched up the most luxurious decor for his office… however garish they were.", "If I had his kind of money, my office would-- Bah… if only."]
+		}
+	}
+}

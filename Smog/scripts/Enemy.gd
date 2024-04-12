@@ -14,6 +14,8 @@ var damage = 10
 @onready var sprite: AnimatedSprite2D
 @onready var detection_area: Area2D
 @onready var nav_agent: NavigationAgent2D
+@onready var death_sfx: AudioStreamPlayer2D
+@onready var atk_sfx: AudioStreamPlayer2D
 
 
 func _ready() -> void:
@@ -27,6 +29,7 @@ func _process(_delta: float) -> void:
 	if dirty_animation:
 		update_animation()
 	if health <= 0:
+		death_sfx.play()
 		die()
 
 
