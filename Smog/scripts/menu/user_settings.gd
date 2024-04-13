@@ -1,12 +1,26 @@
 extends CanvasLayer
 
 @onready var main_menu: PackedScene = load("res://scenes/main_menu_ui.tscn")
-@onready var binding_change_button_texture: Texture2D = load("res://art/UI/whitebar_8x4.png")
+@onready var blue_bar_texture: Texture2D = load("res://art/UI/bluebar_8x4.png")
+@onready var white_bar_texture: Texture2D = load("res://art/UI/whitebar_8x4.png")
+@onready var binding_change_button_texture: Texture2D = white_bar_texture
+
 @onready var tree: Tree = %Tree
 
 @onready var scrollbar: VScrollBar = tree.get_child(3, true)
 
 var first: bool = true
+
+var current_button_index: int = 0
+
+var KeyBindMenu: TreeItem
+var GraphicsMenu: TreeItem
+
+var current_item: TreeItem:
+	get:
+		return current_item
+	set(value):
+		current_item = value
 
 var pad_mode: bool = false: 
 	get: 
@@ -33,17 +47,6 @@ var listening: bool = false:
 	set(value):
 		listening = value
 		
-var current_button_index: int = 0
-
-var KeyBindMenu: TreeItem
-var GraphicsMenu: TreeItem
-
-var current_item: TreeItem:
-	get:
-		return current_item
-	set(value):
-		current_item = value
-
 var settings: Dictionary = {
 	"Keybindings": {
 		"up": "W",
@@ -59,23 +62,26 @@ var settings: Dictionary = {
 	}
 }	
 
-# LISTENING
+
 func _input(event: InputEvent) -> void:
 	if event.as_text().find("Joypad") != -1:
 		if !event is InputEventJoypadMotion:
 			pad_mode = true
 	else:
 		pad_mode = false
-		
+	
 	if not listening:
 		return
+	# LISTENING
 	
+	## protections
 	if event is InputEventMouseMotion:
 		return
 		
 	if event is InputEventJoypadMotion:
-		if abs(event.axis_value) < 0.5:
+		if abs(event.axis_value) < 0.3:
 			return
+	## protections
 	
 	if (event is InputEventJoypadButton or InputEventMouseButton or InputEventKey) and listening:
 		_update_bind(event, _get_bind_from_index(current_button_index))
@@ -86,8 +92,14 @@ func _process(_delta) -> void:
 	if listening:
 		return
 	
-	#if Input.is_action_just_pressed("ui_settings_pad_select") and pad_mode:
-		
+	if Input.is_action_just_released("ui_settings_pad_select") and pad_mode:
+		var selected = tree.get_selected()
+		if selected != null:
+			listening = true
+			#await get_tree().create_timer(0.1)
+			print()
+			button_one(selected, 0, _get_index_from_bind(_extract_before_hyphen(selected.get_text(0))), 1)
+			return
 	
 	if Input.is_action_just_pressed("ui_settings_down") and pad_mode:
 		tree.deselect_all()
@@ -103,8 +115,9 @@ func _process(_delta) -> void:
 			current_item = down_item
 			scrollbar.value += 35
 		
-		#if current_item
-		tree.set_selected(current_item, 0)
+		if current_item != null:
+			tree.set_selected(current_item, 0)
+			return
 		
 
 	elif Input.is_action_just_pressed("ui_settings_up") and pad_mode:
@@ -123,6 +136,7 @@ func _process(_delta) -> void:
 			scrollbar.value -= 35
 			
 		tree.set_selected(current_item, 0)
+		return
 		
 		
 	elif Input.is_action_just_pressed("ui_settings_right") and pad_mode:
@@ -130,10 +144,12 @@ func _process(_delta) -> void:
 			current_item.collapsed = false
 			scrollbar.value = scrollbar.min_value
 			#tree.set_selected(KeyBindMenu, 0)
+			return
 			
 	elif Input.is_action_just_pressed("ui_settings_left") and pad_mode:
 		if tree.get_selected() == KeyBindMenu or tree.get_selected() == GraphicsMenu:
 			current_item.collapsed = true
+			return
 			
 			
 func _item_selected():
@@ -200,7 +216,7 @@ func _update_bind(input: InputEvent, binding: String) -> void:
 				return
 				#InputMap.action_erase_events(_binding)
 				#print('erasing: ', _binding)
-	
+	 
 	InputMap.action_erase_events(binding)
 	InputMap.action_add_event(binding, input)
 	
@@ -235,9 +251,9 @@ func _update_children(t_item: TreeItem):
 # callback for Tree.button_clicked
 func button_one(_item: TreeItem, _column: int, id: int, mouse_button_index: int) -> void:
 	current_button_index = id
+	print('BUTTON CLICKED ON ITEM: ', _item, ', ID:  ', id)
 	listening = true
-	print("DEBUG ------ Listening : ", listening, " on button number: ", id)
-
+	
 	
 func _load_main_menu() -> void:
 	get_tree().change_scene_to_packed(main_menu)
@@ -253,6 +269,15 @@ func collapse_all(item: TreeItem = null) -> void:
 	for child in item.get_children():
 		collapse_all(child)
 
+func _get_index_from_bind(bind: String) -> int:
+	print('DEBUG: _get_index_from_bind(bind: String) -- Getting index for bind: ', bind)
+	var i: int = 0
+	for _bind in settings["Keybindings"]:
+		print(_bind)
+		if _bind == bind:
+			return i
+		i += 1
+	return i
 
 func _get_bind_from_index(index: int) -> String:
 	var i_to_str : String = "0"
@@ -583,6 +608,14 @@ func _remove_underscores(val: String) -> String:
 	if val.find("_") != -1:
 		return val.replace("_", " ")
 	return val
+	
+	
+func _extract_before_hyphen(text: String) -> String:
+	var index = text.find("-")
+	if index == -1:
+		return text
+	return text.substr(0, index - 1)
+
 
 ## CONFIG 
 func _exit_tree():
@@ -598,10 +631,10 @@ func _config_load() -> void:
 		
 	var _settings = config.get_value("user", "settings")
 	
-	settings = sort_keybindings(_settings)
+	settings = _sort_keybindings(_settings)
 
 
-func sort_keybindings(dict: Dictionary) -> Dictionary:
+func _sort_keybindings(dict: Dictionary) -> Dictionary:
 	var order = ["up", "left", "down", "right", "melee", "interact",
 				 "use_item", "shoot_mode", "item_grab", "escape", "reload"]
 	
