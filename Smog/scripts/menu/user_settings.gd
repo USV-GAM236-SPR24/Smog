@@ -54,6 +54,7 @@ var settings: Dictionary = {
 		"down": "S",
 		"right": "D",
 		"melee" : "V",
+		"shoot" : "Mouse 1",
 		"interact" : "E",
 		"use_item" : "F",
 		"shoot_mode" : "Mouse 2",
@@ -101,7 +102,7 @@ func _process(_delta) -> void:
 			button_one(selected, 0, _get_index_from_bind(_extract_before_hyphen(selected.get_text(0))), 1)
 			return
 	
-	if Input.is_action_just_pressed("ui_settings_down") and pad_mode:
+	elif Input.is_action_just_pressed("ui_settings_down") and pad_mode:
 		tree.deselect_all()
 		var down_item
 		if current_item != null:
@@ -151,13 +152,16 @@ func _process(_delta) -> void:
 			current_item.collapsed = true
 			return
 			
+	elif Input.is_action_just_pressed("ui_settings_pad_back") and pad_mode:
+		_load_main_menu()
+			
 			
 func _item_selected():
 	if current_item == KeyBindMenu:
 		scrollbar.value = scrollbar.min_value
 
 func _ready() -> void:
-	#_config_save() USE FOR ONE TIME INITIALIZATION OF settings
+	#_config_save() # USE FOR ONE TIME INITIALIZATION OF settings
 	_config_load()
 	tree.grab_focus()
 	
@@ -270,7 +274,6 @@ func collapse_all(item: TreeItem = null) -> void:
 		collapse_all(child)
 
 func _get_index_from_bind(bind: String) -> int:
-	print('DEBUG: _get_index_from_bind(bind: String) -- Getting index for bind: ', bind)
 	var i: int = 0
 	for _bind in settings["Keybindings"]:
 		print(_bind)
@@ -635,7 +638,7 @@ func _config_load() -> void:
 
 
 func _sort_keybindings(dict: Dictionary) -> Dictionary:
-	var order = ["up", "left", "down", "right", "melee", "interact",
+	var order = ["up", "left", "down", "right", "melee", "shoot", "interact",
 				 "use_item", "shoot_mode", "item_grab", "escape", "reload"]
 	
 	var keybindings = dict.get("Keybindings", {})
