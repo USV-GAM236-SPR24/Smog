@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=3 uid="uid://chpg25lbcv755"]
 
 [ext_resource type="Script" path="res://scripts/enemies/grunt.gd" id="1_00cvh"]
-[ext_resource type="SpriteFrames" uid="uid://bnbthjosonx11" path="res://art/characters/grunt/grunt_sprite_frames.tres" id="2_2asp0"]
+[ext_resource type="SpriteFrames" uid="uid://bnbthjosonx11" path="res://Art/characters/grunt/grunt_sprite_frames.tres" id="2_2asp0"]
 [ext_resource type="AudioStream" uid="uid://5ncxceet45vt" path="res://Audio/SFX/GruntSFXIdle.wav" id="3_gcicj"]
 [ext_resource type="AudioStream" uid="uid://638mladocka6" path="res://Audio/SFX/GruntDeathSFX.wav" id="3_ig8aw"]
 [ext_resource type="AudioStream" uid="uid://bkh2yq81mc0p0" path="res://Audio/SFX/GruntSFXAtk.wav" id="5_4nyn2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnequ"]
-size = Vector2(32, 16)
+size = Vector2(32, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01cpl"]
 size = Vector2(96, 96)
@@ -22,7 +22,7 @@ sprite_frames = ExtResource("2_2asp0")
 animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_rnequ")
 
 [node name="DetectionArea2D" type="Area2D" parent="."]

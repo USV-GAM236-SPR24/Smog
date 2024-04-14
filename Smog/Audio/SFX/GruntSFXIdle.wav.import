@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://5ncxceet45vt"
-path="res://.godot/imported/GruntSFXIdle.wav-06881fea9ef203d9fce956e5b2f6a0a5.sample"
+path="res://.godot/imported/GruntSFXIdle.wav-23212cbd01b34077560e482ae0a40468.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/GruntSFXIdle.wav"
-dest_files=["res://.godot/imported/GruntSFXIdle.wav-06881fea9ef203d9fce956e5b2f6a0a5.sample"]
+source_file="res://audio/SFX/GruntSFXIdle.wav"
+dest_files=["res://.godot/imported/GruntSFXIdle.wav-23212cbd01b34077560e482ae0a40468.sample"]
 
 [params]
 

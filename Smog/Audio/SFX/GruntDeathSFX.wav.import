@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://638mladocka6"
-path="res://.godot/imported/GruntDeathSFX.wav-f22e775dfa175ad26b13689cfd9cf41d.sample"
+path="res://.godot/imported/GruntDeathSFX.wav-11c7708ff4b478454b2631962d437233.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/GruntDeathSFX.wav"
-dest_files=["res://.godot/imported/GruntDeathSFX.wav-f22e775dfa175ad26b13689cfd9cf41d.sample"]
+source_file="res://audio/SFX/GruntDeathSFX.wav"
+dest_files=["res://.godot/imported/GruntDeathSFX.wav-11c7708ff4b478454b2631962d437233.sample"]
 
 [params]
 
