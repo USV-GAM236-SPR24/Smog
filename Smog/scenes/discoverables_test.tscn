@@ -11,4 +11,3 @@ room = "messhall"
 key = "recipe"
 
 [node name="Player" parent="." instance=ExtResource("2_uf5xp")]
-position = Vector2(90, 72)

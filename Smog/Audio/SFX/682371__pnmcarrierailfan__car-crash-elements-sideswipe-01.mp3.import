@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bw6lqplb6q8ma"
-path="res://.godot/imported/682371__pnmcarrierailfan__car-crash-elements-sideswipe-01.mp3-adf5f6986cf17caf27297f90f0fa5cab.mp3str"
+path="res://.godot/imported/682371__pnmcarrierailfan__car-crash-elements-sideswipe-01.mp3-88c889ecfd9773139b08c7a16205524c.mp3str"
 
 [deps]
 
-source_file="res://Audio/SFX/682371__pnmcarrierailfan__car-crash-elements-sideswipe-01.mp3"
-dest_files=["res://.godot/imported/682371__pnmcarrierailfan__car-crash-elements-sideswipe-01.mp3-adf5f6986cf17caf27297f90f0fa5cab.mp3str"]
+source_file="res://audio/SFX/682371__pnmcarrierailfan__car-crash-elements-sideswipe-01.mp3"
+dest_files=["res://.godot/imported/682371__pnmcarrierailfan__car-crash-elements-sideswipe-01.mp3-88c889ecfd9773139b08c7a16205524c.mp3str"]
 
 [params]
 

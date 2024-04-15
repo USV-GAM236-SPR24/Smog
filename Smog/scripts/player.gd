@@ -123,7 +123,7 @@ func execute_interaction():
 func _on_interaction_area_area_entered(area):
 	if not area is Interactable:
 		return
-	all_interactions.insert(0, area)
+	all_interactions.append(area)
 	update_interactions()
 
 
