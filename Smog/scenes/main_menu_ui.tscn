@@ -53,6 +53,7 @@ offset_bottom = 130.0
 
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect/Settings"]
 visible = false
+layout_mode = 0
 offset_left = -7.0
 offset_top = -15.0
 offset_right = 61.0

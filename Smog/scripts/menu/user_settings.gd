@@ -46,6 +46,10 @@ var listening: bool = false:
 		return listening
 	set(value):
 		listening = value
+		#if listening:
+			#binding_change_button_texture = blue_bar_texture
+		#else:
+			#binding_change_button_texture = white_bar_texture
 		
 var settings: Dictionary = {
 	"Keybindings": {
@@ -98,7 +102,6 @@ func _process(_delta) -> void:
 		if selected != null:
 			listening = true
 			#await get_tree().create_timer(0.1)
-			print()
 			button_one(selected, 0, _get_index_from_bind(_extract_before_hyphen(selected.get_text(0))), 1)
 			return
 	
@@ -157,6 +160,7 @@ func _process(_delta) -> void:
 			
 			
 func _item_selected():
+	
 	if current_item == KeyBindMenu:
 		scrollbar.value = scrollbar.min_value
 
@@ -274,14 +278,15 @@ func collapse_all(item: TreeItem = null) -> void:
 		collapse_all(child)
 
 func _get_index_from_bind(bind: String) -> int:
-	var i: int = 0
-	for _bind in settings["Keybindings"]:
-		print(_bind)
-		if _bind == bind:
-			return i
-		i += 1
-	return i
-
+	var binds = ["up", "left", "down", "right", "melee", "shoot", "interact",
+				 "use item", "shoot mode", "escape", "reload"]
+				
+	for j in range(binds.size()):
+		if binds[j] == bind:
+			return j
+		
+	return -1
+	
 func _get_bind_from_index(index: int) -> String:
 	var i_to_str : String = "0"
 	var i: int = 0
@@ -442,6 +447,11 @@ func _get_str_from_input_event(input: InputEvent) -> String:
 			KEY_BRACKETLEFT: return "["
 			KEY_BACKSLASH: return "\\"
 			KEY_BRACKETRIGHT: return "]"
+	
+	if input is InputEventJoypadMotion:
+		match input.axis:
+			5: return "Right Trigger"
+			4: return "Left Trigger"
 	
 	return "err"
 
