@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b70pj2rlxtaka"]
 
 [ext_resource type="Script" path="res://scripts/weapon/gun.gd" id="1_57fuw"]
-[ext_resource type="Texture2D" uid="uid://2wv41dpry108" path="res://art/temp/gun.png" id="1_cdhkv"]
-[ext_resource type="Texture2D" uid="uid://b7vafg4nkok82" path="res://art/temp/muzzle_flash.png" id="3_d1lyq"]
+[ext_resource type="Texture2D" uid="uid://2wv41dpry108" path="res://Art/temp/gun.png" id="1_cdhkv"]
+[ext_resource type="Texture2D" uid="uid://b7vafg4nkok82" path="res://Art/temp/muzzle_flash.png" id="3_d1lyq"]
 
 [sub_resource type="Animation" id="Animation_ilwm2"]
 length = 0.001
