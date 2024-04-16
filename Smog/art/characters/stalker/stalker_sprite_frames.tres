@@ -1,10 +1,10 @@
 [gd_resource type="SpriteFrames" load_steps=54 format=3 uid="uid://c4pou4l3er82g"]
 
-[ext_resource type="Texture2D" uid="uid://bmdid46osl8ai" path="res://art/characters/stalker/stalker_idle.png" id="1_7d46t"]
-[ext_resource type="Texture2D" uid="uid://cqwauitov1vc6" path="res://art/characters/stalker/stalker_attack_down.png" id="1_ys0sp"]
-[ext_resource type="Texture2D" uid="uid://c1dem4yh2wuxb" path="res://art/characters/stalker/stalker_walk_side.png" id="2_5h8nd"]
-[ext_resource type="Texture2D" uid="uid://dm63g3cmwxay3" path="res://art/characters/stalker/stalker_attack_side.png" id="2_8dkju"]
-[ext_resource type="Texture2D" uid="uid://cc7n674pofy3" path="res://art/characters/stalker/stalker_attack_up.png" id="3_vd3tk"]
+[ext_resource type="Texture2D" uid="uid://bmdid46osl8ai" path="res://Art/characters/stalker/stalker_idle.png" id="1_7d46t"]
+[ext_resource type="Texture2D" uid="uid://cqwauitov1vc6" path="res://Art/characters/stalker/stalker_attack_down.png" id="1_ys0sp"]
+[ext_resource type="Texture2D" uid="uid://c1dem4yh2wuxb" path="res://Art/characters/stalker/stalker_walk_side.png" id="2_5h8nd"]
+[ext_resource type="Texture2D" uid="uid://dm63g3cmwxay3" path="res://Art/characters/stalker/stalker_attack_side.png" id="2_8dkju"]
+[ext_resource type="Texture2D" uid="uid://cc7n674pofy3" path="res://Art/characters/stalker/stalker_attack_up.png" id="3_vd3tk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2narl"]
 atlas = ExtResource("1_ys0sp")

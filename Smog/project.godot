@@ -65,7 +65,7 @@ interact={
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/save_system/plugin.cfg")
+enabled=PackedStringArray("res://addons/ldtk-importer/plugin.cfg", "res://addons/save_system/plugin.cfg")
 
 [input]
 
