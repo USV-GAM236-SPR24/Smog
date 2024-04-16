@@ -198,11 +198,6 @@ func attack() -> void:
 	await sprite.animation_finished
 	sprite.offset = Vector2.ZERO
 	attacking = false
-	
-func restore_ammo() -> void:
-	#%Gun.reload()
-	if not %Gun.current_ammo == %Gun.MAX_AMMO:
-		%Gun.current_ammo += 2
 
 
 func die():

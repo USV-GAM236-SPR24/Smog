@@ -5,7 +5,6 @@ var inventory: Inventory
 var item: Item
 
 @export var item_name: String
-@onready var player = get_node("/root/Game/World/Player")
 
 
 func _enter_tree() -> void:
@@ -34,7 +33,3 @@ func _interact() -> void:
 	if interact_value == "default":
 		item.type = Item.ItemType.DEFAULT
 	inventory.add_item(item)
-	
-	if interact_value == "ammo":
-		player.restore_ammo()
-		queue_free()

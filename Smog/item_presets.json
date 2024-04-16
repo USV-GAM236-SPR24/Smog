@@ -5,9 +5,5 @@
 	
 	"key": {
 		"texture_path": "res://art/temp/item2.png"
-	},
-	
-	"ammo": {
-		"texture_path": "res://Art/UI/ammoBG.png"
 	}
 }
