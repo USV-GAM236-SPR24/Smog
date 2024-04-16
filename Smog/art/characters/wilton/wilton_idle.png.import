@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csa5jdoetcqvc"
-path="res://.godot/imported/wilton_idle.png-7527236f8e3e3e146f7db9a29a5a60b9.ctex"
+path="res://.godot/imported/wilton_idle.png-f22326eef8987afd9deee14ded00751b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/wilton/wilton_idle.png"
-dest_files=["res://.godot/imported/wilton_idle.png-7527236f8e3e3e146f7db9a29a5a60b9.ctex"]
+source_file="res://Art/characters/wilton/wilton_idle.png"
+dest_files=["res://.godot/imported/wilton_idle.png-f22326eef8987afd9deee14ded00751b.ctex"]
 
 [params]
 

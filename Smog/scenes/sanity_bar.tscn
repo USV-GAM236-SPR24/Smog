@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://yk5bgx46irl8"]
+[gd_scene load_steps=4 format=3 uid="uid://oer2643hsff7"]
 
-[ext_resource type="Texture2D" uid="uid://c57ebwp7ed33w" path="res://art/temp/sanity_empty.png" id="1_6h50k"]
-[ext_resource type="Texture2D" uid="uid://cwcnc5k64xnla" path="res://art/temp/sanity_full.png" id="2_o60pj"]
+[ext_resource type="Texture2D" uid="uid://bkywmx6dmv41g" path="res://art/UI/sanity_icons.png" id="3_jhvem"]
 [ext_resource type="Script" path="res://scripts/sanity/sanity_bar.gd" id="3_tvckw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fk6j"]
+atlas = ExtResource("3_jhvem")
+region = Rect2(0, 0, 16, 16)
 
 [node name="SanityBar" type="TextureProgressBar"]
 offset_right = 64.0
 offset_bottom = 16.0
-texture_under = ExtResource("1_6h50k")
-texture_progress = ExtResource("2_o60pj")
 script = ExtResource("3_tvckw")
+
+[node name="SanityIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = SubResource("AtlasTexture_7fk6j")

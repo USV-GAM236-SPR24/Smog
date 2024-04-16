@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bih10h7cyl8bc"]
+[gd_scene load_steps=9 format=3 uid="uid://bih10h7cyl8bc"]
 
-[ext_resource type="SpriteFrames" uid="uid://qhrhc51duhgc" path="res://art/characters/ambush/ambush_sprite_frames.tres" id="1_2hede"]
+[ext_resource type="SpriteFrames" uid="uid://qhrhc51duhgc" path="res://Art/characters/ambush/ambush_sprite_frames.tres" id="1_2hede"]
 [ext_resource type="Script" path="res://scripts/enemies/ambush.gd" id="1_hqboi"]
 [ext_resource type="AudioStream" uid="uid://gjnc8quqm2pb" path="res://Audio/SFX/AmbushDeathSFX.wav" id="3_w2gcw"]
 [ext_resource type="AudioStream" uid="uid://cin7xuxs6i3rv" path="res://Audio/SFX/AmbushTellWet.wav" id="4_cn5qq"]
@@ -13,6 +13,9 @@ size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pamyj"]
 size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itc14"]
+size = Vector2(32, 32)
 
 [node name="Ambush" type="CharacterBody2D"]
 position = Vector2(32, 32)
@@ -36,6 +39,13 @@ shape = SubResource("RectangleShape2D_01cpl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea2D"]
 shape = SubResource("RectangleShape2D_pamyj")
+
+[node name="HitArea2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
+shape = SubResource("RectangleShape2D_itc14")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 

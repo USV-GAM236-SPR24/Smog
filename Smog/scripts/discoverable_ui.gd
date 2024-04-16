@@ -9,7 +9,7 @@ extends CanvasLayer
 func _input(event: InputEvent) -> void:
 	if not exit.visible:
 		return
-	if event is InputEventJoypadButton or event is InputEventKey:
+	if event.is_action_pressed("escape"):
 		exit_ui()
 
 

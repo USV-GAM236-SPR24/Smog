@@ -7,6 +7,8 @@ var shoot_mode: bool = false
 var flipped := false
 var can_shoot := true
 
+var animation_name: String = "shoot_side"
+
 var current_ammo: int = MAX_AMMO:
 	get:
 		return current_ammo
@@ -18,17 +20,19 @@ func reload() -> void:
 	current_ammo = MAX_AMMO
 
 func update_gun_aim(dir: Vector2) -> void:
+	
 	match dir:
 		Vector2.UP:
+			animation_name = "shoot_up"
 			%Marker2D.rotation_degrees = 270
 		Vector2.DOWN:
+			animation_name = "shoot_down"
 			%Marker2D.rotation_degrees = 90
 		Vector2.RIGHT:
+			animation_name = "shoot_side"
 			%Marker2D.rotation_degrees = 0
 		Vector2.LEFT:
-			if not flipped:
-				$Marker2D/GunSprite.scale *= Vector2(1, -1)
-				flipped = true
+			animation_name = "shoot_side"
 			%Marker2D.rotation_degrees = 180
 
 
@@ -48,8 +52,6 @@ func _input(_event) -> void:
 
 func _process(_delta) -> void:
 
-	$Marker2D/GunSprite.visible = shoot_mode
-
 	if Input.is_action_just_pressed("shoot") and can_shoot and not get_parent().attacking:
 		_shoot() #dont shoot if attacking
 
@@ -64,12 +66,13 @@ func _shoot() -> void:
 
 	current_ammo -= 1
 
-	%AnimationPlayer.play("shoot")
-
-	if $Marker2D/RayCast2D.is_colliding():
-		var collider = $Marker2D/RayCast2D.get_collider()
-		if collider is Enemy:
-			collider._take_damage(1)
+	var collider = $Marker2D/RayCast2D.get_collider()
+	if not collider:
+		return
+	if collider.get_parent() is Enemy:
+		collider.get_parent()._take_damage(1)
+	elif collider is Enemy:
+		collider._take_damage(1)
 
 func _update_ammo_ui(value) -> void:
 	var hudref: Control = get_node("/root/Game/CanvasLayer/WeaponHUD")

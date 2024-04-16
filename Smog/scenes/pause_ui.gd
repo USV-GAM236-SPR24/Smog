@@ -5,6 +5,9 @@ var main_menu_scene: PackedScene = load("res://scenes/main_menu_ui.tscn")
 var is_paused : bool = false
 
 func _input(event): 
+	if $/root/Game/DiscoverableUI:
+		if $/root/Game/DiscoverableUI.visible:
+			return
 	if event.is_action_pressed("escape"):
 		if is_paused == true:
 			resume_game()
