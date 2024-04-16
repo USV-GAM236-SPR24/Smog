@@ -106,8 +106,7 @@ func _enter_tree() -> void:
 
 #toggle visibility
 func toggle() -> void:
-	visible = !visible
-	print(visible)
+	self.visible = !self.visible
 
 
 #selection options

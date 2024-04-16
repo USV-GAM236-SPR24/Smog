@@ -233,7 +233,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_down",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -268,7 +268,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_side",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -303,7 +303,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_up",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -317,7 +317,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_down",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -331,7 +331,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_side",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -345,7 +345,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_up",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -359,7 +359,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_down",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -373,7 +373,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_side",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -387,5 +387,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_up",
-"speed": 10.0
+"speed": 5.0
 }]

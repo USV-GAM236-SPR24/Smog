@@ -1,6 +1,4 @@
-
 [gd_scene load_steps=5 format=3 uid="uid://2sihykjunhhb"]
-
 
 [ext_resource type="Script" path="res://scripts/discoverable_ui.gd" id="1_3cf5q"]
 [ext_resource type="Theme" uid="uid://8410y4ephbga" path="res://main_theme.tres" id="1_qfbc3"]
@@ -68,4 +66,3 @@ layout_mode = 2
 theme = ExtResource("1_qfbc3")
 theme_override_font_sizes/font_size = 5
 text = "Press any button to exit..."
-

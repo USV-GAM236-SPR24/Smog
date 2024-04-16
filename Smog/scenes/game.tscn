@@ -1,4 +1,3 @@
-
 [gd_scene load_steps=17 format=3 uid="uid://wstjrxw8m084"]
 
 [ext_resource type="PackedScene" uid="uid://ci4luwlvj3t0l" path="res://levels/factory_floor_level.tscn" id="1_7l7g4"]
@@ -18,11 +17,64 @@
 [ext_resource type="PackedScene" uid="uid://2sihykjunhhb" path="res://scenes/discoverable_ui.tscn" id="14_8yqx7"]
 [ext_resource type="AudioStream" uid="uid://hlvx6fmxxlkv" path="res://Audio/SFX/DLSMOGA_whispers_1.wav" id="16_w75uh"]
 
-
 [node name="Game" type="Node2D"]
 
-[node name="OfficeWorld" parent="." instance=ExtResource("1_k4sn8")]
+[node name="World" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="Factory_Floor_Level" parent="World" instance=ExtResource("1_7l7g4")]
+y_sort_enabled = true
+
+[node name="BloodWall" parent="World" instance=ExtResource("3_arpep")]
+visible = false
+position = Vector2(146, 33)
+
+[node name="Interactable" parent="World" instance=ExtResource("2_elo5s")]
+position = Vector2(648, 360)
+script = ExtResource("3_ffy84")
+item_name = "cherry"
+
+[node name="Interactable2" parent="World" instance=ExtResource("2_elo5s")]
+position = Vector2(752, 256)
+script = ExtResource("3_ffy84")
+item_name = "alcohol"
+
+[node name="Discoverable" parent="World" instance=ExtResource("8_8wlif")]
+position = Vector2(736, 272)
+key = "book"
+
+[node name="Player" parent="World" instance=ExtResource("4_ikqgi")]
+position = Vector2(504, 80)
+
+[node name="Ambush" parent="World" instance=ExtResource("7_bknnp")]
+position = Vector2(568, 232)
+
+[node name="Stalker" parent="World" instance=ExtResource("8_kdqrf")]
+position = Vector2(920, 288)
+
+[node name="Grunt" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(456, 160)
+
+[node name="Grunt2" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(600, 488)
+
+[node name="Grunt3" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(128, 512)
+
+[node name="Grunt4" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(112, 480)
+
+[node name="Grunt5" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(120, 88)
+
+[node name="Grunt6" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(760, 280)
+
+[node name="Grunt7" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(896, 544)
+
+[node name="Grunt8" parent="World" instance=ExtResource("9_vyonr")]
+position = Vector2(896, 544)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -32,6 +84,9 @@ offset_top = 4.0
 offset_right = 68.0
 offset_bottom = 20.0
 
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("2_3yuhv")]
+visible = false
+
 [node name="KeyRing" parent="CanvasLayer" instance=ExtResource("11_nrht7")]
 visible = false
 
@@ -40,24 +95,12 @@ offset_left = 4.0
 offset_top = 20.0
 offset_right = 4.0
 offset_bottom = 20.0
-
-[node name="DiscoverableUI" parent="." instance=ExtResource("14_8yqx7")]
-visible = false
-
-[node name="InventoryLayer" type="CanvasLayer" parent="."]
-
-[node name="Inventory" parent="InventoryLayer" instance=ExtResource("2_3yuhv")]
-visible = false
-offset_left = 89.0
-offset_top = 127.0
-offset_right = 89.0
-offset_bottom = 127.0
+scale = Vector2(0.922043, 1.10799)
 
 [node name="DiscoverableUI" parent="." instance=ExtResource("14_8yqx7")]
 visible = false
 
 [node name="PauseUI" parent="." instance=ExtResource("10_8ypd1")]
-layer = 4
 visible = false
 
 [node name="whispers" type="AudioStreamPlayer" parent="."]

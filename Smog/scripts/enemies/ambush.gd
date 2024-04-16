@@ -2,11 +2,12 @@ extends Enemy
 
 
 var emerged := false
+
 var grab_area: Area2D
 var grabbing := false
 var damaged_this_attack := false
 var player_speed: int
-@onready var puddle_sfx = $Puddle
+
 
 func _init() -> void:
 	health = 1
@@ -15,14 +16,12 @@ func _init() -> void:
 
 
 func _ready() -> void:
-
 	sprite = $AnimatedSprite2D
 	detection_area = $DetectionArea2D
 	grab_area = $GrabArea2D
 	nav_agent = $NavigationAgent2D
 	death = $Death
 	attack = $Atk
-
 	grab_area.body_entered.connect(_on_body_entered_grab)
 	grab_area.body_exited.connect(_on_body_exited_grab)
 	super._ready()
@@ -85,7 +84,6 @@ func _on_body_entered(body: Node) -> void:
 	if not emerged and body is Player:
 		player = body
 		player_speed = player.speed
-		puddle_sfx.stop()
 		sprite.play("emerge")
 		await sprite.animation_finished
 		emerged = true
@@ -108,7 +106,6 @@ func _on_body_exited_grab(body: Node) -> void:
 	player.speed = player_speed
 
 func die() -> void:
-	death_sfx.play()
 	grabbing = false
 	if player:
 		player.speed = player_speed

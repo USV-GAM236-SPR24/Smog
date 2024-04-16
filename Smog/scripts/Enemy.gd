@@ -18,7 +18,6 @@ var damage = 10
 @onready var attack: AudioStreamPlayer2D
 
 
-
 func _ready() -> void:
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
@@ -31,7 +30,6 @@ func _process(_delta: float) -> void:
 		update_animation()
 	if health <= 0:
 		death.play()
-
 		die()
 
 

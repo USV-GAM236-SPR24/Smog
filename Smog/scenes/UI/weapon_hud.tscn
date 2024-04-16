@@ -6,11 +6,14 @@
 
 [node name="WeaponHUD" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_w22n7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 self_modulate = Color(0.811765, 0.635294, 0.913725, 1)
 layout_mode = 0
 offset_right = 96.0
@@ -41,12 +44,3 @@ theme_override_constants/v_separation = 0
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
 position = Vector2(1.22617e-06, -1.52124e-05)
 scale = Vector2(1.28574, 3.98784)
-
-[node name="Ammo" type="GridContainer" parent="."]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 2.0
-offset_bottom = 2.0
-theme_override_constants/v_separation = 1
