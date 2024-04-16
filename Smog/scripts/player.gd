@@ -98,6 +98,8 @@ func update_animation(move_input: Vector2, just_shot: bool = false):
 		sprite.flip_h = last_direction == Vector2.LEFT
 		if sprite.animation == %Gun.animation_name and sprite.is_playing():
 			return
+		if not %Gun.can_shoot:
+			return
 		sprite.play(%Gun.animation_name)
 		if not just_shot:
 			sprite.pause()
