@@ -3,6 +3,9 @@ extends Entity
 
 signal position_changed(old: Vector2, new: Vector2)
 
+
+static var current_player
+
 var input_direction: Vector2 = Vector2.ZERO
 var input_array: Array[Vector2] = [Vector2.ZERO]
 var last_direction: Vector2 = Vector2.RIGHT
@@ -20,6 +23,7 @@ var weapon: Weapon
 
 
 func _enter_tree() -> void:
+	Player.current_player = self
 	$"Interaction Components/InteractionArea".area_entered.connect(_on_interaction_area_area_entered)
 	$"Interaction Components/InteractionArea".area_exited.connect(_on_interaction_area_area_exited)
 	Sanity.sanity_empty.connect(die)
@@ -201,7 +205,7 @@ func attack() -> void:
 	
 func restore_ammo() -> void:
 	#%Gun.reload()
-	if not %Gun.current_ammo == %Gun.MAX_AMMO:
+	if %Gun.current_ammo <= %Gun.MAX_AMMO - 2:
 		%Gun.current_ammo += 2
 
 

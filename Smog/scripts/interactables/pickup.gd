@@ -5,7 +5,7 @@ var inventory: Inventory
 var item: Item
 
 @export var item_name: String
-@onready var player = get_node("/root/Game/World/Player")
+@onready var player = Player.current_player
 
 
 func _enter_tree() -> void:
