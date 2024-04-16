@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cin7xuxs6i3rv"
-path="res://.godot/imported/AmbushTellWet.wav-750a886216814e0fb4cfd1ec34c14aae.sample"
+path="res://.godot/imported/AmbushTellWet.wav-d015c5b38d1880d31a71c630a0151760.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/AmbushTellWet.wav"
-dest_files=["res://.godot/imported/AmbushTellWet.wav-750a886216814e0fb4cfd1ec34c14aae.sample"]
+source_file="res://audio/SFX/AmbushTellWet.wav"
+dest_files=["res://.godot/imported/AmbushTellWet.wav-d015c5b38d1880d31a71c630a0151760.sample"]
 
 [params]
 

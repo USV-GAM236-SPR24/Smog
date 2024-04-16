@@ -21,9 +21,8 @@ func _ready() -> void:
 	detection_area = $DetectionArea2D
 	drain_area = $DrainingArea2D
 	nav_agent = $NavigationAgent2D
-	death = $StalkerStun
-	attack = $StalkerATK
-
+	death_sfx = $Death
+	atk_sfx = $Attack
 	drain_area.body_entered.connect(_on_body_entered_drain)
 	drain_area.body_exited.connect(_on_body_exited_drain)
 	super._ready()
@@ -52,8 +51,6 @@ func update_animation() -> void:
 	if draining:
 		if not player:
 			return
-		if !$StalkerATK.is_playing():
-			$StalkerATK.play()
 		play_attack_animation(position.direction_to(player.position))
 		return
 	super.update_animation()
@@ -101,7 +98,6 @@ func die():
 	damage = 0
 	speed = 0
 	stunned = true
-	$StalkerStun.play()
 	sprite.play("idle_down")
 	sprite.pause()
 	await get_tree().create_timer(stun_time).timeout
@@ -110,5 +106,3 @@ func die():
 	health = 5
 	damage = 20
 	speed = 5
-
-	

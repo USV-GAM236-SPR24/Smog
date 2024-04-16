@@ -20,14 +20,12 @@ func _ready() -> void:
 	detection_area = $DetectionArea2D
 	grab_area = $GrabArea2D
 	nav_agent = $NavigationAgent2D
-	death = $Death
-	attack = $Atk
-
+	death_sfx = $Death
+	
 	grab_area.body_entered.connect(_on_body_entered_grab)
 	grab_area.body_exited.connect(_on_body_exited_grab)
 	super._ready()
 	sprite.play("puddle")
-	$Puddle.play()
 
 
 func _physics_process(delta: float) -> void:
@@ -55,7 +53,6 @@ func update_animation() -> void:
 			return
 		play_attack_animation(position.direction_to(player.position))
 		return
-	$Walk.play()
 	super.update_animation()
 
 
@@ -67,17 +64,13 @@ func play_attack_animation(direction: Vector2) -> void:
 	if abs(direction.x) >= abs(direction.y):
 		sprite.flip_h = false
 		if direction.x < 0:
-			attack.play()
 			sprite.play("attack_left")
 		else:
-			attack.play()
 			sprite.play("attack_right")
 		return
 	if direction.y < 0:
-		attack.play()
 		sprite.play("attack_up")
 		return
-	attack.play()
 	sprite.play("attack_down")
 
 

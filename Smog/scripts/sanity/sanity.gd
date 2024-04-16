@@ -7,7 +7,6 @@ signal sanity_changed(old: float, new: float)
 const MAXIMUM: float = 100
 const MINIMUM: float = 0
 
-
 var current: float: # accesses _current
 	get:
 		return _current
@@ -100,7 +99,6 @@ func decrease(decrement: float) -> float:
 	if old != _current: # just in case
 		sanity_changed.emit(old, _current)
 	
-	whispers()
 	return _current
 
 
@@ -127,18 +125,7 @@ func increase(increment: float) -> float:
 	if old != _current: # just in case
 		sanity_changed.emit(old, _current)
 	
-	whispers()
 	return _current
-
-
-func whispers() -> void:
-	#Turns whispers on at 40 sanityw
-	if _current <= 40:
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Whispers"), -10)
-	else:
-			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Whispers"), -80)
-		
-
 
 
 func _manual_set_message(func_name: String) -> String:

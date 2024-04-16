@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cuiq6aqoj1vg3"]
 
 [ext_resource type="Script" path="res://addons/ldtk-importer/src/components/ldtk-level.gd" id="1_2guoi"]
-[ext_resource type="TileSet" uid="uid://bv3u734sybfeg" path="res://levels/tileset16x16.tres" id="2_wdeni"]
+[ext_resource type="TileSet" uid="uid://cq7ttwa4ga3wx" path="res://levels/tileset16x16.tres" id="2_wdeni"]
 
 [node name="Level_1" type="Node2D"]
 y_sort_enabled = true

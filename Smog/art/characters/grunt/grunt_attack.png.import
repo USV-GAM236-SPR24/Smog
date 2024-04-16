@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7eo6i3vm3c42"
-path="res://.godot/imported/grunt_attack.png-a8021ebc6946954cf5333af227b02b4a.ctex"
+path="res://.godot/imported/grunt_attack.png-8d338609a6d8fe8ce7fe036625cf809c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/characters/grunt/grunt_attack.png"
-dest_files=["res://.godot/imported/grunt_attack.png-a8021ebc6946954cf5333af227b02b4a.ctex"]
+source_file="res://art/characters/grunt/grunt_attack.png"
+dest_files=["res://.godot/imported/grunt_attack.png-8d338609a6d8fe8ce7fe036625cf809c.ctex"]
 
 [params]
 

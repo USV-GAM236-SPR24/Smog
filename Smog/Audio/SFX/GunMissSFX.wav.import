@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://vle8sfsnsoy2"
-path="res://.godot/imported/GunMissSFX.wav-be8686b66c75efa52c03e70d7837ba1c.sample"
+path="res://.godot/imported/GunMissSFX.wav-a37550644e24b03bbbc28380bb175963.sample"
 
 [deps]
 
-source_file="res://Audio/UnusedSFX/GunMissSFX.wav"
-dest_files=["res://.godot/imported/GunMissSFX.wav-be8686b66c75efa52c03e70d7837ba1c.sample"]
+source_file="res://audio/SFX/GunMissSFX.wav"
+dest_files=["res://.godot/imported/GunMissSFX.wav-a37550644e24b03bbbc28380bb175963.sample"]
 
 [params]
 

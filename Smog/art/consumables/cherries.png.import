@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkk7telakwuww"
-path="res://.godot/imported/cherries.png-f55a623f456f71e1fc31179bf2215735.ctex"
+path="res://.godot/imported/cherries.png-63ac117499f2d1fc473ca3a32454a560.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/consumables/cherries.png"
-dest_files=["res://.godot/imported/cherries.png-f55a623f456f71e1fc31179bf2215735.ctex"]
+source_file="res://art/consumables/cherries.png"
+dest_files=["res://.godot/imported/cherries.png-63ac117499f2d1fc473ca3a32454a560.ctex"]
 
 [params]
 

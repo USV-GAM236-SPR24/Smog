@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ed4ca3w46xs0"
-path="res://.godot/imported/DLSMOG_pistolreload.wav-983b6fe353b6c18c0876601557f28e9c.sample"
+path="res://.godot/imported/DLSMOG_pistolreload.wav-680e1c99ce94001786d06173568361b6.sample"
 
 [deps]
 
-source_file="res://Audio/UnusedSFX/DLSMOG_pistolreload.wav"
-dest_files=["res://.godot/imported/DLSMOG_pistolreload.wav-983b6fe353b6c18c0876601557f28e9c.sample"]
+source_file="res://audio/SFX/DLSMOG_pistolreload.wav"
+dest_files=["res://.godot/imported/DLSMOG_pistolreload.wav-680e1c99ce94001786d06173568361b6.sample"]
 
 [params]
 
