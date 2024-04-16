@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://xy4qp81v6sni"]
 
 [ext_resource type="Script" path="res://scripts/enemies/stalker.gd" id="1_unnku"]
-[ext_resource type="SpriteFrames" uid="uid://c4pou4l3er82g" path="res://art/characters/stalker/stalker_sprite_frames.tres" id="2_pmdcw"]
-[ext_resource type="AudioStream" uid="uid://byb5e75dsycub" path="res://audio/SFX/StalkerDeathSFX.wav" id="3_eyis3"]
-[ext_resource type="AudioStream" uid="uid://307g8dohsmui" path="res://audio/SFX/StalkerATKSFX.wav" id="4_pt1ia"]
+[ext_resource type="SpriteFrames" uid="uid://c4pou4l3er82g" path="res://Art/characters/stalker/stalker_sprite_frames.tres" id="2_pmdcw"]
+[ext_resource type="AudioStream" uid="uid://byb5e75dsycub" path="res://Audio/SFX/StalkerDeathSFX.wav" id="3_eyis3"]
+[ext_resource type="AudioStream" uid="uid://307g8dohsmui" path="res://Audio/SFX/StalkerATKSFX.wav" id="4_pt1ia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnequ"]
 size = Vector2(120, 32)

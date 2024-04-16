@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://yntkc1ukkk6l"]
+[gd_scene load_steps=5 format=3 uid="uid://yntkc1ukkk6l"]
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_fiyxg"]
+[ext_resource type="Texture2D" uid="uid://cfd8x632oymxn" path="res://Art/UI/UI_Menu_bg.jpg" id="2_1noxs"]
 [ext_resource type="Theme" uid="uid://8410y4ephbga" path="res://main_theme.tres" id="2_krdpw"]
 [ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://Art/temp/ITEM_SLOT_SELECT.png" id="3_4xjwp"]
 
 [node name="MainMenuUI" type="CanvasLayer"]
 script = ExtResource("1_fiyxg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 180.0
+offset_bottom = 144.0
+texture = ExtResource("2_1noxs")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -77,19 +83,6 @@ grow_vertical = 2
 [node name="ReferenceRect" type="ReferenceRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 20
-text = "Smog"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 70.91)
