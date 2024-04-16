@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://byvc7x6y8wl0s"
-path="res://.godot/imported/DLSMOG_stalkerwalk.wav-ccd311af963c28652a9280df09548a06.sample"
+path="res://.godot/imported/DLSMOG_stalkerwalk.wav-6f423387c20725ccce643f43c64828d5.sample"
 
 [deps]
 
-source_file="res://audio/SFX/DLSMOG_stalkerwalk.wav"
-dest_files=["res://.godot/imported/DLSMOG_stalkerwalk.wav-ccd311af963c28652a9280df09548a06.sample"]
+source_file="res://Audio/SFX/DLSMOG_stalkerwalk.wav"
+dest_files=["res://.godot/imported/DLSMOG_stalkerwalk.wav-6f423387c20725ccce643f43c64828d5.sample"]
 
 [params]
 

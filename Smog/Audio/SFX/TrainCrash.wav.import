@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://qrj3wfxplxjo"
-path="res://.godot/imported/Lose HP SFX.wav-db6582e45124821bb69b149a32f7bb9a.sample"
+uid="uid://dydj1fxke07cm"
+path="res://.godot/imported/TrainCrash.wav-67b51097df11baf4c92363b11ea6f0c6.sample"
 
 [deps]
 
-source_file="res://audio/SFX/Lose HP SFX.wav"
-dest_files=["res://.godot/imported/Lose HP SFX.wav-db6582e45124821bb69b149a32f7bb9a.sample"]
+source_file="res://Audio/SFX/TrainCrash.wav"
+dest_files=["res://.godot/imported/TrainCrash.wav-67b51097df11baf4c92363b11ea6f0c6.sample"]
 
 [params]
 

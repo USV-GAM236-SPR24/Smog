@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b5cgahfv4xjhs"
-path="res://.godot/imported/DLSMOG_ambushwalk_1.wav-b41d64d6b78a37314d792be1dc62303b.sample"
+path="res://.godot/imported/DLSMOG_ambushwalk_1.wav-56b91bcca4e803d5c39149776fa3a97d.sample"
 
 [deps]
 
-source_file="res://audio/SFX/DLSMOG_ambushwalk_1.wav"
-dest_files=["res://.godot/imported/DLSMOG_ambushwalk_1.wav-b41d64d6b78a37314d792be1dc62303b.sample"]
+source_file="res://Audio/SFX/DLSMOG_ambushwalk_1.wav"
+dest_files=["res://.godot/imported/DLSMOG_ambushwalk_1.wav-56b91bcca4e803d5c39149776fa3a97d.sample"]
 
 [params]
 

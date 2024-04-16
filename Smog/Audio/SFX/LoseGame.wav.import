@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c16ryvu2gela4"
-path="res://.godot/imported/Lose.wav-b4666a377d82da48bcafff1ecbfc938f.sample"
+path="res://.godot/imported/LoseGame.wav-77049e6fe602d9cdc31718c669a4e22f.sample"
 
 [deps]
 
-source_file="res://audio/SFX/Lose.wav"
-dest_files=["res://.godot/imported/Lose.wav-b4666a377d82da48bcafff1ecbfc938f.sample"]
+source_file="res://Audio/SFX/LoseGame.wav"
+dest_files=["res://.godot/imported/LoseGame.wav-77049e6fe602d9cdc31718c669a4e22f.sample"]
 
 [params]
 

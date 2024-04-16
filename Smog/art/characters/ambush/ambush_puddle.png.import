@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb0w05sw2dc54"
-path="res://.godot/imported/ambush_puddle.png-10763578ee008af36f7d8308de931b69.ctex"
+path="res://.godot/imported/ambush_puddle.png-4bf7ff7a36592bd87a791d7bc6a9e6f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/ambush/ambush_puddle.png"
-dest_files=["res://.godot/imported/ambush_puddle.png-10763578ee008af36f7d8308de931b69.ctex"]
+source_file="res://Art/characters/ambush/ambush_puddle.png"
+dest_files=["res://.godot/imported/ambush_puddle.png-4bf7ff7a36592bd87a791d7bc6a9e6f9.ctex"]
 
 [params]
 

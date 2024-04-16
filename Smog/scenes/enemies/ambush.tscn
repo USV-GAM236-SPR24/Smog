@@ -1,9 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bih10h7cyl8bc"]
 
-[ext_resource type="SpriteFrames" uid="uid://qhrhc51duhgc" path="res://art/characters/ambush/ambush_sprite_frames.tres" id="1_2hede"]
+[gd_scene load_steps=10 format=3 uid="uid://bih10h7cyl8bc"]
+
+
+[ext_resource type="SpriteFrames" uid="uid://qhrhc51duhgc" path="res://Art/characters/ambush/ambush_sprite_frames.tres" id="1_2hede"]
 [ext_resource type="Script" path="res://scripts/enemies/ambush.gd" id="1_hqboi"]
-[ext_resource type="AudioStream" uid="uid://gjnc8quqm2pb" path="res://audio/SFX/AmbushDeathSFX.wav" id="3_w2gcw"]
-[ext_resource type="AudioStream" uid="uid://cin7xuxs6i3rv" path="res://audio/SFX/AmbushTellWet.wav" id="4_cn5qq"]
+[ext_resource type="AudioStream" uid="uid://gjnc8quqm2pb" path="res://Audio/SFX/AmbushDeathSFX.wav" id="3_w2gcw"]
+[ext_resource type="AudioStream" uid="uid://cin7xuxs6i3rv" path="res://Audio/SFX/AmbushTellWet.wav" id="4_cn5qq"]
+[ext_resource type="AudioStream" uid="uid://b5cgahfv4xjhs" path="res://Audio/SFX/DLSMOG_ambushwalk_1.wav" id="5_fckhp"]
+[ext_resource type="AudioStream" uid="uid://ck55tspy8o1k3" path="res://Audio/SFX/AmbushAtk2.wav" id="6_f70jt"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnequ"]
 size = Vector2(32, 16)
@@ -56,3 +61,12 @@ stream = ExtResource("3_w2gcw")
 stream = ExtResource("4_cn5qq")
 autoplay = true
 max_distance = 140.0
+[node name="Idle" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_fckhp")
+volume_db = -4.685
+
+[node name="Atk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_f70jt")
+

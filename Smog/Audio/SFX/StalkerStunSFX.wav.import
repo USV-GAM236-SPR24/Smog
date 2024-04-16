@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://byb5e75dsycub"
-path="res://.godot/imported/StalkerDeathSFX.wav-a829111796a143eb8a11dcab216ee733.sample"
+path="res://.godot/imported/StalkerStunSFX.wav-99b744c36693ce7e30236c87744a1156.sample"
 
 [deps]
 
-source_file="res://audio/SFX/StalkerDeathSFX.wav"
-dest_files=["res://.godot/imported/StalkerDeathSFX.wav-a829111796a143eb8a11dcab216ee733.sample"]
+source_file="res://Audio/SFX/StalkerStunSFX.wav"
+dest_files=["res://.godot/imported/StalkerStunSFX.wav-99b744c36693ce7e30236c87744a1156.sample"]
 
 [params]
 
