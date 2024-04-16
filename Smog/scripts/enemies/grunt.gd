@@ -13,6 +13,5 @@ func _ready() -> void:
 	nav_agent = $NavigationAgent2D
 	death = $Death
 	attack = $Attack
-
 	super._ready()
 	

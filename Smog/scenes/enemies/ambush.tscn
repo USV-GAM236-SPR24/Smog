@@ -1,6 +1,4 @@
-
 [gd_scene load_steps=10 format=3 uid="uid://bih10h7cyl8bc"]
-
 
 [ext_resource type="SpriteFrames" uid="uid://qhrhc51duhgc" path="res://Art/characters/ambush/ambush_sprite_frames.tres" id="1_2hede"]
 [ext_resource type="Script" path="res://scripts/enemies/ambush.gd" id="1_hqboi"]
@@ -9,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://b5cgahfv4xjhs" path="res://Audio/SFX/DLSMOG_ambushwalk_1.wav" id="5_fckhp"]
 [ext_resource type="AudioStream" uid="uid://ck55tspy8o1k3" path="res://Audio/SFX/AmbushAtk2.wav" id="6_f70jt"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnequ"]
 size = Vector2(32, 16)
 
@@ -17,9 +14,6 @@ size = Vector2(32, 16)
 size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pamyj"]
-size = Vector2(48, 48)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_itc14"]
 size = Vector2(48, 48)
 
 [node name="Ambush" type="CharacterBody2D"]
@@ -45,13 +39,6 @@ shape = SubResource("RectangleShape2D_01cpl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea2D"]
 shape = SubResource("RectangleShape2D_pamyj")
 
-[node name="HitArea2D" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
-shape = SubResource("RectangleShape2D_itc14")
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="Death" type="AudioStreamPlayer2D" parent="."]
@@ -61,6 +48,7 @@ stream = ExtResource("3_w2gcw")
 stream = ExtResource("4_cn5qq")
 autoplay = true
 max_distance = 140.0
+
 [node name="Idle" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Walk" type="AudioStreamPlayer2D" parent="."]
@@ -69,4 +57,3 @@ volume_db = -4.685
 
 [node name="Atk" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_f70jt")
-

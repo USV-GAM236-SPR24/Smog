@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj4ufrnwir7jo"]
 
 [ext_resource type="Script" path="res://scenes/pause_ui.gd" id="1_fr7io"]
-[ext_resource type="Theme" uid="uid://8410y4ephbga" path="res://main_theme.tres" id="2_cklld"]
+[ext_resource type="Theme" uid="uid://dc5bncpo7eujv" path="res://main_theme.tres" id="2_cklld"]
 
 [node name="PauseUI" type="CanvasLayer"]
 process_mode = 3
@@ -122,14 +122,5 @@ text = "QUIT
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BackButton" type="Button" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect3"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 4.0
-offset_top = 115.0
-offset_right = 27.0
-offset_bottom = 131.0
-
 [connection signal="pressed" from="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect3/BackButton" to="." method="_on_back_button_pressed"]
