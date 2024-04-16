@@ -48,25 +48,19 @@ func save_position_value(old:Vector2 , new:Vector2 ):
 func _process(_delta):
 	#var input_magnitude: float = Input.get_vector("left", "right", "up", "down").length()
 	#input_direction = _round_to_nearest_direction(Input.get_vector("left", "right", "up", "down"))
-	if Input.is_action_just_pressed("left"):
+	input_array.clear()
+	input_direction = Vector2.ZERO
+	if Input.is_action_pressed("left"):
 		input_array.append(Vector2.LEFT)
-	if Input.is_action_just_pressed("right"):
+	if Input.is_action_pressed("right"):
 		input_array.append(Vector2.RIGHT)
-	if Input.is_action_just_pressed("up"):
+	if Input.is_action_pressed("up"):
 		input_array.append(Vector2.UP)
-	if Input.is_action_just_pressed("down"):
+	if Input.is_action_pressed("down"):
 		input_array.append(Vector2.DOWN)
-	
-	if Input.is_action_just_released("left"):
-		input_array.erase(Vector2.LEFT)
-	if Input.is_action_just_released("right"):
-		input_array.erase(Vector2.RIGHT)
-	if Input.is_action_just_released("up"):
-		input_array.erase(Vector2.UP)
-	if Input.is_action_just_released("down"):
-		input_array.erase(Vector2.DOWN)
 
-	input_direction = input_array[-1]
+	if input_array.size() > 0:
+		input_direction = input_array[-1]
 	
 	#update gun aim
 	%Gun.update_gun_aim(input_direction)
@@ -77,11 +71,14 @@ func _process(_delta):
 	if Input.is_action_just_pressed("melee") and not attacking and not %Gun.shoot_mode:
 		attack()
 	
+	if input_direction != Vector2.ZERO:
+		last_direction = input_direction
+	
 	if attacking or %Gun.shoot_mode:
 		input_direction = Vector2.ZERO
 	
 	#update animation
-	update_animation(input_direction)
+	update_animation(input_direction, Input.is_action_just_pressed("shoot"))
 
 
 func _physics_process(_delta):
@@ -94,8 +91,16 @@ func _physics_process(_delta):
 
 
 #Animation
-func update_animation(move_input : Vector2):
+func update_animation(move_input: Vector2, just_shot: bool = false):
 	if attacking:
+		return
+	if %Gun.shoot_mode:
+		sprite.flip_h = last_direction == Vector2.LEFT
+		if sprite.animation == %Gun.animation_name and sprite.is_playing():
+			return
+		sprite.play(%Gun.animation_name)
+		if not just_shot:
+			sprite.pause()
 		return
 	sprite.flip_h = false
 	if move_input == Vector2.ZERO:

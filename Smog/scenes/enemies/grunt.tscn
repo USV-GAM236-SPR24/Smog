@@ -1,16 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://chpg25lbcv755"]
+[gd_scene load_steps=9 format=3 uid="uid://chpg25lbcv755"]
 
 [ext_resource type="Script" path="res://scripts/enemies/grunt.gd" id="1_00cvh"]
 [ext_resource type="SpriteFrames" uid="uid://bnbthjosonx11" path="res://art/characters/grunt/grunt_sprite_frames.tres" id="2_2asp0"]
-[ext_resource type="AudioStream" uid="uid://5ncxceet45vt" path="res://Audio/SFX/GruntSFXIdle.wav" id="3_gcicj"]
-[ext_resource type="AudioStream" uid="uid://638mladocka6" path="res://Audio/SFX/GruntDeathSFX.wav" id="3_ig8aw"]
-[ext_resource type="AudioStream" uid="uid://bkh2yq81mc0p0" path="res://Audio/SFX/GruntSFXAtk.wav" id="5_4nyn2"]
+[ext_resource type="AudioStream" uid="uid://5ncxceet45vt" path="res://audio/SFX/GruntSFXIdle.wav" id="3_gcicj"]
+[ext_resource type="AudioStream" uid="uid://638mladocka6" path="res://audio/SFX/GruntDeathSFX.wav" id="3_ig8aw"]
+[ext_resource type="AudioStream" uid="uid://bkh2yq81mc0p0" path="res://audio/SFX/GruntSFXAtk.wav" id="5_4nyn2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnequ"]
 size = Vector2(32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01cpl"]
 size = Vector2(96, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wdbl"]
+size = Vector2(32, 32)
 
 [node name="Grunt" type="CharacterBody2D"]
 position = Vector2(32, 32)
@@ -29,6 +32,13 @@ shape = SubResource("RectangleShape2D_rnequ")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
 shape = SubResource("RectangleShape2D_01cpl")
+
+[node name="HitArea2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
+shape = SubResource("RectangleShape2D_4wdbl")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
