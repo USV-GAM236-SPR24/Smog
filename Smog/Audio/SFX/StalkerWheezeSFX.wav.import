@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://rxqr7fosqajl"
-path="res://.godot/imported/WheezeSFX.wav-d3fc797c1b3be817fd48981a3d0d895f.sample"
+path="res://.godot/imported/StalkerWheezeSFX.wav-ae4bdaec701013dcdfdc540a8b88ccfe.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/WheezeSFX.wav"
-dest_files=["res://.godot/imported/WheezeSFX.wav-d3fc797c1b3be817fd48981a3d0d895f.sample"]
+source_file="res://Audio/SFX/StalkerWheezeSFX.wav"
+dest_files=["res://.godot/imported/StalkerWheezeSFX.wav-ae4bdaec701013dcdfdc540a8b88ccfe.sample"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cuh75n12ronvk"
-path="res://.godot/imported/AmbushAtk2.wav-842904e7d93b918e60333e7384d9cf4b.sample"
+uid="uid://hrg41l17bq3e"
+path="res://.godot/imported/GainHPSFX.wav-184a524990b8ec64dfe05a4df7a73990.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/AmbushAtk2.wav"
-dest_files=["res://.godot/imported/AmbushAtk2.wav-842904e7d93b918e60333e7384d9cf4b.sample"]
+source_file="res://Audio/UnusedSFX/GainHPSFX.wav"
+dest_files=["res://.godot/imported/GainHPSFX.wav-184a524990b8ec64dfe05a4df7a73990.sample"]
 
 [params]
 

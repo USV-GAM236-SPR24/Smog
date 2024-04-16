@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://yk5bgx46irl8"]
 
-[ext_resource type="Texture2D" uid="uid://c57ebwp7ed33w" path="res://art/temp/sanity_empty.png" id="1_6h50k"]
-[ext_resource type="Texture2D" uid="uid://cwcnc5k64xnla" path="res://art/temp/sanity_full.png" id="2_o60pj"]
+[ext_resource type="Texture2D" uid="uid://c57ebwp7ed33w" path="res://Art/temp/sanity_empty.png" id="1_6h50k"]
+[ext_resource type="Texture2D" uid="uid://cwcnc5k64xnla" path="res://Art/temp/sanity_full.png" id="2_o60pj"]
 [ext_resource type="Script" path="res://scripts/sanity/sanity_bar.gd" id="3_tvckw"]
 
 [node name="SanityBar" type="TextureProgressBar"]

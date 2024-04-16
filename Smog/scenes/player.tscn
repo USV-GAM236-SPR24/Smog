@@ -5,7 +5,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cnh5pl7evc0ff" path="res://Art/characters/wilton/wilton_sprite_frames.tres" id="2_ru7qh"]
 [ext_resource type="PackedScene" uid="uid://b70pj2rlxtaka" path="res://scenes/weapons/gun.tscn" id="3_b7pyv"]
 [ext_resource type="PackedScene" uid="uid://bv8sow2vxlbc0" path="res://scenes/weapons/cane.tscn" id="4_5t2yn"]
-[ext_resource type="AudioStream" uid="uid://b5rha4wqotmvh" path="res://Audio/SFX/CaneSFX.wav" id="6_l568y"]
+[ext_resource type="AudioStream" uid="uid://hw5ga0dynwbd" path="res://Audio/SFX/WiltonDeathSFXVL.wav" id="6_rywsh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuupm"]
 size = Vector2(16, 16)
@@ -70,7 +70,5 @@ z_index = 1
 unique_name_in_owner = true
 visible = false
 
-[node name="CaneSFX" type="AudioStreamPlayer2D" parent="Cane"]
-stream = ExtResource("6_l568y")
-
-[node name="RegainSanitySFX" type="AudioStreamPlayer2D" parent="."]
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rywsh")

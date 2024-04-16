@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dsy0x4qjxp86v"
-path="res://.godot/imported/DLSMOG_gunhit.wav-18873f2e553b4ac0733c4e2d098fabde.sample"
+path="res://.godot/imported/DLSMOG_gunhit.wav-ed684625c3232fb9b5825da873beba3a.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/DLSMOG_gunhit.wav"
-dest_files=["res://.godot/imported/DLSMOG_gunhit.wav-18873f2e553b4ac0733c4e2d098fabde.sample"]
+source_file="res://Audio/UnusedSFX/DLSMOG_gunhit.wav"
+dest_files=["res://.godot/imported/DLSMOG_gunhit.wav-ed684625c3232fb9b5825da873beba3a.sample"]
 
 [params]
 
