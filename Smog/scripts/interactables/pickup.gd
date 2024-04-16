@@ -16,7 +16,7 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	key_ring = get_node("/root/Game/CanvasLayer/KeyRing")
-	inventory = get_node("/root/Game/InventoryLayer/Inventory")
+	inventory = get_node("/root/Game/CanvasLayer/Inventory")
 	item = ItemFactory.create(interact_value)
 	interact_label = item.item_name.capitalize()
 	$Sprite2D.texture = item.texture
@@ -34,7 +34,3 @@ func _interact() -> void:
 	if interact_value == "default":
 		item.type = Item.ItemType.DEFAULT
 	inventory.add_item(item)
-	
-	if interact_value == "ammo":
-		player.restore_ammo()
-		queue_free()

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd4wstree0fbc"
-path="res://.godot/imported/StalkerRangedToMelee_TRANSFORM_Spritesheet.png-6bf734f2565827060dff4e1bc88cc604.ctex"
+path="res://.godot/imported/StalkerRangedToMelee_TRANSFORM_Spritesheet.png-9a5de513861ddb274f893c2a671ef23f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Stalker/StalkerRangedToMelee_TRANSFORM_Spritesheet.png"
-dest_files=["res://.godot/imported/StalkerRangedToMelee_TRANSFORM_Spritesheet.png-6bf734f2565827060dff4e1bc88cc604.ctex"]
+source_file="res://Art/Stalker/StalkerRangedToMelee_TRANSFORM_Spritesheet.png"
+dest_files=["res://.godot/imported/StalkerRangedToMelee_TRANSFORM_Spritesheet.png-9a5de513861ddb274f893c2a671ef23f.ctex"]
 
 [params]
 

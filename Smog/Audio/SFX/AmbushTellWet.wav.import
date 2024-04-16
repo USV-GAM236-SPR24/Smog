@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cin7xuxs6i3rv"
-path="res://.godot/imported/AmbushTellWet.wav-d015c5b38d1880d31a71c630a0151760.sample"
+path="res://.godot/imported/AmbushTellWet.wav-750a886216814e0fb4cfd1ec34c14aae.sample"
 
 [deps]
 
-source_file="res://audio/SFX/AmbushTellWet.wav"
-dest_files=["res://.godot/imported/AmbushTellWet.wav-d015c5b38d1880d31a71c630a0151760.sample"]
+source_file="res://Audio/SFX/AmbushTellWet.wav"
+dest_files=["res://.godot/imported/AmbushTellWet.wav-750a886216814e0fb4cfd1ec34c14aae.sample"]
 
 [params]
 
@@ -18,7 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop_mode=3
+edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
 compress/mode=0

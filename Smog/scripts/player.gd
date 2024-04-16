@@ -7,7 +7,6 @@ signal position_changed(old: Vector2, new: Vector2)
 static var current_player
 
 var input_direction: Vector2 = Vector2.ZERO
-var input_array: Array[Vector2] = [Vector2.ZERO]
 var last_direction: Vector2 = Vector2.RIGHT
 var shoot_range = 500
 var attacking: bool = false
@@ -18,8 +17,6 @@ var weapon: Weapon
 @onready var all_interactions = []
 @onready var interactLabel = $"Interaction Components/InertactLabel"
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-
-@onready var death_sfx = $Death
 
 
 func _enter_tree() -> void:
@@ -43,85 +40,45 @@ func _ready():
 		var saved_value
 		saved_value = SaveSystem.get_var("position_value")
 		print("Loaded position value: ", SaveSystem.get_var("position_value"))
+	sprite.play("idle_side")
 	update_interactions()
-
 
 func save_position_value(old:Vector2 , new:Vector2 ):
 	print("saved position value: ", old, " ", new)
 	SaveSystem.set_var("position_value", new)
 	SaveSystem.save()
 
-
 func _process(_delta):
-	#var input_magnitude: float = Input.get_vector("left", "right", "up", "down").length()
-	#input_direction = _round_to_nearest_direction(Input.get_vector("left", "right", "up", "down"))
-	input_array.clear()
-	input_direction = Vector2.ZERO
-	if Input.is_action_pressed("left"):
-		input_array.append(Vector2.LEFT)
-	if Input.is_action_pressed("right"):
-		input_array.append(Vector2.RIGHT)
-	if Input.is_action_pressed("up"):
-		input_array.append(Vector2.UP)
-	if Input.is_action_pressed("down"):
-		input_array.append(Vector2.DOWN)
-	
-	if Input.is_action_just_pressed("left"):
-		last_direction = Vector2.LEFT
-	if Input.is_action_just_pressed("right"):
-		last_direction = Vector2.RIGHT
-	if Input.is_action_just_pressed("up"):
-		last_direction = Vector2.UP
-	if Input.is_action_just_pressed("down"):
-		last_direction = Vector2.DOWN
-
-	if input_array.size() > 0:
-		input_direction = input_array[-1]
-	
-	if input_array.has(last_direction):
-		input_direction = last_direction
-	
-	#update gun aim
-	%Gun.update_gun_aim(input_direction)
-	
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 
 	if Input.is_action_just_pressed("melee") and not attacking and not %Gun.shoot_mode:
 		attack()
 	
-	if input_direction != Vector2.ZERO:
-		last_direction = input_direction
-	
-	if attacking or %Gun.shoot_mode:
-		input_direction = Vector2.ZERO
-	
 	#update animation
-	update_animation(input_direction, Input.is_action_just_pressed("shoot"))
+	update_animation(input_direction)
 
 
 func _physics_process(_delta):
+	#get input direction
+	input_direction = _round_to_nearest_direction(Input.get_vector("left", "right", "up", "down"))
+
+	#update gun aim
+	%Gun.update_gun_aim(input_direction)
 
 	#update velocity
 	velocity = input_direction * speed
+	
+	if attacking:
+		velocity = Vector2.ZERO
 	
 	#Move and Slide
 	move_and_slide()
 
 
 #Animation
-func update_animation(move_input: Vector2, just_shot: bool = false):
+func update_animation(move_input : Vector2):
 	if attacking:
-		return
-	if %Gun.shoot_mode:
-		sprite.flip_h = last_direction == Vector2.LEFT
-		if sprite.animation == %Gun.animation_name and sprite.is_playing():
-			return
-		if not %Gun.can_shoot:
-			return
-		sprite.play(%Gun.animation_name)
-		if not just_shot:
-			sprite.pause()
 		return
 	sprite.flip_h = false
 	if move_input == Vector2.ZERO:
@@ -169,7 +126,7 @@ func execute_interaction():
 func _on_interaction_area_area_entered(area):
 	if not area is Interactable:
 		return
-	all_interactions.append(area)
+	all_interactions.insert(0, area)
 	update_interactions()
 
 
@@ -202,6 +159,7 @@ func attack() -> void:
 	await sprite.animation_finished
 	sprite.offset = Vector2.ZERO
 	attacking = false
+
 	
 func restore_ammo() -> void:
 	#%Gun.reload()
@@ -210,6 +168,5 @@ func restore_ammo() -> void:
 
 
 func die():
-	death_sfx.play()
 	Sanity.fill()
 	get_tree().reload_current_scene()

@@ -22,7 +22,6 @@ var has_image: bool
 var seen: bool
 
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var ui: CanvasLayer = $/root/Game/DiscoverableUI
 
 
 func _init(new_name := "Empty Discoverable", new_text := "Empty Text", new_type := Discoverable.TEXT, new_texture: String = "", new_image: String = "") -> void:
@@ -71,7 +70,6 @@ func _ready() -> void:
 func _interact() -> void:
 	super._interact()
 	print(text)
-	ui.set_and_enable(self)
 
 
 func _on_body_entered(body: Node):

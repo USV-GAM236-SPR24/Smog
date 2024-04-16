@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://xy4qp81v6sni"]
+[gd_scene load_steps=8 format=3 uid="uid://xy4qp81v6sni"]
 
 [ext_resource type="Script" path="res://scripts/enemies/stalker.gd" id="1_unnku"]
-[ext_resource type="SpriteFrames" uid="uid://c4pou4l3er82g" path="res://art/characters/stalker/stalker_sprite_frames.tres" id="2_pmdcw"]
-[ext_resource type="AudioStream" uid="uid://byb5e75dsycub" path="res://audio/SFX/StalkerDeathSFX.wav" id="3_eyis3"]
-[ext_resource type="AudioStream" uid="uid://307g8dohsmui" path="res://audio/SFX/StalkerATKSFX.wav" id="4_pt1ia"]
+[ext_resource type="SpriteFrames" uid="uid://c4pou4l3er82g" path="res://Art/characters/stalker/stalker_sprite_frames.tres" id="2_pmdcw"]
+[ext_resource type="AudioStream" uid="uid://byb5e75dsycub" path="res://Audio/SFX/StalkerStunSFX.wav" id="3_n7qtx"]
+[ext_resource type="AudioStream" uid="uid://307g8dohsmui" path="res://Audio/SFX/StalkerATKSFX.wav" id="4_pt1ia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnequ"]
 size = Vector2(120, 32)
@@ -13,9 +13,6 @@ size = Vector2(384, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0yik"]
 size = Vector2(192, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rnxu"]
-size = Vector2(120, 64)
 
 [node name="Stalker" type="CharacterBody2D"]
 position = Vector2(32, 32)
@@ -42,16 +39,8 @@ shape = SubResource("RectangleShape2D_01cpl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DrainingArea2D"]
 shape = SubResource("RectangleShape2D_c0yik")
 
-[node name="HitArea2D" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
+[node name="StalkerStun" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_n7qtx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
-position = Vector2(-4, 0)
-shape = SubResource("RectangleShape2D_0rnxu")
-
-[node name="Death" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_eyis3")
-
-[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+[node name="StalkerATK" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_pt1ia")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_fiyxg"]
 [ext_resource type="Theme" uid="uid://8410y4ephbga" path="res://main_theme.tres" id="2_krdpw"]
-[ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://art/temp/ITEM_SLOT_SELECT.png" id="3_4xjwp"]
+[ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://Art/temp/ITEM_SLOT_SELECT.png" id="3_4xjwp"]
 
 [node name="MainMenuUI" type="CanvasLayer"]
 script = ExtResource("1_fiyxg")
@@ -42,24 +42,6 @@ grow_vertical = 2
 [node name="ReferenceRect" type="ReferenceRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="Settings" type="Button" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 4.0
-offset_top = 115.0
-offset_right = 20.0
-offset_bottom = 130.0
-
-[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect/Settings"]
-visible = false
-layout_mode = 0
-offset_left = -7.0
-offset_top = -15.0
-offset_right = 61.0
-offset_bottom = 33.0
-scale = Vector2(0.419876, 0.419876)
-texture = ExtResource("3_4xjwp")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -115,10 +97,10 @@ text = "START"
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Start"]
 visible = false
 layout_mode = 0
-offset_left = -15.0
-offset_top = 26.0
-offset_right = 53.0
-offset_bottom = 74.0
+offset_left = -17.0
+offset_top = 29.0
+offset_right = 51.0
+offset_bottom = 77.0
 rotation = -1.57079
 scale = Vector2(0.419876, 0.419876)
 texture = ExtResource("3_4xjwp")
@@ -126,10 +108,10 @@ texture = ExtResource("3_4xjwp")
 [node name="TextureRect2" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Start"]
 visible = false
 layout_mode = 0
-offset_left = 83.0
-offset_top = -5.0
-offset_right = 151.0
-offset_bottom = 43.0
+offset_left = 72.0
+offset_top = -1.0
+offset_right = 140.0
+offset_bottom = 47.0
 rotation = -4.71238
 scale = Vector2(0.419876, 0.419876)
 texture = ExtResource("3_4xjwp")
@@ -145,10 +127,10 @@ text = "QUIT
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Quit"]
 visible = false
 layout_mode = 0
-offset_left = -15.0
-offset_top = 27.0
-offset_right = 53.0
-offset_bottom = 75.0
+offset_left = -18.0
+offset_top = 30.0001
+offset_right = 50.0
+offset_bottom = 78.0001
 rotation = -1.57079
 scale = Vector2(0.419876, 0.419876)
 texture = ExtResource("3_4xjwp")
@@ -156,10 +138,9 @@ texture = ExtResource("3_4xjwp")
 [node name="TextureRect2" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Quit"]
 visible = false
 layout_mode = 0
-offset_left = 71.0
-offset_top = -4.0
-offset_right = 139.0
-offset_bottom = 44.0
+offset_left = 62.0
+offset_right = 130.0
+offset_bottom = 48.0
 rotation = -4.71238
 scale = Vector2(0.419876, 0.419876)
 texture = ExtResource("3_4xjwp")

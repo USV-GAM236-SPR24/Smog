@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cunuprafc0e7t"
-path="res://.godot/imported/ambush_walk.png-ae1ff782618e630e8c149d14ecaf6930.ctex"
+path="res://.godot/imported/ambush_walk.png-3669b3d1bab194a1aa9161f30c4c35d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/ambush/ambush_walk.png"
-dest_files=["res://.godot/imported/ambush_walk.png-ae1ff782618e630e8c149d14ecaf6930.ctex"]
+source_file="res://Art/characters/ambush/ambush_walk.png"
+dest_files=["res://.godot/imported/ambush_walk.png-3669b3d1bab194a1aa9161f30c4c35d2.ctex"]
 
 [params]
 
