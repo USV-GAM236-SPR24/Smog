@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbitioqgdy6a7"
-path="res://.godot/imported/wilton_gun_shoot.png-6315bea8e96d715b44ff32368a9e4555.ctex"
+path="res://.godot/imported/wilton_gun_shoot.png-4bf1f8d57f47b99762b4562594cd7a99.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/wilton/wilton_gun_shoot.png"
-dest_files=["res://.godot/imported/wilton_gun_shoot.png-6315bea8e96d715b44ff32368a9e4555.ctex"]
+source_file="res://Art/characters/wilton/wilton_gun_shoot.png"
+dest_files=["res://.godot/imported/wilton_gun_shoot.png-4bf1f8d57f47b99762b4562594cd7a99.ctex"]
 
 [params]
 

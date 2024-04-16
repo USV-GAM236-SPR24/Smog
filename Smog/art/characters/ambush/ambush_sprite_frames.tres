@@ -1,10 +1,10 @@
 [gd_resource type="SpriteFrames" load_steps=81 format=3 uid="uid://qhrhc51duhgc"]
 
-[ext_resource type="Texture2D" uid="uid://eptayar5ostf" path="res://art/characters/ambush/ambush_attack.png" id="1_8bpr2"]
-[ext_resource type="Texture2D" uid="uid://d4fkft3o21b0" path="res://art/characters/ambush/ambush_emerge.png" id="2_3xhqe"]
-[ext_resource type="Texture2D" uid="uid://dcwsxt8mnk2h5" path="res://art/characters/ambush/ambush_idle.png" id="3_bfv1y"]
-[ext_resource type="Texture2D" uid="uid://cb0w05sw2dc54" path="res://art/characters/ambush/ambush_puddle.png" id="4_qcupy"]
-[ext_resource type="Texture2D" uid="uid://cunuprafc0e7t" path="res://art/characters/ambush/ambush_walk.png" id="5_u6ldi"]
+[ext_resource type="Texture2D" uid="uid://eptayar5ostf" path="res://Art/characters/ambush/ambush_attack.png" id="1_8bpr2"]
+[ext_resource type="Texture2D" uid="uid://d4fkft3o21b0" path="res://Art/characters/ambush/ambush_emerge.png" id="2_3xhqe"]
+[ext_resource type="Texture2D" uid="uid://dcwsxt8mnk2h5" path="res://Art/characters/ambush/ambush_idle.png" id="3_bfv1y"]
+[ext_resource type="Texture2D" uid="uid://cb0w05sw2dc54" path="res://Art/characters/ambush/ambush_puddle.png" id="4_qcupy"]
+[ext_resource type="Texture2D" uid="uid://cunuprafc0e7t" path="res://Art/characters/ambush/ambush_walk.png" id="5_u6ldi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7tu5t"]
 atlas = ExtResource("1_8bpr2")

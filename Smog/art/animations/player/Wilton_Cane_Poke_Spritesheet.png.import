@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c567cmr2umos1"
-path="res://.godot/imported/Wilton_Cane_Poke_Spritesheet.png-e7a24d58292e2cd6eed287f6c76ca974.ctex"
+path="res://.godot/imported/Wilton_Cane_Poke_Spritesheet.png-f86f33adf077279082e0caa41b347bc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/animations/player/Wilton_Cane_Poke_Spritesheet.png"
-dest_files=["res://.godot/imported/Wilton_Cane_Poke_Spritesheet.png-e7a24d58292e2cd6eed287f6c76ca974.ctex"]
+source_file="res://Art/animations/player/Wilton_Cane_Poke_Spritesheet.png"
+dest_files=["res://.godot/imported/Wilton_Cane_Poke_Spritesheet.png-f86f33adf077279082e0caa41b347bc3.ctex"]
 
 [params]
 
