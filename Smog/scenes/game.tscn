@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://wstjrxw8m084"]
+[gd_scene load_steps=17 format=3 uid="uid://wstjrxw8m084"]
 
-[ext_resource type="PackedScene" path="res://levels/factory_floor_level.tscn" id="1_7l7g4"]
+[ext_resource type="PackedScene" uid="uid://ci4luwlvj3t0l" path="res://levels/factory_floor_level.tscn" id="1_7l7g4"]
 [ext_resource type="PackedScene" uid="uid://yk5bgx46irl8" path="res://scenes/sanity_bar.tscn" id="1_qg41o"]
 [ext_resource type="PackedScene" uid="uid://cqpwn5svyt4ud" path="res://scenes/inventory/inventory.tscn" id="2_3yuhv"]
 [ext_resource type="PackedScene" uid="uid://dcv6fxjmvc6us" path="res://scenes/interactable.tscn" id="2_elo5s"]
@@ -14,7 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://b5wi7fiv6ghp7" path="res://scenes/UI/weapon_hud.tscn" id="10_7edw4"]
 [ext_resource type="PackedScene" uid="uid://dj4ufrnwir7jo" path="res://scenes/pause_ui.tscn" id="10_8ypd1"]
 [ext_resource type="PackedScene" path="res://scenes/UI/key_ring.tscn" id="11_nrht7"]
-[ext_resource type="PackedScene" path="res://scenes/discoverable_ui.tscn" id="14_8yqx7"]
+[ext_resource type="PackedScene" uid="uid://2sihykjunhhb" path="res://scenes/discoverable_ui.tscn" id="14_8yqx7"]
+[ext_resource type="AudioStream" uid="uid://hlvx6fmxxlkv" path="res://Audio/SFX/DLSMOGA_whispers_1.wav" id="16_w75uh"]
 
 [node name="Game" type="Node2D"]
 
@@ -101,3 +102,9 @@ visible = false
 
 [node name="PauseUI" parent="." instance=ExtResource("10_8ypd1")]
 visible = false
+
+[node name="whispers" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_w75uh")
+autoplay = true
+mix_target = 1
+bus = &"Whispers"

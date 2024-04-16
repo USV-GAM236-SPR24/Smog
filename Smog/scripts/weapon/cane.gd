@@ -1,6 +1,7 @@
 extends MeleeWeapon
 
 
+
 @onready var _player: CharacterBody2D = get_parent()
 
 var direction_data: Dictionary = {

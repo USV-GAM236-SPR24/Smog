@@ -21,6 +21,8 @@ func _ready() -> void:
 	detection_area = $DetectionArea2D
 	drain_area = $DrainingArea2D
 	nav_agent = $NavigationAgent2D
+	death = $StalkerStun
+	attack = $StalkerATK
 	drain_area.body_entered.connect(_on_body_entered_drain)
 	drain_area.body_exited.connect(_on_body_exited_drain)
 	super._ready()
