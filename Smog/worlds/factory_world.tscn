@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://brgmk8udvpckt"]
+
+[ext_resource type="PackedScene" uid="uid://cbghei1aopagv" path="res://levels/factory_floor_level.tscn" id="1_ii37x"]
+[ext_resource type="PackedScene" uid="uid://djk72tgahvi7a" path="res://scenes/animations/blood_wall.tscn" id="2_l721h"]
+[ext_resource type="PackedScene" uid="uid://dcv6fxjmvc6us" path="res://scenes/interactable.tscn" id="3_n8mha"]
+[ext_resource type="Script" path="res://scripts/interactables/pickup.gd" id="4_0yau1"]
+[ext_resource type="PackedScene" uid="uid://lps8oc4opiu3" path="res://scenes/discoverable.tscn" id="5_xbb6h"]
+[ext_resource type="PackedScene" uid="uid://beglrerj5k48" path="res://scenes/player.tscn" id="6_bahdr"]
+[ext_resource type="PackedScene" uid="uid://bih10h7cyl8bc" path="res://scenes/enemies/ambush.tscn" id="7_lgt6t"]
+[ext_resource type="PackedScene" uid="uid://xy4qp81v6sni" path="res://scenes/enemies/stalker.tscn" id="8_xouqy"]
+[ext_resource type="PackedScene" uid="uid://chpg25lbcv755" path="res://scenes/enemies/grunt.tscn" id="9_nl2oq"]
+
+[node name="FactoryWorld" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Factory_Floor_Level" parent="." instance=ExtResource("1_ii37x")]
+y_sort_enabled = true
+
+[node name="BloodWall" parent="." instance=ExtResource("2_l721h")]
+visible = false
+position = Vector2(146, 33)
+
+[node name="Interactable" parent="." instance=ExtResource("3_n8mha")]
+position = Vector2(648, 360)
+script = ExtResource("4_0yau1")
+item_name = "cherry"
+
+[node name="Interactable2" parent="." instance=ExtResource("3_n8mha")]
+position = Vector2(752, 256)
+script = ExtResource("4_0yau1")
+item_name = "alcohol"
+
+[node name="Discoverable" parent="." instance=ExtResource("5_xbb6h")]
+position = Vector2(736, 272)
+key = "book"
+
+[node name="Player" parent="." instance=ExtResource("6_bahdr")]
+position = Vector2(504, 80)
+
+[node name="Ambush" parent="." instance=ExtResource("7_lgt6t")]
+position = Vector2(568, 232)
+
+[node name="Stalker" parent="." instance=ExtResource("8_xouqy")]
+position = Vector2(920, 288)
+
+[node name="Grunt" parent="." instance=ExtResource("9_nl2oq")]
+position = Vector2(456, 160)
+
+[node name="Grunt2" parent="." instance=ExtResource("9_nl2oq")]
+position = Vector2(600, 488)
+
+[node name="Grunt3" parent="." instance=ExtResource("9_nl2oq")]
+position = Vector2(128, 512)
+
+[node name="Grunt4" parent="." instance=ExtResource("9_nl2oq")]
+position = Vector2(112, 480)
+
+[node name="Grunt5" parent="." instance=ExtResource("9_nl2oq")]
+position = Vector2(120, 88)
+
+[node name="Grunt6" parent="." instance=ExtResource("9_nl2oq")]
+position = Vector2(760, 280)
+
+[node name="Grunt7" parent="." instance=ExtResource("9_nl2oq")]
+position = Vector2(896, 544)
+
+[node name="Grunt8" parent="." instance=ExtResource("9_nl2oq")]
+position = Vector2(896, 544)

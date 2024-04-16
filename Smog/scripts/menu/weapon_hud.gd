@@ -1,5 +1,9 @@
 extends Control
 
+
+var ammo_full: Texture2D = preload("res://art/UI/ammo_full_trimmed.tres")
+var ammo_empty: Texture2D = preload("res://art/UI/ammo_empty_trimmed.tres")
+
 var ammo_amount: int = 10:
 	get:
 		return ammo_amount
@@ -10,11 +14,18 @@ var ammo_amount: int = 10:
 
 
 func _ready():
+	var icon_base := TextureRect.new()
+	icon_base.stretch_mode = TextureRect.STRETCH_KEEP
+	icon_base.texture = ammo_empty
+	for i in range(ammo_amount):
+		var ammo_icon: TextureRect = icon_base.duplicate()
+		%Ammo.add_child(ammo_icon)
 	_update_grid()
 
+
 func _clear_grid():
-	for panel in %GridContainer.get_children():
-		panel.queue_free()
+	for ammo_icon in %Ammo.get_children():
+		ammo_icon.texture = ammo_empty
 		
 
 func _update_grid() -> void:
@@ -22,9 +33,5 @@ func _update_grid() -> void:
 	if not ammo_amount > 0:
 		return
 	
-	%GridContainer.set_columns(ammo_amount)
-	
 	for i in range(ammo_amount):
-		var panel: TextureRect = TextureRect.new()
-		panel.texture = load("res://art/UI/whitebar_8x4.png")
-		%GridContainer.add_child(panel)
+		%Ammo.get_children()[i].texture = ammo_full

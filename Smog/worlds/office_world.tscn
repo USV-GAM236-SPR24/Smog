@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ij50e7fgon4l"]
+
+[ext_resource type="PackedScene" uid="uid://ctbk5gfpch0ql" path="res://levels/office.tscn" id="1_1irhn"]
+[ext_resource type="PackedScene" uid="uid://beglrerj5k48" path="res://scenes/player.tscn" id="2_2tujg"]
+
+[node name="OfficeWorld" type="Node2D"]
+
+[node name="Level_0" parent="." instance=ExtResource("1_1irhn")]
+
+[node name="Player" parent="." instance=ExtResource("2_2tujg")]
+position = Vector2(96, 40)
