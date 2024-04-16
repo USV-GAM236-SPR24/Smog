@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=10 format=3 uid="uid://beglrerj5k48"]
+
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_n7sla"]
 [ext_resource type="Theme" uid="uid://8410y4ephbga" path="res://main_theme.tres" id="2_mrhdm"]
@@ -7,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bv8sow2vxlbc0" path="res://scenes/weapons/cane.tscn" id="4_5t2yn"]
 [ext_resource type="AudioStream" uid="uid://hw5ga0dynwbd" path="res://Audio/SFX/WiltonDeathSFXVL.wav" id="6_rywsh"]
 [ext_resource type="AudioStream" uid="uid://b5rha4wqotmvh" path="res://Audio/SFX/CaneSFX.wav" id="7_58a5l"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuupm"]
 size = Vector2(16, 16)
@@ -50,7 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_mrhdm")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 5
 text = "Test"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -73,6 +76,7 @@ visible = false
 
 [node name="CaneSFX" type="AudioStreamPlayer2D" parent="Cane"]
 stream = ExtResource("7_58a5l")
+
 
 [node name="Death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_rywsh")
