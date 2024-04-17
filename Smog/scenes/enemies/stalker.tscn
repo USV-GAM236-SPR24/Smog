@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/enemies/stalker.gd" id="1_unnku"]
 [ext_resource type="SpriteFrames" uid="uid://c4pou4l3er82g" path="res://Art/characters/stalker/stalker_sprite_frames.tres" id="2_pmdcw"]
-[ext_resource type="AudioStream" path="res://Audio/SFX/StalkerDeathSFX.wav" id="3_lhuo5"]
+[ext_resource type="AudioStream" uid="uid://byb5e75dsycub" path="res://Audio/SFX/StalkerDeathSFX.wav" id="3_eyis3"]
 [ext_resource type="AudioStream" uid="uid://307g8dohsmui" path="res://Audio/SFX/StalkerATKSFX.wav" id="4_pt1ia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnequ"]
@@ -51,7 +51,7 @@ position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_0rnxu")
 
 [node name="Death" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_lhuo5")
+stream = ExtResource("3_eyis3")
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_pt1ia")
