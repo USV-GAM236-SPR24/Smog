@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgj8ewlnfwi0"
-
-path="res://.godot/imported/UI_Menu_bg.jpg-148d91e40319e1fd1065bccdccf0b508.ctex"
+uid="uid://bbhrc86a8k3rp"
+path="res://.godot/imported/Discoverables.png-8ae2aca715b714bf7385e2d992bbc820.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/UI_Menu_bg.jpg"
-dest_files=["res://.godot/imported/UI_Menu_bg.jpg-148d91e40319e1fd1065bccdccf0b508.ctex"]
+source_file="res://Art/Temp SMOG Menu + Inventory Ui from Drive [Has Repeats, Delete once done]/Menu + Inventory Ui/Discoverables/Discoverables.png"
+dest_files=["res://.godot/imported/Discoverables.png-8ae2aca715b714bf7385e2d992bbc820.ctex"]
 
 [params]
 

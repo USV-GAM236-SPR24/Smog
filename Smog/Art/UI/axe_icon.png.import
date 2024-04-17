@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgj8ewlnfwi0"
-
-path="res://.godot/imported/UI_Menu_bg.jpg-148d91e40319e1fd1065bccdccf0b508.ctex"
+uid="uid://cjjsxarljk2xq"
+path="res://.godot/imported/axe_icon.png-70680f84d1e039b0d2191918d4f1ef0d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/UI_Menu_bg.jpg"
-dest_files=["res://.godot/imported/UI_Menu_bg.jpg-148d91e40319e1fd1065bccdccf0b508.ctex"]
+source_file="res://Art/UI/axe_icon.png"
+dest_files=["res://.godot/imported/axe_icon.png-70680f84d1e039b0d2191918d4f1ef0d.ctex"]
 
 [params]
 

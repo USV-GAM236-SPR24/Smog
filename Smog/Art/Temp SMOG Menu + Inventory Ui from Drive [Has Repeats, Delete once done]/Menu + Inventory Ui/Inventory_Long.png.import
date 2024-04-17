@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgj8ewlnfwi0"
-
-path="res://.godot/imported/UI_Menu_bg.jpg-148d91e40319e1fd1065bccdccf0b508.ctex"
+uid="uid://cu1hsrxl81c7m"
+path="res://.godot/imported/Inventory_Long.png-6c6efd8fce7d06cc45c2ac3ac172ea47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/UI_Menu_bg.jpg"
-dest_files=["res://.godot/imported/UI_Menu_bg.jpg-148d91e40319e1fd1065bccdccf0b508.ctex"]
+source_file="res://Art/Temp SMOG Menu + Inventory Ui from Drive [Has Repeats, Delete once done]/Menu + Inventory Ui/Inventory_Long.png"
+dest_files=["res://.godot/imported/Inventory_Long.png-6c6efd8fce7d06cc45c2ac3ac172ea47.ctex"]
 
 [params]
 
