@@ -1,15 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj4ufrnwir7jo"]
+[gd_scene load_steps=11 format=3 uid="uid://dj4ufrnwir7jo"]
 
 [ext_resource type="Script" path="res://scenes/pause_ui.gd" id="1_fr7io"]
-[ext_resource type="Theme" uid="uid://8410y4ephbga" path="res://main_theme.tres" id="2_cklld"]
-[ext_resource type="Texture2D" uid="uid://b1osmxr78cg4t" path="res://Art/UI/Main_Menu_Buttons.png" id="3_8ijrm"]
-[ext_resource type="Texture2D" uid="uid://qymnp0fidlda" path="res://Art/UI/UI_settings_Button2.png" id="4_uo1eq"]
+[ext_resource type="FontFile" uid="uid://dkyh4orvgmlbs" path="res://fonts1/Micro_Chat (2).ttf" id="2_xmeir"]
+[ext_resource type="Texture2D" uid="uid://b1osmxr78cg4t" path="res://art/UI/Main_Menu_Buttons.png" id="3_8ijrm"]
+[ext_resource type="Texture2D" uid="uid://qymnp0fidlda" path="res://art/UI/UI_settings_Button2.png" id="4_uo1eq"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23x5m"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxqbl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q7oin"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbcpd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqa6w"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hd6y"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi35m"]
+bg_color = Color(0, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7vyc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50bcn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="PauseUI" type="CanvasLayer"]
 process_mode = 3
@@ -31,7 +43,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_cklld")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
@@ -94,6 +105,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_xmeir")
 theme_override_font_sizes/font_size = 15
 text = "Paused"
 horizontal_alignment = 1
@@ -118,7 +130,10 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_23x5m")
+theme_override_fonts/font = ExtResource("2_xmeir")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jxqbl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fbcpd")
 text = "RESUME"
 flat = true
 
@@ -127,7 +142,10 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_styles/pressed = SubResource("StyleBoxTexture_q7oin")
+theme_override_fonts/font = ExtResource("2_xmeir")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1hd6y")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fi35m")
 text = "QUIT
 "
 flat = true
@@ -143,7 +161,8 @@ offset_left = 4.0
 offset_top = 115.0
 offset_right = 27.0
 offset_bottom = 131.0
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_lqa6w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c7vyc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_50bcn")
 
 [node name="MainMenuButtons" type="Sprite2D" parent="Control/MarginContainer/ReferenceRect/HBoxContainer"]
 show_behind_parent = true

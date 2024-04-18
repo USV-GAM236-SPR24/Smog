@@ -1,14 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://yntkc1ukkk6l"]
-
+[gd_scene load_steps=14 format=3 uid="uid://yntkc1ukkk6l"]
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_fiyxg"]
-[ext_resource type="Texture2D" uid="uid://cfd8x632oymxn" path="res://Art/UI/UI_Menu_bg.jpg" id="2_1noxs"]
-[ext_resource type="Theme" uid="uid://8410y4ephbga" path="res://main_theme.tres" id="2_krdpw"]
-[ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://Art/temp/ITEM_SLOT_SELECT.png" id="3_4xjwp"]
-[ext_resource type="Texture2D" uid="uid://cgj8ewlnfwi0" path="res://Art/UI/UI_Menu_bg.jpg" id="5_2hqpk"]
-[ext_resource type="Texture2D" uid="uid://b1osmxr78cg4t" path="res://Art/UI/Main_Menu_Buttons.png" id="5_itrjh"]
+[ext_resource type="Texture2D" uid="uid://cgj8ewlnfwi0" path="res://Art/UI/UI_Menu_bg.jpg" id="2_1noxs"]
+[ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://art/temp/ITEM_SLOT_SELECT.png" id="3_4xjwp"]
+[ext_resource type="FontFile" uid="uid://dkyh4orvgmlbs" path="res://fonts1/Micro_Chat (2).ttf" id="3_c7ky7"]
+[ext_resource type="Texture2D" uid="uid://cgj8ewlnfwi0" path="res://art/UI/UI_Menu_bg.jpg" id="5_2hqpk"]
+[ext_resource type="Texture2D" uid="uid://b1osmxr78cg4t" path="res://art/UI/Main_Menu_Buttons.png" id="5_itrjh"]
 
 [sub_resource type="Theme" id="Theme_v8kxv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83uye"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tcc1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjm8n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27usi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54x2q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avi5s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="MainMenuUI" type="CanvasLayer"]
 script = ExtResource("1_fiyxg")
@@ -25,7 +42,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_krdpw")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -82,11 +98,12 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -2.0
-offset_top = -2.0
+offset_top = -3.0
 offset_right = 2.0
 offset_bottom = 1.09
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Start" type="Button" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer"]
@@ -96,6 +113,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_v8kxv")
+theme_override_fonts/font = ExtResource("3_c7ky7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/pressed = SubResource("StyleBoxFlat_83uye")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5tcc1")
 text = "START"
 flat = true
 
@@ -141,6 +162,10 @@ expand_mode = 2
 [node name="Settings" type="Button" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_c7ky7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qjm8n")
+theme_override_styles/focus = SubResource("StyleBoxFlat_27usi")
 text = "SETTINGS"
 flat = true
 
@@ -151,6 +176,10 @@ clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_c7ky7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/pressed = SubResource("StyleBoxFlat_54x2q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_avi5s")
 text = "QUIT
 "
 flat = true
