@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://yntkc1ukkk6l"]
+[gd_scene load_steps=13 format=3 uid="uid://yntkc1ukkk6l"]
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_fiyxg"]
-[ext_resource type="Texture2D" uid="uid://cgj8ewlnfwi0" path="res://Art/UI/UI_Menu_bg.jpg" id="2_1noxs"]
 [ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://art/temp/ITEM_SLOT_SELECT.png" id="3_4xjwp"]
 [ext_resource type="FontFile" uid="uid://dkyh4orvgmlbs" path="res://fonts1/Micro_Chat (2).ttf" id="3_c7ky7"]
 [ext_resource type="Texture2D" uid="uid://cgj8ewlnfwi0" path="res://art/UI/UI_Menu_bg.jpg" id="5_2hqpk"]
@@ -30,10 +29,32 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [node name="MainMenuUI" type="CanvasLayer"]
 script = ExtResource("1_fiyxg")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 180.0
-offset_bottom = 144.0
-texture = ExtResource("2_1noxs")
+[node name="UiMenuBg" type="Sprite2D" parent="."]
+show_behind_parent = true
+light_mask = 2
+visibility_layer = 2
+z_index = -1
+texture = ExtResource("5_2hqpk")
+centered = false
+
+[node name="MainMenuButtons" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(90, 75.25)
+scale = Vector2(1.55417, 1.05208)
+texture = ExtResource("5_itrjh")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+visible = false
+show_behind_parent = true
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 52.0
+offset_right = 110.0
+offset_bottom = 174.0
+texture = ExtResource("5_itrjh")
+expand_mode = 2
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -122,42 +143,32 @@ flat = true
 
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Start"]
 visible = false
-layout_mode = 0
-offset_left = -15.0
-offset_top = 26.0
-offset_right = 53.0
-offset_bottom = 74.0
+top_level = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 95.0
+offset_right = -91.0
+offset_bottom = 1.0
 rotation = -1.57079
 scale = Vector2(0.419876, 0.419876)
 texture = ExtResource("3_4xjwp")
 
 [node name="TextureRect2" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Start"]
 visible = false
-layout_mode = 0
-offset_left = 83.0
-offset_top = -5.0
-offset_right = 151.0
-offset_bottom = 43.0
-rotation = -4.71238
-scale = Vector2(0.419876, 0.419876)
-texture = ExtResource("3_4xjwp")
-
-[node name="TextureRect3" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Start"]
-visible = false
-show_behind_parent = true
-clip_contents = true
+top_level = true
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -53.0
-offset_top = -64.0
-offset_right = 53.0
-offset_bottom = 58.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_itrjh")
-expand_mode = 2
+offset_left = 164.0
+offset_top = 94.0
+offset_right = 54.0
+rotation = -1.57079
+scale = Vector2(0.405863, -0.448364)
+texture = ExtResource("3_4xjwp")
 
 [node name="Settings" type="Button" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer"]
 unique_name_in_owner = true
@@ -168,6 +179,36 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_qjm8n")
 theme_override_styles/focus = SubResource("StyleBoxFlat_27usi")
 text = "SETTINGS"
 flat = true
+
+[node name="TextureRect3" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Settings"]
+visible = false
+top_level = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 120.411
+offset_right = -91.0
+offset_bottom = 26.4105
+rotation = -1.57079
+scale = Vector2(0.419876, 0.419876)
+texture = ExtResource("3_4xjwp")
+
+[node name="TextureRect4" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Settings"]
+visible = false
+top_level = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 164.0
+offset_top = 119.411
+offset_right = 54.0
+offset_bottom = 25.4105
+rotation = -1.57079
+scale = Vector2(0.405863, -0.448364)
+texture = ExtResource("3_4xjwp")
 
 [node name="Quit" type="Button" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer"]
 unique_name_in_owner = true
@@ -184,56 +225,35 @@ text = "QUIT
 "
 flat = true
 
-[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Quit"]
-visible = false
-layout_mode = 0
-offset_left = -15.0
-offset_top = 27.0
-offset_right = 53.0
-offset_bottom = 75.0
-rotation = -1.57079
-scale = Vector2(0.419876, 0.419876)
-texture = ExtResource("3_4xjwp")
-
-[node name="TextureRect2" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Quit"]
-visible = false
-layout_mode = 0
-offset_left = 71.0
-offset_top = -4.0
-offset_right = 139.0
-offset_bottom = 44.0
-rotation = -4.71238
-scale = Vector2(0.419876, 0.419876)
-texture = ExtResource("3_4xjwp")
-
 [node name="TextureRect3" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Quit"]
 visible = false
-show_behind_parent = true
+top_level = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -44.0
-offset_top = -64.0
-offset_right = 44.0
-offset_bottom = 58.0
-texture = ExtResource("5_itrjh")
-expand_mode = 2
+offset_left = 19.0
+offset_top = 145.411
+offset_right = -91.0
+offset_bottom = 51.4105
+rotation = -1.57079
+scale = Vector2(0.419876, 0.419876)
+texture = ExtResource("3_4xjwp")
 
-[node name="MainMenuButtons" type="Sprite2D" parent="Control/MarginContainer/ReferenceRect/HBoxContainer"]
-show_behind_parent = true
-position = Vector2(85, 70.25)
-scale = Vector2(1.55417, 1.05208)
-texture = ExtResource("5_itrjh")
-
-[node name="UiMenuBg" type="Sprite2D" parent="Control/MarginContainer/ReferenceRect/HBoxContainer"]
-show_behind_parent = true
-light_mask = 2
-visibility_layer = 2
-z_index = -1
-position = Vector2(-5, -5)
-texture = ExtResource("5_2hqpk")
-centered = false
+[node name="TextureRect4" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Quit"]
+visible = false
+top_level = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 164.0
+offset_top = 144.411
+offset_right = 54.0
+offset_bottom = 50.4105
+rotation = -1.57079
+scale = Vector2(0.405863, -0.448364)
+texture = ExtResource("3_4xjwp")
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer"]
 layout_mode = 2

@@ -43,7 +43,7 @@ func _on_settings_pressed():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_settings_up"): #event.is_action_just_pressed("ui_settings_up"):
-		_selected_option_index -= 1
+		_selected_option_index += 1
 		match _selected_option:
 			"start": 
 				_select_start()
@@ -52,7 +52,7 @@ func _process(_delta):
 			"settings": 
 				_select_settings()
 	elif Input.is_action_just_pressed("ui_settings_down"):
-		_selected_option_index += 1
+		_selected_option_index -= 1
 		match _selected_option:
 			"start": 
 				_select_start()
