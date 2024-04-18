@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gqiawfx4eusf"
-path="res://.godot/imported/Inventory.png-027507bea85b94b8125ddafe3355b429.ctex"
+path="res://.godot/imported/Inventory.png-5760de2db1883e79b304de1390809063.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Temp SMOG Menu + Inventory Ui from Drive [Has Repeats, Delete once done]/Menu + Inventory Ui/Inventory.png"
-dest_files=["res://.godot/imported/Inventory.png-027507bea85b94b8125ddafe3355b429.ctex"]
+source_file="res://art/Temp SMOG Menu + Inventory Ui from Drive [Has Repeats, Delete once done]/Menu + Inventory Ui/Inventory.png"
+dest_files=["res://.godot/imported/Inventory.png-5760de2db1883e79b304de1390809063.ctex"]
 
 [params]
 

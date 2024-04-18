@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn4lbhrkq585h"
-path="res://.godot/imported/discoverables.png-e94ab9b824bbd964b580ae7736d194b5.ctex"
+path="res://.godot/imported/discoverables.png-990c78f1f0a5f20ce5868ebda3b5489b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/discoverables/discoverables.png"
-dest_files=["res://.godot/imported/discoverables.png-e94ab9b824bbd964b580ae7736d194b5.ctex"]
+source_file="res://art/discoverables/discoverables.png"
+dest_files=["res://.godot/imported/discoverables.png-990c78f1f0a5f20ce5868ebda3b5489b.ctex"]
 
 [params]
 

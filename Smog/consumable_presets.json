@@ -1,7 +1,7 @@
 {
 	"opium": {
 		"restore_power": 50,
-		"texture_path": "res://Art/consumables/opium.tres"
+		"texture_path": "res://art/consumables/opium.tres"
 	},
 	"alcohol": {
 		"restore_power": 20,
@@ -9,7 +9,7 @@
 	},
 	"cigarette": {
 		"restore_power": 10,
-		"texture_path": "res://Art/consumables/cigarette.tres"
+		"texture_path": "res://art/consumables/cigarette.tres"
 	},
 	"cherry": {
 		"restore_power": 100,

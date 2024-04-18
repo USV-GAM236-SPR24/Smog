@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqmhtl0cuhd7o"
-path="res://.godot/imported/ammo_UI_Full.png-84efe663846b565eafedb50de62dabc8.ctex"
+path="res://.godot/imported/ammo_UI_Full.png-5e5758e1a92b6703a35b401f06e4db87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/ammo_UI_Full.png"
-dest_files=["res://.godot/imported/ammo_UI_Full.png-84efe663846b565eafedb50de62dabc8.ctex"]
+source_file="res://art/UI/ammo_UI_Full.png"
+dest_files=["res://.godot/imported/ammo_UI_Full.png-5e5758e1a92b6703a35b401f06e4db87.ctex"]
 
 [params]
 

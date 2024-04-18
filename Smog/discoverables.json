@@ -189,7 +189,7 @@ Henry Clark",
 			"image_path": null
 		},
 		"article": {
-			"display_name": "Mysterious Plague Strikes Local Factory Workers: Dr. Wright Confirms",
+			"display_name": "Mysterious Plague Strikes Local\nFactory Workers: Dr. Wright Confirms",
 			"text": "https://docs.google.com/document/d/1NVvSYetcwI_TkwxuB_4mQiPr4R6fGEtkIfdPNdsooR4/edit",
 			"type": "TEXT",
 			"texture_path": "res://art/discoverables/discoverable_1.tres",
@@ -205,7 +205,7 @@ Henry Clark",
 	},
 	"washroom": {
 		"article": {
-			"display_name": "Cavendish Arrested for Factory Arson and Murder",
+			"display_name": "Cavendish Arrested for\nFactory Arson and Murder",
 			"text": "Title: Factory Owner Archibald Cavendish Arrested For Arson and Murder
 
 Date: 1870

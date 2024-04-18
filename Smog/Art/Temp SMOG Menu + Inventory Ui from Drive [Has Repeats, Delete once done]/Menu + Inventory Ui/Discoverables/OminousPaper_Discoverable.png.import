@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wmg04f3xfwx4"
-path="res://.godot/imported/OminousPaper_Discoverable.png-9ee7b4c999f353d134df443feb0ca385.ctex"
+path="res://.godot/imported/OminousPaper_Discoverable.png-3c338df6bf3a73d88b3c151cb4f179b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Temp SMOG Menu + Inventory Ui from Drive [Has Repeats, Delete once done]/Menu + Inventory Ui/Discoverables/OminousPaper_Discoverable.png"
-dest_files=["res://.godot/imported/OminousPaper_Discoverable.png-9ee7b4c999f353d134df443feb0ca385.ctex"]
+source_file="res://art/Temp SMOG Menu + Inventory Ui from Drive [Has Repeats, Delete once done]/Menu + Inventory Ui/Discoverables/OminousPaper_Discoverable.png"
+dest_files=["res://.godot/imported/OminousPaper_Discoverable.png-3c338df6bf3a73d88b3c151cb4f179b5.ctex"]
 
 [params]
 

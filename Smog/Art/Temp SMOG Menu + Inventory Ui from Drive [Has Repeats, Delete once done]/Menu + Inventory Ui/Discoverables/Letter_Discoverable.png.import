@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2hnfbm20k01u"
-path="res://.godot/imported/Letter_Discoverable.png-5a452f7232f4eb7e77fcec431ea77cfe.ctex"
+path="res://.godot/imported/Letter_Discoverable.png-f484b82868fadfcd65c21dc63c385f54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Temp SMOG Menu + Inventory Ui from Drive [Has Repeats, Delete once done]/Menu + Inventory Ui/Discoverables/Letter_Discoverable.png"
-dest_files=["res://.godot/imported/Letter_Discoverable.png-5a452f7232f4eb7e77fcec431ea77cfe.ctex"]
+source_file="res://art/Temp SMOG Menu + Inventory Ui from Drive [Has Repeats, Delete once done]/Menu + Inventory Ui/Discoverables/Letter_Discoverable.png"
+dest_files=["res://.godot/imported/Letter_Discoverable.png-f484b82868fadfcd65c21dc63c385f54.ctex"]
 
 [params]
 

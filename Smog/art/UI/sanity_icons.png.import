@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkywmx6dmv41g"
-path="res://.godot/imported/sanity_icons.png-4b014acc371d0881373a5ec526acf619.ctex"
+path="res://.godot/imported/sanity_icons.png-cdf4f45dfe44a041e5fde4071e93b3bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/sanity_icons.png"
-dest_files=["res://.godot/imported/sanity_icons.png-4b014acc371d0881373a5ec526acf619.ctex"]
+source_file="res://art/UI/sanity_icons.png"
+dest_files=["res://.godot/imported/sanity_icons.png-cdf4f45dfe44a041e5fde4071e93b3bf.ctex"]
 
 [params]
 

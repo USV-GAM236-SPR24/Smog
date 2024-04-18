@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnqu6w2fw7iul"
-path="res://.godot/imported/cigar_inventory_icon.png-6afe8536d3bd989531e84a7669272fc2.ctex"
+path="res://.godot/imported/cigar_inventory_icon.png-870e57b842a3cb7073802e1452817ebc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/consumables/cigar_inventory_icon.png"
-dest_files=["res://.godot/imported/cigar_inventory_icon.png-6afe8536d3bd989531e84a7669272fc2.ctex"]
+source_file="res://art/consumables/cigar_inventory_icon.png"
+dest_files=["res://.godot/imported/cigar_inventory_icon.png-870e57b842a3cb7073802e1452817ebc.ctex"]
 
 [params]
 

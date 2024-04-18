@@ -8,6 +8,6 @@
 	},
 	
 	"ammo": {
-		"texture_path": "res://Art/UI/ammo_full_trimmed.tres"
+		"texture_path": "res://art/UI/ammo_full_trimmed.tres"
 	}
 }

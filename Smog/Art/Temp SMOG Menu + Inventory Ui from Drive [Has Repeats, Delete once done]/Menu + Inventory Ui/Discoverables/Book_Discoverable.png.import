@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://r4dgsfx3fp8w"
-path="res://.godot/imported/Book_Discoverable.png-4d5f8b7a80e9c61ee37ace1d895e94ba.ctex"
+path="res://.godot/imported/Book_Discoverable.png-2a140e79bfcaedfa2811f1e0e0fd476a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Temp SMOG Menu + Inventory Ui from Drive [Has Repeats, Delete once done]/Menu + Inventory Ui/Discoverables/Book_Discoverable.png"
-dest_files=["res://.godot/imported/Book_Discoverable.png-4d5f8b7a80e9c61ee37ace1d895e94ba.ctex"]
+source_file="res://art/Temp SMOG Menu + Inventory Ui from Drive [Has Repeats, Delete once done]/Menu + Inventory Ui/Discoverables/Book_Discoverable.png"
+dest_files=["res://.godot/imported/Book_Discoverable.png-2a140e79bfcaedfa2811f1e0e0fd476a.ctex"]
 
 [params]
 

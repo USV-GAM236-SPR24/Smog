@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xed1wplknt63"
-path="res://.godot/imported/opium_inventory_icon.png-b1ceb29e3891eeb278e71e5d4f792910.ctex"
+path="res://.godot/imported/opium_inventory_icon.png-4bf867e1be1fd9e0a58974bdf53206a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/consumables/opium_inventory_icon.png"
-dest_files=["res://.godot/imported/opium_inventory_icon.png-b1ceb29e3891eeb278e71e5d4f792910.ctex"]
+source_file="res://art/consumables/opium_inventory_icon.png"
+dest_files=["res://.godot/imported/opium_inventory_icon.png-4bf867e1be1fd9e0a58974bdf53206a4.ctex"]
 
 [params]
 

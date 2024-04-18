@@ -1,9 +1,9 @@
 [gd_resource type="SpriteFrames" load_steps=64 format=3 uid="uid://cnh5pl7evc0ff"]
 
-[ext_resource type="Texture2D" uid="uid://ddesqeuunr834" path="res://Art/characters/wilton/wilton_cane_poke.png" id="1_axcyk"]
-[ext_resource type="Texture2D" uid="uid://csa5jdoetcqvc" path="res://Art/characters/wilton/wilton_idle.png" id="1_qadnv"]
-[ext_resource type="Texture2D" uid="uid://b4s8erx3xl0p2" path="res://Art/characters/wilton/wilton_walk.png" id="2_57h0u"]
-[ext_resource type="Texture2D" uid="uid://cbitioqgdy6a7" path="res://Art/characters/wilton/wilton_gun_shoot.png" id="3_uoagb"]
+[ext_resource type="Texture2D" uid="uid://ddesqeuunr834" path="res://art/characters/wilton/wilton_cane_poke.png" id="1_axcyk"]
+[ext_resource type="Texture2D" uid="uid://csa5jdoetcqvc" path="res://art/characters/wilton/wilton_idle.png" id="1_qadnv"]
+[ext_resource type="Texture2D" uid="uid://b4s8erx3xl0p2" path="res://art/characters/wilton/wilton_walk.png" id="2_57h0u"]
+[ext_resource type="Texture2D" uid="uid://cbitioqgdy6a7" path="res://art/characters/wilton/wilton_gun_shoot.png" id="3_uoagb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vnmn"]
 atlas = ExtResource("1_axcyk")
