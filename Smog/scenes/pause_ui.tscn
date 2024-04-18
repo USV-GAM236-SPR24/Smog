@@ -1,21 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dj4ufrnwir7jo"]
+[gd_scene load_steps=7 format=3 uid="uid://dj4ufrnwir7jo"]
 
 [ext_resource type="Script" path="res://scenes/pause_ui.gd" id="1_fr7io"]
 [ext_resource type="FontFile" uid="uid://dkyh4orvgmlbs" path="res://fonts1/Micro_Chat (2).ttf" id="2_xmeir"]
-[ext_resource type="Texture2D" uid="uid://b1osmxr78cg4t" path="res://art/UI/Main_Menu_Buttons.png" id="3_8ijrm"]
-[ext_resource type="Texture2D" uid="uid://qymnp0fidlda" path="res://art/UI/UI_settings_Button2.png" id="4_uo1eq"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxqbl"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbcpd"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hd6y"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi35m"]
-bg_color = Color(0, 0.6, 0.6, 0)
+[ext_resource type="Theme" uid="uid://8410y4ephbga" path="res://main_theme.tres" id="3_5lf8x"]
+[ext_resource type="Texture2D" uid="uid://qymnp0fidlda" path="res://Art/UI/UI_settings_Button2.png" id="4_uo1eq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7vyc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -128,27 +116,15 @@ alignment = 1
 [node name="Resume" type="Button" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("2_xmeir")
-theme_override_font_sizes/font_size = 10
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jxqbl")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fbcpd")
+theme = ExtResource("3_5lf8x")
 text = "RESUME"
-flat = true
 
 [node name="Quit" type="Button" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("2_xmeir")
-theme_override_font_sizes/font_size = 10
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1hd6y")
-theme_override_styles/focus = SubResource("StyleBoxFlat_fi35m")
+theme = ExtResource("3_5lf8x")
 text = "QUIT
 "
-flat = true
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer"]
 layout_mode = 2
@@ -163,12 +139,6 @@ offset_right = 27.0
 offset_bottom = 131.0
 theme_override_styles/pressed = SubResource("StyleBoxFlat_c7vyc")
 theme_override_styles/focus = SubResource("StyleBoxFlat_50bcn")
-
-[node name="MainMenuButtons" type="Sprite2D" parent="Control/MarginContainer/ReferenceRect/HBoxContainer"]
-show_behind_parent = true
-position = Vector2(85, 76.5)
-scale = Vector2(1.43333, 1.4375)
-texture = ExtResource("3_8ijrm")
 
 [node name="UiSettingsButton2" type="Sprite2D" parent="."]
 position = Vector2(160, 128)

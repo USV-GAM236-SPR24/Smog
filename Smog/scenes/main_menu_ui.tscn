@@ -1,60 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://yntkc1ukkk6l"]
+[gd_scene load_steps=5 format=3 uid="uid://yntkc1ukkk6l"]
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_fiyxg"]
-[ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://art/temp/ITEM_SLOT_SELECT.png" id="3_4xjwp"]
-[ext_resource type="FontFile" uid="uid://dkyh4orvgmlbs" path="res://fonts1/Micro_Chat (2).ttf" id="3_c7ky7"]
-[ext_resource type="Texture2D" uid="uid://cgj8ewlnfwi0" path="res://art/UI/UI_Menu_bg.jpg" id="5_2hqpk"]
-[ext_resource type="Texture2D" uid="uid://b1osmxr78cg4t" path="res://art/UI/Main_Menu_Buttons.png" id="5_itrjh"]
-
-[sub_resource type="Theme" id="Theme_v8kxv"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83uye"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tcc1"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjm8n"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27usi"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54x2q"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avi5s"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[ext_resource type="Texture2D" uid="uid://sfpqoh10v6gw" path="res://Art/temp/ITEM_SLOT_SELECT.png" id="3_4xjwp"]
+[ext_resource type="Theme" uid="uid://8410y4ephbga" path="res://main_theme.tres" id="3_fw76o"]
+[ext_resource type="Texture2D" uid="uid://cgj8ewlnfwi0" path="res://Art/UI/UI_Menu_bg.jpg" id="5_2hqpk"]
 
 [node name="MainMenuUI" type="CanvasLayer"]
 script = ExtResource("1_fiyxg")
 
-[node name="UiMenuBg" type="Sprite2D" parent="."]
-show_behind_parent = true
-light_mask = 2
-visibility_layer = 2
-z_index = -1
+[node name="UiMenuBg" type="TextureRect" parent="."]
 texture = ExtResource("5_2hqpk")
-centered = false
-
-[node name="MainMenuButtons" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(90, 75.25)
-scale = Vector2(1.55417, 1.05208)
-texture = ExtResource("5_itrjh")
-
-[node name="TextureRect3" type="TextureRect" parent="."]
-visible = false
-show_behind_parent = true
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 22.0
-offset_top = 52.0
-offset_right = 110.0
-offset_bottom = 174.0
-texture = ExtResource("5_itrjh")
-expand_mode = 2
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -118,28 +73,20 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
+offset_left = -3.0
 offset_top = -3.0
-offset_right = 2.0
+offset_right = 3.0
 offset_bottom = 1.09
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Start" type="Button" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer"]
 unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = SubResource("Theme_v8kxv")
-theme_override_fonts/font = ExtResource("3_c7ky7")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/pressed = SubResource("StyleBoxFlat_83uye")
-theme_override_styles/focus = SubResource("StyleBoxFlat_5tcc1")
+theme = ExtResource("3_fw76o")
 text = "START"
-flat = true
 
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Start"]
 visible = false
@@ -173,12 +120,8 @@ texture = ExtResource("3_4xjwp")
 [node name="Settings" type="Button" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_c7ky7")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qjm8n")
-theme_override_styles/focus = SubResource("StyleBoxFlat_27usi")
+theme = ExtResource("3_fw76o")
 text = "SETTINGS"
-flat = true
 
 [node name="TextureRect3" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Settings"]
 visible = false
@@ -212,18 +155,11 @@ texture = ExtResource("3_4xjwp")
 
 [node name="Quit" type="Button" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer"]
 unique_name_in_owner = true
-visibility_layer = 512
 clip_contents = true
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("3_c7ky7")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/pressed = SubResource("StyleBoxFlat_54x2q")
-theme_override_styles/focus = SubResource("StyleBoxFlat_avi5s")
+theme = ExtResource("3_fw76o")
 text = "QUIT
 "
-flat = true
 
 [node name="TextureRect3" type="TextureRect" parent="Control/MarginContainer/ReferenceRect/HBoxContainer/ReferenceRect2/VBoxContainer/ReferenceRect2/VBoxContainer/Quit"]
 visible = false
