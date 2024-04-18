@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dobuwu5m8m3ej"]
+
+[ext_resource type="PackedScene" uid="uid://kymfnmqv5oij" path="res://ldtk/corridor/corridor.tscn" id="1_7x7oj"]
+
+[node name="CorridorWorld" type="Node2D"]
+
+[node name="Corridor" parent="." instance=ExtResource("1_7x7oj")]
