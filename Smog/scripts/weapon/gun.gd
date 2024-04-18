@@ -13,7 +13,7 @@ var current_ammo: int = MAX_AMMO:
 	get:
 		return current_ammo
 	set(value):
-		current_ammo = value
+		current_ammo = max(min(value, MAX_AMMO), 0)
 		_update_ammo_ui(value)
 
 func reload() -> void:

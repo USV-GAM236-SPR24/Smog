@@ -77,26 +77,6 @@ key = "letter"
 position = Vector2(24, 56)
 key = "article"
 
-[node name="Recipe" parent="Discoverables" instance=ExtResource("14_lwc5o")]
-position = Vector2(72, 72)
-room = "messhall"
-key = "recipe"
-
-[node name="Note" parent="Discoverables" instance=ExtResource("14_lwc5o")]
-position = Vector2(104, 104)
-room = "messhall"
-key = "note"
-
-[node name="Article2" parent="Discoverables" instance=ExtResource("14_lwc5o")]
-position = Vector2(72, 120)
-room = "factory_floor1"
-key = "article"
-
-[node name="Schedule" parent="Discoverables" instance=ExtResource("14_lwc5o")]
-position = Vector2(152, 120)
-room = "messhall"
-key = "schedule"
-
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 64)
 script = ExtResource("5_5f012")

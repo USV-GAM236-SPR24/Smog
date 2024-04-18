@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dv35nv6keyi08"]
+
+[ext_resource type="Texture2D" uid="uid://xed1wplknt63" path="res://Art/consumables/opium_inventory_icon.png" id="1_32ijj"]
+
+[resource]
+atlas = ExtResource("1_32ijj")
+region = Rect2(80, 64, 16, 16)

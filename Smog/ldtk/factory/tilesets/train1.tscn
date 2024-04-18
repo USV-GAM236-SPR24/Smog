@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6xws0y53tlf3"]
+
+[ext_resource type="Texture2D" uid="uid://tgs7a2efd2cv" path="res://ldtk/factory/tilesets/Train_carage_outline.png" id="1_g3gnk"]
+
+[node name="Train1" type="Sprite2D"]
+texture = ExtResource("1_g3gnk")

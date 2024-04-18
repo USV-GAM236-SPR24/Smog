@@ -33,5 +33,5 @@ func _update_grid() -> void:
 	if not ammo_amount > 0:
 		return
 	
-	for i in range(ammo_amount):
+	for i in range(min(ammo_amount, 10)):
 		%Ammo.get_children()[i].texture = ammo_full

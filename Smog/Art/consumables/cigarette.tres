@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://3mr1tmqltogt"]
+
+[ext_resource type="Texture2D" uid="uid://dnqu6w2fw7iul" path="res://Art/consumables/cigar_inventory_icon.png" id="1_utktc"]
+
+[resource]
+atlas = ExtResource("1_utktc")
+region = Rect2(80, 64, 16, 16)

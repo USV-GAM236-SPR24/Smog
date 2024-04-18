@@ -137,7 +137,7 @@ Billy
 	"factory_floor1": {
 		"badge": {
 			"display_name": "Police Badge",
-			"text": "",
+			"text": "A police badge.",
 			"type": "DIALOGUE",
 			"texture_path": "res://art/discoverables/discoverable_9.tres",
 			"image_path": null
@@ -185,14 +185,14 @@ Yours very respectfully,
 
 Henry Clark",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_14.tres",
 			"image_path": null
 		},
 		"article": {
 			"display_name": "Mysterious Plague Strikes Local Factory Workers: Dr. Wright Confirms",
 			"text": "https://docs.google.com/document/d/1NVvSYetcwI_TkwxuB_4mQiPr4R6fGEtkIfdPNdsooR4/edit",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_1.tres",
 			"image_path": null
 		},
 		"note": {
@@ -222,7 +222,7 @@ Many continue to mourn the loss of those who died from the mysterious plague. Pi
 
 Reginald Wilton declined to comment on the matter.",
 			"type": "TEXT",
-			"texture_path": "",
+			"texture_path": "res://art/discoverables/discoverable_11.tres",
 			"image_path": null
 		}
 	},
