@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://chpg25lbcv755"]
 
 [ext_resource type="Script" path="res://scripts/enemies/grunt.gd" id="1_00cvh"]
-[ext_resource type="SpriteFrames" uid="uid://bnbthjosonx11" path="res://Art/characters/grunt/grunt_sprite_frames.tres" id="2_2asp0"]
+[ext_resource type="SpriteFrames" uid="uid://bnbthjosonx11" path="res://art/characters/grunt/grunt_sprite_frames.tres" id="2_2asp0"]
 [ext_resource type="AudioStream" uid="uid://5ncxceet45vt" path="res://Audio/SFX/GruntSFXIdle.wav" id="3_gcicj"]
 [ext_resource type="AudioStream" uid="uid://638mladocka6" path="res://Audio/SFX/GruntDeathSFX.wav" id="3_ig8aw"]
 [ext_resource type="AudioStream" uid="uid://bkh2yq81mc0p0" path="res://Audio/SFX/GruntSFXAtk.wav" id="5_4nyn2"]

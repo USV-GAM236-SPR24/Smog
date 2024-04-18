@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/pause_ui.gd" id="1_fr7io"]
 [ext_resource type="FontFile" uid="uid://dkyh4orvgmlbs" path="res://fonts1/Micro_Chat (2).ttf" id="2_xmeir"]
 [ext_resource type="Theme" uid="uid://8410y4ephbga" path="res://main_theme.tres" id="3_5lf8x"]
-[ext_resource type="Texture2D" uid="uid://qymnp0fidlda" path="res://Art/UI/UI_settings_Button2.png" id="4_uo1eq"]
+[ext_resource type="Texture2D" uid="uid://qymnp0fidlda" path="res://art/UI/UI_settings_Button2.png" id="4_uo1eq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7vyc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
